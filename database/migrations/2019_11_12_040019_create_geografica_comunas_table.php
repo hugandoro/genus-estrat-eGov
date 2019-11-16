@@ -14,7 +14,17 @@ class CreateGeograficaComunasTable extends Migration
     public function up()
     {
         Schema::create('geografica_comunas', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
+            $table->integer('municipio_id')->unsigned();
+
+            $table->foreign('municipio_id')
+                    ->references('id')
+                    ->on('geografica_municipios')
+                    ->onDelete('cascade');
+                    
+            $table->string('nombre',150)->unique();
             $table->timestamps();
         });
     }

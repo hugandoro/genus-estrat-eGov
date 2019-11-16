@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
+use App\GeograficaCorregimiento;
 
 class geografica_corregimientos_seeder extends Seeder
 {
@@ -11,6 +13,14 @@ class geografica_corregimientos_seeder extends Seeder
      */
     public function run()
     {
-        //
+        GeograficaCorregimiento::create([
+            'municipio_id'    	=> '4',
+            'nombre'    	    => 'Alto El Nudo',
+        ]);
+
+        GeograficaCorregimiento::create([
+            'municipio_id'    	=> '4',
+            'nombre'    	    => 'Las Marcadas',
+        ]);
     }
 }

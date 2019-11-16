@@ -18,5 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(geografica_departamentos_seeder::class);
         $this->call(geografica_categoria_municipals_seeder::class);
         $this->call(geografica_municipios_seeder::class);
+        $this->call(geografica_comunas_seeder::class);
+        $this->call(geografica_corregimientos_seeder::class);
+        $this->call(geografica_barrios_seeder::class);
+        $this->call(geografica_veredas_seeder::class);
     }
 }

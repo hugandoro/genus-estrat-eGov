@@ -14,7 +14,17 @@ class CreateGeograficaVeredasTable extends Migration
     public function up()
     {
         Schema::create('geografica_veredas', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
+            $table->integer('corregimiento_id')->unsigned();
+
+            $table->foreign('corregimiento_id')
+                    ->references('id')
+                    ->on('geografica_corregimientos')
+                    ->onDelete('cascade');
+                    
+            $table->string('nombre',150)->unique();
             $table->timestamps();
         });
     }

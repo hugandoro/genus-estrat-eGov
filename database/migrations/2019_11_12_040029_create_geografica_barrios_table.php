@@ -14,7 +14,17 @@ class CreateGeograficaBarriosTable extends Migration
     public function up()
     {
         Schema::create('geografica_barrios', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
+            $table->integer('comuna_id')->unsigned();
+
+            $table->foreign('comuna_id')
+                    ->references('id')
+                    ->on('geografica_comunas')
+                    ->onDelete('cascade');
+                    
+            $table->string('nombre',150)->unique();
             $table->timestamps();
         });
     }
