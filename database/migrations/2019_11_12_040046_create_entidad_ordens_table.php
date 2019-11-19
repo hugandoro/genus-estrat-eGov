@@ -14,7 +14,10 @@ class CreateEntidadOrdensTable extends Migration
     public function up()
     {
         Schema::create('entidad_ordens', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            
             $table->increments('id');
+            $table->string('nombre',150)->unique();
             $table->timestamps();
         });
     }

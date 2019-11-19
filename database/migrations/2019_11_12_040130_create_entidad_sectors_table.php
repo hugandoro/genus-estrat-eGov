@@ -14,7 +14,10 @@ class CreateEntidadSectorsTable extends Migration
     public function up()
     {
         Schema::create('entidad_sectors', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            
             $table->increments('id');
+            $table->string('nombre',150)->unique();
             $table->timestamps();
         });
     }

@@ -22,5 +22,11 @@ class DatabaseSeeder extends Seeder
         $this->call(geografica_corregimientos_seeder::class);
         $this->call(geografica_barrios_seeder::class);
         $this->call(geografica_veredas_seeder::class);
+
+        $this->call(entidad_ordens_seeder::class);
+        $this->call(entidad_tipos_seeder::class);
+        $this->call(entidad_tipo_oficinas_seeder::class);
+        $this->call(entidad_categorias_seeder::class);
+        $this->call(entidad_sectors_seeder::class);
     }
 }
