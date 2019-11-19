@@ -28,5 +28,8 @@ class DatabaseSeeder extends Seeder
         $this->call(entidad_tipo_oficinas_seeder::class);
         $this->call(entidad_categorias_seeder::class);
         $this->call(entidad_sectors_seeder::class);
+
+        $this->call(entidads_seeder::class);
+        $this->call(entidad_oficinas_seeder::class);
     }
 }

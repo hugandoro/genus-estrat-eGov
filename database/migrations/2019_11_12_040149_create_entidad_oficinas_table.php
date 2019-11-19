@@ -14,7 +14,24 @@ class CreateEntidadOficinasTable extends Migration
     public function up()
     {
         Schema::create('entidad_oficinas', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
+
+            $table->integer('entidad_id')->unsigned();
+            $table->foreign('entidad_id')
+                    ->references('id')
+                    ->on('entidads')
+                    ->onDelete('cascade');
+
+            $table->integer('tipo_oficina_id')->unsigned();
+            $table->foreign('tipo_oficina_id')
+                    ->references('id')
+                    ->on('entidad_tipo_oficinas')
+                    ->onDelete('cascade');
+
+            $table->string('nombre',150)->unique();
+
             $table->timestamps();
         });
     }
