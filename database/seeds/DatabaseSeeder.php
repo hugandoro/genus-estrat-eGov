@@ -31,5 +31,23 @@ class DatabaseSeeder extends Seeder
 
         $this->call(entidads_seeder::class);
         $this->call(entidad_oficinas_seeder::class);
+
+        $this->call(general_estados_seeder::class);
+        $this->call(general_vigencias_seeder::class);
+        $this->call(general_sexos_seeder::class);
+        $this->call(general_poblacions_seeder::class);
+        $this->call(general_zonas_seeder::class);
+
+        $this->call(medicion_tipos_seeder::class);
+        $this->call(medicion_medidas_seeder::class);
+
+        $this->call(contable_categoria_conceptos_seeder::class);
+        $this->call(contable_conceptos_seeder::class);
+        $this->call(contable_fuente_recursos_seeder::class);
+
+        $this->call(ref_ods_objetivos_seeder::class);
+        $this->call(ref_nacional_politicas_seeder::class);
+        $this->call(ref_departamental_politicas_seeder::class);
+        $this->call(ref_municipal_politicas_seeder::class);
     }
 }
