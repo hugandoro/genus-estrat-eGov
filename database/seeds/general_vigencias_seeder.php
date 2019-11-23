@@ -44,5 +44,14 @@ class general_vigencias_seeder extends Seeder
         GeneralVigencia::create([
             'nombre'    => '2023',
         ]);
+
+        GeneralVigencia::create([
+            'nombre'    => '2024',
+        ]);
+
+        GeneralVigencia::create([
+            'nombre'    => '2025',
+        ]);
+
     }
 }

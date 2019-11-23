@@ -17,11 +17,17 @@ class CreateGeograficaMunicipiosTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->integer('departamento_id')->unsigned();
 
+            $table->integer('departamento_id')->unsigned();
             $table->foreign('departamento_id')
                     ->references('id')
                     ->on('geografica_departamentos')
+                    ->onDelete('cascade');
+
+            $table->integer('categoria_municipal_id')->unsigned();
+            $table->foreign('categoria_municipal_id')
+                    ->references('id')
+                    ->on('geografica_categoria_municipals')
                     ->onDelete('cascade');
                     
             $table->string('nombre',150)->unique();

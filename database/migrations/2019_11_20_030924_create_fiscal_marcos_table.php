@@ -14,7 +14,28 @@ class CreateFiscalMarcosTable extends Migration
     public function up()
     {
         Schema::create('fiscal_marcos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            
             $table->increments('id');
+
+            $table->integer('entidad_id')->unsigned();
+            $table->foreign('entidad_id')
+                    ->references('id')
+                    ->on('entidads')
+                    ->onDelete('cascade');
+
+            $table->integer('vigencia_id_inicial')->unsigned();
+            $table->foreign('vigencia_id_inicial')
+                    ->references('id')
+                    ->on('general_vigencias')
+                    ->onDelete('cascade');
+
+            $table->integer('vigencia_id_final')->unsigned();
+            $table->foreign('vigencia_id_final')
+                    ->references('id')
+                    ->on('general_vigencias')
+                    ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

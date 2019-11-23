@@ -15,6 +15,7 @@ class geografica_municipios_seeder extends Seeder
     {
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Apia',
             'descripcion'       => '',
             'altitud_msnm'      => '1630',
@@ -30,6 +31,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Balboa',
             'descripcion'       => '',
             'altitud_msnm'      => '1550',
@@ -45,6 +47,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Belen de Umbria',
             'descripcion'       => '',
             'altitud_msnm'      => '1525',
@@ -60,6 +63,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Dosquebradas',
             'descripcion'       => '',
             'altitud_msnm'      => '1460',
@@ -75,6 +79,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Guatica',
             'descripcion'       => '',
             'altitud_msnm'      => '1820',
@@ -90,6 +95,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'La Celia',
             'descripcion'       => '',
             'altitud_msnm'      => '1350',
@@ -105,6 +111,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'La Virginia',
             'descripcion'       => '',
             'altitud_msnm'      => '899',
@@ -120,6 +127,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Marsella',
             'descripcion'       => '',
             'altitud_msnm'      => '1575',
@@ -135,6 +143,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Mistrato',
             'descripcion'       => '',
             'altitud_msnm'      => '1518',
@@ -150,6 +159,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Pereira',
             'descripcion'       => '',
             'altitud_msnm'      => '1411',
@@ -165,6 +175,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Pueblo Rico',
             'descripcion'       => '',
             'altitud_msnm'      => '1560',
@@ -180,6 +191,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Quinchia',
             'descripcion'       => '',
             'altitud_msnm'      => '1825',
@@ -195,6 +207,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Santa Rosa de Cabal',
             'descripcion'       => '',
             'altitud_msnm'      => '1715',
@@ -210,6 +223,7 @@ class geografica_municipios_seeder extends Seeder
 
         GeograficaMunicipio::create([
             'departamento_id'   => '14',
+            'categoria_municipal_id'   => '1',
             'nombre'            => 'Santuario',
             'descripcion'       => '',
             'altitud_msnm'      => '1565',
