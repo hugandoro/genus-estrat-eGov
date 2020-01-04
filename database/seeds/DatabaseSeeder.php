@@ -54,5 +54,12 @@ class DatabaseSeeder extends Seeder
         $this->call(fiscal_marco_conceptos_seeder::class);
 
         $this->call(administracions_seeder::class);
+
+        $this->call(plan_desarrollos_seeder::class);
+        $this->call(plan_desarrollo_nivel1s_seeder::class);
+        $this->call(plan_desarrollo_nivel2s_seeder::class);
+        $this->call(plan_desarrollo_nivel3s_seeder::class);
+        $this->call(plan_desarrollo_nivel4s_seeder::class);
+        $this->call(plan_desarrollo_rango_medicions_seeder::class);
     }
 }
