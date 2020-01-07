@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Bienvenido al sistema de gestion publica integral << ESTRATEGO >> 
+                    Bienvenido al sistema de gestion publica integral << Estrat-eGov >> 
                 </div>
             </div>
         </div>

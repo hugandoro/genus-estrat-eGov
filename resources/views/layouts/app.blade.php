@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Estratego') }}</title>
+    <title>{{ config('app.name', 'Estrat-eGov') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        {{ config('app.name', 'Estratego') }}
+                        {{ config('app.name', 'Estrat-eGov') }}
                     </a>
                 </div>
 
