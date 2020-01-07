@@ -75,6 +75,9 @@
 
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('/ods') }}">Objetivos Desarrollo Sostenible</a></li>
+                                    <li><a href="{{ url('/ppnacional') }}">Politicas publicas nacionales</a></li>
+                                    <li><a href="{{ url('/ppdepartamental') }}">Politicas publicas departamentales</a></li>
+                                    <li><a href="{{ url('/ppmunicipal') }}">Politicas publicas municipales</a></li>
                                 </ul>
                             </li>
 

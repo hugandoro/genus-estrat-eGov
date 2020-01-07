@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RefOdsObjetivo;
+use App\RefMunicipalPolitica;
 
-class RefOdsObjetivoController extends Controller
+class RefMunicipalPoliticaController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,8 +24,8 @@ class RefOdsObjetivoController extends Controller
      */
     public function index()
     {
-    	$refOdsObjetivo = RefOdsObjetivo::all();
-        return view('refodsobjetivo.index', compact('refOdsObjetivo'));
+    	$refMunicipalPolitica = RefMunicipalPolitica::all();
+        return view('refmunicipalpolitica.index', compact('refMunicipalPolitica'));
     }
 
     /**

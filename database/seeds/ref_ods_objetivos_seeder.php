@@ -102,7 +102,7 @@ Para 2030, aumentar sustancialmente la oferta de maestros calificados, entre otr
         ]);
 
         RefOdsObjetivo::create([
-            'nombre'        => '5: Lograr la igualdad entre los géneros y empoderar a todas las mujeres y las niñas',
+            'nombre'        => 'Objetivo 5: Lograr la igualdad entre los géneros y empoderar a todas las mujeres y las niñas',
             'descripcion'   => 'Poner fin a todas las formas de discriminación contra todas las mujeres y las niñas en todo el mundo
             
 Eliminar todas las formas de violencia contra todas las mujeres y las niñas en los ámbitos público y privado, incluidas la trata y la explotación sexual y otros tipos de explotación
@@ -123,7 +123,7 @@ Aprobar y fortalecer políticas acertadas y leyes aplicables para promover la ig
         ]);
 
         RefOdsObjetivo::create([
-            'nombre'        => 'Objetivo 6: Garantizar la disponibilidad de agua y su gestión sostenible y el saneamiento para todos6',
+            'nombre'        => 'Objetivo 6: Garantizar la disponibilidad de agua y su gestión sostenible y el saneamiento para todos',
             'descripcion'   => 'De aquí a 2030, lograr el acceso universal y equitativo al agua potable a un precio asequible para todos.
             
 De aquí a 2030, lograr el acceso a servicios de saneamiento e higiene adecuados y equitativos para todos y poner fin a la defecación al aire libre, prestando especial atención a las necesidades de las mujeres y las niñas y las personas en situaciones de vulnerabilidad.

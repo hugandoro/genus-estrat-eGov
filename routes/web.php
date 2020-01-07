@@ -20,3 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/ods', 'RefOdsObjetivoController');
+Route::resource('/ppnacional', 'RefNacionalPoliticaController');
+Route::resource('/ppdepartamental', 'RefDepartamentalPoliticaController');
+Route::resource('/ppmunicipal', 'RefMunicipalPoliticaController');

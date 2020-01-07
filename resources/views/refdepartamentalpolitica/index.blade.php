@@ -5,20 +5,20 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Objetivos Desarrollo Sostenible ODS</h3></div>
+          <div class="pull-left"><h3>Politicas publicas DEPARTAMENTALES</h3></div>
           <div class="pull-right"></div>
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
              <thead>
                <th>Nombre</th>
-               <!-- <th>Descripcion</th> -->
+               <th>Descripcion</th>
              </thead>
              <tbody>
-              @if($refOdsObjetivo->count())  
-              @foreach($refOdsObjetivo as $ods)  
+              @if($refDepartamentalPolitica->count())  
+              @foreach($refDepartamentalPolitica as $politica)  
               <tr>
-                <td>{{$ods->nombre}}</td>
-                <!-- <td>{{$ods->descripcion}}</td> -->
+                <td>{{$politica->nombre}}</td>
+                <td>{{$politica->descripcion}}</td>
                </tr>
                @endforeach 
                @else
