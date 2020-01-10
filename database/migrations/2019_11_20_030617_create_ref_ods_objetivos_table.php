@@ -19,6 +19,7 @@ class CreateRefOdsObjetivosTable extends Migration
             $table->increments('id');
             $table->text('nombre');
             $table->text('descripcion');
+            $table->text('logo');
             
             $table->timestamps();
         });

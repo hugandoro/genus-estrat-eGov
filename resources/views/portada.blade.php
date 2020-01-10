@@ -78,6 +78,8 @@
             @endif
 
             <div class="content">
+                <center><img src="{{ asset('images/portada2.png') }}"></center>
+
                 <div class="title m-b-md">
                     Estrat-eGov
                 </div>

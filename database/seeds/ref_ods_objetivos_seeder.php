@@ -28,6 +28,7 @@ Para 2030, fomentar la resiliencia de los pobres y las personas que se encuentra
 Garantizar una movilización importante de recursos procedentes de diversas fuentes, incluso mediante la mejora de la cooperación para el desarrollo, a fin de proporcionar medios suficientes y previsibles a los países en desarrollo, en particular los países menos adelantados, para poner en práctica programas y políticas encaminados a poner fin a la pobreza en todas sus dimensiones
             
 Crear marcos normativos sólidos en los planos nacional, regional e internacional, sobre la base de estrategias de desarrollo en favor de los pobres que tengan en cuenta las cuestiones de género, a fin de apoyar la inversión acelerada en medidas para erradicar la pobreza',
+            'logo'        => 'ods1.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -47,6 +48,7 @@ Aumentar las inversiones, incluso mediante una mayor cooperación internacional,
 Corregir y prevenir las restricciones y distorsiones comerciales en los mercados agropecuarios mundiales, entre otras cosas mediante la eliminación paralela de todas las formas de subvenciones a las exportaciones agrícolas y todas las medidas de exportación con efectos equivalentes, de conformidad con el mandato de la Ronda de Doha para el Desarrollo
             
 Adoptar medidas para asegurar el buen funcionamiento de los mercados de productos básicos alimentarios y sus derivados y facilitar el acceso oportuno a información sobre los mercados, en particular sobre las reservas de alimentos, a fin de ayudar a limitar la extrema volatilidad de los precios de los alimentos',
+            'logo'        => 'ods2.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -76,6 +78,7 @@ Apoyar las actividades de investigación y desarrollo de vacunas y medicamentos 
 Aumentar sustancialmente la financiación de la salud y la contratación, el desarrollo, la capacitación y la retención del personal sanitario en los países en desarrollo, especialmente en los países menos adelantados y los pequeños Estados insulares en desarrollo
             
 Reforzar la capacidad de todos los países, en particular los países en desarrollo, en materia de alerta temprana, reducción de riesgos y gestión de los riesgos para la salud nacional y mundial',
+            'logo'        => 'ods3.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -99,6 +102,7 @@ Construir y adecuar instalaciones escolares que respondan a las necesidades de l
 Para 2020, aumentar sustancialmente a nivel mundial el número de becas disponibles para los países en desarrollo, en particular los países menos adelantados, los pequeños Estados insulares en desarrollo y los países de África, para que sus estudiantes puedan matricularse en programas de estudios superiores, incluidos programas de formación profesional y programas técnicos, científicos, de ingeniería y de tecnología de la información y las comunicaciones, en países desarrollados y otros países en desarrollo
             
 Para 2030, aumentar sustancialmente la oferta de maestros calificados, entre otras cosas mediante la cooperación internacional para la formación de docentes en los países en desarrollo, especialmente los países menos adelantados y los pequeños Estados insulares en desarrollo',
+            'logo'        => 'ods4.png',    
         ]);
 
         RefOdsObjetivo::create([
@@ -120,6 +124,7 @@ Emprender reformas que otorguen a las mujeres el derecho a los recursos económi
 Mejorar el uso de la tecnología instrumental, en particular la tecnología de la información y las comunicaciones, para promover el empoderamiento de la mujer
 
 Aprobar y fortalecer políticas acertadas y leyes aplicables para promover la igualdad entre los géneros y el empoderamiento de las mujeres y las niñas a todos los niveles',
+            'logo'        => 'ods5.png',
         ]);
 
         RefOdsObjetivo::create([
@@ -137,6 +142,7 @@ De aquí a 2030, implementar la gestión integrada de los recursos hídricos a t
 De aquí a 2020, proteger y restablecer los ecosistemas relacionados con el agua, incluidos los bosques, las montañas, los humedales, los ríos, los acuíferos y los lagos
 6.a  De aquí a 2030, ampliar la cooperación internacional y el apoyo prestado a los países en desarrollo para la creación de capacidad en actividades y programas relativos al agua y el saneamiento, como los de captación de agua, desalinización, uso eficiente de los recursos hídricos, tratamiento de aguas residuales, reciclado y tecnologías de reutilización
 6.b  Apoyar y fortalecer la participación de las comunidades locales en la mejora de la gestión del agua y el saneamiento',
+            'logo'        => 'ods6.png',
         ]);
 
         RefOdsObjetivo::create([
@@ -150,6 +156,7 @@ Para 2030, duplicar la tasa mundial de mejora de la eficiencia energética
 Para 2030, aumentar la cooperación internacional a fin de facilitar el acceso a la investigación y las tecnologías energéticas no contaminantes, incluidas las fuentes de energía renovables, la eficiencia energética y las tecnologías avanzadas y menos contaminantes de combustibles fósiles, y promover la inversión en infraestructuras energéticas y tecnologías de energía no contaminante
 
 Para 2030, ampliar la infraestructura y mejorar la tecnología para prestar servicios de energía modernos y sostenibles para todos en los países en desarrollo, en particular los países menos adelantados, los pequeños Estados insulares en desarrollo y los países en desarrollo sin litoral, en consonancia con sus respectivos programas de apoyo',
+            'logo'        => 'ods7.png',
         ]);
 
         RefOdsObjetivo::create([
@@ -177,6 +184,7 @@ Fortalecer la capacidad de las instituciones financieras nacionales para alentar
 Aumentar el apoyo a la iniciativa de ayuda para el comercio en los países en desarrollo, en particular los países menos adelantados, incluso en el contexto del Marco Integrado Mejorado de Asistencia Técnica Relacionada con el Comercio para los Países Menos Adelantados
 
 Para 2020, desarrollar y poner en marcha una estrategia mundial para el empleo de los jóvenes y aplicar el Pacto Mundial para el Empleo de la Organización Internacional del Trabajo',
+            'logo'        => 'ods8.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -196,6 +204,7 @@ Facilitar el desarrollo de infraestructuras sostenibles y resilientes en los pa�
 Apoyar el desarrollo de tecnologías nacionales, la investigación y la innovación en los países en desarrollo, en particular garantizando un entorno normativo propicio a la diversificación industrial y la adición de valor a los productos básicos, entre otras cosas
 
 Aumentar de forma significativa el acceso a la tecnología de la información y las comunicaciones y esforzarse por facilitar el acceso universal y asequible a Internet en los países menos adelantados a más tardar en 2020',
+            'logo'        => 'ods9.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -219,6 +228,7 @@ Aplicar el principio del trato especial y diferenciado para los países en desar
 Alentar la asistencia oficial para el desarrollo y las corrientes financieras, incluida la inversión extranjera directa, para los Estados con mayores necesidades, en particular los países menos adelantados, los países de África, los pequeños Estados insulares en desarrollo y los países en desarrollo sin litoral, en consonancia con sus planes y programas nacionales
 
 Para 2030, reducir a menos del 3% los costos de transacción de las remesas de los migrantes y eliminar los canales de envío de remesas con un costo superior al 5%',
+            'logo'        => 'ods10.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -242,6 +252,7 @@ Apoyar los vínculos económicos, sociales y ambientales positivos entre las zon
 Para 2020, aumentar sustancialmente el número de ciudades y asentamientos humanos que adoptan y ponen en marcha políticas y planes integrados para promover la inclusión, el uso eficiente de los recursos, la mitigación del cambio climático y la adaptación a él y la resiliencia ante los desastres, y desarrollar y poner en práctica, en consonancia con el Marco de Sendai para la Reducción del Riesgo de Desastres 2015-2030, la gestión integral de los riesgos de desastre a todos los niveles
 
 Proporcionar apoyo a los países menos adelantados, incluso mediante la asistencia financiera y técnica, para que puedan construir edificios sostenibles y resilientes utilizando materiales locales',
+            'logo'        => 'ods11.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -267,6 +278,7 @@ Apoyar a los países en desarrollo en el fortalecimiento de su capacidad cientí
 Elaborar y aplicar instrumentos que permitan seguir de cerca los efectos en el desarrollo sostenible con miras a lograr un turismo sostenible que cree puestos de trabajo y promueva la cultura y los productos locales
 
 Racionalizar los subsidios ineficientes a los combustibles fósiles que alientan el consumo antieconómico mediante la eliminación de las distorsiones del mercado, de acuerdo con las circunstancias nacionales, incluso mediante la reestructuración de los sistemas tributarios y la eliminación gradual de los subsidios perjudiciales, cuando existan, para que se ponga de manifiesto su impacto ambiental, teniendo plenamente en cuenta las necesidades y condiciones particulares de los países en desarrollo y reduciendo al mínimo los posibles efectos adversos en su desarrollo, de manera que se proteja a los pobres y las comunidades afectadas',
+            'logo'        => 'ods12.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -280,6 +292,7 @@ Mejorar la educación, la sensibilización y la capacidad humana e institucional
 Poner en práctica el compromiso contraído por los países desarrollados que son parte en la Convención Marco de las Naciones Unidas sobre el Cambio Climático con el objetivo de movilizar conjuntamente 100.000 millones de dólares anuales para el año 2020, procedentes de todas las fuentes, a fin de atender a las necesidades de los países en desarrollo, en el contexto de una labor significativa de mitigación y de una aplicación transparente, y poner en pleno funcionamiento el Fondo Verde para el Clima capitalizándolo lo antes posible
 
 Promover mecanismos para aumentar la capacidad de planificación y gestión eficaces en relación con el cambio climático en los países menos adelantados y los pequeños Estados insulares en desarrollo, centrándose en particular en las mujeres, los jóvenes y las comunidades locales y marginadas',
+            'logo'        => 'ods13.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -303,6 +316,7 @@ Aumentar los conocimientos científicos, desarrollar la capacidad de investigaci
 Facilitar el acceso de los pescadores artesanales en pequeña escala a los recursos marinos y los mercados
 
 Mejorar la conservación y el uso sostenible de los océanos y sus recursos aplicando el derecho internacional reflejado en la Convención de las Naciones Unidas sobre el Derecho del Mar, que proporciona el marco jurídico para la conservación y la utilización sostenible de los océanos y sus recursos, como se recuerda en el párrafo 158 del documento «El futuro que queremos»',
+            'logo'        => 'ods14.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -330,6 +344,7 @@ Movilizar y aumentar de manera significativa los recursos financieros procedente
 Movilizar un volumen apreciable de recursos procedentes de todas las fuentes y a todos los niveles para financiar la gestión forestal sostenible y proporcionar incentivos adecuados a los países en desarrollo para que promuevan dicha gestión, en particular con miras a la conservación y la reforestación
 
 Aumentar el apoyo mundial a la lucha contra la caza furtiva y el tráfico de especies protegidas, en particular aumentando la capacidad de las comunidades locales para promover oportunidades de subsistencia sostenibles',
+            'logo'        => 'ods15.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -361,6 +376,7 @@ Fortalecer las instituciones nacionales pertinentes, incluso mediante la coopera
 Promover y aplicar leyes y políticas no discriminatorias en favor del desarrollo sostenible
 
 ¿Cómo lo lograremos? Sociedad: No participes en actos de corrupción y denúncialos. Iniciativa privada: No participes en actos de soborno y corrupción. Academia: Fortalece la investigación, colabora para crear soluciones innovadoras y apoya en la medición del impacto. Gobiernos: Garantiza la seguridad de las y los ciudadanos y sus Derechos Humanos, crea instituciones eficaces, responsables y transparentes a todos los niveles.',
+            'logo'        => 'ods16.png',        
         ]);
 
         RefOdsObjetivo::create([
@@ -395,6 +411,7 @@ Alentar y promover la constitución de alianzas eficaces en las esferas pública
 Datos, supervisión y rendición de cuentas
 Para 2020, mejorar la prestación de apoyo para el fomento de la capacidad a los países en desarrollo, incluidos los países menos adelantados y los pequeños Estados insulares en desarrollo, con miras a aumentar de forma significativa la disponibilidad de datos oportunos, fiables y de alta calidad desglosados por grupos de ingresos, género, edad, raza, origen étnico, condición migratoria, discapacidad, ubicación geográfica y otras características pertinentes en los contextos nacionales
 Para 2030, aprovechar las iniciativas existentes para elaborar indicadores que permitan medir progresos logrados en materia de desarrollo sostenible y que complementen los utilizados para medir el producto interno bruto, y apoyar el fomento de la capacidad estadística en los países en desarrollo',
+            'logo'        => 'ods17.png',        
         ]);
     }
 }

@@ -5,23 +5,24 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Objetivos Desarrollo Sostenible ODS</h3></div>
+          <div class="pull-left"><h3>Administracion vigente</h3></div>
           <div class="pull-right"></div>
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
              <thead>
-               <th>ODS</th>
-               <th>Objetivo</th>
-               <!-- <th>Descripcion</th> -->
+               <th>Representante legal</th>
+               <th>Vigencia inicial</th>
+               <th>Vigencia final</th>
+               <th>Slogan</th>
              </thead>
              <tbody>
-              @if($refOdsObjetivo->count())  
-              @foreach($refOdsObjetivo as $ods)  
+              @if($administracion->count())  
+              @foreach($administracion as $admin)  
               <tr>
-                <td><img src='{{ asset("images/$ods->logo") }}' style='width:50px;height:50px;'>
-                </td>
-                <td>{{$ods->nombre}}</td>
-                <!-- <td>{{$ods->descripcion}}</td> -->
+                <td>{{$admin->nombre_representante}}</td>
+                <td>{{$admin->vigenciaInicial->nombre}}</td>
+                <td>{{$admin->vigenciaFinal->nombre}}</td>
+                <td>{{$admin->slogan}}</td>
                </tr>
                @endforeach 
                @else

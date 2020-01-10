@@ -46,38 +46,84 @@
                             <li><a href="{{ route('login') }}">Ingreso</a></li>
                             <li><a href="{{ route('register') }}">Registro</a></li>
                         @else
-                            <!-- PLAN DE DESARROLLO -->
+                            <!-- INFORMACION INSTITUCIONAL -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Plan de desarrollo<span class="caret"></span>
-                                </a>
-                            </li>
-
-                            <!-- BANCO DE PROYECTOS -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Banco de proyectos<span class="caret"></span>
-                                </a>
-                            </li>
-
-                            <!-- INFORMES  -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Informes y reportes<span class="caret"></span>
-                                </a>
-                            </li>
-
-                            <!-- REFERENTES ESTRATEGICOS -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Referentes estrategicos <span class="caret"></span>
+                                    Institucional |<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/ods') }}">Objetivos Desarrollo Sostenible</a></li>
-                                    <li><a href="{{ url('/ppnacional') }}">Politicas publicas nacionales</a></li>
-                                    <li><a href="{{ url('/ppdepartamental') }}">Politicas publicas departamentales</a></li>
-                                    <li><a href="{{ url('/ppmunicipal') }}">Politicas publicas municipales</a></li>
+                                    <li><a href="{{ url('/administracion') }}">.: Administracion vigente</a></li>
+                                    <li><a href="#">.: Organigrama</a></li>
+                                    <li><a href="#">.: Comunas y Veredas</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- GESTION ADMINISTRATIVA -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    Gestion administrativa |<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">.: Plan de desarrollo</a></li>
+                                    <li><a href="#">.: Plan indicativo</a></li>
+                                    <li><a href="#">.: Plan de accion</a></li>
+                                    <li><a href="#">.: Banco de proyectos</a></li>
+                                    <li><a href="#">.: Marco fiscal mediano plazo</a></li>
+                                    <li><a href="#">.: Plan plurianual de inversion</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- ACTIVIDADES -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    Actividades |<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">.: Reportar</a></li>
+                                    <li><a href="#">.: Consultar</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- ANALITICA DE DATOS  -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    Analitica |<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">.: Reportes</a></li>
+                                    <li><a href="#">.: Estadisticos</a></li>
+                                    <li><a href="#">.: Proyecciones</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- POLITICAS PUBLICAS -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    Politicas publicas |<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('/ods') }}">.: Objetivos Desarrollo Sostenible</a></li>
+                                    <li><a href="{{ url('/ppnacional') }}">.: Politicas publicas nacionales</a></li>
+                                    <li><a href="{{ url('/ppdepartamental') }}">.: Politicas publicas departamentales</a></li>
+                                    <li><a href="{{ url('/ppmunicipal') }}">.: Politicas publicas municipales</a></li>
+                                </ul>
+                            </li>
+
+                            <!-- INFORMACION INSTITUCIONAL -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    Configuracion |<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">.: Rangos semaforo de medicion</a></li>
+                                    <li><a href="#">.: Alarmas</a></li>
+                                    <li><a href="#">.: Indicadores</a></li>
                                 </ul>
                             </li>
 

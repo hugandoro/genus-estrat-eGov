@@ -23,3 +23,5 @@ Route::resource('/ods', 'RefOdsObjetivoController');
 Route::resource('/ppnacional', 'RefNacionalPoliticaController');
 Route::resource('/ppdepartamental', 'RefDepartamentalPoliticaController');
 Route::resource('/ppmunicipal', 'RefMunicipalPoliticaController');
+
+Route::resource('/administracion', 'AdministracionController');
