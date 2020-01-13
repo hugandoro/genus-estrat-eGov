@@ -10,8 +10,8 @@
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
              <thead>
-               <th>ODS</th>
-               <th>Objetivo</th>
+               <th class="bg-info">ODS</th>
+               <th class="bg-info">Objetivo</th>
                <!-- <th>Descripcion</th> -->
              </thead>
              <tbody>

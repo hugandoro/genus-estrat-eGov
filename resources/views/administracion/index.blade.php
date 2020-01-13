@@ -10,10 +10,10 @@
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
              <thead>
-               <th>Representante legal</th>
-               <th>Vigencia inicial</th>
-               <th>Vigencia final</th>
-               <th>Slogan</th>
+               <th class="bg-info">Representante legal</th>
+               <th class="bg-info">Vigencia inicial</th>
+               <th class="bg-info">Vigencia final</th>
+               <th class="bg-info">Slogan</th>
              </thead>
              <tbody>
               @if($administracion->count())  

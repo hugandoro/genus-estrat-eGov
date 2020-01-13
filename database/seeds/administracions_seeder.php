@@ -14,10 +14,10 @@ class administracions_seeder extends Seeder
     public function run()
     {
         Administracion::create([
-            'nombre_representante'  => 'Pepito Perez',
+            'nombre_representante'  => 'Diego Ramos',
             'vigencia_id_inicial'   => '5',
             'vigencia_id_final'     => '9',
-            'slogan'                => 'Construyendo futuro',
+            'slogan'                => 'Dosquebradas Empresa de Todos',
         ]);
     }
 }

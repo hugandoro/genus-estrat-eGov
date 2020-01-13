@@ -53,9 +53,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/administracion') }}">.: Administracion vigente</a></li>
+                                    <li><a href="{{ url('/entidad') }}">.: Entidad</a></li>
+                                    <li><a href="{{ url('/administracion') }}">.: Administracion</a></li>
                                     <li><a href="#">.: Organigrama</a></li>
-                                    <li><a href="#">.: Comunas y Veredas</a></li>
                                 </ul>
                             </li>
 

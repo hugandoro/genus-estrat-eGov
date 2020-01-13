@@ -19,9 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('/entidad', 'EntidadController');
+Route::resource('/administracion', 'AdministracionController');
+
 Route::resource('/ods', 'RefOdsObjetivoController');
 Route::resource('/ppnacional', 'RefNacionalPoliticaController');
 Route::resource('/ppdepartamental', 'RefDepartamentalPoliticaController');
 Route::resource('/ppmunicipal', 'RefMunicipalPoliticaController');
 
-Route::resource('/administracion', 'AdministracionController');

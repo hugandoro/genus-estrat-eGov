@@ -10,8 +10,8 @@
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
              <thead>
-               <th>Nombre</th>
-               <th>Descripcion</th>
+               <th class="bg-info">Nombre</th>
+               <th class="bg-info">Descripcion</th>
              </thead>
              <tbody>
               @if($refDepartamentalPolitica->count())  
