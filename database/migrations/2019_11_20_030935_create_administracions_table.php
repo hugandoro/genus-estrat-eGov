@@ -32,6 +32,7 @@ class CreateAdministracionsTable extends Migration
                     ->onDelete('cascade');
 
             $table->text('slogan');
+            $table->text('logo');
             
             $table->timestamps();
         });

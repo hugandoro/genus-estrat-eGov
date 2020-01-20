@@ -55,7 +55,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('/entidad') }}">.: Entidad</a></li>
                                     <li><a href="{{ url('/administracion') }}">.: Administracion</a></li>
-                                    <li><a href="#">.: Organigrama</a></li>
+                                    <li><a href="{{ url('/organigrama') }}">.: Organigrama</a></li>
                                 </ul>
                             </li>
 
@@ -66,7 +66,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">.: Plan de desarrollo</a></li>
+                                    <li><a href="{{ url('/plandesarrollo') }}">.: Plan de desarrollo</a></li>
                                     <li><a href="#">.: Plan indicativo</a></li>
                                     <li><a href="#">.: Plan de accion</a></li>
                                     <li><a href="#">.: Banco de proyectos</a></li>

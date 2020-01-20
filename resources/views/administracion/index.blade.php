@@ -14,6 +14,7 @@
                <th class="bg-info">Vigencia inicial</th>
                <th class="bg-info">Vigencia final</th>
                <th class="bg-info">Slogan</th>
+               <th class="bg-info">Logotipo</th>
              </thead>
              <tbody>
               @if($administracion->count())  
@@ -23,6 +24,7 @@
                 <td>{{$admin->vigenciaInicial->nombre}}</td>
                 <td>{{$admin->vigenciaFinal->nombre}}</td>
                 <td>{{$admin->slogan}}</td>
+                <td><img src='{{ asset("images/$admin->logo") }}' style='width:50px;height:50px;'></td>
                </tr>
                @endforeach 
                @else

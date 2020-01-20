@@ -23,18 +23,6 @@ class CreatePlanDesarrollosTable extends Migration
                     ->references('id')
                     ->on('administracions')
                     ->onDelete('cascade');
-
-            $table->integer('vigencia_id_inicial')->unsigned();
-            $table->foreign('vigencia_id_inicial')
-                    ->references('id')
-                    ->on('general_vigencias')
-                    ->onDelete('cascade');
-
-            $table->integer('vigencia_id_final')->unsigned();
-            $table->foreign('vigencia_id_final')
-                    ->references('id')
-                    ->on('general_vigencias')
-                    ->onDelete('cascade');
             
             $table->text('nombre_nivel1');
             $table->text('nombre_nivel2');

@@ -31,6 +31,7 @@ class CreateEntidadOficinasTable extends Migration
                     ->onDelete('cascade');
 
             $table->string('nombre',150)->unique();
+            $table->string('responsable',150)->unique();
 
             $table->timestamps();
         });

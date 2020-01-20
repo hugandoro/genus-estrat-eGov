@@ -14,34 +14,52 @@
               @foreach($entidad as $entidad) 
               <tr>
                 <th class="bg-info">Orden</th>
-                <th class="bg-info">Tipo</th>
-                <th class="bg-info">Categoria</th>
-                <th class="bg-info">Sector</th>
-                <th class="bg-info">Municipio</th>
-              </tr> 
-              <tr>
                 <td>{{$entidad->orden->nombre}}</td>
-                <td>{{$entidad->tipo->nombre}}</td>
-                <td>{{$entidad->categoria->nombre}}</td>
-                <td>{{$entidad->sector->nombre}}</td>
-                <td>{{$entidad->municipio->nombre}}</td>
               </tr>
-              
+
+              <tr>
+                <th class="bg-info">Tipo</th>
+                <td>{{$entidad->tipo->nombre}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Categoria</th>
+                <td>{{$entidad->categoria->nombre}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Sector</th>
+                <td>{{$entidad->sector->nombre}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Municipio</th>
+                <td>{{$entidad->municipio->nombre}}</td>
+              </tr> 
+
               <tr>
                 <th class="bg-info">Nombre</th>
-                <th class="bg-info">Direccion</th>
-                <th class="bg-info">Telefono</th>
-                <th class="bg-info" colspan="2">Email</th>
-              <tr>
-              <tr>
                 <td>{{$entidad->nombre}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Direccion</th>
                 <td>{{$entidad->direccion}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Telefono</th>
                 <td>{{$entidad->telefono}}</td>
-                <td colspan="2">{{$entidad->email}}</td>
-               </tr>
-               @endforeach 
-               @else
-               <tr>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Email</th>
+                <td>{{$entidad->email}}</td>
+              </tr>
+
+              @endforeach 
+              @else
+              <tr>
                 <td colspan="8">No hay registro !!</td>
               </tr>
               @endif

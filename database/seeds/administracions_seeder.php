@@ -18,6 +18,7 @@ class administracions_seeder extends Seeder
             'vigencia_id_inicial'   => '5',
             'vigencia_id_final'     => '9',
             'slogan'                => 'Dosquebradas Empresa de Todos',
+            'logo'                  => 'logo_miniatura_administracion.png',
         ]);
     }
 }
