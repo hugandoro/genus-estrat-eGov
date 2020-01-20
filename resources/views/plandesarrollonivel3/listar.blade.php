@@ -17,17 +17,53 @@
               </tr>
 
               <tr>
-                <th class="bg-info"><h4>{{$plandesarrollo->nombre_nivel1}} || {{$plandesarrollo->nombre_nivel2}} || {{$plandesarrollo->nombre_nivel3}} || {{$plandesarrollo->nombre_nivel4}}</h4></th>
+                <table id="mytable" class="table  table-bordred">
+                  <tbody>
+                   <tr class="bg-secondary">
+                    <th style="width:30%"><h6>{{$plandesarrollo->nombre_nivel1}}</h6></th>
+                    <td style="width:10%"><h6>N° {{$planDesarrolloNivel1->numeral}}</h6></td>
+                    <td style="width:60%"><h6>{{$planDesarrolloNivel1->nombre}}</h6></td>
+                   </tr>
+
+                   <tr class="bg-secondary">
+                    <th><h6>{{$plandesarrollo->nombre_nivel2}}</h6></th>
+                    <td><h6>N° {{$planDesarrolloNivel2->numeral}}</h6></td>
+                    <td><h6>{{$planDesarrolloNivel2->nombre}}</h6></td>
+                   </tr>
+
+                   <tr class="bg-secondary">
+                    <th><h6>{{$plandesarrollo->nombre_nivel3}}</h6></th>
+                    <td><h6>N° {{$planDesarrolloNivel3->numeral}}</h6></td>
+                    <td><h6>{{$planDesarrolloNivel3->nombre}}</h6></td>
+                   </tr>
+
+                   <tr class="bg-success">
+                    <th><h4>{{$plandesarrollo->nombre_nivel4}}</h4></th>
+                    <td></td>
+                    <td></td>
+                   </tr>
+                  </tbody>
+                </table>
               </tr>
 
               <tr>
                 <td>
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
+                     <tr>
+                      <th>N°</th>
+                      <th>Titulo</th>
+                      <th>Descripcion</th>
+                      <th>Linea base</th>
+                      <th>Objetivo</th>
+                      <th>Unidad de medida</th>
+                      <th>Acciones</th>
+                     </tr>
+
                      @if($planDesarrolloNivel4->count())  
                      @foreach($planDesarrolloNivel4 as $pdN4) 
                      <tr>
-                      <td>N° {{$pdN4->numeral}}</td>
+                      <td>{{$planDesarrolloNivel1->numeral}}.{{$planDesarrolloNivel2->numeral}}.{{$planDesarrolloNivel3->numeral}}.{{$pdN4->numeral}}</td>
                       <td>{{$pdN4->nombre}}</td>
                       <td>{{$pdN4->descripcion}}</td>
                       <td>{{$pdN4->linea_base}}</td>

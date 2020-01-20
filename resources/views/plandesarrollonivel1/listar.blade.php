@@ -17,20 +17,41 @@
               </tr>
 
               <tr>
-                <th class="bg-info"><h4>{{$plandesarrollo->nombre_nivel1}} || {{$plandesarrollo->nombre_nivel2}}</h4></th>
+                <table id="mytable" class="table  table-bordred">
+                  <tbody>
+                   <tr class="bg-secondary">
+                    <th style="width:30%"><h6>{{$plandesarrollo->nombre_nivel1}}</h6></th>
+                    <td style="width:10%"><h6>N° {{$planDesarrolloNivel1->numeral}}</h6></td>
+                    <td style="width:60%"><h6>{{$planDesarrolloNivel1->nombre}}</h6></td>
+                   </tr>
+
+                   <tr class="bg-success">
+                    <th><h4>{{$plandesarrollo->nombre_nivel2}}</h4></th>
+                    <td></td>
+                    <td></td>
+                   </tr>
+                  </tbody>
+                </table>               
               </tr>
 
               <tr>
                 <td>
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
+                     <tr>
+                      <th>N°</th>
+                      <th>Titulo</th>
+                      <th>Descripcion</th>
+                      <th>Acciones</th>
+                     </tr>
+
                      @if($planDesarrolloNivel2->count())  
                      @foreach($planDesarrolloNivel2 as $pdN2) 
                      <tr>
-                      <td>N° {{$pdN2->numeral}}</td>
+                      <td>{{$planDesarrolloNivel1->numeral}}.{{$pdN2->numeral}}</td>
                       <td>{{$pdN2->nombre}}</td>
                       <td>{{$pdN2->descripcion}}</td>
-                      <td><a class="btn btn-primary btn-xs" href="{{action('PlanDesarrolloNivel2Controller@listar', $pdN2->id)}}" ><span class="glyphicon glyphicon-list"></span></a></td>
+                      <td><a class="btn btn-primary btn-xs" href="{{action('PlanDesarrolloNivel2Controller@listar', ['idA'=>$planDesarrolloNivel1->id, 'idB'=>$pdN2->id])}}" ><span class="glyphicon glyphicon-list"></span></a></td>
                      </tr>
                      @endforeach 
                      @endif

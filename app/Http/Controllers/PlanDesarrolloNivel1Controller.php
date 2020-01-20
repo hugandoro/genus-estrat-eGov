@@ -103,11 +103,11 @@ class PlanDesarrolloNivel1Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function listar($id)
+    public function listar($idA)
     {
         $planDesarrollo = PlanDesarrollo::with('administracion')->get();
-        $planDesarrolloNivel1 = PlanDesarrolloNivel1::all();
-        $planDesarrolloNivel2 = PlanDesarrolloNivel2::all();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($idA);
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::where('nivel1_id', $idA)->get();
         return view('plandesarrollonivel1.listar', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2'));
     }
 }

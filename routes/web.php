@@ -24,9 +24,9 @@ Route::resource('/administracion', 'AdministracionController');
 Route::resource('/organigrama', 'EntidadOficinaController');
 
 Route::resource('/plandesarrollo', 'PlanDesarrolloController');
-Route::get('plandesarrollonivel1/listar/{id}', 'PlanDesarrolloNivel1Controller@listar');
-Route::get('plandesarrollonivel2/listar/{id}', 'PlanDesarrolloNivel2Controller@listar');
-Route::get('plandesarrollonivel3/listar/{id}', 'PlanDesarrolloNivel3Controller@listar');
+Route::get('plandesarrollonivel1/listar/{idA}', 'PlanDesarrolloNivel1Controller@listar');
+Route::get('plandesarrollonivel2/listar/{idA}/{idB}', 'PlanDesarrolloNivel2Controller@listar');
+Route::get('plandesarrollonivel3/listar/{idA}/{idB}/{idC}', 'PlanDesarrolloNivel3Controller@listar');
 
 Route::resource('/ods', 'RefOdsObjetivoController');
 Route::resource('/ppnacional', 'RefNacionalPoliticaController');

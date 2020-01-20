@@ -17,17 +17,24 @@
               </tr>
 
               <tr>
-                <th class="bg-info"><h4>{{$plandesarrollo->nombre_nivel1}}</h4></th>
+                <th class="bg-success"><h4>{{$plandesarrollo->nombre_nivel1}}</h4></th>
               </tr>
 
               <tr>
                 <td>
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
+                     <tr>
+                      <th>N°</th>
+                      <th>Titulo</th>
+                      <th>Descripcion</th>
+                      <th>Acciones</th>
+                     </tr>
+                     
                      @if($planDesarrolloNivel1->count())  
                      @foreach($planDesarrolloNivel1 as $pdN1) 
                      <tr>
-                      <td>N° {{$pdN1->numeral}}</td>
+                      <td>{{$pdN1->numeral}}</td>
                       <td>{{$pdN1->nombre}}</td>
                       <td>{{$pdN1->descripcion}}</td>
                       <td><a class="btn btn-primary btn-xs" href="{{action('PlanDesarrolloNivel1Controller@listar', $pdN1->id)}}" ><span class="glyphicon glyphicon-list"></span></a></td>
