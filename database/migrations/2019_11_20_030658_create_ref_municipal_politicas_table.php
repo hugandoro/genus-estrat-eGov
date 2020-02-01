@@ -19,6 +19,12 @@ class CreateRefMunicipalPoliticasTable extends Migration
             $table->increments('id');
             $table->string('nombre',150)->unique();
             $table->text('descripcion');
+            $table->integer('municipio_id')->unsigned();
+
+            $table->foreign('municipio_id')
+                    ->references('id')
+                    ->on('geografica_municipios')
+                    ->onDelete('cascade');
             
             $table->timestamps();
         });

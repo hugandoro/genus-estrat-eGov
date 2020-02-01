@@ -4,6 +4,28 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Parametros cliente
+    |--------------------------------------------------------------------------
+    |
+    | estado            -> Pais del cliente (Por defecto - 1 Colombia)
+    | departamento      -> Departamento del cliente (Por defecto - 14 Risaralda)
+    | municipio         -> Municipio del cliente (Por defecto - 4 Dosquebradas)
+    | entidad           -> Entidad cliente (Por defecto - 1 Alcaldia de Dosquebradas)
+    | administracion    -> Administracion vigentes (Por defecto - 1 Dosquebradas Empresa de Todos)
+    | plan_desarrollo   -> Plan de desarrollo a medir (Por defecto - 1 Empresa de Todos 2020 - 2023)
+    |
+    */
+
+    'estado' => env('ESTADO', '1'),
+    'departamento' => env('DEPARTAMENTO', '14'),
+    'municipio' => env('MUNICIPIO', '4'),
+    'entidad' => env('ENTIDAD', '1'),
+    'administracion' => env('ADMINISTRACION', '1'),
+    'plan_desarrollo' => env('PLAN_DESARROLLO', '1'),
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------
     |

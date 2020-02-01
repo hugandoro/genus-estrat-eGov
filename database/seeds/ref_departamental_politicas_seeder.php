@@ -16,6 +16,7 @@ class ref_departamental_politicas_seeder extends Seeder
         RefDepartamentalPolitica::create([
             'nombre'        => 'Politica DEPARTAMENTAL de prueba',
             'descripcion'   => 'Descripcion',
+            'departamento_id'  => '14',
         ]);
     }
 }

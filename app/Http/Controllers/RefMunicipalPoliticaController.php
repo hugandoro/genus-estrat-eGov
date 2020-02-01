@@ -24,7 +24,7 @@ class RefMunicipalPoliticaController extends Controller
      */
     public function index()
     {
-    	$refMunicipalPolitica = RefMunicipalPolitica::all();
+    	$refMunicipalPolitica = RefMunicipalPolitica::where('municipio_id', config('app.municipio'))->get();
         return view('refmunicipalpolitica.index', compact('refMunicipalPolitica'));
     }
 

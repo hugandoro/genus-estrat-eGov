@@ -24,7 +24,7 @@ class RefNacionalPoliticaController extends Controller
      */
     public function index()
     {
-    	$refNacionalPolitica = RefNacionalPolitica::all();
+    	$refNacionalPolitica = RefNacionalPolitica::where('estado_id', config('app.estado'))->get();
         return view('refnacionalpolitica.index', compact('refNacionalPolitica'));
     }
 

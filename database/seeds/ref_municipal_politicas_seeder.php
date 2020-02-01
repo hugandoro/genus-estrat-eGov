@@ -16,6 +16,7 @@ class ref_municipal_politicas_seeder extends Seeder
         RefMunicipalPolitica::create([
             'nombre'        => 'Politica MUNICIPAL de prueba',
             'descripcion'   => 'Descripcion',
+            'municipio_id'  => '4',
         ]);
     }
 }

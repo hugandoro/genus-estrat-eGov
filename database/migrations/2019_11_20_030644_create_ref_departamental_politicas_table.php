@@ -19,6 +19,12 @@ class CreateRefDepartamentalPoliticasTable extends Migration
             $table->increments('id');
             $table->string('nombre',150)->unique();
             $table->text('descripcion');
+            $table->integer('departamento_id')->unsigned();
+
+            $table->foreign('departamento_id')
+                    ->references('id')
+                    ->on('geografica_departamentos')
+                    ->onDelete('cascade');
             
             $table->timestamps();
         });

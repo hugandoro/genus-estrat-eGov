@@ -24,7 +24,7 @@ class RefDepartamentalPoliticaController extends Controller
      */
     public function index()
     {
-    	$refDepartamentalPolitica = RefDepartamentalPolitica::all();
+    	$refDepartamentalPolitica = RefDepartamentalPolitica::where('departamento_id', config('app.departamento'))->get();
         return view('refdepartamentalpolitica.index', compact('refDepartamentalPolitica'));
     }
 
