@@ -12,6 +12,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Confirma ANTES DE ELIMINAR un registro -->
+    <script type="text/javascript">
+      function confirmarEliminar()
+      {
+        var x = confirm("Estas seguro de Eliminar?");
+        if (x)
+            return true;
+        else
+            return false;
+      }
+    </script>
+    <!-- Fin del Script confirmarEliminar -->
 </head>
 <body>
     <div id="app">

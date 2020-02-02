@@ -35,7 +35,8 @@ class RefMunicipalPoliticaController extends Controller
      */
     public function create()
     {
-        //
+    	$refMunicipalPolitica = RefMunicipalPolitica::where('municipio_id', config('app.municipio'))->get();
+        return view('refmunicipalpolitica.create', compact('refMunicipalPolitica'));
     }
 
     /**
@@ -46,7 +47,15 @@ class RefMunicipalPoliticaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $refMunicipalPolitica = new RefMunicipalPolitica;
+ 
+        $refMunicipalPolitica->nombre = $request->nombre;
+        $refMunicipalPolitica->descripcion = $request->descripcion;
+        $refMunicipalPolitica->municipio_id = $request->municipio_id; 
+ 
+        $refMunicipalPolitica->save();
+ 
+        return redirect('ppmunicipal')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -68,7 +77,8 @@ class RefMunicipalPoliticaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refMunicipalPolitica = RefMunicipalPolitica::find($id);
+        return view('refmunicipalpolitica.edit',['refMunicipalPolitica'=>$refMunicipalPolitica]);
     }
 
     /**
@@ -80,7 +90,14 @@ class RefMunicipalPoliticaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refMunicipalPolitica = RefMunicipalPolitica::find($id);
+ 
+        $refMunicipalPolitica->nombre = $request->nombre;
+        $refMunicipalPolitica->descripcion = $request->descripcion;
+     
+        $refMunicipalPolitica->save();
+     
+        return redirect('ppmunicipal')->with('message','Editado Satisfactoriamente !');
     }
 
     /**
@@ -91,6 +108,8 @@ class RefMunicipalPoliticaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        RefMunicipalPolitica::destroy($id);        
+ 
+        return redirect('ppmunicipal')->with('message','Eliminado Satisfactoriamente !');
     }
 }
