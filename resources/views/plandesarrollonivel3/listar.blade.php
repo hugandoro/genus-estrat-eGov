@@ -57,7 +57,7 @@
                       <th>Linea base</th>
                       <th>Objetivo</th>
                       <th>Unidad de medida</th>
-                      <th>Acciones</th>
+                      <th>Opciones</th>
                      </tr>
 
                      @if($planDesarrolloNivel4->count())  
@@ -69,7 +69,7 @@
                       <td>{{$pdN4->linea_base}}</td>
                       <td>{{$pdN4->objetivo}}</td>
                       <td>{{$pdN4->unidad_medida}}</td>
-                      <td><a class="btn btn-primary btn-xs" href="#" ><span class="glyphicon glyphicon-list"></span></a></td>
+                      <td><a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-list-alt"></span>  Hoja de vida</a></td>
                      </tr>
                      @endforeach 
                      @endif

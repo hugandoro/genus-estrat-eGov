@@ -6,7 +6,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left"><h3>Politicas publicas MUNICIPALES</h3></div>
-          <div class="pull-right"><a class="btn btn-primary btn-xs" href="#" ><span class="glyphicon glyphicon-plus"></span></a></div>
+          <div class="pull-right"></div>
           <div class="table-container">
 
             <!-- FORMULARIO -->

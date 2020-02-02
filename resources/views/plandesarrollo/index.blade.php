@@ -28,7 +28,7 @@
                       <th>N°</th>
                       <th>Titulo</th>
                       <th>Descripcion</th>
-                      <th>Acciones</th>
+                      <th>Opciones</th>
                      </tr>
                      
                      @if($planDesarrolloNivel1->count())  
@@ -37,7 +37,7 @@
                       <td>{{$pdN1->numeral}}</td>
                       <td>{{$pdN1->nombre}}</td>
                       <td>{{$pdN1->descripcion}}</td>
-                      <td><a class="btn btn-primary btn-xs" href="{{action('PlanDesarrolloNivel1Controller@listar', $pdN1->id)}}" ><span class="glyphicon glyphicon-list"></span></a></td>
+                      <td><a class="btn btn-info" href="{{action('PlanDesarrolloNivel1Controller@listar', $pdN1->id)}}" ><span class="glyphicon glyphicon-folder-open"></span>  Ampliar</a></td>
                      </tr>
                      @endforeach 
                      @endif
