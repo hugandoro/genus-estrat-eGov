@@ -35,7 +35,8 @@ class RefNacionalPoliticaController extends Controller
      */
     public function create()
     {
-        //
+    	$refNacionalPolitica = RefNacionalPolitica::where('estado_id', config('app.estado'))->get();
+        return view('refnacionalpolitica.create', compact('refNacionalPolitica'));
     }
 
     /**
@@ -46,7 +47,15 @@ class RefNacionalPoliticaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $refNacionalPolitica = new RefNacionalPolitica;
+ 
+        $refNacionalPolitica->nombre = $request->nombre;
+        $refNacionalPolitica->descripcion = $request->descripcion;
+        $refNacionalPolitica->estado_id = $request->estado_id; 
+ 
+        $refNacionalPolitica->save();
+ 
+        return redirect('ppnacional')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -68,7 +77,8 @@ class RefNacionalPoliticaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refNacionalPolitica = RefNacionalPolitica::find($id);
+        return view('refnacionalpolitica.edit',['refNacionalPolitica'=>$refNacionalPolitica]);
     }
 
     /**
@@ -80,7 +90,14 @@ class RefNacionalPoliticaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refNacionalPolitica = RefNacionalPolitica::find($id);
+ 
+        $refNacionalPolitica->nombre = $request->nombre;
+        $refNacionalPolitica->descripcion = $request->descripcion;
+     
+        $refNacionalPolitica->save();
+     
+        return redirect('ppnacional')->with('message','Editado Satisfactoriamente !');
     }
 
     /**
@@ -91,6 +108,8 @@ class RefNacionalPoliticaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        RefNacionalPolitica::destroy($id);        
+ 
+        return redirect('ppnacional')->with('message','Eliminado Satisfactoriamente !');
     }
 }

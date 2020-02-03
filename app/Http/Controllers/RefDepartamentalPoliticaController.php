@@ -35,7 +35,8 @@ class RefDepartamentalPoliticaController extends Controller
      */
     public function create()
     {
-        //
+    	$refDepartamentalPolitica = RefDepartamentalPolitica::where('departamento_id', config('app.departamento'))->get();
+        return view('refdepartamentalpolitica.create', compact('refDepartamentalPolitica'));
     }
 
     /**
@@ -46,7 +47,15 @@ class RefDepartamentalPoliticaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $refDepartamentalPolitica = new RefDepartamentalPolitica;
+ 
+        $refDepartamentalPolitica->nombre = $request->nombre;
+        $refDepartamentalPolitica->descripcion = $request->descripcion;
+        $refDepartamentalPolitica->departamento_id = $request->departamento_id; 
+ 
+        $refDepartamentalPolitica->save();
+ 
+        return redirect('ppdepartamental')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -68,7 +77,8 @@ class RefDepartamentalPoliticaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refDepartamentalPolitica = RefDepartamentalPolitica::find($id);
+        return view('refdepartamentalpolitica.edit',['refDepartamentalPolitica'=>$refDepartamentalPolitica]);
     }
 
     /**
@@ -80,7 +90,14 @@ class RefDepartamentalPoliticaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $refDepartamentalPolitica = RefDepartamentalPolitica::find($id);
+ 
+        $refDepartamentalPolitica->nombre = $request->nombre;
+        $refDepartamentalPolitica->descripcion = $request->descripcion;
+     
+        $refDepartamentalPolitica->save();
+     
+        return redirect('ppdepartamental')->with('message','Editado Satisfactoriamente !');
     }
 
     /**
@@ -91,6 +108,8 @@ class RefDepartamentalPoliticaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        RefDepartamentalPolitica::destroy($id);        
+ 
+        return redirect('ppdepartamental')->with('message','Eliminado Satisfactoriamente !');
     }
 }
