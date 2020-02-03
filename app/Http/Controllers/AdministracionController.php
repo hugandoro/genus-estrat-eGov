@@ -69,7 +69,8 @@ class AdministracionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $administracion = Administracion::find($id);
+        return view('administracion.edit',['administracion'=>$administracion]);
     }
 
     /**
@@ -81,7 +82,14 @@ class AdministracionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $administracion = Administracion::find($id);
+ 
+        $administracion->nombre_representante = $request->nombre_representante;
+        $administracion->slogan = $request->slogan;
+     
+        $administracion->save();
+     
+        return redirect('administracion')->with('message','Editado Satisfactoriamente !');
     }
 
     /**

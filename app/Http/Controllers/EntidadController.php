@@ -69,7 +69,8 @@ class EntidadController extends Controller
      */
     public function edit($id)
     {
-        //
+        $entidad = Entidad::find($id);
+        return view('entidad.edit',['entidad'=>$entidad]);
     }
 
     /**
@@ -81,7 +82,16 @@ class EntidadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $entidad = Entidad::find($id);
+ 
+        $entidad->nombre = $request->nombre;
+        $entidad->direccion = $request->direccion;
+        $entidad->telefono = $request->telefono;
+        $entidad->email = $request->email;
+     
+        $entidad->save();
+     
+        return redirect('entidad')->with('message','Editado Satisfactoriamente !');
     }
 
     /**

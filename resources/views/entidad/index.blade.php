@@ -57,6 +57,11 @@
                 <td>{{$entidad->email}}</td>
               </tr>
 
+              <tr>
+                <th class="bg-info">Opciones</th>
+                <td><a href="{{ route('entidad.edit',$entidad->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Editar</a></td>
+              </tr>
+
               @endforeach 
               @else
               <tr>

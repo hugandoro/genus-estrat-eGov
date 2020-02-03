@@ -9,23 +9,39 @@
           <div class="pull-right"></div>
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
-             <thead>
-               <th class="bg-info">Representante legal</th>
-               <th class="bg-info">Vigencia inicial</th>
-               <th class="bg-info">Vigencia final</th>
-               <th class="bg-info">Slogan</th>
-               <th class="bg-info">Logotipo</th>
-             </thead>
              <tbody>
               @if($administracion->count())  
               @foreach($administracion as $admin)  
               <tr>
+                <th class="bg-info">Logotipo</th>
+                <td><img src='{{ asset("images/$admin->logo") }}' style='width:100px;height:100px;'></td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Representante legal</th>
                 <td>{{$admin->nombre_representante}}</td>
-                <td>{{$admin->vigenciaInicial->nombre}}</td>
-                <td>{{$admin->vigenciaFinal->nombre}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Slogan</th>
                 <td>{{$admin->slogan}}</td>
-                <td><img src='{{ asset("images/$admin->logo") }}' style='width:50px;height:50px;'></td>
-               </tr>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Vigencia inicial</th>
+                <td>{{$admin->vigenciaInicial->nombre}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Vigencia final</th>
+                <td>{{$admin->vigenciaFinal->nombre}}</td>
+              </tr>
+
+              <tr>
+                <th class="bg-info">Opciones</th>
+                <td><a href="{{ route('administracion.edit',$admin->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Editar</a></td>
+              </tr>
+
                @endforeach 
                @else
                <tr>
