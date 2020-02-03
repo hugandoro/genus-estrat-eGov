@@ -78,20 +78,18 @@
             @endif
 
             <div class="content">
-                <center><img src="{{ asset('images/portada2.png') }}"></center>
+                <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="500px"></picture></center>
 
                 <div class="title m-b-md">
                     Estrat-eGov
                 </div>
 
                 <div class="links">
-                    <a href="#">Planes de desarrollo</a>
-                    <a href="#">Planes indicativos</a>
-                    <a href="#">Planes de accion</a>
-                    <a href="#">Politicas publicas</a>
-                    <a href="#">Banco de proyectos</a>
+                    <a href="{{ route('login') }}">Gestion publica inteligente</a>
                 </div>
+
             </div>
+
         </div>
     </body>
 </html>

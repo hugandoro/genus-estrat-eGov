@@ -167,6 +167,16 @@
         </nav>
 
         @yield('content')
+
+        <!-- Pie de pagina -->
+        <footer class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <center><small class="d-block mb-3 text-muted">Estrat-eGov y Estratego &copy; - Derechos reservados <a href="http://www.genusgroupsas.com" target="_blank">Genus Group SAS</a> - Colombia 2020</small><center>
+                </div>
+            </div>
+        </footer>
+
     </div>
 
     <!-- Scripts -->

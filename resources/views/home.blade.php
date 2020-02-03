@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <center><img src="{{ asset('images/ciudad.png') }}"></center>
+                    <center><picture><img class='img-responsive' src="{{ asset('images/portada_menu.png') }}"></picture></center>
                 </div>
             </div>
         </div>
