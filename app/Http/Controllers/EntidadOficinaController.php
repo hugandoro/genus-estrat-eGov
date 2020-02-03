@@ -25,7 +25,7 @@ class EntidadOficinaController extends Controller
      */
     public function index()
     {
-        $entidadOficina = EntidadOficina::with('entidad', 'tipoOficina')->get();
+        $entidadOficina = EntidadOficina::where('entidad_id', config('app.entidad'))->with('entidad', 'tipoOficina')->get();
         return view('entidadoficina.index', compact('entidadOficina'));
     }
 

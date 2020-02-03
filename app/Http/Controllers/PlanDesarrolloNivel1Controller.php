@@ -105,7 +105,7 @@ class PlanDesarrolloNivel1Controller extends Controller
      */
     public function listar($idA)
     {
-        $planDesarrollo = PlanDesarrollo::with('administracion')->get();
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
         $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($idA);
         $planDesarrolloNivel2 = PlanDesarrolloNivel2::where('nivel1_id', $idA)->get();
         return view('plandesarrollonivel1.listar', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2'));

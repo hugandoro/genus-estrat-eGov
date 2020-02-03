@@ -29,8 +29,8 @@ class PlanDesarrolloController extends Controller
      */
     public function index()
     {
-        $planDesarrollo = PlanDesarrollo::with('administracion')->get();
-        $planDesarrolloNivel1 = PlanDesarrolloNivel1::all();
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::where('plan_desarrollo_id', config('app.plan_desarrollo'))->get();
         return view('plandesarrollo.index', compact('planDesarrollo','planDesarrolloNivel1'));
     }
 

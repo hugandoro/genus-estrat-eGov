@@ -25,7 +25,7 @@ class AdministracionController extends Controller
      */
     public function index()
     {
-        $administracion = Administracion::with('vigenciaInicial', 'vigenciaFinal')->get();
+        $administracion = Administracion::where('id', config('app.administracion'))->with('vigenciaInicial', 'vigenciaFinal')->get();
         return view('administracion.index', compact('administracion'));
     }
 

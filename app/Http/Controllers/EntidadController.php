@@ -25,7 +25,7 @@ class EntidadController extends Controller
      */
     public function index()
     {
-        $entidad = Entidad::with('orden', 'tipo', 'categoria', 'sector', 'municipio')->get();
+        $entidad = Entidad::where('id', config('app.entidad'))->with('orden', 'tipo', 'categoria', 'sector', 'municipio')->get();
         return view('entidad.index', compact('entidad'));
     }
 

@@ -105,7 +105,7 @@ class PlanDesarrolloNivel3Controller extends Controller
      */
     public function listar($idA,$idB,$idC)
     {
-        $planDesarrollo = PlanDesarrollo::with('administracion')->get();
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
         $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($idA);
         $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($idB);
         $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($idC);
