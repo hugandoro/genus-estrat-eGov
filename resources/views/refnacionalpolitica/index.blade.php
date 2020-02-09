@@ -18,11 +18,11 @@
               @if($refNacionalPolitica->count())  
               @foreach($refNacionalPolitica as $politica)  
               <tr>
-                <td>{{$politica->nombre}}</td>
-                <td>{{$politica->descripcion}}</td>
+                <td style="width:20%">{{$politica->nombre}}</td>
+                <td style="width:50%">{{$politica->descripcion}}</td>
 
                 <!-- Ocpiones de EDICION y ELIMINAR -->
-                <td>
+                <td style="width:30%">
                   <form action="{{ route('ppnacional.destroy',$politica->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

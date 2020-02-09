@@ -80,23 +80,23 @@
 
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('/plandesarrollo') }}">.: Plan de desarrollo</a></li>
-                                    <li><a href="#">.: Plan indicativo</a></li>
-                                    <li><a href="#">.: Plan de accion</a></li>
-                                    <li><a href="#">.: Banco de proyectos</a></li>
-                                    <li><a href="#">.: Marco fiscal mediano plazo</a></li>
-                                    <li><a href="#">.: Plan plurianual de inversion</a></li>
+                                    <!-- <li><a href="#">.: Plan indicativo</a></li> -->
+                                    <!-- <li><a href="#">.: Plan de accion</a></li> -->
+                                    <!-- <li><a href="#">.: Banco de proyectos</a></li> -->
+                                    <!-- <li><a href="#">.: Marco fiscal mediano plazo</a></li> -->
+                                    <!-- <li><a href="#">.: Plan plurianual de inversion</a></li> -->
                                 </ul>
                             </li>
 
                             <!-- ACTIVIDADES -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Actividades |<span class="caret"></span>
+                                    Tareas |<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">.: Reportar</a></li>
-                                    <li><a href="#">.: Consultar</a></li>
+                                    <!-- <li><a href="#">.: Reportar</a></li> -->
+                                    <!-- <li><a href="#">.: Consultar</a></li> -->
                                 </ul>
                             </li>
 
@@ -107,20 +107,21 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">.: Reportes</a></li>
-                                    <li><a href="#">.: Estadisticos</a></li>
-                                    <li><a href="#">.: Proyecciones</a></li>
+                                    <!-- <li><a href="#">.: Reportes</a></li> -->
+                                    <!-- <li><a href="#">.: Estadisticos</a></li> -->
+                                    <!-- <li><a href="#">.: Proyecciones</a></li> -->
                                 </ul>
                             </li>
 
                             <!-- POLITICAS PUBLICAS -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Politicas publicas |<span class="caret"></span>
+                                    Referentes |<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/ods') }}">.: Objetivos Desarrollo Sostenible</a></li>
+                                    <li><a href="{{ url('/ods') }}">.: Objetivos desarrollo sostenible ODS</a></li>
+                                    <li><a href="{{ url('/pndesarrollo') }}">.: Plan nacional de desarrollo</a></li>
                                     <li><a href="{{ url('/ppnacional') }}">.: Politicas publicas nacionales</a></li>
                                     <li><a href="{{ url('/ppdepartamental') }}">.: Politicas publicas departamentales</a></li>
                                     <li><a href="{{ url('/ppmunicipal') }}">.: Politicas publicas municipales</a></li>
@@ -134,9 +135,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">.: Rangos semaforo de medicion</a></li>
-                                    <li><a href="#">.: Alarmas</a></li>
-                                    <li><a href="#">.: Indicadores</a></li>
+                                    <li><a href="#">.: Nombres de los niveles</a></li>
+                                    <!-- <li><a href="#">.: Rangos semaforo de medicion</a></li> -->
+                                    <!-- <li><a href="#">.: Definicion de indicadores</a></li> -->
                                 </ul>
                             </li>
 

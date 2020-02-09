@@ -15,10 +15,10 @@ class plan_desarrollos_seeder extends Seeder
     {
         PlanDesarrollo::create([
             'administracion_id'     => '1',
-            'nombre_nivel1'         => 'Objetivo Estrategico',
-            'nombre_nivel2'         => 'Objetivo Sectorial',
-            'nombre_nivel3'         => 'Objetivo Programatico',
-            'nombre_nivel4'         => 'Meta Producto',
+            'nombre_nivel1'         => 'Linea Estrategica',
+            'nombre_nivel2'         => 'Programa',
+            'nombre_nivel3'         => 'Proyecto',
+            'nombre_nivel4'         => 'Actividad',
         ]);
     }
 }
