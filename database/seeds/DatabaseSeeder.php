@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
         $this->call(contable_fuente_recursos_seeder::class);
 
         $this->call(ref_ods_objetivos_seeder::class);
+        $this->call(ref_nacional_plans_seeder::class);
         $this->call(ref_nacional_politicas_seeder::class);
         $this->call(ref_departamental_politicas_seeder::class);
         $this->call(ref_municipal_politicas_seeder::class);

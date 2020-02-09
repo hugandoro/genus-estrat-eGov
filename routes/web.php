@@ -30,6 +30,8 @@ Route::get('plandesarrollonivel3/listar/{idA}/{idB}/{idC}', 'PlanDesarrolloNivel
 
 Route::resource('/ods', 'RefOdsObjetivoController');
 
+Route::resource('/pndesarrollo', 'RefNacionalPlanController');
+
 Route::resource('/ppnacional', 'RefNacionalPoliticaController');
 
 Route::resource('/ppdepartamental', 'RefDepartamentalPoliticaController');
