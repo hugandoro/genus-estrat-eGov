@@ -74,7 +74,8 @@ class PlanDesarrolloController extends Controller
      */
     public function edit($id)
     {
-        //
+        $planDesarrollo = PlanDesarrollo::find($id);
+        return view('plandesarrollo.edit',['planDesarrollo'=>$planDesarrollo]);
     }
 
     /**
@@ -86,7 +87,16 @@ class PlanDesarrolloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $planDesarrollo = PlanDesarrollo::find($id);
+ 
+        $planDesarrollo->nombre_nivel1 = $request->nombre_nivel1;
+        $planDesarrollo->nombre_nivel2 = $request->nombre_nivel2;
+        $planDesarrollo->nombre_nivel3 = $request->nombre_nivel3;
+        $planDesarrollo->nombre_nivel4 = $request->nombre_nivel4;
+     
+        $planDesarrollo->save();
+     
+        return redirect('plandesarrollo')->with('message','Editado Satisfactoriamente !');
     }
 
     /**

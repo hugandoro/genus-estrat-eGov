@@ -135,7 +135,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">.: Nombres de los niveles</a></li>
+                                    <li><a href="{{ route('plandesarrollo.edit',config('app.plan_desarrollo')) }}">.: Nombres de los niveles</a></li>
                                     <!-- <li><a href="#">.: Rangos semaforo de medicion</a></li> -->
                                     <!-- <li><a href="#">.: Definicion de indicadores</a></li> -->
                                 </ul>
