@@ -57,7 +57,9 @@ class RefOdsObjetivoController extends Controller
      */
     public function show($id)
     {
-        //
+        $refOdsObjetivo = RefOdsObjetivo::find($id);
+        $refOdsObjetivo->descripcion = nl2br($refOdsObjetivo->descripcion);
+        return view('refodsobjetivo.show', compact('refOdsObjetivo'));
     }
 
     /**

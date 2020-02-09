@@ -12,6 +12,7 @@
              <thead>
                <th class="bg-info">ODS</th>
                <th class="bg-info">Objetivo</th>
+               <th class="bg-info">Opciones</th>
                <!-- <th>Descripcion</th> -->
              </thead>
              <tbody>
@@ -21,6 +22,7 @@
                 <td><img src='{{ asset("images/$ods->logo") }}' style='width:50px;height:50px;'>
                 </td>
                 <td>{{$ods->nombre}}</td>
+                <td><a class="btn btn-info" href="{{ route('ods.show',$ods->id) }}" ><span class="glyphicon glyphicon-folder-open"></span>  Ampliar</a></td>
                 <!-- <td>{{$ods->descripcion}}</td> -->
                </tr>
                @endforeach 
