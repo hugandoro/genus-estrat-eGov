@@ -39,7 +39,9 @@ class PlanDesarrolloNivel1Controller extends Controller
      */
     public function create()
     {
-        //
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+    	$planDesarrolloNivel1 = PlanDesarrolloNivel1::where('plan_desarrollo_id', config('app.plan_desarrollo'))->get();
+        return view('plandesarrollonivel1.create', compact('planDesarrollo','planDesarrolloNivel1'));
     }
 
     /**
@@ -50,7 +52,16 @@ class PlanDesarrolloNivel1Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $planDesarrolloNivel1 = new PlanDesarrolloNivel1;
+ 
+        $planDesarrolloNivel1->numeral = $request->numeral;
+        $planDesarrolloNivel1->nombre = $request->nombre;
+        $planDesarrolloNivel1->descripcion = $request->descripcion;
+        $planDesarrolloNivel1->plan_desarrollo_id = $request->plan_desarrollo_id; 
+ 
+        $planDesarrolloNivel1->save();
+ 
+        return redirect('plandesarrollo')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -72,7 +83,9 @@ class PlanDesarrolloNivel1Controller extends Controller
      */
     public function edit($id)
     {
-        //
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($id);
+        return view('plandesarrollonivel1.edit',compact('planDesarrollo'),['planDesarrolloNivel1'=>$planDesarrolloNivel1]);
     }
 
     /**
@@ -84,7 +97,15 @@ class PlanDesarrolloNivel1Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($id);
+ 
+        $planDesarrolloNivel1->numeral = $request->numeral;
+        $planDesarrolloNivel1->nombre = $request->nombre;
+        $planDesarrolloNivel1->descripcion = $request->descripcion;
+     
+        $planDesarrolloNivel1->save();
+     
+        return redirect('plandesarrollo')->with('message','Editado Satisfactoriamente !');
     }
 
     /**
@@ -95,7 +116,9 @@ class PlanDesarrolloNivel1Controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        PlanDesarrolloNivel1::destroy($id);        
+ 
+        return redirect('plandesarrollo')->with('message','Eliminado Satisfactoriamente !');
     }
 
     /**

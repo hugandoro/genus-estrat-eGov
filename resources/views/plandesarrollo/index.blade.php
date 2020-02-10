@@ -17,7 +17,10 @@
               </tr>
 
               <tr>
-                <th class="bg-success"><h4>{{$plandesarrollo->nombre_nivel1}}</h4></th>
+                <th class="bg-success">
+                  <div class="pull-left"><h4>{{$plandesarrollo->nombre_nivel1}}</h4></div>
+                  <div class="pull-right"><a class="btn btn-success" href="{{ route('plandesarrollonivel1.create') }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+                </th>
               </tr>
 
               <tr>
@@ -34,10 +37,20 @@
                      @if($planDesarrolloNivel1->count())  
                      @foreach($planDesarrolloNivel1 as $pdN1) 
                      <tr>
-                      <td>{{$pdN1->numeral}}</td>
-                      <td>{{$pdN1->nombre}}</td>
-                      <td>{{$pdN1->descripcion}}</td>
-                      <td><a class="btn btn-info" href="{{action('PlanDesarrolloNivel1Controller@listar', $pdN1->id)}}" ><span class="glyphicon glyphicon-folder-open"></span>  Ampliar</a></td>
+                      <td style="width:10%">{{$pdN1->numeral}}</td>
+                      <td style="width:20%">{{$pdN1->nombre}}</td>
+                      <td style="width:35%">{{$pdN1->descripcion}}</td>
+                      <td style="width:35%">
+                        <!-- Ocpiones de EDICION y ELIMINAR -->
+                        <form action="{{ route('plandesarrollonivel1.destroy',$pdN1->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          <a href="{{ action('PlanDesarrolloNivel1Controller@listar', $pdN1->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-folder-open"></span>  Listar</a>
+                          <a href="{{ route('plandesarrollonivel1.edit',$pdN1->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                        </form>
+                        <!-- Fin de los botones de opciones -->
+                      </td>
                      </tr>
                      @endforeach 
                      @endif

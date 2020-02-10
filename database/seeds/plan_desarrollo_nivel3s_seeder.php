@@ -22,21 +22,21 @@ class plan_desarrollo_nivel3s_seeder extends Seeder
 
         PlanDesarrolloNivel3::create([
             'nivel2_id'             => '2',
-            'numeral'               => '1',
+            'numeral'               => '2',
             'nombre'                => 'Objetivo BB',
             'descripcion'           => 'Texto descriptivo del objetivo BB',
         ]);
 
         PlanDesarrolloNivel3::create([
             'nivel2_id'             => '3',
-            'numeral'               => '1',
+            'numeral'               => '3',
             'nombre'                => 'Objetivo CC',
             'descripcion'           => 'Texto descriptivo del objetivo CC',
         ]);
 
         PlanDesarrolloNivel3::create([
             'nivel2_id'             => '4',
-            'numeral'               => '1',
+            'numeral'               => '4',
             'nombre'                => 'Objetivo DD',
             'descripcion'           => 'Texto descriptivo del objetivo DD',
         ]);

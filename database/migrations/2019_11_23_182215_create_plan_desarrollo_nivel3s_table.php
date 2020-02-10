@@ -22,9 +22,9 @@ class CreatePlanDesarrolloNivel3sTable extends Migration
             $table->foreign('nivel2_id')
                     ->references('id')
                     ->on('plan_desarrollo_nivel2s')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
-            $table->integer('numeral')->unsigned();
+            $table->integer('numeral')->unique();
             $table->text('nombre');
             $table->text('descripcion');
 

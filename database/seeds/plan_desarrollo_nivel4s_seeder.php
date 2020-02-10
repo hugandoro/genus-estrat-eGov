@@ -29,7 +29,7 @@ class plan_desarrollo_nivel4s_seeder extends Seeder
 
         PlanDesarrolloNivel4::create([
             'nivel3_id'             => '2',
-            'numeral'               => '1',
+            'numeral'               => '2',
             'nombre'                => 'Meta B',
             'descripcion'           => 'Texto descriptivo de la meta B',
 
@@ -43,7 +43,7 @@ class plan_desarrollo_nivel4s_seeder extends Seeder
 
         PlanDesarrolloNivel4::create([
             'nivel3_id'             => '3',
-            'numeral'               => '1',
+            'numeral'               => '3',
             'nombre'                => 'Meta C',
             'descripcion'           => 'Texto descriptivo de la meta C',
 
@@ -57,7 +57,7 @@ class plan_desarrollo_nivel4s_seeder extends Seeder
 
         PlanDesarrolloNivel4::create([
             'nivel3_id'             => '4',
-            'numeral'               => '1',
+            'numeral'               => '4',
             'nombre'                => 'Meta D',
             'descripcion'           => 'Texto descriptivo de la meta D',
 
