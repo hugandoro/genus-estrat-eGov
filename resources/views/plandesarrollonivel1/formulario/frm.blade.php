@@ -20,9 +20,9 @@
 					</div>
  
 					<div class="form-group">
-						<label for="precio" class="negrita">Descripcion</label> 
+						<label for="precio" class="negrita">Objetivo</label> 
 						<div>
-							<input class="form-control" placeholder="" required="required" name="descripcion" type="text" id="descripcion" value="{{ $planDesarrolloNivel1->descripcion }}"> 
+							<input class="form-control" placeholder="" required="required" name="objetivo" type="text" id="objetivo" value="{{ $planDesarrolloNivel1->objetivo }}"> 
 						</div>
 					</div>
 
@@ -43,9 +43,9 @@
 					</div>
  
 					<div class="form-group">
-						<label for="precio" class="negrita">Descripcion</label> 
+						<label for="precio" class="negrita">Objetivo</label> 
 						<div>
-							<input class="form-control" placeholder="" required="required" name="descripcion" type="text" id="descripcion"> 
+							<input class="form-control" placeholder="" required="required" name="objetivo" type="text" id="objetivo"> 
 						</div>
 					</div>
  

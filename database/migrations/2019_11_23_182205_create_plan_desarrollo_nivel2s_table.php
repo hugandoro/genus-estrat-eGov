@@ -26,7 +26,7 @@ class CreatePlanDesarrolloNivel2sTable extends Migration
 
             $table->integer('numeral')->unique();
             $table->text('nombre');
-            $table->text('descripcion');
+            $table->text('objetivo');
 
             $table->timestamps();
         });

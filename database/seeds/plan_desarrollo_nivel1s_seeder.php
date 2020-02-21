@@ -17,28 +17,28 @@ class plan_desarrollo_nivel1s_seeder extends Seeder
             'plan_desarrollo_id'    => '1',
             'numeral'               => '1',
             'nombre'                => 'Social',
-            'descripcion'           => 'Igualdad social',
+            'objetivo'              => 'Igualdad social',
         ]);
 
         PlanDesarrolloNivel1::create([
             'plan_desarrollo_id'    => '1',
             'numeral'               => '2',
             'nombre'                => 'Seguridad',
-            'descripcion'           => 'Seguridad para todos',
+            'objetivo'              => 'Seguridad para todos',
         ]);
 
         PlanDesarrolloNivel1::create([
             'plan_desarrollo_id'    => '1',
             'numeral'               => '3',
             'nombre'                => 'Economica',
-            'descripcion'           => 'Desarrollo y progreso',
+            'objetivo'              => 'Desarrollo y progreso',
         ]);
 
         PlanDesarrolloNivel1::create([
             'plan_desarrollo_id'    => '1',
             'numeral'               => '4',
             'nombre'                => 'Institucional',
-            'descripcion'           => 'Transparencia y efectividad',
+            'objetivo'              => 'Transparencia y efectividad',
         ]);
     }
 }

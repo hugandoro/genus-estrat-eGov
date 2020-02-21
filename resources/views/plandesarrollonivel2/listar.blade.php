@@ -47,7 +47,7 @@
                      <tr>
                       <th>N°</th>
                       <th>Titulo</th>
-                      <th>Descripcion</th>
+                      <th>Objetivo</th>
                       <th>Opciones</th>
                      </tr>
 
@@ -56,7 +56,7 @@
                      <tr>
                       <td>{{$planDesarrolloNivel1->numeral}}.{{$planDesarrolloNivel2->numeral}}.{{$pdN3->numeral}}</td>
                       <td>{{$pdN3->nombre}}</td>
-                      <td>{{$pdN3->descripcion}}</td>
+                      <td>{{$pdN3->objetivo}}</td>
                       <td><a class="btn btn-info" href="{{action('PlanDesarrolloNivel3Controller@listar', ['idA'=>$planDesarrolloNivel1->id, 'idB'=>$planDesarrolloNivel2->id, 'idC'=>$pdN3->id])}}" ><span class="glyphicon glyphicon-folder-open"></span>  Ampliar</a></td>
                      </tr>
                      @endforeach 

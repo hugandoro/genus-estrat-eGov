@@ -30,7 +30,7 @@
                      <tr>
                       <th>N°</th>
                       <th>Titulo</th>
-                      <th>Descripcion</th>
+                      <th>Objetivo</th>
                       <th>Opciones</th>
                      </tr>
                      
@@ -39,7 +39,7 @@
                      <tr>
                       <td style="width:10%">{{$pdN1->numeral}}</td>
                       <td style="width:20%">{{$pdN1->nombre}}</td>
-                      <td style="width:35%">{{$pdN1->descripcion}}</td>
+                      <td style="width:35%">{{$pdN1->objetivo}}</td>
                       <td style="width:35%">
                         <!-- Ocpiones de EDICION y ELIMINAR -->
                         <form action="{{ route('plandesarrollonivel1.destroy',$pdN1->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">

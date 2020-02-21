@@ -17,28 +17,28 @@ class plan_desarrollo_nivel2s_seeder extends Seeder
             'nivel1_id'             => '1',
             'numeral'               => '1',
             'nombre'                => 'Objetivo A',
-            'descripcion'           => 'Texto descriptivo del objetivo A',
+            'objetivo'           => 'Texto descriptivo del objetivo A',
         ]);
 
         PlanDesarrolloNivel2::create([
             'nivel1_id'             => '2',
             'numeral'               => '2',
             'nombre'                => 'Objetivo B',
-            'descripcion'           => 'Texto descriptivo del objetivo B',
+            'objetivo'           => 'Texto descriptivo del objetivo B',
         ]);
 
         PlanDesarrolloNivel2::create([
             'nivel1_id'             => '3',
             'numeral'               => '3',
             'nombre'                => 'Objetivo C',
-            'descripcion'           => 'Texto descriptivo del objetivo C',
+            'objetivo'           => 'Texto descriptivo del objetivo C',
         ]);
 
         PlanDesarrolloNivel2::create([
             'nivel1_id'             => '4',
             'numeral'               => '4',
             'nombre'                => 'Objetivo D',
-            'descripcion'           => 'Texto descriptivo del objetivo D',
+            'objetivo'           => 'Texto descriptivo del objetivo D',
         ]);
     }
 }

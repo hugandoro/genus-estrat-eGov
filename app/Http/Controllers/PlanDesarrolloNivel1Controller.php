@@ -56,7 +56,7 @@ class PlanDesarrolloNivel1Controller extends Controller
  
         $planDesarrolloNivel1->numeral = $request->numeral;
         $planDesarrolloNivel1->nombre = $request->nombre;
-        $planDesarrolloNivel1->descripcion = $request->descripcion;
+        $planDesarrolloNivel1->objetivo = $request->objetivo;
         $planDesarrolloNivel1->plan_desarrollo_id = $request->plan_desarrollo_id; 
  
         $planDesarrolloNivel1->save();
@@ -101,7 +101,7 @@ class PlanDesarrolloNivel1Controller extends Controller
  
         $planDesarrolloNivel1->numeral = $request->numeral;
         $planDesarrolloNivel1->nombre = $request->nombre;
-        $planDesarrolloNivel1->descripcion = $request->descripcion;
+        $planDesarrolloNivel1->objetivo = $request->objetivo;
      
         $planDesarrolloNivel1->save();
      

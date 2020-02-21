@@ -53,10 +53,7 @@
                      <tr>
                       <th>N°</th>
                       <th>Titulo</th>
-                      <th>Descripcion</th>
-                      <th>Linea base</th>
                       <th>Objetivo</th>
-                      <th>Unidad de medida</th>
                       <th>Opciones</th>
                      </tr>
 
@@ -65,10 +62,7 @@
                      <tr>
                       <td>{{$planDesarrolloNivel1->numeral}}.{{$planDesarrolloNivel2->numeral}}.{{$planDesarrolloNivel3->numeral}}.{{$pdN4->numeral}}</td>
                       <td>{{$pdN4->nombre}}</td>
-                      <td>{{$pdN4->descripcion}}</td>
-                      <td>{{$pdN4->linea_base}}</td>
                       <td>{{$pdN4->objetivo}}</td>
-                      <td>{{$pdN4->unidad_medida}}</td>
                       <td><a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-list-alt"></span>  Hoja de vida</a></td>
                      </tr>
                      @endforeach 
