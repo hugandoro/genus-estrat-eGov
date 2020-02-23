@@ -45,9 +45,9 @@
                         <form action="{{ route('plandesarrollonivel1.destroy',$pdN1->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                           <input type="hidden" name="_method" value="DELETE">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          <a href="{{ action('PlanDesarrolloNivel1Controller@listar', $pdN1->id) }}" class="btn btn-info"><span class="glyphicon glyphicon-folder-open"></span>  Listar</a>
-                          <a href="{{ route('plandesarrollonivel1.edit',$pdN1->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
-                          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                          <a href="{{ action('PlanDesarrolloNivel1Controller@listar', $pdN1->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-folder-open"></span>  Listar</a>
+                          <a href="{{ route('plandesarrollonivel1.edit',$pdN1->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                          <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
                         </form>
                         <!-- Fin de los botones de opciones -->
                       </td>

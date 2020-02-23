@@ -26,9 +26,10 @@
                    </tr>
 
                    <tr class="bg-success">
-                    <th><h4>{{$plandesarrollo->nombre_nivel2}}</h4></th>
-                    <td></td>
-                    <td></td>
+                    <th colspan="3">
+                      <div class="pull-left"><h4>{{$plandesarrollo->nombre_nivel2}}</h4></div>
+                      <div class="pull-right"><a class="btn btn-success" href="{{ url('plandesarrollonivel2/create?idNivel1='.$planDesarrolloNivel1->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+                    </th>
                    </tr>
                   </tbody>
                 </table>               
@@ -48,10 +49,20 @@
                      @if($planDesarrolloNivel2->count())  
                      @foreach($planDesarrolloNivel2 as $pdN2) 
                      <tr>
-                      <td>{{$planDesarrolloNivel1->numeral}}.{{$pdN2->numeral}}</td>
-                      <td>{{$pdN2->nombre}}</td>
-                      <td>{{$pdN2->objetivo}}</td>
-                      <td><a class="btn btn-info" href="{{action('PlanDesarrolloNivel2Controller@listar', ['idA'=>$planDesarrolloNivel1->id, 'idB'=>$pdN2->id])}}" ><span class="glyphicon glyphicon-folder-open"></span>  Ampliar</a></td>
+                      <td style="width:10%">{{$planDesarrolloNivel1->numeral}}.{{$pdN2->numeral}}</td>
+                      <td style="width:20%">{{$pdN2->nombre}}</td>
+                      <td style="width:35%">{{$pdN2->objetivo}}</td>
+                      <td style="width:35%">
+                        <!-- Ocpiones de EDICION y ELIMINAR -->
+                        <form action="{{ route('plandesarrollonivel2.destroy',$pdN2->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          <a href="{{ action('PlanDesarrolloNivel2Controller@listar', ['idA'=>$planDesarrolloNivel1->id, 'idB'=>$pdN2->id]) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-folder-open"></span>  Listar</a>
+                          <a href="{{ route('plandesarrollonivel2.edit',$pdN2->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                          <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                        </form>
+                        <!-- Fin de los botones de opciones -->
+                      </td>
                      </tr>
                      @endforeach 
                      @endif

@@ -37,9 +37,12 @@ class PlanDesarrolloNivel2Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $idNivel1 = $request->idNivel1;
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::where('nivel1_id', $idNivel1)->get();
+        return view('plandesarrollonivel2.create', compact('planDesarrollo','idNivel1','planDesarrolloNivel2'));
     }
 
     /**
@@ -50,7 +53,16 @@ class PlanDesarrolloNivel2Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $planDesarrolloNivel2 = new PlanDesarrolloNivel2;
+ 
+        $planDesarrolloNivel2->numeral = $request->numeral;
+        $planDesarrolloNivel2->nombre = $request->nombre;
+        $planDesarrolloNivel2->objetivo = $request->objetivo;
+        $planDesarrolloNivel2->nivel1_id = $request->nivel1_id; 
+ 
+        $planDesarrolloNivel2->save();
+
+        return redirect('plandesarrollonivel1/listar/'.$request->nivel1_id);
     }
 
     /**
@@ -72,7 +84,9 @@ class PlanDesarrolloNivel2Controller extends Controller
      */
     public function edit($id)
     {
-        //
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($id);
+        return view('plandesarrollonivel2.edit',compact('planDesarrollo'),['planDesarrolloNivel2'=>$planDesarrolloNivel2]);
     }
 
     /**
@@ -84,7 +98,15 @@ class PlanDesarrolloNivel2Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($id);
+ 
+        $planDesarrolloNivel2->numeral = $request->numeral;
+        $planDesarrolloNivel2->nombre = $request->nombre;
+        $planDesarrolloNivel2->objetivo = $request->objetivo;
+     
+        $planDesarrolloNivel2->save();
+     
+        return redirect('plandesarrollonivel1/listar/'.$request->nivel1_id);
     }
 
     /**
@@ -95,7 +117,10 @@ class PlanDesarrolloNivel2Controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($id);
+        PlanDesarrolloNivel2::destroy($id);        
+ 
+        return redirect('plandesarrollonivel1/listar/'.$planDesarrolloNivel2->nivel1_id);
     }
 
     /**
