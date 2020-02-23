@@ -37,9 +37,13 @@ class PlanDesarrolloNivel3Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $idNivel1 = $request->idNivel1;
+        $idNivel2 = $request->idNivel2;
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::where('nivel2_id', $idNivel2)->get();
+        return view('plandesarrollonivel3.create',compact('planDesarrollo'),['idNivel1' => $idNivel1, 'idNivel2' => $idNivel2],compact('planDesarrolloNivel3'));
     }
 
     /**
@@ -50,7 +54,16 @@ class PlanDesarrolloNivel3Controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $planDesarrolloNivel3 = new PlanDesarrolloNivel3;
+ 
+        $planDesarrolloNivel3->numeral = $request->numeral;
+        $planDesarrolloNivel3->nombre = $request->nombre;
+        $planDesarrolloNivel3->objetivo = $request->objetivo;
+        $planDesarrolloNivel3->nivel2_id = $request->nivel2_id; 
+ 
+        $planDesarrolloNivel3->save();
+
+        return redirect('plandesarrollonivel2/listar/'.$request->nivel1_id.'/'.$request->nivel2_id);
     }
 
     /**
@@ -72,7 +85,15 @@ class PlanDesarrolloNivel3Controller extends Controller
      */
     public function edit($id)
     {
-        //
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($id);
+
+        //Realiza busqueda inversa para armar el arbol de niveles para las rutas
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::where('id', $planDesarrolloNivel3->nivel2_id)->get();
+        //Toma el primer registro para no enviar un array de resultados SOLO un resultado para tomar el Id del nivel 1
+        $planDesarrolloNivel2 = $planDesarrolloNivel2[0];
+
+        return view('plandesarrollonivel3.edit',compact('planDesarrollo'),['planDesarrolloNivel2'=>$planDesarrolloNivel2, 'planDesarrolloNivel3'=>$planDesarrolloNivel3]);
     }
 
     /**
@@ -84,7 +105,15 @@ class PlanDesarrolloNivel3Controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($id);
+ 
+        $planDesarrolloNivel3->numeral = $request->numeral;
+        $planDesarrolloNivel3->nombre = $request->nombre;
+        $planDesarrolloNivel3->objetivo = $request->objetivo;
+     
+        $planDesarrolloNivel3->save();
+     
+        return redirect('plandesarrollonivel2/listar/'.$request->nivel1_id.'/'.$request->nivel2_id);
     }
 
     /**
@@ -95,7 +124,16 @@ class PlanDesarrolloNivel3Controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($id);
+        
+        //Realiza busqueda inversa para armar el arbol de niveles para las rutas
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::where('id', $planDesarrolloNivel3->nivel2_id)->get();
+        //Toma el primer registro para no enviar un array de resultados SOLO un resultado para tomar el Id del nivel 1
+        $planDesarrolloNivel2 = $planDesarrolloNivel2[0];
+        
+        PlanDesarrolloNivel3::destroy($id);        
+ 
+        return redirect('plandesarrollonivel2/listar/'.$planDesarrolloNivel2->nivel1_id.'/'.$planDesarrolloNivel3->nivel2_id);
     }
 
     /**
