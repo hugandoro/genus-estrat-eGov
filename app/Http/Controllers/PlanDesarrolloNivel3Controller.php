@@ -147,7 +147,7 @@ class PlanDesarrolloNivel3Controller extends Controller
         $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($idA);
         $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($idB);
         $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($idC);
-        $planDesarrolloNivel4 = PlanDesarrolloNivel4::where('nivel3_id', $idC)->get();
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::where('nivel3_id', $idC)->with('entidadOficina')->get();
         return view('plandesarrollonivel3.listar', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4'));
     }
 }

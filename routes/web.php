@@ -34,6 +34,8 @@ Route::get('plandesarrollonivel2/listar/{idA}/{idB}', 'PlanDesarrolloNivel2Contr
 Route::resource('/plandesarrollonivel3', 'PlanDesarrolloNivel3Controller');
 Route::get('plandesarrollonivel3/listar/{idA}/{idB}/{idC}', 'PlanDesarrolloNivel3Controller@listar');
 
+Route::resource('/plandesarrollonivel4', 'PlanDesarrolloNivel4Controller');
+
 Route::resource('/ods', 'RefOdsObjetivoController');
 
 Route::resource('/pndesarrollo', 'RefNacionalPlanController');

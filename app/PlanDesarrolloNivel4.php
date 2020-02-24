@@ -9,4 +9,9 @@ class PlanDesarrolloNivel4 extends Model
     protected $table = 'plan_desarrollo_nivel4s';
     protected $fillable = ['nivel3_id','numeral','nombre','objetivo','oficina_id'];
     protected $guarded = ['id'];
+
+     //Relaciones
+    public function entidadOficina(){
+        return $this->belongsTo('App\EntidadOficina', 'oficina_id');
+    }
 }
