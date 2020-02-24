@@ -20,7 +20,7 @@
                 <table id="mytable" class="table  table-bordred">
                   <tbody>
                    <tr class="bg-secondary">
-                    <th style="width:30%"><h6>{{$plandesarrollo->nombre_nivel1}}</h6></th>
+                    <th style="width:30%"><a href="{{ route('plandesarrollo.index') }}"><h6>{{$plandesarrollo->nombre_nivel1}}</h6></a></th>
                     <td style="width:10%"><h6>N° {{$planDesarrolloNivel1->numeral}}</h6></td>
                     <td style="width:60%"><h6>{{$planDesarrolloNivel1->nombre}}</h6></td>
                    </tr>

@@ -20,13 +20,13 @@
                 <table id="mytable" class="table  table-bordred">
                   <tbody>
                    <tr class="bg-secondary">
-                    <th style="width:30%"><h6>{{$plandesarrollo->nombre_nivel1}}</h6></th>
+                    <th style="width:30%"><a href="{{ route('plandesarrollo.index') }}"><h6>{{$plandesarrollo->nombre_nivel1}}</a></h6></th>
                     <td style="width:10%"><h6>N° {{$planDesarrolloNivel1->numeral}}</h6></td>
                     <td style="width:60%"><h6>{{$planDesarrolloNivel1->nombre}}</h6></td>
                    </tr>
 
                    <tr class="bg-secondary">
-                    <th><h6>{{$plandesarrollo->nombre_nivel2}}</h6></th>
+                    <th><a href="{{ action('PlanDesarrolloNivel1Controller@listar',$planDesarrolloNivel2->nivel1_id) }}"><h6>{{$plandesarrollo->nombre_nivel2}}</h6></a></th>
                     <td><h6>N° {{$planDesarrolloNivel2->numeral}}</h6></td>
                     <td><h6>{{$planDesarrolloNivel2->nombre}}</h6></td>
                    </tr>
