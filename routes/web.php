@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/entidad', 'EntidadController');
 Route::resource('/administracion', 'AdministracionController');
-Route::resource('/organigrama', 'EntidadOficinaController');
+Route::resource('/entidadoficina', 'EntidadOficinaController');
 
 Route::resource('/plandesarrollo', 'PlanDesarrolloController');
 

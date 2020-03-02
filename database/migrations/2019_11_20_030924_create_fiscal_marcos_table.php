@@ -22,19 +22,19 @@ class CreateFiscalMarcosTable extends Migration
             $table->foreign('entidad_id')
                     ->references('id')
                     ->on('entidads')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('vigencia_id_inicial')->unsigned();
             $table->foreign('vigencia_id_inicial')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('vigencia_id_final')->unsigned();
             $table->foreign('vigencia_id_final')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
             
             $table->timestamps();
         });

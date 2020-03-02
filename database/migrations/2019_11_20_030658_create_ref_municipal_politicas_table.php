@@ -24,7 +24,7 @@ class CreateRefMunicipalPoliticasTable extends Migration
             $table->foreign('municipio_id')
                     ->references('id')
                     ->on('geografica_municipios')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
             
             $table->timestamps();
         });

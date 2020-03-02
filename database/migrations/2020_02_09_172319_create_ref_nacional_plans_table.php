@@ -25,7 +25,7 @@ class CreateRefNacionalPlansTable extends Migration
             $table->foreign('estado_id')
                     ->references('id')
                     ->on('geografica_estados')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
             
             $table->timestamps();
         });

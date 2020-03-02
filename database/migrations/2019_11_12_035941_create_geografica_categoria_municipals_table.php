@@ -22,7 +22,7 @@ class CreateGeograficaCategoriaMunicipalsTable extends Migration
             $table->foreign('estado_id')
                     ->references('id')
                     ->on('geografica_estados')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
                     
             $table->string('nombre',150)->unique();
             $table->bigInteger('poblacion_min');

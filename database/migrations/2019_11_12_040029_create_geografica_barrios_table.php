@@ -22,7 +22,7 @@ class CreateGeograficaBarriosTable extends Migration
             $table->foreign('comuna_id')
                     ->references('id')
                     ->on('geografica_comunas')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
                     
             $table->string('nombre',150)->unique();
             $table->timestamps();

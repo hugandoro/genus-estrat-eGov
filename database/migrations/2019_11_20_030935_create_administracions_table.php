@@ -23,13 +23,13 @@ class CreateAdministracionsTable extends Migration
             $table->foreign('vigencia_id_inicial')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('vigencia_id_final')->unsigned();
             $table->foreign('vigencia_id_final')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->text('slogan');
             $table->text('logo');

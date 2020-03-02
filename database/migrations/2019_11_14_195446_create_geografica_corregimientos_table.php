@@ -22,7 +22,7 @@ class CreateGeograficaCorregimientosTable extends Migration
             $table->foreign('municipio_id')
                     ->references('id')
                     ->on('geografica_municipios')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
                     
             $table->string('nombre',150)->unique();
             $table->timestamps();

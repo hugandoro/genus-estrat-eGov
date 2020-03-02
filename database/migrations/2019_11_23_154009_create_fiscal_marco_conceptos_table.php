@@ -22,19 +22,19 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('marco_id')
                     ->references('id')
                     ->on('fiscal_marcos')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('concepto_id')->unsigned();
             $table->foreign('concepto_id')
                     ->references('id')
                     ->on('contable_conceptos')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('vigencia_id_1')->unsigned();
             $table->foreign('vigencia_id_1')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_1')->unsigned();
 
@@ -42,7 +42,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_2')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_2')->unsigned();
 
@@ -50,7 +50,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_3')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_3')->unsigned();
 
@@ -58,7 +58,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_4')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_4')->unsigned();
 
@@ -66,7 +66,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_5')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_5')->unsigned();
 
@@ -74,7 +74,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_6')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_6')->unsigned();
 
@@ -82,7 +82,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_7')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_7')->unsigned();
 
@@ -90,7 +90,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_8')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_8')->unsigned();
 
@@ -98,7 +98,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_9')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_9')->unsigned();
 
@@ -106,7 +106,7 @@ class CreateFiscalMarcoConceptosTable extends Migration
             $table->foreign('vigencia_id_10')
                     ->references('id')
                     ->on('general_vigencias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->bigInteger('valor_10')->unsigned();
                

@@ -22,7 +22,7 @@ class CreateGeograficaDepartamentosTable extends Migration
             $table->foreign('region_id')
                     ->references('id')
                     ->on('geografica_regions')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
                     
             $table->string('nombre',150)->unique();
             $table->timestamps();

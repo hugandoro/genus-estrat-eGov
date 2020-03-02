@@ -22,16 +22,16 @@ class CreateEntidadOficinasTable extends Migration
             $table->foreign('entidad_id')
                     ->references('id')
                     ->on('entidads')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('tipo_oficina_id')->unsigned();
             $table->foreign('tipo_oficina_id')
                     ->references('id')
                     ->on('entidad_tipo_oficinas')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->string('nombre',150)->unique();
-            $table->string('responsable',150)->unique();
+            $table->string('responsable',150);
 
             $table->timestamps();
         });

@@ -48,7 +48,7 @@ class CreatePlanDesarrolloNivel4sTable extends Migration
             $table->foreign('oficina_id')
                     ->references('id')
                     ->on('entidad_oficinas')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->timestamps();
         });

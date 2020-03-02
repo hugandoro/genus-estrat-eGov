@@ -22,25 +22,25 @@ class CreateEntidadsTable extends Migration
             $table->foreign('orden_id')
                     ->references('id')
                     ->on('entidad_ordens')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('tipo_id')->unsigned();
             $table->foreign('tipo_id')
                     ->references('id')
                     ->on('entidad_tipos')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')
                     ->references('id')
                     ->on('entidad_categorias')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('sector_id')->unsigned();
             $table->foreign('sector_id')
                     ->references('id')
                     ->on('entidad_sectors')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->string('nombre',150)->unique();
             $table->string('direccion',150)->unique();
@@ -51,7 +51,7 @@ class CreateEntidadsTable extends Migration
             $table->foreign('municipio_id')
                     ->references('id')
                     ->on('geografica_municipios')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
                     
             $table->timestamps();
         });

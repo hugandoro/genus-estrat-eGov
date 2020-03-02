@@ -22,7 +22,7 @@ class CreatePlanDesarrolloRangoMedicionsTable extends Migration
             $table->foreign('plan_desarrollo_id')
                     ->references('id')
                     ->on('plan_desarrollos')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->text('nombre');
             $table->text('color_hexa');

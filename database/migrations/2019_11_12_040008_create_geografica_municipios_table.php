@@ -22,13 +22,13 @@ class CreateGeograficaMunicipiosTable extends Migration
             $table->foreign('departamento_id')
                     ->references('id')
                     ->on('geografica_departamentos')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
 
             $table->integer('categoria_municipal_id')->unsigned();
             $table->foreign('categoria_municipal_id')
                     ->references('id')
                     ->on('geografica_categoria_municipals')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
                     
             $table->string('nombre',150)->unique();
             $table->text('descripcion');

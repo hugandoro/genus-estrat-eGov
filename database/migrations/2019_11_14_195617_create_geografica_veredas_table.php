@@ -22,7 +22,7 @@ class CreateGeograficaVeredasTable extends Migration
             $table->foreign('corregimiento_id')
                     ->references('id')
                     ->on('geografica_corregimientos')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
                     
             $table->string('nombre',150)->unique();
             $table->timestamps();

@@ -22,7 +22,7 @@ class CreatePlanDesarrollosTable extends Migration
             $table->foreign('administracion_id')
                     ->references('id')
                     ->on('administracions')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
             
             $table->text('nombre_nivel1');
             $table->text('nombre_nivel2');

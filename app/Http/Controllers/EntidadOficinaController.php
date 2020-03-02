@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\EntidadOficina;
+use App\EntidadTipoOficina;
 use Illuminate\Support\Facades\DB;
 
 class EntidadOficinaController extends Controller
@@ -36,7 +37,9 @@ class EntidadOficinaController extends Controller
      */
     public function create()
     {
-        //
+        $entidadOficina = EntidadOficina::where('entidad_id', config('app.entidad'))->get();
+        $entidadTipoOficina = EntidadTipoOficina::all();
+        return view('entidadOficina.create', compact('entidadTipoOficina','entidadOficina'));
     }
 
     /**
@@ -47,7 +50,16 @@ class EntidadOficinaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $entidadOficina = new EntidadOficina;
+ 
+        $entidadOficina->entidad_id = $request->entidad_id;
+        $entidadOficina->tipo_oficina_id = $request->tipo_oficina_id; 
+        $entidadOficina->nombre = $request->nombre;
+        $entidadOficina->responsable = $request->responsable;
+
+        $entidadOficina->save();
+ 
+        return redirect('entidadoficina')->with('message','Guardado Satisfactoriamente !');
     }
 
     /**
@@ -69,7 +81,9 @@ class EntidadOficinaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $entidadOficina = EntidadOficina::find($id);
+        $entidadTipoOficina = EntidadTipoOficina::all();
+        return view('entidadoficina.edit',compact('entidadTipoOficina'),['entidadOficina'=>$entidadOficina]);
     }
 
     /**
@@ -81,7 +95,15 @@ class EntidadOficinaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $entidadOficina = EntidadOficina::find($id);
+ 
+        $entidadOficina->tipo_oficina_id = $request->tipo_oficina_id; 
+        $entidadOficina->nombre = $request->nombre;
+        $entidadOficina->responsable = $request->responsable;
+     
+        $entidadOficina->save();
+     
+        return redirect('entidadoficina')->with('message','Editado Satisfactoriamente !');
     }
 
     /**
@@ -92,6 +114,8 @@ class EntidadOficinaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        EntidadOficina::destroy($id);        
+ 
+        return redirect('entidadoficina')->with('message','Eliminado Satisfactoriamente !');
     }
 }

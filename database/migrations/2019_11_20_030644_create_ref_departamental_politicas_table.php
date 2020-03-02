@@ -24,7 +24,7 @@ class CreateRefDepartamentalPoliticasTable extends Migration
             $table->foreign('departamento_id')
                     ->references('id')
                     ->on('geografica_departamentos')
-                    ->onDelete('cascade');
+                    ->onDelete('restrict');
             
             $table->timestamps();
         });
