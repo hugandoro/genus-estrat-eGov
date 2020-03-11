@@ -1,2 +1,2 @@
-# GIINA-Public
- Gestion Integral e INteligente para la Administracion Publica  
+# Estrat-eGov
+ Gestion integral a planes de desarrollo
