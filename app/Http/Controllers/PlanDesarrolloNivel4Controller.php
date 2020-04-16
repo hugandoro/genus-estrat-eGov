@@ -153,4 +153,19 @@ class PlanDesarrolloNivel4Controller extends Controller
         return redirect('plandesarrollonivel3/listar/'.$planDesarrolloNivel2->nivel1_id.'/'.$planDesarrolloNivel3->nivel2_id.'/'.$planDesarrolloNivel4->nivel3_id);
     }
 
+    /**
+     * Lista la HOJA DE VIDA completa de la meta.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function hojadevida($idA,$idB,$idC,$idD)
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($idA);
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($idB);
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($idC);
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::find($idD);
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4'));
+    }
+
 }
