@@ -158,7 +158,7 @@ class PlanDesarrolloNivel4Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function hojadevida($idA,$idB,$idC,$idD)
+    public function mostrarHojaDeVida($idA,$idB,$idC,$idD)
     {
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
         $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($idA);
