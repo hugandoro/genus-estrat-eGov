@@ -9,6 +9,7 @@ use App\PlanDesarrolloNivel2;
 use App\PlanDesarrolloNivel3;
 use App\PlanDesarrolloNivel4;
 use App\EntidadOficina;
+use App\MedicionIndicador;
 use Illuminate\Support\Facades\DB;
 
 class PlanDesarrolloNivel4Controller extends Controller
@@ -165,7 +166,10 @@ class PlanDesarrolloNivel4Controller extends Controller
         $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($idB);
         $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($idC);
         $planDesarrolloNivel4 = PlanDesarrolloNivel4::find($idD);
-        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4'));
+
+        $indicador = MedicionIndicador::where('nivel4_id', $idD)->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')->get();
+
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador'));
     }
 
 }

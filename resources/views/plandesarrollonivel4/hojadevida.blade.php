@@ -81,30 +81,31 @@
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
                      <tr>
-                      <!-- Nombre del indicador --> <th>Nombre indicador</th>
-                      <!-- Unidad de medida --> <th>Unidad de medida</th>
-                      <!-- Linea base inicial --> <th>Linea base</th>
-                      <!-- Año de la linea base --> <th>Año linea base</th>
-                      <!-- Meta a terminar en 2023 --> <th>Meta a 2023</th>
-                      <!-- Meta a realizar en los 4 años --> <th>Meta cuatrenio</th>
-                      <!-- Medicion (Numero - Porcentaje) --> <th>Medida</th>
-                      <!-- Tipo de medicion (Reduccion - Incremente - etc) --> <th>Tipo</th>
-                      <!-- Opciones del indicador --> <th>Opciones</th>
+                      <th>Nombre indicador</th><!-- Nombre del indicador --> 
+                      <th>Unidad de medida</th><!-- Unidad de medida --> 
+                      <th>Linea base</th><!-- Linea base inicial --> 
+                      <th>Año linea base</th><!-- Año de la linea base --> 
+                      <th>Meta a 2023</th><!-- Meta a terminar en 2023 --> 
+                      <th>Meta cuatrenio</th><!-- Meta a realizar en los 4 años --> 
+                      <th>Medida</th><!-- Medicion (Numero - Porcentaje) --> 
+                      <th>Tipo</th><!-- Tipo de medicion (Reduccion - Incremente - etc) --> 
+                      <th>Opciones</th><!-- Opciones del indicador --> 
                      </tr>
 
-                     <tr>
-                      <td style="width:16%">xxxx</td>
-                      <td style="width:10%">Kilometros</td>
-                      <td style="width:10%">100</td>
-                      <td style="width:10%">2019</td>
-                      <td style="width:10%">200</td>
-                      <td style="width:10%">100</td>
-                      <td style="width:12%">Numerico</td>
-                      <td style="width:12%">Incremento</td>
-                      <td style="width:10%">
-                        <a href="" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
-                      </td>
-                     </tr>
+                     @foreach($indicador as $indicador) 
+                      <tr>
+                       <td style="width:16%">{{$indicador->nombre}}</td>
+                       <td style="width:10%">{{$indicador->unidadMedida->nombre}}</td>
+                       <td style="width:10%">{{$indicador->linea_base}}</td>
+                       <td style="width:10%">{{$indicador->vigenciaBase->nombre}}</td>
+                       <td style="width:10%">{{$indicador->meta}}</td>
+                       <td style="width:10%">{{$indicador->objetivo}}</td>
+                       <td style="width:12%">{{$indicador->Medida->nombre}}</td>
+                       <td style="width:12%">{{$indicador->Tipo->nombre}}</td>
+                       <td style="width:10%"><a href="" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a></td>
+                      </tr>
+                     @endforeach 
+
                     </tbody>
                   </table>
 
@@ -119,13 +120,14 @@
                       <th>Opciones<div class="pull-right"><a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>  Vincular</a><div></th>
                      </tr>
 
+                     <!-- 
                      <tr>
                       <td style="width:16%">ODS N° 1</td>
                       <td style="width:50%">Texto descriptivo del ODS</td>
-                      <td style="width:34%">
-                        <a href="" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</a>
-                      </td>
+                      <td style="width:34%"><a href="" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</a></td>
                      </tr>
+                     -->
+
                     </tbody>
                   </table>
 
@@ -141,14 +143,15 @@
                       <th>Opciones<div class="pull-right"><a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>  Vincular</a><div></th>
                      </tr>
 
+                     <!-- 
                      <tr>
                       <td style="width:16%">1.1</td>
                       <td style="width:20%">PACTO POR LA LEGALIDAD</td>
                       <td style="width:30%">Texto que lo describe</td>
-                      <td style="width:34%">
-                        <a href="" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</a>
-                      </td>
+                      <td style="width:34%"><a href="" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</a></td>
                      </tr>
+                     -->
+
                     </tbody>
                   </table>
 

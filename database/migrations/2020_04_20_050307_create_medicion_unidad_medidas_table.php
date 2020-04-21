@@ -14,7 +14,10 @@ class CreateMedicionUnidadMedidasTable extends Migration
     public function up()
     {
         Schema::create('medicion_unidad_medidas', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
+            $table->string('nombre',150)->unique();
             $table->timestamps();
         });
     }

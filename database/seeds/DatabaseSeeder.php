@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(medicion_tipos_seeder::class);
         $this->call(medicion_medidas_seeder::class);
+        $this->call(medicion_unidad_medidas_seeder::class);
 
         $this->call(contable_categoria_conceptos_seeder::class);
         $this->call(contable_conceptos_seeder::class);
@@ -62,5 +63,7 @@ class DatabaseSeeder extends Seeder
         $this->call(plan_desarrollo_nivel3s_seeder::class);
         $this->call(plan_desarrollo_nivel4s_seeder::class);
         $this->call(plan_desarrollo_rango_medicions_seeder::class);
+
+        $this->call(medicion_indicadors_seeder::class);
     }
 }
