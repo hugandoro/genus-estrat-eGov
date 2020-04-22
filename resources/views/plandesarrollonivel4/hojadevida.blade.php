@@ -86,7 +86,7 @@
                       <th>Linea base</th><!-- Linea base inicial --> 
                       <th>Año linea base</th><!-- Año de la linea base --> 
                       <th>Meta a 2023</th><!-- Meta a terminar en 2023 --> 
-                      <th>Meta cuatrenio</th><!-- Meta a realizar en los 4 años --> 
+                      <th>Meta cuatrienio</th><!-- Meta a realizar en los 4 años --> 
                       <th>Medida</th><!-- Medicion (Numero - Porcentaje) --> 
                       <th>Tipo</th><!-- Tipo de medicion (Reduccion - Incremente - etc) --> 
                       <th>Opciones</th><!-- Opciones del indicador --> 
@@ -102,7 +102,7 @@
                        <td style="width:10%">{{$indicador->objetivo}}</td>
                        <td style="width:12%">{{$indicador->Medida->nombre}}</td>
                        <td style="width:12%">{{$indicador->Tipo->nombre}}</td>
-                       <td style="width:10%"><a href="" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a></td>
+                       <td style="width:10%"><a href="{{ route('indicador.edit',$indicador->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a></td>
                       </tr>
                      @endforeach 
 
