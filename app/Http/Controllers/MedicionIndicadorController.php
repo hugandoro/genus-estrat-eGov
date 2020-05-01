@@ -83,18 +83,14 @@ class MedicionIndicadorController extends Controller
         $medicionMedida = MedicionMedida::all();
         $medicionTipo = MedicionTipo::all();
 
-        //ARBOL INVERSO PARA OBTENER LOS 4 ID DE LOS NIVELES Y PODER UTILIZARLOS PARA ARMAR POSTERIOR RUTA DE REGRESO
-        //Realiza busqueda inversa para armar el arbol de niveles para las rutas
+        //* ARBOL INVERSO PARA OBTENER LOS 4 ID DE LOS NIVELES Y PODER UTILIZARLOS PARA ARMAR POSTERIOR RUTA DE REGRESO
+        //* Realiza busqueda inversa para armar el arbol de niveles para las rutas
         $planDesarrolloNivel4 = PlanDesarrolloNivel4::where('id', $medicionIndicador->nivel4_id)->get();
-        //Toma el primer registro para no enviar un array de resultados SOLO un resultado para tomar el Id del nivel 3
+        //* Toma el primer registro para no enviar un array de resultados SOLO un resultado para tomar el Id del nivel 3
         $planDesarrolloNivel4 = $planDesarrolloNivel4[0];
-        //Realiza busqueda inversa para armar el arbol de niveles para las rutas
         $planDesarrolloNivel3 = PlanDesarrolloNivel3::where('id', $planDesarrolloNivel4->nivel3_id)->get();
-        //Toma el primer registro para no enviar un array de resultados SOLO un resultado para tomar el Id del nivel 2
         $planDesarrolloNivel3 = $planDesarrolloNivel3[0];
-        //Realiza busqueda inversa para armar el arbol de niveles para las rutas
         $planDesarrolloNivel2 = PlanDesarrolloNivel2::where('id', $planDesarrolloNivel3->nivel2_id)->get();
-        //Toma el primer registro para no enviar un array de resultados SOLO un resultado para tomar el Id del nivel 1
         $planDesarrolloNivel2 = $planDesarrolloNivel2[0];
 
         //Llamada a EDICION enviando entre otros parametros los 4 ID de los niveles del arbol del plan para armar ruta de regreso posterior
@@ -123,7 +119,6 @@ class MedicionIndicadorController extends Controller
      
         $medicionIndicador->save();
      
-        //return redirect('indicador')->with('message','Editado Satisfactoriamente !');
         return redirect('plandesarrollonivel4/hojadevida/'.$request->nivel1_id.'/'.$request->nivel2_id.'/'.$request->nivel3_id.'/'.$request->nivel4_id);
 
     }
@@ -136,6 +131,32 @@ class MedicionIndicadorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        MedicionIndicador::destroy($id);  
+        //* No redirecciona, este metodo es invocado al eliminarce un registro Nivel 4
     }
+
+    /**
+     * Crear un indicador por defecto
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function crearIndicadorInicial($id)
+    {
+        $medicionIndicador = new MedicionIndicador;
+    
+        $medicionIndicador->nombre = 'Indicador por defecto'; 
+        $medicionIndicador->unidad_medida_id = 1;
+        $medicionIndicador->linea_base = 0;
+        $medicionIndicador->vigencia_id_base = 4; 
+        $medicionIndicador->meta = 4;
+        $medicionIndicador->objetivo = 4;
+        $medicionIndicador->medida_id = 1;
+        $medicionIndicador->tipo_id = 1;
+        $medicionIndicador->nivel4_id = $id;
+
+        $medicionIndicador->save();
+        //* No redirecciona, el metodo crea un indicador por defecto y es invocado al grabar un nuevo registro de nivel 4
+    }
+
+
 }

@@ -11,6 +11,7 @@ use App\PlanDesarrolloNivel4;
 use App\EntidadOficina;
 use App\MedicionIndicador;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\MedicionIndicadorController;
 
 class PlanDesarrolloNivel4Controller extends Controller
 {
@@ -69,6 +70,12 @@ class PlanDesarrolloNivel4Controller extends Controller
         $planDesarrolloNivel4->oficina_id = $request->oficina_id; 
  
         $planDesarrolloNivel4->save();
+
+        //Obtener el ID del nuevo registro agregado
+        $nivel4_id = $planDesarrolloNivel4->id;
+
+        //* Llama un metodo de otro controlador directamente - En este caso de 'MedicionIndicadorController' para agregar el indicador por defecto  
+        app('App\Http\Controllers\MedicionIndicadorController')->crearIndicadorInicial($nivel4_id);
 
         return redirect('plandesarrollonivel3/listar/'.$request->nivel1_id.'/'.$request->nivel2_id.'/'.$request->nivel3_id);
     }
@@ -144,12 +151,14 @@ class PlanDesarrolloNivel4Controller extends Controller
         $planDesarrolloNivel3 = PlanDesarrolloNivel3::where('id', $planDesarrolloNivel4->nivel3_id)->get();
         //Toma el primer registro para no enviar un array de resultados SOLO un resultado para tomar el Id del nivel 2
         $planDesarrolloNivel3 = $planDesarrolloNivel3[0];
-        //Realiza busqueda inversa para armar el arbol de niveles para las rutas
         $planDesarrolloNivel2 = PlanDesarrolloNivel2::where('id', $planDesarrolloNivel3->nivel2_id)->get();
-        //Toma el primer registro para no enviar un array de resultados SOLO un resultado para tomar el Id del nivel 1
         $planDesarrolloNivel2 = $planDesarrolloNivel2[0];
         
-        PlanDesarrolloNivel4::destroy($id);        
+        //* Eliminar el controlador vinculado ANTES de eliminar el registro  
+        app('App\Http\Controllers\MedicionIndicadorController')->destroy($id);
+
+        PlanDesarrolloNivel4::destroy($id);   
+   
  
         return redirect('plandesarrollonivel3/listar/'.$planDesarrolloNivel2->nivel1_id.'/'.$planDesarrolloNivel3->nivel2_id.'/'.$planDesarrolloNivel4->nivel3_id);
     }
