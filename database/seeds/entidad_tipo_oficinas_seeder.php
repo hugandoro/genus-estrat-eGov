@@ -36,5 +36,9 @@ class entidad_tipo_oficinas_seeder extends Seeder
         EntidadTipoOficina::create([
             'nombre'    => 'Area',
         ]);
+
+        EntidadTipoOficina::create([
+            'nombre'    => 'Entidad Descentralizada',
+        ]);
     }
 }
