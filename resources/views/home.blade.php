@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    <center><picture><img class='img-responsive' src="{{ asset('images/portada_menu.png') }}"></picture></center>
+                    <!--<center><picture><img class='img-responsive' src="{{ asset('images/portada_menu.png') }}"></picture></center>-->
+                    <div id="particles-js"></div>
                 </div>
             </div>
         </div>

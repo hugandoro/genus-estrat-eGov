@@ -11,7 +11,12 @@
     <title>{{ config('app.name', 'Estrat-eGov') }}</title>
 
     <!-- Styles -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fondoAnimado.css') }}" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="{{ asset('js/fondoAnimado.js') }}"></script>
 
     <!-- Confirma ANTES DE ELIMINAR un registro -->
     <script type="text/javascript">
