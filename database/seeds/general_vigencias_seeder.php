@@ -14,6 +14,34 @@ class general_vigencias_seeder extends Seeder
     public function run()
     {
         GeneralVigencia::create([
+            'nombre'    => 'No Disponible',
+        ]);
+
+        GeneralVigencia::create([
+            'nombre'    => '2010',
+        ]);
+
+        GeneralVigencia::create([
+            'nombre'    => '2011',
+        ]);
+
+        GeneralVigencia::create([
+            'nombre'    => '2012',
+        ]);
+
+        GeneralVigencia::create([
+            'nombre'    => '2013',
+        ]);
+
+        GeneralVigencia::create([
+            'nombre'    => '2014',
+        ]);
+
+        GeneralVigencia::create([
+            'nombre'    => '2015',
+        ]);
+
+        GeneralVigencia::create([
             'nombre'    => '2016',
         ]);
 

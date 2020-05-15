@@ -20,5 +20,9 @@ class medicion_medidas_seeder extends Seeder
         MedicionMedida::create([
             'nombre'    => 'Porcentaje',
         ]);
+
+        MedicionMedida::create([
+            'nombre'    => 'Puntos',
+        ]);
     }
 }

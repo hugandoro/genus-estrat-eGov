@@ -14,6 +14,10 @@ class medicion_unidad_medidas_seeder extends Seeder
     public function run()
     {
         MedicionUnidadMedida::create([
+            'nombre'    => 'No definida',
+        ]);
+
+        MedicionUnidadMedida::create([
             'nombre'    => 'Kilometros',
         ]);
 

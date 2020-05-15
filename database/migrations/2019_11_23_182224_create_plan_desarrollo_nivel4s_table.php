@@ -28,22 +28,6 @@ class CreatePlanDesarrolloNivel4sTable extends Migration
             $table->text('nombre');
             $table->text('objetivo');
 
-            //$table->integer('linea_base')->unsigned();
-            //$table->integer('objetivo')->unsigned();
-            //$table->text('unidad_medida');
-
-            //$table->integer('tipo_id')->unsigned();
-            //$table->foreign('tipo_id')
-            //        ->references('id')
-            //        ->on('medicion_tipos')
-            //        ->onDelete('cascade');
-
-            //$table->integer('medida_id')->unsigned();
-            //$table->foreign('medida_id')
-            //        ->references('id')
-            //        ->on('medicion_medidas')
-            //        ->onDelete('cascade');
-
             $table->integer('oficina_id')->unsigned();
             $table->foreign('oficina_id')
                     ->references('id')

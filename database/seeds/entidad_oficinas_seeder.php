@@ -30,7 +30,7 @@ class entidad_oficinas_seeder extends Seeder
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '1',
-            'nombre'            => 'Prensa',
+            'nombre'            => 'Prensa y Comunicaciones',
             'responsable'       => 'Sin titular'
         ]);
 
@@ -51,7 +51,7 @@ class entidad_oficinas_seeder extends Seeder
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '3',
-            'nombre'            => 'Gobierno',
+            'nombre'            => 'Gobierno Municipal',
             'responsable'       => 'Sin titular'
         ]);
 
@@ -72,63 +72,63 @@ class entidad_oficinas_seeder extends Seeder
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '3',
-            'nombre'            => 'Hacienda',
+            'nombre'            => 'Hacienda y Finanzas',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '3',
-            'nombre'            => 'Transito',
+            'nombre'            => 'Transito y Movilidad',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '3',
-            'nombre'            => 'Obras Publicas',
+            'nombre'            => 'Obras e Infraestructura',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '3',
-            'nombre'            => 'Social',
+            'nombre'            => 'Desarrollo Social y Politico',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '3',
-            'nombre'            => 'Salud',
+            'nombre'            => 'Salud y Seguridad Social',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '3',
-            'nombre'            => 'Planeacion',
+            'nombre'            => 'Planeacion Municipal',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '3',
-            'nombre'            => 'Economico y Competitividad',
+            'nombre'            => 'Desarrollo Economico y Competitividad',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '4',
-            'nombre'            => 'TIC',
+            'nombre'            => 'Tecnologias de la informacion TIC',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '4',
-            'nombre'            => 'Diger',
+            'nombre'            => 'Gestion del Riesgo',
             'responsable'       => 'Sin titular'
         ]);
 
@@ -142,14 +142,21 @@ class entidad_oficinas_seeder extends Seeder
         EntidadOficina::create([
             'entidad_id'        => '1',
             'tipo_oficina_id'   => '7',
-            'nombre'            => 'IDM',
+            'nombre'            => 'Instituto de Desarrollo Municipal',
             'responsable'       => 'Sin titular'
         ]);
 
         EntidadOficina::create([
             'entidad_id'        => '1',
-            'tipo_oficina_id'   => '4',
+            'tipo_oficina_id'   => '7',
             'nombre'            => 'Serviciudad',
+            'responsable'       => 'Sin titular'
+        ]);
+
+        EntidadOficina::create([
+            'entidad_id'        => '1',
+            'tipo_oficina_id'   => '3',
+            'nombre'            => 'Desarollo Agropecuario y Gestion Ambiental',
             'responsable'       => 'Sin titular'
         ]);
     }

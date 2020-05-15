@@ -30,11 +30,11 @@ class entidad_categorias_seeder extends Seeder
         ]);
 
         EntidadCategoria::create([
-            'nombre'    => 'Ciudadania Inteligente',
+            'nombre'    => 'Ciudadania',
         ]);
 
         EntidadCategoria::create([
-            'nombre'    => 'Gobierno Inteligente',
+            'nombre'    => 'Gobierno',
         ]);
     }
 }

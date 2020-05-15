@@ -24,7 +24,7 @@ class CreatePlanDesarrolloNivel3sTable extends Migration
                     ->on('plan_desarrollo_nivel2s')
                     ->onDelete('restrict');
 
-            $table->integer('numeral')->unique();
+            $table->integer('numeral');
             $table->text('nombre');
             $table->text('objetivo');
 

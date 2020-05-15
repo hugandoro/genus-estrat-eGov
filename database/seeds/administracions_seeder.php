@@ -14,10 +14,10 @@ class administracions_seeder extends Seeder
     public function run()
     {
         Administracion::create([
-            'nombre_representante'  => 'Diego Ramos',
-            'vigencia_id_inicial'   => '5',
-            'vigencia_id_final'     => '9',
-            'slogan'                => 'Dosquebradas Empresa de Todos',
+            'nombre_representante'  => 'Jorge Diego Ramos Castaño',
+            'vigencia_id_inicial'   => '12',
+            'vigencia_id_final'     => '15',
+            'slogan'                => 'Dosquebradas Empresa de Todos | Planeada, ordenada y dinamica',
             'logo'                  => 'logo_miniatura_administracion.png',
         ]);
     }
