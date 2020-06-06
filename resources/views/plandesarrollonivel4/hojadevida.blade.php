@@ -13,7 +13,7 @@
               @if($planDesarrollo->count())  
               @foreach($planDesarrollo as $plandesarrollo) 
               <tr>
-                <th class="bg-info"><h2>{{$plandesarrollo->administracion->slogan}}</h2></th>
+                <th class="bg-info"><h3>{{$plandesarrollo->administracion->slogan}}</h3></th>
               </tr>
 
               <tr>
@@ -75,21 +75,21 @@
                     </tbody>
                   </table>
 
-                  <hr><hr>
-                  <b>Indicador de producto</b><br><br>
+                  <hr>
+                  <div class="bg-success">Indicador de producto</div><br>
                   <!-- Datos del indicador -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
                      <tr>
-                      <th>Nombre indicador</th><!-- Nombre del indicador --> 
-                      <th>Unidad de medida</th><!-- Unidad de medida --> 
-                      <th>Linea base</th><!-- Linea base inicial --> 
-                      <th>Año linea base</th><!-- Año de la linea base --> 
-                      <th>Meta a 2023</th><!-- Meta a terminar en 2023 --> 
-                      <th>Meta cuatrienio</th><!-- Meta a realizar en los 4 años --> 
+                      <th>Nombre</th><!-- Nombre del indicador --> 
+                      <th>Unidad</th><!-- Unidad de medida --> 
+                      <th>Base</th><!-- Linea base inicial --> 
+                      <th>Año</th><!-- Año de la linea base --> 
+                      <th>2023</th><!-- Meta a terminar en 2023 --> 
+                      <th>Cuatrienio</th><!-- Meta a realizar en los 4 años --> 
                       <th>Medida</th><!-- Medicion (Numero - Porcentaje) --> 
                       <th>Tipo</th><!-- Tipo de medicion (Reduccion - Incremente - etc) --> 
-                      <th>Opciones</th><!-- Opciones del indicador --> 
+                      <th></th><!-- Opciones del indicador --> 
                      </tr>
 
                      @foreach($indicador as $indicador) 
@@ -109,30 +109,71 @@
                     </tbody>
                   </table>
 
-                  <hr><hr>
-                  <b>Convergencia - Objetivos de desarrollo sostenible</b><br><br>
-                  <!-- Vinculo a ODS -->
+                  <hr>
+                  <div class="bg-success">Convergencia - Objetivos de desarrollo sostenible</div><br>
+                  <!-- VINCULAR LOS ODS QUE CONVERGEN -->
+                  <!-- Seccion para vincular -->
+                  <div class="pull-right">
+                    <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                      <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                      <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                      <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                      <input type="hidden" name="funcion" value="vincular">
+                      <table>
+                        <tr>
+                          <td>
+                            <div class="form-group">
+                              <select class="form-control" name="ods_id">
+                                @foreach($refOdsObjetivo as $ods) 
+                                  <option value={{ $ods->id }}>{{ $ods->nombre }}</option>
+                                @endforeach
+                              </select> 
+                            </div>
+                          </td>
+                          <td valign="top">
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                          <td>
+                        </tr>
+                      </table>
+                    </form>
+                  </div>
+
+                   <!-- Seccion para montrar los ODS ya vinculados -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
                      <tr>
                       <th>ODS</th>
                       <th>Objetivo</th>
-                      <th>Opciones<div class="pull-right"><a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>  Vincular</a><div></th>
+                      <th></th>
                      </tr>
 
-                     <!-- 
-                     <tr>
-                      <td style="width:16%">ODS N° 1</td>
-                      <td style="width:50%">Texto descriptivo del ODS</td>
-                      <td style="width:34%"><a href="" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</a></td>
-                     </tr>
-                     -->
+                     @foreach($odsNivel4 as $odsNivel4) 
+                      <tr>
+                        <td style="width:16%">
+                          <img src="{{ asset('images/'. $odsNivel4->odsInformacion->logo) }}" style='width:50px;height:50px;'></td>
+                        <td style="width:70%">{{ $odsNivel4->odsInformacion->nombre }}</td>
+                        <td style="width:14%">
+                          <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                            <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                            <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                            <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                            <input type="hidden" name="funcion" value="desvincular">
+                            <input type="hidden" name="ods_id" value="{{ $odsNivel4->ods_id }}">
+                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
+                          </form>
+                        </td>
+                      </tr>
+                     @endforeach
 
                     </tbody>
                   </table>
 
-                  <hr><hr>
-                  <b>Convergencia - Plan de desarrollo nacional</b><br><br>
+                  <hr>
+                  <div class="bg-success">Convergencia - Plan de Desarrollo Nacional</div><br>
                   <!-- Vinculo a Plan Desarrollo Nacional -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
@@ -140,7 +181,32 @@
                       <th>Codigo</th>
                       <th>Nombre</th>
                       <th>Descripcion</th>
-                      <th>Opciones<div class="pull-right"><a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>  Vincular</a><div></th>
+                      <th>Opciones
+                        <div class="pull-right">
+                          <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                            <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                            <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                            <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                            <table>
+                              <tr>
+                                <td>
+                                  <div class="form-group">
+                                    <select class="form-control" name="pacto_id">
+                                      <option value="pacto1">Pacto 1</option>
+                                      <option value="pacto2">Pacto 2</option>
+                                    </select> 
+                                  </div>
+                                </td>
+                                <td valign="top">
+                                  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                                <td>
+                              </tr>
+                            </table>
+                          </form>
+                        </div>
+                      </th>
                      </tr>
 
                      <!-- 

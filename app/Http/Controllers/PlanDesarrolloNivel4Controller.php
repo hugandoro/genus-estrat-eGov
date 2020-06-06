@@ -10,6 +10,8 @@ use App\PlanDesarrolloNivel3;
 use App\PlanDesarrolloNivel4;
 use App\EntidadOficina;
 use App\MedicionIndicador;
+use App\RefOdsObjetivo;
+use App\OdsNivel4;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MedicionIndicadorController;
 
@@ -133,6 +135,11 @@ class PlanDesarrolloNivel4Controller extends Controller
         $planDesarrolloNivel4->oficina_id = $request->oficina_id; 
      
         $planDesarrolloNivel4->save();
+
+        //Elimina los registros de relacion MUCHOS a MUCHOS
+        //$planDesarrolloNivel4->ods()->detach ('1'); 
+        //Vincula una relacion MUCHOS a MUCHOS
+        //$planDesarrolloNivel4->ods()->attach ('1');
      
         return redirect('plandesarrollonivel3/listar/'.$request->nivel1_id.'/'.$request->nivel2_id.'/'.$request->nivel3_id);
     }
@@ -178,7 +185,39 @@ class PlanDesarrolloNivel4Controller extends Controller
 
         $indicador = MedicionIndicador::where('nivel4_id', $idD)->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')->get();
 
-        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador'));
+        $refOdsObjetivo = RefOdsObjetivo::all();
+        $odsNivel4 = OdsNivel4::where('nivel4_id', $idD)->with('odsInformacion')->get();
+
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4'));
+    }
+
+    /**
+     * Vincula ODS al NIVEL 4
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function vincularODS(Request $request)
+    {
+        //Recibe ID de cada nivel desde el formulario incluyendo el ID del indicador
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($request->nivel1_id);
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($request->nivel2_id);
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($request->nivel3_id);
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::find($request->nivel4_id);
+
+        $indicador = MedicionIndicador::where('nivel4_id', $request->nivel4_id)->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')->get();
+
+        //Elimina TODOS los registros de relacion MUCHOS a MUCHOS
+        $planDesarrolloNivel4->ods()->detach ($request->ods_id); 
+        //Si la funcion es vincular, ingresa un registro en la relacion MUCHOS a MUCHOS
+        if ($request->funcion == 'vincular') $planDesarrolloNivel4->ods()->attach ($request->ods_id);
+
+        //Obtiene datos para mostrar - Convergencia ODS
+        $refOdsObjetivo = RefOdsObjetivo::all();
+        $odsNivel4 = OdsNivel4::where('nivel4_id', $request->nivel4_id)->with('odsInformacion')->get();
+
+        //Vuelve y cargar la vista de HOJA DE VIDA una vez vinculado a la tabla pivote la relacion con el ODS
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4'));
     }
 
 }

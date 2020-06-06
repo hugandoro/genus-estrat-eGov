@@ -37,6 +37,10 @@ Route::get('plandesarrollonivel3/listar/{idA}/{idB}/{idC}', 'PlanDesarrolloNivel
 Route::resource('/plandesarrollonivel4', 'PlanDesarrolloNivel4Controller');
 Route::get('plandesarrollonivel4/hojadevida/{idA}/{idB}/{idC}/{idD}', 'PlanDesarrolloNivel4Controller@mostrarHojaDeVida');
 
+//Ruta para validar manualmente un formulario sea por GET o POST
+// ->name se utiliza para definir el nombre con el que la ruta sera llamada desde una vista
+Route::match(array('GET', 'POST'), 'vincularods', 'PlanDesarrolloNivel4Controller@vincularODS')->name('vincularods');
+
 Route::resource('/ods', 'RefOdsObjetivoController');
 
 Route::resource('/pndesarrollo', 'RefNacionalPlanController');

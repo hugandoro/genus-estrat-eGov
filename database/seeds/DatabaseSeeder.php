@@ -58,12 +58,16 @@ class DatabaseSeeder extends Seeder
         $this->call(administracions_seeder::class);
 
         $this->call(plan_desarrollos_seeder::class);
-        //$this->call(plan_desarrollo_nivel1s_seeder::class);
-        //$this->call(plan_desarrollo_nivel2s_seeder::class);
-        //$this->call(plan_desarrollo_nivel3s_seeder::class);
-        //$this->call(plan_desarrollo_nivel4s_seeder::class);
+
+        // Comentar para cargar los CSV
+        $this->call(plan_desarrollo_nivel1s_seeder::class); 
+        $this->call(plan_desarrollo_nivel2s_seeder::class);
+        $this->call(plan_desarrollo_nivel3s_seeder::class);
+        $this->call(plan_desarrollo_nivel4s_seeder::class);
+
         $this->call(plan_desarrollo_rango_medicions_seeder::class);
 
-        //$this->call(medicion_indicadors_seeder::class);
+        //Comentar para cargar el CSV
+        $this->call(medicion_indicadors_seeder::class);
     }
 }
