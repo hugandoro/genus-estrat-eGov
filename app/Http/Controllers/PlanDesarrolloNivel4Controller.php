@@ -14,6 +14,8 @@ use App\RefOdsObjetivo;
 use App\OdsNivel4;
 use App\RefNacionalPlan;
 use App\NacionalplanNivel4;
+use App\RefMunicipalPolitica;
+use App\MunicipalpoliticaNivel4;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MedicionIndicadorController;
 
@@ -137,11 +139,6 @@ class PlanDesarrolloNivel4Controller extends Controller
         $planDesarrolloNivel4->oficina_id = $request->oficina_id; 
      
         $planDesarrolloNivel4->save();
-
-        //Elimina los registros de relacion MUCHOS a MUCHOS
-        //$planDesarrolloNivel4->ods()->detach ('1'); 
-        //Vincula una relacion MUCHOS a MUCHOS
-        //$planDesarrolloNivel4->ods()->attach ('1');
      
         return redirect('plandesarrollonivel3/listar/'.$request->nivel1_id.'/'.$request->nivel2_id.'/'.$request->nivel3_id);
     }
@@ -197,9 +194,12 @@ class PlanDesarrolloNivel4Controller extends Controller
         //Listar todos los PLAN NACIONAL - Convergencia PLAN NACIONAL
         $refNacionalPlan = RefNacionalPlan::all();
         $nacionalplanNivel4 = NacionalplanNivel4::where('nivel4_id', $idD)->with('nacionalplanInformacion')->get();
+        //Listar todas las POLITICAS PUBLICAS MUNICIPALES - Convergencia POLITICA MUNICIPAL
+        $refMunicipalPolitica = RefMunicipalPolitica::all();
+        $municipalpoliticaNivel4 = MunicipalpoliticaNivel4::where('nivel4_id', $idD)->with('municipalpoliticaInformacion')->get();
 
 
-        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4'));
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4','refMunicipalPolitica','municipalpoliticaNivel4'));
     }
 
     /**
@@ -232,10 +232,13 @@ class PlanDesarrolloNivel4Controller extends Controller
         //Listar todos los PLAN NACIONAL - Convergencia PLAN NACIONAL
         $refNacionalPlan = RefNacionalPlan::all();
         $nacionalplanNivel4 = NacionalplanNivel4::where('nivel4_id', $request->nivel4_id)->with('nacionalplanInformacion')->get();
+        //Listar todas las POLITICAS PUBLICAS MUNICIPALES - Convergencia POLITICA MUNICIPAL
+        $refMunicipalPolitica = RefMunicipalPolitica::all();
+        $municipalpoliticaNivel4 = MunicipalpoliticaNivel4::where('nivel4_id', $request->nivel4_id)->with('municipalpoliticaInformacion')->get();
 
 
         //Vuelve y cargar la vista de HOJA DE VIDA una vez vinculado a la tabla pivote la relacion con el ODS
-        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4'));
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4','refMunicipalPolitica','municipalpoliticaNivel4'));
     }
 
     /**
@@ -268,10 +271,52 @@ class PlanDesarrolloNivel4Controller extends Controller
         //Listar todos los PLAN NACIONAL - Convergencia PLAN NACIONAL
         $refNacionalPlan = RefNacionalPlan::all();
         $nacionalplanNivel4 = NacionalplanNivel4::where('nivel4_id', $request->nivel4_id)->with('nacionalplanInformacion')->get();
+        //Listar todas las POLITICAS PUBLICAS MUNICIPALES - Convergencia POLITICA MUNICIPAL
+        $refMunicipalPolitica = RefMunicipalPolitica::all();
+        $municipalpoliticaNivel4 = MunicipalpoliticaNivel4::where('nivel4_id', $request->nivel4_id)->with('municipalpoliticaInformacion')->get();
 
 
         //Vuelve y cargar la vista de HOJA DE VIDA una vez vinculado a la tabla pivote la relacion con el ODS
-        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4'));
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4','refMunicipalPolitica','municipalpoliticaNivel4'));
+    }
+
+    /**
+     * Vincula POLITICA MUNICIPAL al NIVEL 4
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function vincularMunicipalPolitica(Request $request)
+    {
+        //Envia toda la estructura del PLAN relacionada con el registro nivel 4 ( Meta, actividad, etc )
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($request->nivel1_id);
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($request->nivel2_id);
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($request->nivel3_id);
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::find($request->nivel4_id);
+
+        //Envia los datos de los indicadores relacionados
+        $indicador = MedicionIndicador::where('nivel4_id', $request->nivel4_id)->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')->get();
+
+        //POLITICA MUNICIPAL - Elimina TODOS los registros de relacion MUCHOS a MUCHOS
+        $planDesarrolloNivel4->municipalpolitica()->detach ($request->municipalpolitica_id); 
+        //Si la funcion es vincular, ingresa un registro en la relacion MUCHOS a MUCHOS
+        if ($request->funcion == 'vincular') $planDesarrolloNivel4->municipalpolitica()->attach ($request->municipalpolitica_id);
+
+
+        //LISTAR TODOS LOS DATOS - CONVERGENCIA PARA MOSTRAR
+        // Listar todos los ODS - Convergencia ODS
+        $refOdsObjetivo = RefOdsObjetivo::all();
+        $odsNivel4 = OdsNivel4::where('nivel4_id', $request->nivel4_id)->with('odsInformacion')->get();
+        //Listar todos los PLAN NACIONAL - Convergencia PLAN NACIONAL
+        $refNacionalPlan = RefNacionalPlan::all();
+        $nacionalplanNivel4 = NacionalplanNivel4::where('nivel4_id', $request->nivel4_id)->with('nacionalplanInformacion')->get();
+        //Listar todas las POLITICAS PUBLICAS MUNICIPALES - Convergencia POLITICA MUNICIPAL
+        $refMunicipalPolitica = RefMunicipalPolitica::all();
+        $municipalpoliticaNivel4 = MunicipalpoliticaNivel4::where('nivel4_id', $request->nivel4_id)->with('municipalpoliticaInformacion')->get();
+
+
+        //Vuelve y cargar la vista de HOJA DE VIDA una vez vinculado a la tabla pivote la relacion con el ODS
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4','refMunicipalPolitica','municipalpoliticaNivel4'));
     }
 
 }

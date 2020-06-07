@@ -27,5 +27,10 @@ class PlanDesarrolloNivel4 extends Model
         return $this->belongsToMany('App\RefNacionalPlan', 'nacionalplan_nivel4s', 'nivel4_id', 'nacionalplan_id');
     }
 
+    //Relacion muchos a muchos para TABLA PIVOTE POLITICA PUBLICA MUNICIPAL
+    public function municipalpolitica()
+    {
+        return $this->belongsToMany('App\RefMunicipalPolitica', 'municipalpolitica_nivel4s', 'nivel4_id', 'municipalpolitica_id');
+    }
 
 }

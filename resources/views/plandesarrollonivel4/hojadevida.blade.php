@@ -140,7 +140,7 @@
                     </form>
                   </div>
 
-                   <!-- Seccion para montrar los ODS ya vinculados -->
+                   <!-- Seccion para mostrar los ODS ya vinculados -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
                      <tr>
@@ -202,7 +202,7 @@
                     </form>
                   </div>
 
-                   <!-- Seccion para montrar los ODS ya vinculados -->
+                   <!-- Seccion para mostrar componentes del PLAN NACIONAL DE DESARROLLO ya vinculados -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
                      <tr>
@@ -226,6 +226,69 @@
                             <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
                             <input type="hidden" name="funcion" value="desvincular">
                             <input type="hidden" name="nacionalplan_id" value="{{ $planNivel4->nacionalplan_id }}">
+                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
+                          </form>
+                        </td>
+                      </tr>
+                     @endforeach
+
+                    </tbody>
+                  </table>
+
+                  <hr>
+                  <div class="bg-success">Convergencia - Politicas Publicas Municipales</div><br>
+                  <!-- VINCULAR POLITICAS PUBLICA MUNICIPALES -->
+                  <div class="pull-right">
+                    <form method="POST" action="{{ route('vincularmunicipalpolitica') }}" role="form" enctype="multipart/form-data">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                      <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                      <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                      <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                      <input type="hidden" name="funcion" value="vincular">
+                      <table>
+                        <tr>
+                          <td>
+                            <div class="form-group">
+                              <select class="form-control" name="municipalpolitica_id">
+                                @foreach($refMunicipalPolitica as $politica) 
+                                  <option value={{ $politica->id }}>{{ $politica->nombre }}</option>
+                                @endforeach
+                              </select> 
+                            </div>
+                          </td>
+                          <td valign="top">
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                          <td>
+                        </tr>
+                      </table>
+                    </form>
+                  </div>
+
+                   <!-- Seccion para mostrar las POLITICAS PUBLICAS MUNICIPALES ya vinculadas -->
+                  <table id="mytable" class="table table-bordred table-striped">
+                    <tbody>
+                     <tr>
+                      <th>Codigo</th>
+                      <th>Nombre</th>
+                      <th>Descripcion</th>
+                      <th></th>
+                     </tr>
+
+                     @foreach($municipalpoliticaNivel4 as $politicaNivel4) 
+                      <tr>
+                        <td style="width:10%">{{ $politicaNivel4->municipalpoliticaInformacion->id }}</td>
+                        <td style="width:20%">{{ $politicaNivel4->municipalpoliticaInformacion->nombre }}</td>
+                        <td style="width:56%">{{ $politicaNivel4->municipalpoliticaInformacion->descripcion }}</td>
+                        <td style="width:14%">
+                          <form method="POST" action="{{ route('vincularmunicipalpolitica') }}" role="form" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                            <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                            <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                            <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                            <input type="hidden" name="funcion" value="desvincular">
+                            <input type="hidden" name="municipalpolitica_id" value="{{ $politicaNivel4->municipalpolitica_id }}">
                             <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
                           </form>
                         </td>
