@@ -72,7 +72,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('/entidad') }}">.: Entidad</a></li>
-                                    <li><a href="{{ url('/administracion') }}">.: Administracion</a></li>
+                                    <li><a href="{{ url('/administracion') }}">.: Administración</a></li>
                                     <li><a href="{{ url('/entidadoficina') }}">.: Dependencias</a></li>
                                 </ul>
                             </li>
@@ -80,7 +80,7 @@
                             <!-- GESTION ADMINISTRATIVA -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Gestion administrativa |<span class="caret"></span>
+                                    Gestión administrativa |<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
@@ -108,7 +108,7 @@
                             <!-- ANALITICA DE DATOS  -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Analitica |<span class="caret"></span>
+                                    Analítica |<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
@@ -127,16 +127,17 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('/ods') }}">.: Objetivos desarrollo sostenible ODS</a></li>
                                     <li><a href="{{ url('/pndesarrollo') }}">.: Plan nacional de desarrollo</a></li>
-                                    <li><a href="{{ url('/ppnacional') }}">.: Politicas publicas nacionales</a></li>
-                                    <li><a href="{{ url('/ppdepartamental') }}">.: Politicas publicas departamentales</a></li>
-                                    <li><a href="{{ url('/ppmunicipal') }}">.: Politicas publicas municipales</a></li>
+                                    <li><a href="{{ url('/ppnacional') }}">.: Políticas públicas nacionales</a></li>
+                                    <li><a href="{{ url('/ppdepartamental') }}">.: Políticas públicas departamentales</a></li>
+                                    <li><a href="{{ url('/ppmunicipal') }}">.: Políticas públicas municipales</a></li>
+                                    <li><a href="{{ url('/mipg') }}">.: Modelo Integrado de Planeación y Gestión MIPG</a></li>
                                 </ul>
                             </li>
 
                             <!-- INFORMACION INSTITUCIONAL -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Configuracion |<span class="caret"></span>
+                                    Configuración |<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">

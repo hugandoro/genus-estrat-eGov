@@ -51,6 +51,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ref_nacional_politicas_seeder::class);
         $this->call(ref_departamental_politicas_seeder::class);
         $this->call(ref_municipal_politicas_seeder::class);
+        $this->call(ref_mipg_politicas_seeder::class);
 
         $this->call(fiscal_marcos_seeder::class);
         $this->call(fiscal_marco_conceptos_seeder::class);

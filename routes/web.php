@@ -53,6 +53,8 @@ Route::resource('/ppdepartamental', 'RefDepartamentalPoliticaController');
 
 Route::resource('/ppmunicipal', 'RefMunicipalPoliticaController');
 
+Route::resource('/mipg', 'RefMipgPoliticaController');
+
 Route::resource('/indicador', 'MedicionIndicadorController');
 
 
