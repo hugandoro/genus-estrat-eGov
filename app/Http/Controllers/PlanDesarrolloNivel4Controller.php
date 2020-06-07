@@ -12,6 +12,8 @@ use App\EntidadOficina;
 use App\MedicionIndicador;
 use App\RefOdsObjetivo;
 use App\OdsNivel4;
+use App\RefNacionalPlan;
+use App\NacionalplanNivel4;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MedicionIndicadorController;
 
@@ -177,18 +179,27 @@ class PlanDesarrolloNivel4Controller extends Controller
      */
     public function mostrarHojaDeVida($idA,$idB,$idC,$idD)
     {
+        //Envia toda la estructura del PLAN relacionada con el registro nivel 4 ( Meta, actividad, etc )
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
         $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($idA);
         $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($idB);
         $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($idC);
         $planDesarrolloNivel4 = PlanDesarrolloNivel4::find($idD);
 
+        //Envia los datos de los indicadores relacionados
         $indicador = MedicionIndicador::where('nivel4_id', $idD)->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')->get();
 
+
+        //LISTAR TODOS LOS DATOS - CONVERGENCIA PARA MOSTRAR
+        //Listar todos los ODS - Convergencia ODS
         $refOdsObjetivo = RefOdsObjetivo::all();
         $odsNivel4 = OdsNivel4::where('nivel4_id', $idD)->with('odsInformacion')->get();
+        //Listar todos los PLAN NACIONAL - Convergencia PLAN NACIONAL
+        $refNacionalPlan = RefNacionalPlan::all();
+        $nacionalplanNivel4 = NacionalplanNivel4::where('nivel4_id', $idD)->with('nacionalplanInformacion')->get();
 
-        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4'));
+
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4'));
     }
 
     /**
@@ -198,26 +209,69 @@ class PlanDesarrolloNivel4Controller extends Controller
      */
     public function vincularODS(Request $request)
     {
-        //Recibe ID de cada nivel desde el formulario incluyendo el ID del indicador
+        //Envia toda la estructura del PLAN relacionada con el registro nivel 4 ( Meta, actividad, etc )
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
         $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($request->nivel1_id);
         $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($request->nivel2_id);
         $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($request->nivel3_id);
         $planDesarrolloNivel4 = PlanDesarrolloNivel4::find($request->nivel4_id);
 
+        //Envia los datos de los indicadores relacionados
         $indicador = MedicionIndicador::where('nivel4_id', $request->nivel4_id)->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')->get();
 
-        //Elimina TODOS los registros de relacion MUCHOS a MUCHOS
+        //ODS - Elimina TODOS los registros de relacion MUCHOS a MUCHOS
         $planDesarrolloNivel4->ods()->detach ($request->ods_id); 
         //Si la funcion es vincular, ingresa un registro en la relacion MUCHOS a MUCHOS
         if ($request->funcion == 'vincular') $planDesarrolloNivel4->ods()->attach ($request->ods_id);
 
-        //Obtiene datos para mostrar - Convergencia ODS
+
+        //LISTAR TODOS LOS DATOS - CONVERGENCIA PARA MOSTRAR
+        // Listar todos los ODS - Convergencia ODS
         $refOdsObjetivo = RefOdsObjetivo::all();
         $odsNivel4 = OdsNivel4::where('nivel4_id', $request->nivel4_id)->with('odsInformacion')->get();
+        //Listar todos los PLAN NACIONAL - Convergencia PLAN NACIONAL
+        $refNacionalPlan = RefNacionalPlan::all();
+        $nacionalplanNivel4 = NacionalplanNivel4::where('nivel4_id', $request->nivel4_id)->with('nacionalplanInformacion')->get();
+
 
         //Vuelve y cargar la vista de HOJA DE VIDA una vez vinculado a la tabla pivote la relacion con el ODS
-        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4'));
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4'));
+    }
+
+    /**
+     * Vincula PLAN NACIONAL DE DESARROLLO al NIVEL 4
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function vincularNacionalPlan(Request $request)
+    {
+        //Envia toda la estructura del PLAN relacionada con el registro nivel 4 ( Meta, actividad, etc )
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($request->nivel1_id);
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($request->nivel2_id);
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($request->nivel3_id);
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::find($request->nivel4_id);
+
+        //Envia los datos de los indicadores relacionados
+        $indicador = MedicionIndicador::where('nivel4_id', $request->nivel4_id)->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')->get();
+
+        //PLAN NACIONAL - Elimina TODOS los registros de relacion MUCHOS a MUCHOS
+        $planDesarrolloNivel4->nacionalplan()->detach ($request->nacionalplan_id); 
+        //Si la funcion es vincular, ingresa un registro en la relacion MUCHOS a MUCHOS
+        if ($request->funcion == 'vincular') $planDesarrolloNivel4->nacionalplan()->attach ($request->nacionalplan_id);
+
+
+        //LISTAR TODOS LOS DATOS - CONVERGENCIA PARA MOSTRAR
+        // Listar todos los ODS - Convergencia ODS
+        $refOdsObjetivo = RefOdsObjetivo::all();
+        $odsNivel4 = OdsNivel4::where('nivel4_id', $request->nivel4_id)->with('odsInformacion')->get();
+        //Listar todos los PLAN NACIONAL - Convergencia PLAN NACIONAL
+        $refNacionalPlan = RefNacionalPlan::all();
+        $nacionalplanNivel4 = NacionalplanNivel4::where('nivel4_id', $request->nivel4_id)->with('nacionalplanInformacion')->get();
+
+
+        //Vuelve y cargar la vista de HOJA DE VIDA una vez vinculado a la tabla pivote la relacion con el ODS
+        return view('plandesarrollonivel4.hojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','refOdsObjetivo','odsNivel4','refNacionalPlan','nacionalplanNivel4'));
     }
 
 }

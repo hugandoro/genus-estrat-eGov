@@ -151,9 +151,9 @@
 
                      @foreach($odsNivel4 as $odsNivel4) 
                       <tr>
-                        <td style="width:16%">
+                        <td style="width:10%">
                           <img src="{{ asset('images/'. $odsNivel4->odsInformacion->logo) }}" style='width:50px;height:50px;'></td>
-                        <td style="width:70%">{{ $odsNivel4->odsInformacion->nombre }}</td>
+                        <td style="width:76%">{{ $odsNivel4->odsInformacion->nombre }}</td>
                         <td style="width:14%">
                           <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -174,49 +174,63 @@
 
                   <hr>
                   <div class="bg-success">Convergencia - Plan de Desarrollo Nacional</div><br>
-                  <!-- Vinculo a Plan Desarrollo Nacional -->
+                  <!-- VINCULAR EL PLAN NACIONAL DE DESARROLLO -->
+                  <div class="pull-right">
+                    <form method="POST" action="{{ route('vincularnacionalplan') }}" role="form" enctype="multipart/form-data">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                      <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                      <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                      <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                      <input type="hidden" name="funcion" value="vincular">
+                      <table>
+                        <tr>
+                          <td>
+                            <div class="form-group">
+                              <select class="form-control" name="nacionalplan_id">
+                                @foreach($refNacionalPlan as $plan) 
+                                  <option value={{ $plan->id }}>{{ $plan->codigo }} - {{ $plan->nombre }} - {{ $plan->descripcion }}</option>
+                                @endforeach
+                              </select> 
+                            </div>
+                          </td>
+                          <td valign="top">
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                          <td>
+                        </tr>
+                      </table>
+                    </form>
+                  </div>
+
+                   <!-- Seccion para montrar los ODS ya vinculados -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
                      <tr>
                       <th>Codigo</th>
                       <th>Nombre</th>
                       <th>Descripcion</th>
-                      <th>Opciones
-                        <div class="pull-right">
-                          <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
+                      <th></th>
+                     </tr>
+
+                     @foreach($nacionalplanNivel4 as $planNivel4) 
+                      <tr>
+                        <td style="width:10%">{{ $planNivel4->nacionalplanInformacion->codigo }}</td>
+                        <td style="width:20%">{{ $planNivel4->nacionalplanInformacion->nombre }}</td>
+                        <td style="width:56%">{{ $planNivel4->nacionalplanInformacion->descripcion }}</td>
+                        <td style="width:14%">
+                          <form method="POST" action="{{ route('vincularnacionalplan') }}" role="form" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
                             <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
                             <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
                             <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                            <table>
-                              <tr>
-                                <td>
-                                  <div class="form-group">
-                                    <select class="form-control" name="pacto_id">
-                                      <option value="pacto1">Pacto 1</option>
-                                      <option value="pacto2">Pacto 2</option>
-                                    </select> 
-                                  </div>
-                                </td>
-                                <td valign="top">
-                                  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
-                                <td>
-                              </tr>
-                            </table>
+                            <input type="hidden" name="funcion" value="desvincular">
+                            <input type="hidden" name="nacionalplan_id" value="{{ $planNivel4->nacionalplan_id }}">
+                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
                           </form>
-                        </div>
-                      </th>
-                     </tr>
-
-                     <!-- 
-                     <tr>
-                      <td style="width:16%">1.1</td>
-                      <td style="width:20%">PACTO POR LA LEGALIDAD</td>
-                      <td style="width:30%">Texto que lo describe</td>
-                      <td style="width:34%"><a href="" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</a></td>
-                     </tr>
-                     -->
+                        </td>
+                      </tr>
+                     @endforeach
 
                     </tbody>
                   </table>

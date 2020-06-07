@@ -15,9 +15,17 @@ class PlanDesarrolloNivel4 extends Model
         return $this->belongsTo('App\EntidadOficina', 'oficina_id');
     }
 
-    //Relacion muchos a muchos para TABLA PIVOTE
+    //Relacion muchos a muchos para TABLA PIVOTE ODS
     public function ods()
     {
         return $this->belongsToMany('App\RefOdsObjetivo', 'Ods_nivel4s', 'nivel4_id', 'ods_id');
     }
+
+    //Relacion muchos a muchos para TABLA PIVOTE PLAN DESARROLLO NACIONAL
+    public function nacionalplan()
+    {
+        return $this->belongsToMany('App\RefNacionalPlan', 'nacionalplan_nivel4s', 'nivel4_id', 'nacionalplan_id');
+    }
+
+
 }
