@@ -76,7 +76,7 @@
                   </table>
 
                   <hr>
-                  <div class="bg-success">Indicador de producto</div><br>
+                  <div class="bg-info">Indicador de producto</div><br>
                   <!-- Datos del indicador -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
@@ -110,9 +110,8 @@
                   </table>
 
                   <hr>
-                  <div class="bg-success">Convergencia - Objetivos de desarrollo sostenible</div><br>
+                  <div class="bg-info">Convergencia - Objetivos de desarrollo sostenible ODS</div><br>
                   <!-- VINCULAR LOS ODS QUE CONVERGEN -->
-                  <!-- Seccion para vincular -->
                   <div class="pull-right">
                     <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -173,7 +172,7 @@
                   </table>
 
                   <hr>
-                  <div class="bg-success">Convergencia - Plan de Desarrollo Nacional</div><br>
+                  <div class="bg-info">Convergencia - Plan de Desarrollo Nacional</div><br>
                   <!-- VINCULAR EL PLAN NACIONAL DE DESARROLLO -->
                   <div class="pull-right">
                     <form method="POST" action="{{ route('vincularnacionalplan') }}" role="form" enctype="multipart/form-data">
@@ -236,7 +235,7 @@
                   </table>
 
                   <hr>
-                  <div class="bg-success">Convergencia - Politicas Publicas Municipales</div><br>
+                  <div class="bg-info">Convergencia - Politicas Públicas Municipales</div><br>
                   <!-- VINCULAR POLITICAS PUBLICA MUNICIPALES -->
                   <div class="pull-right">
                     <form method="POST" action="{{ route('vincularmunicipalpolitica') }}" role="form" enctype="multipart/form-data">
@@ -289,6 +288,70 @@
                             <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
                             <input type="hidden" name="funcion" value="desvincular">
                             <input type="hidden" name="municipalpolitica_id" value="{{ $politicaNivel4->municipalpolitica_id }}">
+                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
+                          </form>
+                        </td>
+                      </tr>
+                     @endforeach
+
+                    </tbody>
+                  </table>
+
+                  <hr>
+                  <div class="bg-info">Convergencia - Modelo Integrado de Planeación y Gestión MIPG</div><br>
+                  <!-- VINCULAR POLITICAS MIPG -->
+                  <div class="pull-right">
+                    <form method="POST" action="{{ route('vincularmipg') }}" role="form" enctype="multipart/form-data">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                      <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                      <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                      <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                      <input type="hidden" name="funcion" value="vincular">
+                      <table>
+                        <tr>
+                          <td>
+                            <div class="form-group">
+                              <select class="form-control" name="mipg_id">
+                                @foreach($refMipgPolitica as $mipg) 
+                                  <option value={{ $mipg->id }}>{{ $mipg->nombre }}</option>
+                                @endforeach
+                              </select> 
+                            </div>
+                          </td>
+                          <td valign="top">
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                          <td>
+                        </tr>
+                      </table>
+                    </form>
+                  </div>
+
+                   <!-- Seccion para mostrar las POLITICAS MIPG ya vinculadas -->
+                  <table id="mytable" class="table table-bordred table-striped">
+                    <tbody>
+                     <tr>
+                      <th>MIPG</th>
+                      <th>Dimension</th>
+                      <th>Politica</th>
+                      <th></th>
+                     </tr>
+
+                     @foreach($mipgNivel4 as $mipgNivel4) 
+                      <tr>
+                        <td style="width:10%">
+                          <img src="{{ asset('images/'. $mipgNivel4->mipgInformacion->logo) }}" style='width:50px;height:50px;'></td>
+                        <td style="width:20%">{{ $mipgNivel4->mipgInformacion->dimension }}</td>
+                        <td style="width:56%">{{ $mipgNivel4->mipgInformacion->nombre }}</td>
+                        <td style="width:14%">
+                          <form method="POST" action="{{ route('vincularmipg') }}" role="form" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                            <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                            <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                            <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                            <input type="hidden" name="funcion" value="desvincular">
+                            <input type="hidden" name="mipg_id" value="{{ $mipgNivel4->mipg_id }}">
                             <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
                           </form>
                         </td>
