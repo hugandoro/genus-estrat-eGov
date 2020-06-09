@@ -13,6 +13,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Eloquent::unguard();
+        
+        // La creación de datos de roles debe ejecutarse primero
+        $this->call(RoleTableSeeder::class);
+        // Los usuarios necesitarán los roles previamente generados
+        $this->call(UserTableSeeder::class);
+
         $this->call(geografica_estados_seeder::class);
         $this->call(geografica_regions_seeder::class);
         $this->call(geografica_departamentos_seeder::class);

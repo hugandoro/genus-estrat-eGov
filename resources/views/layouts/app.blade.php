@@ -93,30 +93,34 @@
                                 </ul>
                             </li>
 
-                            <!-- ACTIVIDADES -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Tareas |<span class="caret"></span>
-                                </a>
+                            <!-- TAREAS -->
+                            @if(!(Auth::user()->hasRole('user'))) 
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                        Tareas |<span class="caret"></span>
+                                    </a>
 
-                                <ul class="dropdown-menu">
-                                    <!-- <li><a href="#">.: Reportar</a></li> -->
-                                    <!-- <li><a href="#">.: Consultar</a></li> -->
-                                </ul>
-                            </li>
+                                    <ul class="dropdown-menu">
+                                        <!-- <li><a href="#">.: Reportar</a></li> -->
+                                        <!-- <li><a href="#">.: Consultar</a></li> -->
+                                    </ul>
+                                </li>
+                            @endif
 
                             <!-- ANALITICA DE DATOS  -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Analítica |<span class="caret"></span>
-                                </a>
+                            @if(!(Auth::user()->hasRole('user'))) 
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                        Analítica |<span class="caret"></span>
+                                    </a>
 
-                                <ul class="dropdown-menu">
-                                    <!-- <li><a href="#">.: Reportes</a></li> -->
-                                    <!-- <li><a href="#">.: Estadisticos</a></li> -->
-                                    <!-- <li><a href="#">.: Proyecciones</a></li> -->
-                                </ul>
-                            </li>
+                                    <ul class="dropdown-menu">
+                                        <!-- <li><a href="#">.: Reportes</a></li> -->
+                                        <!-- <li><a href="#">.: Estadisticos</a></li> -->
+                                        <!-- <li><a href="#">.: Proyecciones</a></li> -->
+                                    </ul>
+                                </li>
+                            @endif
 
                             <!-- POLITICAS PUBLICAS -->
                             <li class="dropdown">
@@ -135,18 +139,19 @@
                             </li>
 
                             <!-- INFORMACION INSTITUCIONAL -->
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    Configuración |<span class="caret"></span>
-                                </a>
+                            @if(Auth::user()->hasRole('super'))
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                        Configuración |<span class="caret"></span>
+                                    </a>
 
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ route('plandesarrollo.edit',config('app.plan_desarrollo')) }}">.: Nombres de los niveles</a></li>
-                                    <!-- <li><a href="#">.: Rangos semaforo de medicion</a></li> -->
-                                    <!-- <li><a href="#">.: Definicion de indicadores</a></li> -->
-                                </ul>
-                            </li>
-
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('plandesarrollo.edit',config('app.plan_desarrollo')) }}">.: Nombres de los niveles</a></li>
+                                        <!-- <li><a href="#">.: Rangos semaforo de medicion</a></li> -->
+                                        <!-- <li><a href="#">.: Definicion de indicadores</a></li> -->
+                                    </ul>
+                                </li>
+                            @endif
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
