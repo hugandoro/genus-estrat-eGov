@@ -19,7 +19,11 @@
               <tr>
                 <th class="bg-success">
                   <div class="pull-left"><h4>{{$plandesarrollo->nombre_nivel1}}</h4></div>
-                  <div class="pull-right"><a class="btn btn-success" href="{{ route('plandesarrollonivel1.create') }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+
+                  @if(Auth::user()->hasRole('super'))
+                    <div class="pull-right"><a class="btn btn-success" href="{{ route('plandesarrollonivel1.create') }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+                  @endif
+
                 </th>
               </tr>
 
@@ -46,8 +50,11 @@
                           <input type="hidden" name="_method" value="DELETE">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <a href="{{ action('PlanDesarrolloNivel1Controller@listar', $pdN1->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-folder-open"></span>  Listar</a>
-                          <a href="{{ route('plandesarrollonivel1.edit',$pdN1->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
-                          <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                          
+                          @if(Auth::user()->hasRole('super'))
+                            <a href="{{ route('plandesarrollonivel1.edit',$pdN1->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                          @endif
                         </form>
                         <!-- Fin de los botones de opciones -->
                       </td>

@@ -37,7 +37,10 @@
  
 				@endif
  
-				<button type="submit" class="btn btn-info">Guardar</button>
+				@if(Auth::user()->hasRole('super'))
+					<button type="submit" class="btn btn-info">Guardar</button>
+				@endif
+
 				<a href="{{ route('administracion.index') }}" class="btn btn-warning">Cancelar</a>
  
 				<br>

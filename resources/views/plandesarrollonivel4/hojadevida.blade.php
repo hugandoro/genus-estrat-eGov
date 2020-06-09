@@ -102,7 +102,11 @@
                        <td style="width:10%">{{$indicador->objetivo}}</td>
                        <td style="width:12%">{{$indicador->Medida->nombre}}</td>
                        <td style="width:12%">{{$indicador->Tipo->nombre}}</td>
-                       <td style="width:10%"><a href="{{ route('indicador.edit',$indicador->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a></td>
+                       <td style="width:10%">
+                        @if(Auth::user()->hasRole('super'))
+                        <a href="{{ route('indicador.edit',$indicador->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                        @endif
+                       </td>
                       </tr>
                      @endforeach 
 
@@ -112,32 +116,36 @@
                   <hr>
                   <div class="bg-info">Convergencia - Objetivos de desarrollo sostenible ODS</div><br>
                   <!-- VINCULAR LOS ODS QUE CONVERGEN -->
-                  <div class="pull-right">
-                    <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
-                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                      <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
-                      <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
-                      <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
-                      <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                      <input type="hidden" name="funcion" value="vincular">
-                      <table>
-                        <tr>
-                          <td>
-                            <div class="form-group">
-                              <select class="form-control" name="ods_id">
-                                @foreach($refOdsObjetivo as $ods) 
-                                  <option value={{ $ods->id }}>{{ $ods->nombre }}</option>
-                                @endforeach
-                              </select> 
-                            </div>
-                          </td>
-                          <td valign="top">
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
-                          <td>
-                        </tr>
-                      </table>
-                    </form>
-                  </div>
+                  @if(Auth::user()->hasRole('super'))
+                    <div class="pull-right">
+                      <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                        <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                        <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                        <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                        <input type="hidden" name="funcion" value="vincular">
+                        <table>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                <select class="form-control" name="ods_id">
+                                  @foreach($refOdsObjetivo as $ods) 
+                                    <option value={{ $ods->id }}>{{ $ods->nombre }}</option>
+                                  @endforeach
+                                </select> 
+                              </div>
+                            </td>
+                            <td valign="top">
+                              @if(Auth::user()->hasRole('super'))
+                                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                              @endif
+                            <td>
+                          </tr>
+                        </table>
+                      </form>
+                    </div>
+                  @endif
 
                    <!-- Seccion para mostrar los ODS ya vinculados -->
                   <table id="mytable" class="table table-bordred table-striped">
@@ -154,16 +162,18 @@
                           <img src="{{ asset('images/'. $odsNivel4->odsInformacion->logo) }}" style='width:50px;height:50px;'></td>
                         <td style="width:76%">{{ $odsNivel4->odsInformacion->nombre }}</td>
                         <td style="width:14%">
-                          <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
-                            <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
-                            <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
-                            <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                            <input type="hidden" name="funcion" value="desvincular">
-                            <input type="hidden" name="ods_id" value="{{ $odsNivel4->ods_id }}">
-                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
-                          </form>
+                          @if(Auth::user()->hasRole('super'))
+                            <form method="POST" action="{{ route('vincularods') }}" role="form" enctype="multipart/form-data">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                              <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                              <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                              <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                              <input type="hidden" name="funcion" value="desvincular">
+                              <input type="hidden" name="ods_id" value="{{ $odsNivel4->ods_id }}">
+                              <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
+                            </form>
+                          @endif
                         </td>
                       </tr>
                      @endforeach
@@ -174,32 +184,36 @@
                   <hr>
                   <div class="bg-info">Convergencia - Plan de Desarrollo Nacional</div><br>
                   <!-- VINCULAR EL PLAN NACIONAL DE DESARROLLO -->
-                  <div class="pull-right">
-                    <form method="POST" action="{{ route('vincularnacionalplan') }}" role="form" enctype="multipart/form-data">
-                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                      <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
-                      <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
-                      <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
-                      <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                      <input type="hidden" name="funcion" value="vincular">
-                      <table>
-                        <tr>
-                          <td>
-                            <div class="form-group">
-                              <select class="form-control" name="nacionalplan_id">
-                                @foreach($refNacionalPlan as $plan) 
-                                  <option value={{ $plan->id }}>{{ $plan->codigo }} - {{ $plan->nombre }} - {{ $plan->descripcion }}</option>
-                                @endforeach
-                              </select> 
-                            </div>
-                          </td>
-                          <td valign="top">
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
-                          <td>
-                        </tr>
-                      </table>
-                    </form>
-                  </div>
+                  @if(Auth::user()->hasRole('super'))
+                    <div class="pull-right">
+                      <form method="POST" action="{{ route('vincularnacionalplan') }}" role="form" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                        <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                        <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                        <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                        <input type="hidden" name="funcion" value="vincular">
+                        <table>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                <select class="form-control" name="nacionalplan_id">
+                                  @foreach($refNacionalPlan as $plan) 
+                                    <option value={{ $plan->id }}>{{ $plan->codigo }} - {{ $plan->nombre }} - {{ $plan->descripcion }}</option>
+                                  @endforeach
+                                </select> 
+                              </div>
+                            </td>
+                            <td valign="top">
+                              @if(Auth::user()->hasRole('super'))
+                                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                              @endif
+                            <td>
+                          </tr>
+                        </table>
+                      </form>
+                    </div>
+                  @endif
 
                    <!-- Seccion para mostrar componentes del PLAN NACIONAL DE DESARROLLO ya vinculados -->
                   <table id="mytable" class="table table-bordred table-striped">
@@ -217,16 +231,18 @@
                         <td style="width:20%">{{ $planNivel4->nacionalplanInformacion->nombre }}</td>
                         <td style="width:56%">{{ $planNivel4->nacionalplanInformacion->descripcion }}</td>
                         <td style="width:14%">
-                          <form method="POST" action="{{ route('vincularnacionalplan') }}" role="form" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
-                            <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
-                            <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
-                            <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                            <input type="hidden" name="funcion" value="desvincular">
-                            <input type="hidden" name="nacionalplan_id" value="{{ $planNivel4->nacionalplan_id }}">
-                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
-                          </form>
+                          @if(Auth::user()->hasRole('super'))
+                            <form method="POST" action="{{ route('vincularnacionalplan') }}" role="form" enctype="multipart/form-data">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                              <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                              <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                              <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                              <input type="hidden" name="funcion" value="desvincular">
+                              <input type="hidden" name="nacionalplan_id" value="{{ $planNivel4->nacionalplan_id }}">
+                              <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
+                            </form>
+                          @endif
                         </td>
                       </tr>
                      @endforeach
@@ -237,32 +253,36 @@
                   <hr>
                   <div class="bg-info">Convergencia - Politicas Públicas Municipales</div><br>
                   <!-- VINCULAR POLITICAS PUBLICA MUNICIPALES -->
-                  <div class="pull-right">
-                    <form method="POST" action="{{ route('vincularmunicipalpolitica') }}" role="form" enctype="multipart/form-data">
-                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                      <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
-                      <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
-                      <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
-                      <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                      <input type="hidden" name="funcion" value="vincular">
-                      <table>
-                        <tr>
-                          <td>
-                            <div class="form-group">
-                              <select class="form-control" name="municipalpolitica_id">
-                                @foreach($refMunicipalPolitica as $politica) 
-                                  <option value={{ $politica->id }}>{{ $politica->nombre }}</option>
-                                @endforeach
-                              </select> 
-                            </div>
-                          </td>
-                          <td valign="top">
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
-                          <td>
-                        </tr>
-                      </table>
-                    </form>
-                  </div>
+                  @if(Auth::user()->hasRole('super'))
+                    <div class="pull-right">
+                      <form method="POST" action="{{ route('vincularmunicipalpolitica') }}" role="form" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                        <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                        <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                        <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                        <input type="hidden" name="funcion" value="vincular">
+                        <table>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                <select class="form-control" name="municipalpolitica_id">
+                                  @foreach($refMunicipalPolitica as $politica) 
+                                    <option value={{ $politica->id }}>{{ $politica->nombre }}</option>
+                                  @endforeach
+                                </select> 
+                              </div>
+                            </td>
+                            <td valign="top">
+                              @if(Auth::user()->hasRole('super'))
+                                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                              @endif
+                            <td>
+                          </tr>
+                        </table>
+                      </form>
+                    </div>
+                  @endif
 
                    <!-- Seccion para mostrar las POLITICAS PUBLICAS MUNICIPALES ya vinculadas -->
                   <table id="mytable" class="table table-bordred table-striped">
@@ -280,16 +300,18 @@
                         <td style="width:20%">{{ $politicaNivel4->municipalpoliticaInformacion->nombre }}</td>
                         <td style="width:56%">{{ $politicaNivel4->municipalpoliticaInformacion->descripcion }}</td>
                         <td style="width:14%">
-                          <form method="POST" action="{{ route('vincularmunicipalpolitica') }}" role="form" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
-                            <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
-                            <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
-                            <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                            <input type="hidden" name="funcion" value="desvincular">
-                            <input type="hidden" name="municipalpolitica_id" value="{{ $politicaNivel4->municipalpolitica_id }}">
-                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
-                          </form>
+                          @if(Auth::user()->hasRole('super'))
+                            <form method="POST" action="{{ route('vincularmunicipalpolitica') }}" role="form" enctype="multipart/form-data">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                              <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                              <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                              <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                              <input type="hidden" name="funcion" value="desvincular">
+                              <input type="hidden" name="municipalpolitica_id" value="{{ $politicaNivel4->municipalpolitica_id }}">
+                              <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
+                            </form>
+                          @endif
                         </td>
                       </tr>
                      @endforeach
@@ -300,32 +322,36 @@
                   <hr>
                   <div class="bg-info">Convergencia - Modelo Integrado de Planeación y Gestión MIPG</div><br>
                   <!-- VINCULAR POLITICAS MIPG -->
-                  <div class="pull-right">
-                    <form method="POST" action="{{ route('vincularmipg') }}" role="form" enctype="multipart/form-data">
-                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                      <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
-                      <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
-                      <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
-                      <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                      <input type="hidden" name="funcion" value="vincular">
-                      <table>
-                        <tr>
-                          <td>
-                            <div class="form-group">
-                              <select class="form-control" name="mipg_id">
-                                @foreach($refMipgPolitica as $mipg) 
-                                  <option value={{ $mipg->id }}>{{ $mipg->nombre }}</option>
-                                @endforeach
-                              </select> 
-                            </div>
-                          </td>
-                          <td valign="top">
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
-                          <td>
-                        </tr>
-                      </table>
-                    </form>
-                  </div>
+                  @if(Auth::user()->hasRole('super'))
+                    <div class="pull-right">
+                      <form method="POST" action="{{ route('vincularmipg') }}" role="form" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                        <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                        <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                        <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                        <input type="hidden" name="funcion" value="vincular">
+                        <table>
+                          <tr>
+                            <td>
+                              <div class="form-group">
+                                <select class="form-control" name="mipg_id">
+                                  @foreach($refMipgPolitica as $mipg) 
+                                    <option value={{ $mipg->id }}>{{ $mipg->nombre }}</option>
+                                  @endforeach
+                                </select> 
+                              </div>
+                            </td>
+                            <td valign="top">
+                              @if(Auth::user()->hasRole('super'))
+                                <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                              @endif
+                            <td>
+                          </tr>
+                        </table>
+                      </form>
+                    </div>
+                  @endif
 
                    <!-- Seccion para mostrar las POLITICAS MIPG ya vinculadas -->
                   <table id="mytable" class="table table-bordred table-striped">
@@ -344,16 +370,18 @@
                         <td style="width:20%">{{ $mipgNivel4->mipgInformacion->dimension }}</td>
                         <td style="width:56%">{{ $mipgNivel4->mipgInformacion->nombre }}</td>
                         <td style="width:14%">
-                          <form method="POST" action="{{ route('vincularmipg') }}" role="form" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
-                            <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
-                            <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
-                            <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
-                            <input type="hidden" name="funcion" value="desvincular">
-                            <input type="hidden" name="mipg_id" value="{{ $mipgNivel4->mipg_id }}">
-                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
-                          </form>
+                          @if(Auth::user()->hasRole('super'))
+                            <form method="POST" action="{{ route('vincularmipg') }}" role="form" enctype="multipart/form-data">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                              <input type="hidden" name="nivel1_id" value="{{ $planDesarrolloNivel1->id }}">
+                              <input type="hidden" name="nivel2_id" value="{{ $planDesarrolloNivel2->id }}">
+                              <input type="hidden" name="nivel3_id" value="{{ $planDesarrolloNivel3->id }}">
+                              <input type="hidden" name="nivel4_id" value="{{ $planDesarrolloNivel4->id }}">
+                              <input type="hidden" name="funcion" value="desvincular">
+                              <input type="hidden" name="mipg_id" value="{{ $mipgNivel4->mipg_id }}">
+                              <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Desvincular</button>
+                            </form>
+                          @endif
                         </td>
                       </tr>
                      @endforeach

@@ -6,7 +6,11 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left"><h3>Politicas publicas NACIONALES</h3></div>
-          <div class="pull-right"><a class="btn btn-success" href="{{ route('ppnacional.create') }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+
+          @if(Auth::user()->hasRole('super'))
+            <div class="pull-right"><a class="btn btn-success" href="{{ route('ppnacional.create') }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+          @endif
+
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
              <thead>
@@ -23,12 +27,14 @@
 
                 <!-- Ocpiones de EDICION y ELIMINAR -->
                 <td style="width:30%">
-                  <form action="{{ route('ppnacional.destroy',$politica->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <a href="{{ route('ppnacional.edit',$politica->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
-                    <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
-                  </form>
+                  @if(Auth::user()->hasRole('super'))
+                    <form action="{{ route('ppnacional.destroy',$politica->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                      <a href="{{ route('ppnacional.edit',$politica->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                      <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                    </form>
+                  @endif
                 </td>
                 <!-- Fin de los botones de opciones -->
 

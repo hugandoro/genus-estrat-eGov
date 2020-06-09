@@ -34,7 +34,10 @@
                    <tr class="bg-success">
                     <th colspan="3">
                       <div class="pull-left"><h4>{{$plandesarrollo->nombre_nivel3}}</h4></div>
-                      <div class="pull-right"><a class="btn btn-success" href="{{ url('plandesarrollonivel3/create?idNivel1='.$planDesarrolloNivel1->id.'&idNivel2='.$planDesarrolloNivel2->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+
+                      @if(Auth::user()->hasRole('super'))
+                        <div class="pull-right"><a class="btn btn-success" href="{{ url('plandesarrollonivel3/create?idNivel1='.$planDesarrolloNivel1->id.'&idNivel2='.$planDesarrolloNivel2->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+                      @endif
                     </th>
                    </tr>
                   </tbody>
@@ -64,8 +67,11 @@
                           <input type="hidden" name="_method" value="DELETE">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <a href="{{ action('PlanDesarrolloNivel3Controller@listar', ['idA'=>$planDesarrolloNivel1->id, 'idB'=>$planDesarrolloNivel2->id, 'idC'=>$pdN3->id]) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-folder-open"></span>  Listar</a>
-                          <a href="{{ route('plandesarrollonivel3.edit',$pdN3->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
-                          <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                          
+                          @if(Auth::user()->hasRole('super'))
+                            <a href="{{ route('plandesarrollonivel3.edit',$pdN3->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                          @endif
                         </form>
                         <!-- Fin de los botones de opciones -->
                       </td>

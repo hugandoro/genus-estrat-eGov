@@ -40,7 +40,10 @@
                    <tr class="bg-success">
                     <th colspan="3">
                       <div class="pull-left"><h4>{{$plandesarrollo->nombre_nivel4}}</h4></div>
-                      <div class="pull-right"><a class="btn btn-success" href="{{ url('plandesarrollonivel4/create?idNivel1='.$planDesarrolloNivel1->id.'&idNivel2='.$planDesarrolloNivel2->id.'&idNivel3='.$planDesarrolloNivel3->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+
+                      @if(Auth::user()->hasRole('super'))
+                        <div class="pull-right"><a class="btn btn-success" href="{{ url('plandesarrollonivel4/create?idNivel1='.$planDesarrolloNivel1->id.'&idNivel2='.$planDesarrolloNivel2->id.'&idNivel3='.$planDesarrolloNivel3->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Crear nuevo</a></div>
+                      @endif
                     </th>
                    </tr>
                   </tbody>
@@ -72,8 +75,11 @@
                           <input type="hidden" name="_method" value="DELETE">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <a href="{{ action('PlanDesarrolloNivel4Controller@mostrarHojaDeVida', ['idA'=>$planDesarrolloNivel1->id, 'idB'=>$planDesarrolloNivel2->id, 'idC'=>$planDesarrolloNivel3->id, 'idD'=>$pdN4->id]) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-list-alt"></span>  Hoja de vida</a>
-                          <a href="{{ route('plandesarrollonivel4.edit',$pdN4->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
-                          <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                        
+                          @if(Auth::user()->hasRole('super'))
+                            <a href="{{ route('plandesarrollonivel4.edit',$pdN4->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                            <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span>  Eliminar</button>
+                          @endif
                         </form>
                         <!-- Fin de los botones de opciones -->
                       </td>

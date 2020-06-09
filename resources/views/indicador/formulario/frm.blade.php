@@ -93,7 +93,10 @@
 						</div>
 					</div>
 
-					<button type="submit" class="btn btn-info">Guardar</button>
+					@if(Auth::user()->hasRole('super'))
+						<button type="submit" class="btn btn-info">Guardar</button>
+					@endif
+
 					<a href="{{ action('PlanDesarrolloNivel4Controller@mostrarHojaDeVida',['idA' => $planDesarrolloNivel2->nivel1_id, 'idB' => $planDesarrolloNivel3->nivel2_id, 'idC' => $planDesarrolloNivel4->nivel3_id, 'idD' => $medicionIndicador->nivel4_id]) }}" class="btn btn-warning">Cancelar</a>
 
 				@else
@@ -170,7 +173,10 @@
 						</div>
 					</div>
 
-					<button type="submit" class="btn btn-info">Guardar</button>
+					@if(Auth::user()->hasRole('super'))
+						<button type="submit" class="btn btn-info">Guardar</button>
+					@endif
+
 					<a href="{{ action('PlanDesarrolloNivel4Controller@mostrarHojaDeVida', ['idA' => $idNivel1, 'idB' => $idNivel2, 'idC' => $idNivel3, 'idD' => $idNivel4]) }}" class="btn btn-warning">Cancelar</a>
  
 				@endif

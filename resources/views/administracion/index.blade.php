@@ -39,7 +39,11 @@
 
               <tr>
                 <th class="bg-info">Opciones</th>
-                <td><a href="{{ route('administracion.edit',$admin->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Editar</a></td>
+                <td>
+                  @if(Auth::user()->hasRole('super'))
+                    <a href="{{ route('administracion.edit',$admin->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>  Editar</a>
+                  @endif
+                </td>
               </tr>
 
                @endforeach 

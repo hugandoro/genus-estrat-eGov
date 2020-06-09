@@ -26,7 +26,10 @@
 						</div>
 					</div>
 
-					<button type="submit" class="btn btn-info">Guardar</button>
+					@if(Auth::user()->hasRole('super'))
+						<button type="submit" class="btn btn-info">Guardar</button>
+					@endif
+
 					<a href="{{ action('PlanDesarrolloNivel1Controller@listar',$planDesarrolloNivel2->nivel1_id) }}" class="btn btn-warning">Cancelar</a>
 
 				@else
@@ -52,7 +55,10 @@
 						</div>
 					</div>
 
-					<button type="submit" class="btn btn-info">Guardar</button>
+					@if(Auth::user()->hasRole('super'))
+						<button type="submit" class="btn btn-info">Guardar</button>
+					@endif
+
 					<a href="{{ action('PlanDesarrolloNivel1Controller@listar',$idNivel1 ) }}" class="btn btn-warning">Cancelar</a>
  
 				@endif
