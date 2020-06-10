@@ -26,9 +26,9 @@
               <tr>
                 <td style="width:10%">{{$oficina->tipoOficina->nombre}}</td>
                 <td style="width:40%">{{$oficina->nombre}}</td>
-                <td style="width:20%">{{$oficina->responsable}}</td>
+                <td style="width:30%">{{$oficina->responsable}}</td>
                 <!-- Ocpiones de EDICION y ELIMINAR -->
-                <td style="width:30%">
+                <td style="width:20%">
                   @if(Auth::user()->hasRole('super'))
                     <form action="{{ route('entidadoficina.destroy',$oficina->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                       <input type="hidden" name="_method" value="DELETE">

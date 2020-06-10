@@ -22,8 +22,8 @@
               @if($refMunicipalPolitica->count())  
               @foreach($refMunicipalPolitica as $politica)  
               <tr>
-                <td style="width:20%">{{$politica->nombre}}</td>
-                <td style="width:50%">{{$politica->descripcion}}</td>
+                <td style="width:50%">{{$politica->nombre}}</td>
+                <td style="width:20%">{{$politica->descripcion}}</td>
 
                 <!-- Ocpiones de EDICION y ELIMINAR -->
                 <td style="width:30%">
