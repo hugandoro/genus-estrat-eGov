@@ -71,9 +71,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/entidad') }}">.: Entidad</a></li>
-                                    <li><a href="{{ url('/administracion') }}">.: Administración</a></li>
-                                    <li><a href="{{ url('/entidadoficina') }}">.: Dependencias</a></li>
+                                    <li><a href="{{ url('/entidad') }}">Informacion de la Entidad</a></li>
+                                    <li><a href="{{ url('/administracion') }}">Informacion de la Administración</a></li>
+                                    <li><a href="{{ url('/entidadoficina') }}">Areas o Dependencias de la Entidad</a></li>
                                 </ul>
                             </li>
 
@@ -84,9 +84,12 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/plandesarrollo') }}">.: Plan de desarrollo</a></li>
-                                    <!-- <li><a href="#">.: Plan indicativo</a></li> -->
-                                    <!-- <li><a href="#">.: Plan de accion</a></li> -->
+                                    <li><a href="{{ url('/plandesarrollo') }}">Plan de desarrollo | Recorrer arbol del plan</a></li>
+                                    <li><a href="{{ url('/plandesarrollonivel4listarregistros') }}">Plan de desarrollo | Listar registros</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Plan indicativo | Listar registros</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Plan de accion | Listar registros</a></li>
                                     <!-- <li><a href="#">.: Banco de proyectos</a></li> -->
                                     <!-- <li><a href="#">.: Marco fiscal mediano plazo</a></li> -->
                                     <!-- <li><a href="#">.: Plan plurianual de inversion</a></li> -->
@@ -129,12 +132,12 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/ods') }}">.: Objetivos desarrollo sostenible ODS</a></li>
-                                    <li><a href="{{ url('/pndesarrollo') }}">.: Plan nacional de desarrollo</a></li>
-                                    <li><a href="{{ url('/ppnacional') }}">.: Políticas públicas nacionales</a></li>
-                                    <li><a href="{{ url('/ppdepartamental') }}">.: Políticas públicas departamentales</a></li>
-                                    <li><a href="{{ url('/ppmunicipal') }}">.: Políticas públicas municipales</a></li>
-                                    <li><a href="{{ url('/mipg') }}">.: Modelo Integrado de Planeación y Gestión MIPG</a></li>
+                                    <li><a href="{{ url('/ods') }}">Objetivos desarrollo sostenible ODS</a></li>
+                                    <li><a href="{{ url('/pndesarrollo') }}">Plan nacional de desarrollo</a></li>
+                                    <li><a href="{{ url('/ppnacional') }}">Políticas públicas nacionales</a></li>
+                                    <li><a href="{{ url('/ppdepartamental') }}">Políticas públicas departamentales</a></li>
+                                    <li><a href="{{ url('/ppmunicipal') }}">Políticas públicas municipales</a></li>
+                                    <li><a href="{{ url('/mipg') }}">Modelo Integrado de Planeación y Gestión MIPG</a></li>
                                 </ul>
                             </li>
 
@@ -146,7 +149,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{ route('plandesarrollo.edit',config('app.plan_desarrollo')) }}">.: Nombres de los niveles</a></li>
+                                        <li><a href="{{ route('plandesarrollo.edit',config('app.plan_desarrollo')) }}">Plan de desarrollo | Nombres de los niveles</a></li>
                                         <!-- <li><a href="#">.: Rangos semaforo de medicion</a></li> -->
                                         <!-- <li><a href="#">.: Definicion de indicadores</a></li> -->
                                     </ul>

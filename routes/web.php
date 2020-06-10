@@ -36,6 +36,8 @@ Route::get('plandesarrollonivel3/listar/{idA}/{idB}/{idC}', 'PlanDesarrolloNivel
 
 Route::resource('/plandesarrollonivel4', 'PlanDesarrolloNivel4Controller');
 Route::get('plandesarrollonivel4/hojadevida/{idA}/{idB}/{idC}/{idD}', 'PlanDesarrolloNivel4Controller@mostrarHojaDeVida');
+Route::get('plandesarrollonivel4/listarhojadevida/{idA}/{idB}/{idC}/{idD}', 'PlanDesarrolloNivel4Controller@listarRegistrosHojaDeVida');
+Route::match(array('GET', 'POST'), '/plandesarrollonivel4listarregistros', 'PlanDesarrolloNivel4Controller@listarRegistros')->name('/plandesarrollonivel4listarregistros');
 
 
 //Ruta para validar manualmente un formulario sea por GET o POST

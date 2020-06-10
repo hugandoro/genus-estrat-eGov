@@ -172,7 +172,48 @@ class PlanDesarrolloNivel4Controller extends Controller
     }
 
     /**
-     * Lista la HOJA DE VIDA completa de la meta.
+     * Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) 
+     * @return \Illuminate\Http\Response
+     */
+    public function listarRegistros()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')->get();
+        return view('plandesarrollonivel4.listarregistros', compact('planDesarrollo','planDesarrolloNivel4'));
+    }
+
+    /**
+     * Lista la HOJA DE VIDA completa de la meta desde la opcion LISTAR REGISTROS
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listarRegistrosHojaDeVida($idA,$idB,$idC,$idD)
+    {
+        //Envia toda la estructura del PLAN relacionada con el registro nivel 4 ( Meta, actividad, etc )
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::find($idA);
+        $planDesarrolloNivel2 = PlanDesarrolloNivel2::find($idB);
+        $planDesarrolloNivel3 = PlanDesarrolloNivel3::find($idC);
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::find($idD);
+
+        //Envia los datos de los indicadores relacionados
+        $indicador = MedicionIndicador::where('nivel4_id', $idD)->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')->get();
+
+        //LISTAR TODOS LOS DATOS - CONVERGENCIA PARA MOSTRAR
+        //Listar todos los ODS - Convergencia ODS
+        $odsNivel4 = OdsNivel4::where('nivel4_id', $idD)->with('odsInformacion')->get();
+        //Listar todos los PLAN NACIONAL - Convergencia PLAN NACIONAL
+        $nacionalplanNivel4 = NacionalplanNivel4::where('nivel4_id', $idD)->with('nacionalplanInformacion')->get();
+        //Listar todas las POLITICAS PUBLICAS MUNICIPALES - Convergencia POLITICA MUNICIPAL
+        $municipalpoliticaNivel4 = MunicipalpoliticaNivel4::where('nivel4_id', $idD)->with('municipalpoliticaInformacion')->get();
+        //Listar todas las POLITICAS MIPG - Convergencia MIPG
+        $mipgNivel4 = MipgNivel4::where('nivel4_id', $idD)->with('mipgInformacion')->get();
+
+        return view('plandesarrollonivel4.listarregistroshojadevida', compact('planDesarrollo','planDesarrolloNivel1','planDesarrolloNivel2','planDesarrolloNivel3','planDesarrolloNivel4','indicador','odsNivel4','nacionalplanNivel4','municipalpoliticaNivel4','mipgNivel4'));
+    }   
+
+    /**
+     * Lista la HOJA DE VIDA completa de la meta desde la opcion ARBOL DEL PLAN
      *
      * @return \Illuminate\Http\Response
      */

@@ -15,6 +15,11 @@ class PlanDesarrolloNivel4 extends Model
         return $this->belongsTo('App\EntidadOficina', 'oficina_id');
     }
 
+     //Relaciones
+     public function nivel3(){
+        return $this->belongsTo('App\PlanDesarrolloNivel3', 'nivel3_id');
+    }
+
     //Relacion muchos a muchos para TABLA PIVOTE ODS
     public function ods()
     {
