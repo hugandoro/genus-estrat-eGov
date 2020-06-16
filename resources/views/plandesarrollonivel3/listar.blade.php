@@ -57,7 +57,6 @@
                      <tr>
                       <th>N°</th>
                       <th>Titulo</th>
-                      <th>Objetivo</th>
                       <th>Responsable</th>
                       <th>Opciones</th>
                      </tr>
@@ -66,8 +65,7 @@
                      @foreach($planDesarrolloNivel4 as $pdN4) 
                      <tr>
                       <td style="width:10%">{{$planDesarrolloNivel1->numeral}}.{{$planDesarrolloNivel2->numeral}}.{{$planDesarrolloNivel3->numeral}}.{{$pdN4->numeral}}</td>
-                      <td style="width:20%">{{$pdN4->nombre}}</td>
-                      <td style="width:20%">{{$pdN4->objetivo}}</td>
+                      <td style="width:40%">{{$pdN4->nombre}}</td>
                       <td style="width:15%">{{$pdN4->entidadOficina->nombre}}</td>
                       <td style="width:35%">
                         <!-- Ocpiones de EDICION y ELIMINAR -->

@@ -46,7 +46,7 @@
                    <tr class="bg-success">
                     <th colspan="3">
                       <div class="pull-left"><h4>{{$plandesarrollo->nombre_nivel4}}</h4></div>
-                      <div class="pull-right"><a class="btn btn-warning" href="{{ url('/plandesarrollonivel4listarregistros') }}" ><span class="glyphicon glyphicon-share-alt"></span>  Volver</a></div></div>
+                      <div class="pull-right"><a class="btn btn-warning" href="{{ URL::previous() }}"><span class="glyphicon glyphicon-share-alt"></span>  Volver</a></div>
                     </th>
                    </tr>
                   </tbody>

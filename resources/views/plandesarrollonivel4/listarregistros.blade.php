@@ -6,7 +6,39 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left"><h3>Plan de Desarrollo</h3></div>
-          <div class="pull-right"></div>
+          <div class="pull-right">
+
+            <!-- Formulario para filtro de consulta por SECRETARIAS -->
+            <form method="GET" action="{{ url('/plandesarrollonivel4listarregistros') }}" role="form" enctype="multipart/form-data">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <table>
+                <tr>
+                  <td>
+                    <div class="form-group">
+
+                      <select class="form-control" name="filtroSecretaria">
+                        <option value='9999' selected>Todos los registros</option>
+                        @foreach($entidadOficina as $secretaria) 
+                            @if((isset($_GET['filtroSecretaria'])) && ($secretaria->id == $_GET['filtroSecretaria']))
+                              <option value={{ $secretaria->id }} selected>{{ $secretaria->nombre }}</option>
+                            @else
+                              <option value={{ $secretaria->id }}>{{ $secretaria->nombre }}</option>
+                            @endif
+                        @endforeach
+                      </select> 
+
+                    </div>
+                  </td>
+                  <td valign="top">
+                      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                  <td>
+                </tr>
+              </table>
+            </form>
+          <!-- Fin del formulario de filtros -->
+
+
+          </div>
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
              <tbody>
@@ -48,6 +80,9 @@
                       </tr>
                      @endforeach 
 
+                     @if (count($planDesarrolloNivel4))
+                      {{ $pagination }}
+                     @endif
 
                     </tbody>
                   </table>

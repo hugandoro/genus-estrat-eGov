@@ -51,7 +51,6 @@
                      <tr>
                       <th>N°</th>
                       <th>Titulo</th>
-                      <th>Objetivo</th>
                       <th>Opciones</th>
                      </tr>
 
@@ -59,8 +58,7 @@
                      @foreach($planDesarrolloNivel3 as $pdN3) 
                      <tr>
                       <td style="width:10%">{{$planDesarrolloNivel1->numeral}}.{{$planDesarrolloNivel2->numeral}}.{{$pdN3->numeral}}</td>
-                      <td style="width:20%">{{$pdN3->nombre}}</td>
-                      <td style="width:35%">{{$pdN3->objetivo}}</td>
+                      <td style="width:55%">{{$pdN3->nombre}}</td>
                       <td style="width:35%">
                         <!-- Ocpiones de EDICION y ELIMINAR -->
                         <form action="{{ route('plandesarrollonivel3.destroy',$pdN3->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">

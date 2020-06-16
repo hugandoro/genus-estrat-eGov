@@ -178,8 +178,21 @@ class PlanDesarrolloNivel4Controller extends Controller
     public function listarRegistros()
     {
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
-        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')->get();
-        return view('plandesarrollonivel4.listarregistros', compact('planDesarrollo','planDesarrolloNivel4'));
+
+        //Valida si trae un filtro de busqueda por Secretaria | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
+        if ((isset($_GET['filtroSecretaria'])) && ($_GET['filtroSecretaria'] != '9999')) 
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('oficina_id', $_GET['filtroSecretaria'])
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(10);
+        else
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')->paginate(10);
+
+        //Paginacion de resultados conservando el indice (Metodo GET y no POST)
+        $pagination = $planDesarrolloNivel4->appends(request () -> except (['page', '_token'])) -> links ();
+
+        $entidadOficina = EntidadOficina::orderBy('nombre')->get();
+        return view('plandesarrollonivel4.listarregistros', compact('planDesarrollo','planDesarrolloNivel4','entidadOficina', 'pagination'));
     }
 
     /**

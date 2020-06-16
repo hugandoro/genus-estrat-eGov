@@ -61,14 +61,12 @@
                      <tr>
                       <th>N°</th>
                       <th>Titulo</th>
-                      <th>Objetivo</th>
                       <th>Responsable</th>
                      </tr>
 
                      <tr>
                       <td style="width:16%">{{$planDesarrolloNivel1->numeral}}.{{$planDesarrolloNivel2->numeral}}.{{$planDesarrolloNivel3->numeral}}.{{$planDesarrolloNivel4->numeral}}</td>
-                      <td style="width:30%">{{$planDesarrolloNivel4->nombre}}</td>
-                      <td style="width:32%">{{$planDesarrolloNivel4->objetivo}}</td>
+                      <td style="width:62%">{{$planDesarrolloNivel4->nombre}}</td>
                       <td style="width:22%">{{$planDesarrolloNivel4->entidadOficina->nombre}}</td>
                      </tr>
 
