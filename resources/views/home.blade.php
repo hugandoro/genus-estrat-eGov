@@ -41,7 +41,7 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="#">Listar contenido</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/planindicativolistar') }}">Listar contenido</a></li>
                                   </ul>
                             </div>
                         </div>

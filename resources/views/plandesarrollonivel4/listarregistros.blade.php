@@ -30,7 +30,7 @@
                     </div>
                   </td>
                   <td valign="top">
-                      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Vincular</button>
+                      <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Filtrar</button>
                   <td>
                 </tr>
               </table>

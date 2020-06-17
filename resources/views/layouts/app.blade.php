@@ -87,7 +87,7 @@
                                     <li><a href="{{ url('/plandesarrollo') }}">Plan de desarrollo | Recorrer arbol del plan</a></li>
                                     <li><a href="{{ url('/plandesarrollonivel4listarregistros') }}">Plan de desarrollo | Listar registros</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Plan indicativo | Listar registros</a></li>
+                                    <li><a href="{{ url('/planindicativolistar') }}">Plan indicativo | Listar registros</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">Plan de accion | Listar registros</a></li>
                                     <!-- <li><a href="#">.: Banco de proyectos</a></li> -->
