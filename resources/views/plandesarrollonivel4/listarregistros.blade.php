@@ -69,9 +69,9 @@
                      @foreach($planDesarrolloNivel4 as $nivel4) 
                       <tr>
                         <td style="width:8%">{{$nivel4->nivel3->nivel2->nivel1->numeral}}.{{$nivel4->nivel3->nivel2->numeral}}.{{$nivel4->nivel3->numeral}}.{{$nivel4->numeral}}</td>
-                        <td style="width:12%">{{$nivel4->nivel3->nivel2->nivel1->nombre}}</td>
-                        <td style="width:15%">{{$nivel4->nivel3->nivel2->nombre}}</td>
-                        <td style="width:15%">{{$nivel4->nivel3->nombre}}</td>
+                        <td style="width:12%;font-size:10px;">{{$nivel4->nivel3->nivel2->nivel1->nombre}}</td>
+                        <td style="width:15%;font-size:10px;">{{$nivel4->nivel3->nivel2->nombre}}</td>
+                        <td style="width:15%;font-size:10px;">{{$nivel4->nivel3->nombre}}</td>
                         <td style="width:25%">{{$nivel4->nombre}}</td>
                         <td style="width:15%">{{$nivel4->entidadOficina->nombre}}</td>
                         <td style="width:10%">

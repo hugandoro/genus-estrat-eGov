@@ -65,7 +65,7 @@
                      </tr>
 
                      <tr>
-                      <td style="width:16%">{{$planDesarrolloNivel1->numeral}}.{{$planDesarrolloNivel2->numeral}}.{{$planDesarrolloNivel3->numeral}}.{{$planDesarrolloNivel4->numeral}}</td>
+                      <td style="width:16%;font-size:30px;">{{$planDesarrolloNivel1->numeral}}.{{$planDesarrolloNivel2->numeral}}.{{$planDesarrolloNivel3->numeral}}.{{$planDesarrolloNivel4->numeral}}</td>
                       <td style="width:62%">{{$planDesarrolloNivel4->nombre}}</td>
                       <td style="width:22%">{{$planDesarrolloNivel4->entidadOficina->nombre}}</td>
                      </tr>
@@ -118,8 +118,8 @@
                      @foreach($odsNivel4 as $odsNivel4) 
                       <tr>
                         <td style="width:10%">
-                          <img src="{{ asset('images/'. $odsNivel4->odsInformacion->logo) }}" style='width:50px;height:50px;'></td>
-                        <td style="width:90%">{{ $odsNivel4->odsInformacion->nombre }}</td>
+                          <img src="{{ asset('images/'. $odsNivel4->odsInformacion->logo) }}" style='width:30px;height:30px;'></td>
+                        <td style="width:90%;font-size:10px;">{{ $odsNivel4->odsInformacion->nombre }}</td>
                       </tr>
                      @endforeach
 
@@ -140,8 +140,8 @@
                      @foreach($nacionalplanNivel4 as $planNivel4) 
                       <tr>
                         <td style="width:10%">{{ $planNivel4->nacionalplanInformacion->codigo }}</td>
-                        <td style="width:34%">{{ $planNivel4->nacionalplanInformacion->nombre }}</td>
-                        <td style="width:56%">{{ $planNivel4->nacionalplanInformacion->descripcion }}</td>
+                        <td style="width:34%;font-size:10px;">{{ $planNivel4->nacionalplanInformacion->nombre }}</td>
+                        <td style="width:56%;font-size:10px;">{{ $planNivel4->nacionalplanInformacion->descripcion }}</td>
                       </tr>
                      @endforeach
 
@@ -162,8 +162,8 @@
                      @foreach($municipalpoliticaNivel4 as $politicaNivel4) 
                       <tr>
                         <td style="width:10%">{{ $politicaNivel4->municipalpoliticaInformacion->id }}</td>
-                        <td style="width:34%">{{ $politicaNivel4->municipalpoliticaInformacion->nombre }}</td>
-                        <td style="width:56%">{{ $politicaNivel4->municipalpoliticaInformacion->descripcion }}</td>
+                        <td style="width:34%;font-size:10px;">{{ $politicaNivel4->municipalpoliticaInformacion->nombre }}</td>
+                        <td style="width:56%;font-size:10px;">{{ $politicaNivel4->municipalpoliticaInformacion->descripcion }}</td>
                       </tr>
                      @endforeach
 
@@ -184,9 +184,9 @@
                      @foreach($mipgNivel4 as $mipgNivel4) 
                       <tr>
                         <td style="width:10%">
-                          <img src="{{ asset('images/'. $mipgNivel4->mipgInformacion->logo) }}" style='width:50px;height:50px;'></td>
-                        <td style="width:34%">{{ $mipgNivel4->mipgInformacion->dimension }}</td>
-                        <td style="width:56%">{{ $mipgNivel4->mipgInformacion->nombre }}</td>
+                          <img src="{{ asset('images/'. $mipgNivel4->mipgInformacion->logo) }}" style='width:30px;height:30px;'></td>
+                        <td style="width:34%;font-size:10px;">{{ $mipgNivel4->mipgInformacion->dimension }}</td>
+                        <td style="width:56%;font-size:10px;">{{ $mipgNivel4->mipgInformacion->nombre }}</td>
                       </tr>
                      @endforeach
 
