@@ -21,9 +21,9 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
-                                <div><img class="card-img-top" src="{{ asset("images/iconos/icono2.png") }}" alt="Estrategov" width="35%"></div>
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono2.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>PLAN DE DESARROLLO</b></h5>
+                                    <h5 class="card-title" style="color:#000000;"><b>Plan de desarrollo</b></h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -35,9 +35,9 @@
 
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
-                                <div><img class="card-img-top" src="{{ asset("images/iconos/icono9.png") }}" alt="Estrategov" width="35%"></div>
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono9.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>PLAN INDICATIVO</b></h5>
+                                    <h5 class="card-title" style="color:#000000;"><b>Plan indicativo</b></h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -48,9 +48,9 @@
 
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
-                                <div><img class="card-img-top" src="{{ asset("images/iconos/icono12.png") }}" alt="Estrategov" width="35%"></div>
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono12.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>PLAN DE ACCION</b></h5>
+                                    <h5 class="card-title" style="color:#000000;"><b>Plan de accion</b></h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -62,13 +62,13 @@
 
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
-                                <div><img class="card-img-top" src="{{ asset("images/iconos/icono15.png") }}" alt="Estrategov" width="35%"></div>
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono15.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>ANALITICA</b></h5>
+                                    <h5 class="card-title" style="color:#000000;"><b>Analitica de datos</b></h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="#">Infografia del plan</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/plandesarrolloinfografia') }}">Infografia del plan</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -78,9 +78,9 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
-                                <div><img class="card-img-top" src="{{ asset("images/iconos/icono_ods.png") }}" alt="Estrategov" width="35%"></div>
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_ods.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>ODS</b></h5>
+                                    <h5 class="card-title" style="color:#000000;"><b>Objetivos ODS</b></h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -91,9 +91,9 @@
 
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
-                                <div><img class="card-img-top" src="{{ asset("images/iconos/icono_mipg.png") }}" alt="Estrategov" width="35%"></div>
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_mipg.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>MIPG</b></h5>
+                                    <h5 class="card-title" style="color:#000000;"><b>Politicas MIPG</b></h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -104,9 +104,9 @@
 
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
-                                <div><img class="card-img-top" src="{{ asset("images/iconos/icono7.png") }}" alt="Estrategov" width="35%"></div>
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono7.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>PLAN Y POLITICAS PUBLICAS</b></h5>
+                                    <h5 class="card-title" style="color:#000000;"><b>Plan y politicas publicas</b></h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -118,9 +118,9 @@
 
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
-                                <div><img class="card-img-top" src="{{ asset("images/iconos/icono16.png") }}" alt="Estrategov" width="35%"></div>
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono16.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title"><b>INFORMACION INSTITUCIONAL</b></h5>
+                                    <h5 class="card-title" style="color:#000000;"><b>Informacion institucional</b></h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
