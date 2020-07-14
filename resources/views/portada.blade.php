@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #ffffff;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -46,7 +46,15 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 50px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+            }
+
+            .slogantitle {
+                font-size: 30px;
             }
 
             .links > a {
@@ -78,18 +86,32 @@
             @endif
 
             <div class="content">
-                <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="500px"></picture></center>
+                <center><picture><img class='img-responsive' src="{{ asset('images/logo_miniatura_administracion.png') }}" width="150px"></picture></center>
 
                 <div class="title m-b-md">
-                    Estrat-eGov
+                    Alcaldia de Dosquebradas
                 </div>
 
-                <div class="links">
-                    <a href="{{ route('login') }}">Gestion publica inteligente</a>
+                <div class="subtitle m-b-md">
+                    Empresa de Todos 2020 - 2023 Planeada | Ordenada | Dinamica
                 </div>
+
+                <div class="slogantitle m-b-md">
+                    Bienvenido al sistema <b>Estrat-eGov</b> por una gestion pública inteligente
+                </div>
+
+                <br><hr><br>
+
+                <div>
+                    <small class="d-block mb-3 text-muted">Estrat-eGov y Estratego &copy; - Derechos reservados Genus Group SAS - Colombia 2020</small>
+                </div>
+
+                <br>
+
+                <center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="250px"></picture></center>
 
             </div>
-
         </div>
+
     </body>
 </html>
