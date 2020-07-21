@@ -24,6 +24,7 @@ Route::resource('/administracion', 'AdministracionController');
 Route::resource('/entidadoficina', 'EntidadOficinaController');
 
 Route::resource('/plandesarrollo', 'PlanDesarrolloController');
+Route::match(array('GET', 'POST'), '/plandesarrolloinfografia', 'PlanDesarrolloController@infografia')->name('/plandesarrolloinfografia');
 
 Route::resource('/plandesarrollonivel1', 'PlanDesarrolloNivel1Controller');
 Route::get('plandesarrollonivel1/listar/{idA}', 'PlanDesarrolloNivel1Controller@listar');
