@@ -109,4 +109,43 @@ class PlanDesarrolloController extends Controller
     {
         //
     }
+
+    /**
+     * Vision estilo INFOGRAFIA del plan y sus aristas
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function infografia()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+        $planDesarrolloNivel1 = PlanDesarrolloNivel1::where('plan_desarrollo_id', config('app.plan_desarrollo'))->get();
+
+        //Labels o nombres personalizados de los 4 niveles de profundidad del plan, posicion [0] porque se asume que solo existe UN PLAN 
+        $tituloNiveles = [ 
+                            $planDesarrollo[0]->nombre_nivel1, 
+                            $planDesarrollo[0]->nombre_nivel2, 
+                            $planDesarrollo[0]->nombre_nivel3, 
+                            $planDesarrollo[0]->nombre_nivel4 
+                        ];
+
+        //! Se debe organizar para hacerlo dinamico, actualmente limitado a 4 registros
+        $nombresNivel1 = [ 
+                            $planDesarrolloNivel1[0]->nombre, 
+                            $planDesarrolloNivel1[1]->nombre, 
+                            $planDesarrolloNivel1[2]->nombre, 
+                            $planDesarrolloNivel1[3]->nombre 
+                        ];
+
+        return view('plandesarrollo.infografia',array(
+                                                    'tituloNivel1'  =>  $tituloNiveles[0],
+                                                    'tituloNivel2'  =>  $tituloNiveles[1],
+                                                    'tituloNivel3'  =>  $tituloNiveles[2],
+                                                    'tituloNivel4'  =>  $tituloNiveles[3],
+    
+                                                    'nombreANivel1' =>  $nombresNivel1[0],
+                                                    'nombreBNivel1' =>  $nombresNivel1[1],
+                                                    'nombreCNivel1' =>  $nombresNivel1[2],
+                                                    'nombreDNivel1' =>  $nombresNivel1[3]
+                                                ));
+    }
 }
