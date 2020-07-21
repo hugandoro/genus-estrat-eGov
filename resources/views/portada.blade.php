@@ -46,7 +46,7 @@
             }
 
             .title {
-                font-size: 18px;
+                font-size: 22px;
             }
 
             .subtitle {
@@ -79,8 +79,8 @@
                     @auth
                         <a href="{{ url('/home') }}">Menu del aplicativo</a>
                     @else
-                        <a href="{{ route('login') }}">Ingreso</a>
-                        <a href="{{ route('register') }}">Registro</a>
+                        <a href="{{ route('login') }}">.: Ingreso</a>
+                        <a href="{{ route('register') }}">.: Registro</a>
                     @endauth
                 </div>
             @endif
@@ -100,7 +100,7 @@
                 <br><br>
 
                 <div class="slogantitle m-b-md">
-                    <b>Estrat-eGov</b> por una gestion pública inteligente
+                    <b>Estrat-eGov</b> | Gestion pública inteligente
                 </div>
 
                 <br><br><hr>

@@ -19,7 +19,7 @@
 
                     <!-- MENU - Fila 1 -->
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <div class="card text-center text-white bg-info mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono2.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
@@ -33,7 +33,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <div class="card text-center text-white bg-info mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono9.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
@@ -46,7 +46,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <div class="card text-center text-white bg-info mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono12.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
@@ -58,7 +58,7 @@
                                     <li class="list-group-item"><a href="#">Listar contenido</a></li>
                                   </ul>
                             </div>
-                        </div>
+                        </div>                  
 
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-info mb-3">
@@ -68,10 +68,28 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/plandesarrolloinfografia') }}">Infografia del plan</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/home') }}">Nuestro plan en cifras</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/home') }}">Distribucion por Sectores</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/home') }}">Distribucion por Secretarias</a></li>
                                 </ul>
                             </div>
                         </div>
+
+                        <div class="col-sm-3">
+                            <div class="card text-center text-white bg-info mb-3">
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_pdf.png") }}" alt="Estrategov" width="35%"></div>
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color:#000000;"><b>PDF Documentos tecnicos</b></h5>
+                                    <!--<<p class="card-text">Texto que describe</p>-->
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/1%20-%20PLAN%20DE%20DESARROLLO%20PARA%20IMPRIMIR.pdf') }}">Libro Digital</a></li>
+                                    <li class="list-group-item"><a target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/3%20-%20Anexo%20A%20-%20Dosquebradas%20Solidaria%20(COVID-19).pdf') }}">Anexo A - COVID19</a></li>
+                                    <li class="list-group-item"><a target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/4%20-%20Anexo%20B%20-%20Diagn%C3%B3stico%20estrat%C3%A9gico%20NNAJ.pdf') }}">Anexo B - NNAJ</a></li>
+                                    <li class="list-group-item"><a target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/5%20-%20Anexo%20C%20-%20Plan%20Territorial%20de%20Salud.pdf') }}">Anexo C - PTS</a></li>
+                                  </ul>
+                            </div>
+                        </div>                          
                     </div>
 
                     <!-- MENU - Fila 2 -->

@@ -120,9 +120,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <!-- <li><a href="#">.: Reportes</a></li> -->
-                                        <!-- <li><a href="#">.: Estadisticos</a></li> -->
-                                        <!-- <li><a href="#">.: Proyecciones</a></li> -->
+                                        <li><a href="{{ url('/home') }}">Nuestro plan en cifras</a></li>
+                                        <li><a href="{{ url('/home') }}">Distribucion por Sectores</a></li>
+                                        <li><a href="{{ url('/home') }}">Distribucion por Secretarias</a></li>
                                     </ul>
                                 </li>
                             @endif
