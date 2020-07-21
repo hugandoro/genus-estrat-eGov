@@ -13,8 +13,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #003366;
-                color: #ffffff;
+                background-color: #ffffff;
+                color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -46,19 +46,19 @@
             }
 
             .title {
-                font-size: 18px;
+                font-size: 50px;
             }
 
             .subtitle {
-                font-size: 14px;
+                font-size: 20px;
             }
 
             .slogantitle {
-                font-size: 24px;
+                font-size: 30px;
             }
 
             .links > a {
-                color: #ffffff;
+                color: #636b6f;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -86,32 +86,29 @@
             @endif
 
             <div class="content">
-                <br>
-                <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="300px"></picture></center>
+                <center><picture><img class='img-responsive' src="{{ asset('images/logo_miniatura_administracion.png') }}" width="150px"></picture></center>
 
                 <div class="title m-b-md">
-                    <b>Alcaldia de Dosquebradas</b>
+                    Alcaldia de Dosquebradas
                 </div>
 
                 <div class="subtitle m-b-md">
                     Empresa de Todos 2020 - 2023 Planeada | Ordenada | Dinamica
                 </div>
 
-                <br><br>
-
                 <div class="slogantitle m-b-md">
-                    <b>Estrat-eGov</b> por una gestion pública inteligente
+                    Bienvenido al sistema <b>Estrat-eGov</b> por una gestion pública inteligente
                 </div>
 
-                <br><br><hr>
+                <br><hr><br>
 
                 <div>
-                    <small class="d-block mb-3">Estrat-eGov y Estratego &copy; - Derechos reservados Genus Group SAS - Colombia 2020</small>
+                    <small class="d-block mb-3 text-muted">Estrat-eGov y Estratego &copy; - Derechos reservados Genus Group SAS - Colombia 2020</small>
                 </div>
 
                 <br>
 
-                <center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="200px"></picture></center>
+                <center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="250px"></picture></center>
 
             </div>
         </div>
