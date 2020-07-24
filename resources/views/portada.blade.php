@@ -57,6 +57,10 @@
                 font-size: 24px;
             }
 
+            .version {
+                font-size: 14px;
+            }
+
             .links > a {
                 color: #ffffff;
                 padding: 0 25px;
@@ -103,7 +107,12 @@
                     <b>Estrat-eGov</b> | Gestion pública inteligente
                 </div>
 
-                <br><br><hr>
+                <div class="version m-b-md">
+                    Version Beta 1.0366
+                </div>
+
+
+                <hr>
 
                 <div>
                     <small class="d-block mb-3">Estrat-eGov y Estratego &copy; - Derechos reservados Genus Group SAS - Colombia 2020</small>

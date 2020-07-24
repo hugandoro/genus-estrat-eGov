@@ -68,9 +68,8 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/home') }}">Nuestro plan en cifras</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/home') }}">Distribucion por Sectores</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/home') }}">Distribucion por Secretarias</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>
                                 </ul>
                             </div>
                         </div>
