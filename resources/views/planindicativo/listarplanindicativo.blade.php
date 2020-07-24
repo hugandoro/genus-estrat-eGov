@@ -27,6 +27,26 @@
                         @endforeach
                       </select> 
 
+                      <td>
+                        <div class="form-group">
+                          @if(isset($_GET['filtroactividad']))
+                            <input class="form-control" placeholder="N° Actividad..." name="filtroactividad" type="number" id="filtroactividad" value= {{ $_GET['filtroactividad'] }}> 
+                          @else
+                            <input class="form-control" placeholder="N° Actividad..." name="filtroactividad" type="number" id="filtroactividad"> 
+                          @endif
+                        </div>
+                      </td>
+    
+                      <td>
+                        <div class="form-group">
+                          @if(isset($_GET['filtropalabras']))
+                            <input class="form-control" placeholder="Palabras clave..." name="filtropalabras" type="text" id="filtropalabras" value= {{ $_GET['filtropalabras'] }}> 
+                          @else
+                            <input class="form-control" placeholder="Palabras clave..." name="filtropalabras" type="text" id="filtropalabras"> 
+                          @endif
+                        </div>
+                      </td>
+
                     </div>
                   </td>
                   <td valign="top">

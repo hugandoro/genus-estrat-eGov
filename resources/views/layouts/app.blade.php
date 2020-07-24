@@ -113,18 +113,16 @@
                             @endif
 
                             <!-- ANALITICA DE DATOS  -->
-                            @if(!(Auth::user()->hasRole('user'))) 
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                        Analítica |<span class="caret"></span>
-                                    </a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                     Analítica |<span class="caret"></span>
+                                </a>
 
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
-                                        <li><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>    
-                                    </ul>
-                                </li>
-                            @endif
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
+                                    <li><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>    
+                                </ul>
+                            </li>
 
                             <!-- POLITICAS PUBLICAS -->
                             <li class="dropdown">

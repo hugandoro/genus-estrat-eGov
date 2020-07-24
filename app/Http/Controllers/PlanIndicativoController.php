@@ -111,15 +111,30 @@ class PlanIndicativoController extends Controller
     {
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
 
+        //Hace una primer busqueda GENERAL
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')->paginate(10);
+
         //Valida si trae un filtro de busqueda por Secretaria | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
         if ((isset($_GET['filtroSecretaria'])) && ($_GET['filtroSecretaria'] != '9999')) 
             $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
                                         ->where('oficina_id', $_GET['filtroSecretaria'])
                                         ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
                                         ->paginate(10);
-        else
-            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')->paginate(10);
+                                        
+        if ((isset($_GET['filtroactividad'])) && ($_GET['filtroactividad'] != '')) 
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('numeral', $_GET['filtroactividad'])
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(10);
 
+        if ((isset($_GET['filtropalabras'])) && ($_GET['filtropalabras'] != '')){ 
+            $filtropalabra = $_GET['filtropalabras'];
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('nombre', 'LIKE', "%$filtropalabra%")
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(10);
+        }
+        
         //Paginacion de resultados conservando el indice (Metodo GET y no POST)
         $pagination = $planDesarrolloNivel4->appends(request () -> except (['page', '_token'])) -> links ();
 
