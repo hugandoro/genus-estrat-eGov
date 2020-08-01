@@ -51,6 +51,8 @@ Route::match(array('GET', 'POST'), 'vincularmipg', 'PlanDesarrolloNivel4Controll
 
 Route::match(array('GET', 'POST'), '/planindicativolistar', 'PlanIndicativoController@listarRegistros')->name('/planindicativolistar');
 
+Route::match(array('GET', 'POST'), '/planaccionlistar', 'PlanAccionController@listarRegistros')->name('/planaccionlistar');
+
 Route::resource('/ods', 'RefOdsObjetivoController');
 
 Route::resource('/pndesarrollo', 'RefNacionalPlanController');

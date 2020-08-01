@@ -42,7 +42,7 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a href="{{ url('/planindicativolistar') }}">Listar contenido</a></li>
-                                  </ul>
+                                </ul>
                             </div>
                         </div>
 
@@ -54,9 +54,8 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="#">Reportar</a></li>
-                                    <li class="list-group-item"><a href="#">Listar contenido</a></li>
-                                  </ul>
+                                    <li class="list-group-item"><a href="{{ url('/planaccionlistar') }}">Listar contenido</a></li>
+                                </ul>
                             </div>
                         </div>                  
 

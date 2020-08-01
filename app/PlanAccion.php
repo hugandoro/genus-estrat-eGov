@@ -8,7 +8,10 @@ class PlanAccion extends Model
 {
     protected $table = 'plan_accions';
     protected $fillable = [ 'plan_indicativo_id',
-                            'descripcion'];
+                            'descripcion',
+                            'kpi',
+                            'objetivo',
+                            'ponderacion'];
     protected $guarded = ['id'];
 
     //Relaciones

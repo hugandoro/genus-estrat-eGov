@@ -17,7 +17,7 @@ class CreatePlanAccionsTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->string('descripcion',150);
+            $table->text('descripcion');
 
             $table->integer('plan_indicativo_id')->unsigned();
             $table->foreign('plan_indicativo_id')

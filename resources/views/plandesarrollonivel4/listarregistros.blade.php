@@ -5,7 +5,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Plan de Desarrollo</h3></div>
+          <div class="pull-left"><h3><b>Plan de Desarrollo</b></h3></div>
           <div class="pull-right">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->

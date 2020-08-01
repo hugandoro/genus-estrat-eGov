@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="version m-b-md">
-                    Version Beta 1.0367 - 24072020
+                    Version Beta 1.0368 - 01082020
                 </div>
 
 
