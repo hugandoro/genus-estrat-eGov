@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
 
             <div class="panel panel-default">
-                <div class="panel-heading"><center><picture><img class='img-responsive' src="{{ asset('images/logo_miniatura_administracion.png') }}" width="80px"></picture> Dosquebradas Empresa de Todos 2020 - 2023 - Planeada | Ordenada | Dinamica</center></div>
+                <div class="panel-heading"><center><picture><img class='img-responsive' src="{{ asset('images/logo_miniatura_administracion.png') }}" width="80px"></picture> {{ config('app.nombre_administracion') }} | {{ config('app.slogan_administracion') }}</center></div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">

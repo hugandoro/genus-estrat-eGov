@@ -43,6 +43,12 @@
 
             .content {
                 text-align: center;
+                background-color: #ffffff;
+                color: #003366;
+            }
+
+            .footer {
+                text-align: center;
             }
 
             .title {
@@ -50,7 +56,8 @@
             }
 
             .subtitle {
-                font-size: 14px;
+                font-size: 16px;
+                font-weight: 600;
             }
 
             .slogantitle {
@@ -62,7 +69,7 @@
             }
 
             .links > a {
-                color: #ffffff;
+                color: #000000;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -77,7 +84,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="row">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -89,30 +96,34 @@
                 </div>
             @endif
 
-            <div class="content">
-                <br>
+            <div class="col-md-12 content">
+                <br><br><br><br><br><br><br
                 <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="300px"></picture></center>
 
                 <div class="title m-b-md">
-                    <b>Alcaldia de Dosquebradas</b>
+                    <b>{{ config('app.nombre_entidad') }}</b>
                 </div>
 
                 <div class="subtitle m-b-md">
-                    Empresa de Todos 2020 - 2023 Planeada | Ordenada | Dinamica
+                    {{ config('app.nombre_administracion') }} | {{ config('app.slogan_administracion') }}
                 </div>
 
-                <br><br>
+                <br><br><br>
+            </div>
 
+            <br><br>
+
+            <div class="col-md-12 footer">
                 <div class="slogantitle m-b-md">
                     <b>Estrat-eGov</b> | Gestion pública inteligente
                 </div>
 
                 <div class="version m-b-md">
-                    Version Beta 1.0368 - 01082020
+                    Version Beta 1.0369 - 02082020
                 </div>
 
 
-                <hr>
+                <br>
 
                 <div>
                     <small class="d-block mb-3">Estrat-eGov y Estratego &copy; - Derechos reservados Genus Group SAS - Colombia 2020</small>

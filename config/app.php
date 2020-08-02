@@ -23,6 +23,13 @@ return [
     'administracion' => env('ADMINISTRACION', '1'),
     'plan_desarrollo' => env('PLAN_DESARROLLO', '1'),
 
+    'nombre_estado' => env('NOMBRE_ESTADO','Colombia'),
+    'nombre_departamento' => env('NOMBRE_DEPARTAMENTO','Risaralda'),
+    'nombre_municipio' => env('NOMBRE_MUNICIPIO','Dosquebradas'),
+    'nombre_entidad' => env('NOMBRE_ENTIDAD','Alcaldia de Dosquebradas (Risaralda)'),
+    'nombre_administracion' => env('NOMBRE_ADMINISTRACION','Empresa de Todos 2020 - 2023'),
+    'slogan_administracion' => env('SLOGAN_ADMINISTRACION','Planeada | Ordenada | Dinamica'),
+
 
     /*
     |--------------------------------------------------------------------------
