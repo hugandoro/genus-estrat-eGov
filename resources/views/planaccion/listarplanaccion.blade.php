@@ -127,13 +127,13 @@
 
                       <!-- Busca las ACCIONES inscritas para el PLAN INDICATIVO respectivo - PLAN DE ACCION -->
                       <tr>
-                        <td style="width:30%;" colspan="2"></td>
-                        <td style="width:70%;" colspan="7">
+                        <td style="width:5%;" colspan="1"></td>
+                        <td style="width:95%;" colspan="8">
                           <table id="mytable" class="table table-bordered table-dark">
                             <tr>
-                              <th style="width:30%;">Accion</th>
-                              <th style="width:25%;">KPI</th>
-                              <th style="width:15%;">Objetivo</th>
+                              <th style="width:65%;">Accion</th>
+                              <th style="width:10%;">KPI</th>
+                              <th style="width:5%;">Objetivo</th>
                               <th style="width:10%;">Ponderacion</th>
                               <th style="width:20%;">Opciones</th>
                             </tr>
@@ -150,10 +150,10 @@
                                       @if($accion->plan_indicativo_id == $indicativo->id)
 
                                         <tr>
-                                          <td style="width:30%;">{{$accion->descripcion}}</td>
-                                          <td style="width:25%;">{{$accion->kpi}}</td>
-                                          <td style="width:15%;">{{$accion->objetivo}}</td>
-                                          <td style="width:10%;">{{$accion->ponderacion * 100}} %</td>
+                                          <td style="width:30%;font-size:11px;">{{$accion->descripcion}}</td>
+                                          <td style="width:25%;font-size:11px;">{{$accion->kpi}}</td>
+                                          <td style="width:15%;font-size:11px;">{{$accion->objetivo}}</td>
+                                          <td style="width:10%;font-size:11px;">{{$accion->ponderacion * 100}} %</td>
                                           @php $acumPonderadoAccion = $acumPonderadoAccion + $accion->ponderacion; @endphp <!-- Acumula la ponderacion para mostar en pantalla por Nivel 4 -->
                                           <td style="width:20%;"><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Reportar</button></td>
                                         </tr>

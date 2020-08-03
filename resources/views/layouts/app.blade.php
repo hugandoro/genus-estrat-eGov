@@ -87,11 +87,11 @@
 
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('/plandesarrollo') }}">Plan de desarrollo | Recorrer arbol del plan</a></li>
-                                    <li><a href="{{ url('/plandesarrollonivel4listarregistros') }}">Plan de desarrollo | Listar registros</a></li>
+                                    <li><a href="{{ url('/plandesarrollonivel4listarregistros') }}">Plan de desarrollo | Consultar</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ url('/planindicativolistar') }}">Plan indicativo | Listar registros</a></li>
+                                    <li><a href="{{ url('/planindicativolistar') }}">Plan indicativo | Consultar</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ url('/planaccionlistar') }}">Plan de accion | Listar registros</a></li>
+                                    <li><a href="{{ url('/planaccionlistar') }}">Plan de accion | Consultar</a></li>
                                     <!-- <li><a href="#">.: Banco de proyectos</a></li> -->
                                     <!-- <li><a href="#">.: Marco fiscal mediano plazo</a></li> -->
                                     <!-- <li><a href="#">.: Plan plurianual de inversion</a></li> -->

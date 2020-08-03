@@ -28,7 +28,7 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a href="{{ url('/plandesarrollo') }}">Arbol del plan</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/plandesarrollonivel4listarregistros') }}">Listar contenido</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/plandesarrollonivel4listarregistros') }}">Consultar el plan</a></li>
                                   </ul>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/planindicativolistar') }}">Listar contenido</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/planindicativolistar') }}">Consultar el plan</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/planaccionlistar') }}">Listar contenido</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/planaccionlistar') }}">Consultar el plan</a></li>
                                 </ul>
                             </div>
                         </div>                  
