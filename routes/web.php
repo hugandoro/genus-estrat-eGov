@@ -26,7 +26,7 @@ Route::resource('/entidadoficina', 'EntidadOficinaController');
 Route::resource('/plandesarrollo', 'PlanDesarrolloController');
 Route::match(array('GET', 'POST'), '/graficaplancomponentes', 'PlanDesarrolloController@graficaPlanComponentes')->name('/plandesarrolloinfografia');
 Route::match(array('GET', 'POST'), '/graficaplanresponsables', 'PlanDesarrolloController@graficaPlanResponsables')->name('/plandesarrolloinfografia');
-
+Route::match(array('GET', 'POST'), '/graficaplanods', 'PlanDesarrolloController@graficaPlanODS')->name('/graficaplanods');
 
 Route::resource('/plandesarrollonivel1', 'PlanDesarrolloNivel1Controller');
 Route::get('plandesarrollonivel1/listar/{idA}', 'PlanDesarrolloNivel1Controller@listar');
@@ -45,6 +45,8 @@ Route::match(array('GET', 'POST'), '/plandesarrollonivel4listarregistros', 'Plan
 //Ruta para validar manualmente un formulario sea por GET o POST
 // ->name se utiliza para definir el nombre con el que la ruta sera llamada desde una vista
 Route::match(array('GET', 'POST'), 'vincularods', 'PlanDesarrolloNivel4Controller@vincularODS')->name('vincularods');
+Route::match(array('GET', 'POST'), '/odslistarconvergencia', 'RefOdsObjetivoController@listarConvergencia')->name('/odslistarconvergencia');
+
 Route::match(array('GET', 'POST'), 'vincularnacionalplan', 'PlanDesarrolloNivel4Controller@vincularNacionalPlan')->name('vincularnacionalplan');
 Route::match(array('GET', 'POST'), 'vincularmunicipalpolitica', 'PlanDesarrolloNivel4Controller@vincularMunicipalPolitica')->name('vincularmunicipalpolitica');
 Route::match(array('GET', 'POST'), 'vincularmipg', 'PlanDesarrolloNivel4Controller@vincularMIPG')->name('vincularmipg');

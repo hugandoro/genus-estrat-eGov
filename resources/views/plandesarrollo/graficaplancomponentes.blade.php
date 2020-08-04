@@ -17,21 +17,9 @@
     </div>
 
     <!-- Grafica N° 3 - Actividades agrupadas por Nivel 1 -->
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="panel panel-default">
         <canvas id="chart-area3" style="width:100%"></canvas>
-      </div>
-    </div>
-
-    <!-- LOGOTIPO -->
-    <div class="col-md-6">
-      <div class="panel panel-default" style="width:100%, heigth:100%">
-        <center>
-          <picture><img class='img-responsive' src="{{ asset('images/logo_miniatura_administracion.png') }}" width="211px"></picture>
-
-          <h4>Planeada | Ordenada | Dinamica</h4>
-          <h5>2020 - 2023</h5>
-        </center>
       </div>
     </div>
 

@@ -17,11 +17,10 @@
     var nombresSecretarias = <?php echo json_encode((array) $nombresSecretarias);  ?>;
     var nivel4Secretaria = <?php echo json_encode((array) $nivel4Secretaria);  ?>;
 
+    //Se debe CORREGIR que se elimina manualmente los primeros 2 registros que no tienen asignacion de actividades ( Despacho y Privada )
 		var color = Chart.helpers.color;
 		var configD = {
-			labels: [ nombresSecretarias[1], 
-                nombresSecretarias[2], 
-                nombresSecretarias[3], 
+			labels: [ nombresSecretarias[3], 
                 nombresSecretarias[4], 
                 nombresSecretarias[5], 
                 nombresSecretarias[6], 
@@ -43,13 +42,10 @@
               ],
 			datasets: [{
 				label: 'Actividades a cargo',
-				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.red,
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.blue,
 				borderWidth: 1,
-				data: [
-                nivel4Secretaria[1], 
-                nivel4Secretaria[2], 
-                nivel4Secretaria[3], 
+				data: [ nivel4Secretaria[3], 
                 nivel4Secretaria[4], 
                 nivel4Secretaria[5], 
                 nivel4Secretaria[6], 

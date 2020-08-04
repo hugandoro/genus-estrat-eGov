@@ -9,6 +9,8 @@ use App\PlanDesarrolloNivel1;
 use App\PlanDesarrolloNivel2;
 use App\PlanDesarrolloNivel3;
 use App\PlanDesarrolloNivel4;
+use App\OdsNivel4;
+use App\RefOdsObjetivo;
 use Illuminate\Support\Facades\DB;
 
 class PlanDesarrolloController extends Controller
@@ -112,7 +114,7 @@ class PlanDesarrolloController extends Controller
     }
 
     /**
-     * Vision estilo INFOGRAFIA del plan y sus aristas
+     * Vision estilo INFOGRAFIA del PLAN y sus COMPONENTES
      *
      * @return \Illuminate\Http\Response
      */
@@ -202,7 +204,7 @@ class PlanDesarrolloController extends Controller
     }
 
     /**
-     * Vision estilo INFOGRAFIA del plan y sus aristas
+     * Vision estilo INFOGRAFIA del PLAN y sus RESPONSABLES
      *
      * @return \Illuminate\Http\Response
      */
@@ -268,4 +270,31 @@ class PlanDesarrolloController extends Controller
             'nivel4Secretaria' => $n4AgrupadoSecretaria
         ));
     }
+
+   /**
+     * Vision estilo INFOGRAFIA de los ODS y su CONVERGENCIA
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function graficaPlanODS()
+    {
+        //Tabla PIVOT convergencia ODS_NIVEL4S
+        $odsNivel4 = OdsNivel4::orderBy('ods_id')->get();
+
+        //Obtiene todos los ODS e inicializa el vector temporar de agrupamiento
+        $refOdsObjetivo = RefOdsObjetivo::orderBy('id')->get();
+        foreach($refOdsObjetivo as $ods){
+            $n4AgrupadoODS [$ods->id] = 0; //Inicializa el vector temporal para Agrupar
+        }
+
+        //Agrupa los registros nivel 4 por ODS tomando para ello la tabla PIVOT
+        foreach($odsNivel4 as $odsN4){
+            $n4AgrupadoODS [$odsN4->ods_id]++;
+        }           
+
+        return view('plandesarrollo.graficaplanods',array(
+            'nivel4ODS' => $n4AgrupadoODS
+        ));
+    }
+
 }

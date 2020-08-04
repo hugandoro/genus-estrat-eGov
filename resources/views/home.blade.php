@@ -69,6 +69,7 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
                                     <li class="list-group-item"><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -101,7 +102,8 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a href="{{ url('/ods') }}">Conocer los objetivos</a></li>
-                                  </ul>
+                                    <li class="list-group-item"><a href="{{ url('/odslistarconvergencia') }}">Convergencia a los ODS</a></li>
+                                </ul>
                             </div>
                         </div>
 

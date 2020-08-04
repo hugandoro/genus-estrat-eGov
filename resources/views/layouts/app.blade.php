@@ -120,7 +120,8 @@
 
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
-                                    <li><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>    
+                                    <li><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li> 
+                                    <li><a href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>       
                                 </ul>
                             </li>
 
