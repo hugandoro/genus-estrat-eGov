@@ -13,7 +13,7 @@ class RefMipgPolitica extends Model
     //Relacion muchos a muchos para TABLA PIVOTE
     public function nivel4()
     {
-        return $this->belongsToMany('App\PlanDesarrolloNivel4', 'Mipg_nivel4s', 'mipg_id', 'nivel4_id');
+        return $this->belongsToMany('App\PlanDesarrolloNivel4', 'mipg_nivel4s', 'mipg_id', 'nivel4_id');
     }
 }
 
