@@ -5,19 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\RefOdsObjetivo;
 use App\PlanDesarrollo;
-use App\PlanDesarrolloNivel1;
-use App\PlanDesarrolloNivel2;
-use App\PlanDesarrolloNivel3;
 use App\PlanDesarrolloNivel4;
-use App\EntidadOficina;
-use App\MedicionIndicador;
-use App\OdsNivel4;
-use App\RefNacionalPlan;
-use App\NacionalplanNivel4;
-use App\RefMunicipalPolitica;
-use App\MunicipalpoliticaNivel4;
-use App\RefMipgPolitica;
-use App\MipgNivel4;
 
 
 class RefOdsObjetivoController extends Controller

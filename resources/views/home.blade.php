@@ -70,6 +70,8 @@
                                     <li class="list-group-item"><a href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
                                     <li class="list-group-item"><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>
                                     <li class="list-group-item"><a href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -116,6 +118,7 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a href="{{ url('/mipg') }}">Conocer las politicas</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/mipglistarconvergencia') }}">Convergencia politicas MIPG</a></li>
                                   </ul>
                             </div>
                         </div>
@@ -130,6 +133,7 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a href="{{ url('/pndesarrollo') }}">Plan nacional de desarrollo</a></li>
                                     <li class="list-group-item"><a href="{{ url('/ppmunicipal') }}">Politicas publicas municipales</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/ppmunicipallistarconvergencia') }}">Convergencia politicas municipales</a></li>
                                   </ul>
                             </div>
                         </div>

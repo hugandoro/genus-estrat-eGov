@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\EntidadOficina;
+use App\MipgNivel4;
+use App\MunicipalpoliticaNivel4;
 use Illuminate\Http\Request;
 use App\PlanDesarrollo;
 use App\PlanDesarrolloNivel1;
@@ -10,6 +12,8 @@ use App\PlanDesarrolloNivel2;
 use App\PlanDesarrolloNivel3;
 use App\PlanDesarrolloNivel4;
 use App\OdsNivel4;
+use App\RefMipgPolitica;
+use App\RefMunicipalPolitica;
 use App\RefOdsObjetivo;
 use Illuminate\Support\Facades\DB;
 
@@ -294,6 +298,62 @@ class PlanDesarrolloController extends Controller
 
         return view('plandesarrollo.graficaplanods',array(
             'nivel4ODS' => $n4AgrupadoODS
+        ));
+    }
+
+   /**
+     * Vision estilo INFOGRAFIA de los MIPG y su CONVERGENCIA
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function graficaPlanMIPG()
+    {
+        //Tabla PIVOT convergencia MIPG_NIVEL4S
+        $mipgNivel4 = MipgNivel4::orderBy('mipg_id')->get();
+
+        //Obtiene todos los MIPG e inicializa el vector temporar de agrupamiento
+        $refMipgPolitica = RefMipgPolitica::orderBy('id')->get();
+        foreach($refMipgPolitica as $mipg){
+            $nombresPoliticasMIPG [$mipg->id] = $mipg->nombre; //Vector con los nombres
+            $n4AgrupadoMIPG [$mipg->id] = 0; //Inicializa el vector temporal para Agrupar
+        }
+
+        //Agrupa los registros nivel 4 por ODS tomando para ello la tabla PIVOT
+        foreach($mipgNivel4 as $mipgN4){
+            $n4AgrupadoMIPG [$mipgN4->mipg_id]++;
+        }           
+
+        return view('plandesarrollo.graficaplanmipg',array(
+            'nombresMIPG' => $nombresPoliticasMIPG,
+            'nivel4MIPG' => $n4AgrupadoMIPG
+        ));
+    }
+
+   /**
+     * Vision estilo INFOGRAFIA de las PP MUNICIPALES y su CONVERGENCIA
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function graficaPlanPPMunicipal()
+    {
+        //Tabla PIVOT convergencia MUNICIPALPOLITICA_NIVEL4S
+        $municipalPoliticaNivel4 = MunicipalpoliticaNivel4::orderBy('municipalpolitica_id')->get();
+
+        //Obtiene todos las MUNICIPALPOLITICAS e inicializa el vector temporar de agrupamiento
+        $refMunicipalPolitica = RefMunicipalPolitica::orderBy('id')->get();
+        foreach($refMunicipalPolitica as $politica){
+            $nombresPoliticasMunicipales [$politica->id] = $politica->nombre; //Vector con los nombres
+            $n4AgrupadoMUNICIPAL [$politica->id] = 0; //Inicializa el vector temporal para Agrupar
+        }
+
+        //Agrupa los registros nivel 4 por ODS tomando para ello la tabla PIVOT
+        foreach($municipalPoliticaNivel4 as $municipalN4){
+            $n4AgrupadoMUNICIPAL [$municipalN4->municipalpolitica_id]++;
+        }           
+
+        return view('plandesarrollo.graficaplanppmunicipal',array(
+            'nombresPOLITICAS' => $nombresPoliticasMunicipales,
+            'nivel4MUNICIPAL' => $n4AgrupadoMUNICIPAL
         ));
     }
 
