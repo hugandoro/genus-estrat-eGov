@@ -63,6 +63,9 @@ Route::match(array('GET', 'POST'), '/mipglistarconvergencia', 'RefMipgPoliticaCo
 Route::match(array('GET', 'POST'), '/planindicativolistar', 'PlanIndicativoController@listarRegistros')->name('/planindicativolistar');
 
 Route::match(array('GET', 'POST'), '/planaccionlistar', 'PlanAccionController@listarRegistros')->name('/planaccionlistar');
+Route::match(array('GET', 'POST'), '/planaccionlistarreporte', 'PlanAccionController@listarRegistrosReporte')->name('/planaccionlistarreporte');
+
+Route::resource('/tarea', 'TareaController');
 
 Route::resource('/ods', 'RefOdsObjetivoController');
 

@@ -55,6 +55,7 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a href="{{ url('/planaccionlistar') }}">Consultar el plan</a></li>
+                                    <li class="list-group-item"><a href="{{ url('/planaccionlistarreporte') }}">Reporte de tareas</a></li>
                                 </ul>
                             </div>
                         </div>                  

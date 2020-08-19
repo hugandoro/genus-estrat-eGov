@@ -1,15 +1,16 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="row">
   <section class="content">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2020</b></h3></div>
+          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2020 - Reporte tareas realizadas</b></h3></div>
           <div class="pull-right">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->
-            <form method="GET" action="{{ url('/planaccionlistar') }}" role="form" enctype="multipart/form-data">
+            <form method="GET" action="{{ url('/planaccionlistarreporte') }}" role="form" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <table>
                 <tr>
@@ -89,7 +90,7 @@
 
                      @foreach($planDesarrolloNivel4 as $Nivel4) 
                       <tr>
-                        <td style="width:5%">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
+                        <td style="width:5%;font-size:20px;font-weight: bold;">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
                         <td style="width:25%">{{$Nivel4->nombre}}</td>
 
                         <!-- Busca INDICADORES relacionados con el NIVEL4 -->
@@ -131,13 +132,12 @@
                         <td style="width:95%;" colspan="8">
                           <table id="mytable" class="table table-bordered table-dark">
                             <tr>
-                              <th style="width:75%;">Accion</th>
+                              <th style="width:65%;">Accion</th>
                               <th style="width:10%;">KPI</th>
                               <th style="width:5%;">Objetivo</th>
                               <th style="width:10%;">Ponderacion</th>
+                              <th style="width:20%;">Opciones</th>
                             </tr>
-
-                            @php $acumPonderadoAccion = 0; @endphp <!-- Inicializa Contador acumulado de ponderacion para mostar en pantalla por Nivel 4 -->
 
                             @foreach($medicionIndicador as $indicador) 
                               @if($indicador->nivel4_id == $Nivel4->id)
@@ -148,12 +148,59 @@
                                     @foreach($planAccion as $accion) 
                                       @if($accion->plan_indicativo_id == $indicativo->id)
 
+                                        <!-- Registos PLAN DE accion -->
                                         <tr>
                                           <td style="width:30%;font-size:11px;">{{$accion->descripcion}}</td>
                                           <td style="width:25%;font-size:11px;">{{$accion->kpi}}</td>
                                           <td style="width:15%;font-size:11px;">{{$accion->objetivo}}</td>
                                           <td style="width:10%;font-size:11px;">{{$accion->ponderacion * 100}} %</td>
-                                          @php $acumPonderadoAccion = $acumPonderadoAccion + $accion->ponderacion; @endphp <!-- Acumula la ponderacion para mostar en pantalla por Nivel 4 -->
+                                          <td style="width:20%;">
+                                            @if(Auth::user()->hasRole('super'))
+                                              <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a>
+                                            @endif
+                                          </td>
+                                        </tr>
+
+                                        <!-- Registros de las TAREAS reportadas -->
+                                        <tr>
+                                          <td style="width:95%;" colspan="5">
+                                            <table id="mytable" class="table table-bordered table-dark" style="background: #ffffff;">
+                                              <tr>
+                                                <th style="width:15%;">Fecha</th>
+                                                <th style="width:65%;">Tarea realizada</th>
+                                                <th style="width:20%;">Opciones</th>
+                                              </tr>
+
+                                              <!-- Listado de las tareas reportadas -->
+                                              @foreach ($tarea as $registro)
+                                                @if($registro->accion_id == $accion->id)
+
+                                                <tr>
+                                                  <td style="width:15%;">{{$registro->fecha_realizacion}}</td>
+                                                  <td style="width:65%;">{{$registro->descripcion}}</td>
+                                                  <td style="width:20%;">
+                                                    <!-- Ocpiones de EDICION y ELIMINAR -->
+                                                    @if(Auth::user()->hasRole('super'))
+                                                      <form action="{{ route('tarea.destroy',$registro->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                                        <a href="{{ route('tarea.show',$registro->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-zoom-in"></span></a>
+                                                        <a href="{{ route('tarea.edit',$registro->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
+                                                        <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
+                                                      </form>
+                                                    @endif
+                                                    <!-- Fin de los botones de opciones -->
+
+                                                  </td>
+                                                </tr>
+
+                                                @endif
+                                              @endforeach
+                                              <!-- Fin listado tareas reportadas -->
+
+                                            </table>
+                                          </td>
                                         </tr>
 
                                       @endif
@@ -165,18 +212,6 @@
                               @endif
                             @endforeach
 
-                            <!-- Mostrar totales al final de cada Tabla que conforma un plan de accion -->
-                            <tr>
-                              <th style="width:30%;"></th>
-                              <th style="width:25%;"></th>
-                              <th style="width:15%;"></th>
-                              @if ( $acumPonderadoAccion == 1 ) <!-- Sumas a 100% -->
-                                <th style="width:10%;background:rgb(205, 250, 180);">{{ $acumPonderadoAccion * 100 }} %</th>
-                              @else
-                                <th style="width:10%;background:rgb(252, 188, 188);">{{ $acumPonderadoAccion * 100 }} %</th>
-                              @endif
-                            </tr>
-                            <!-- Fin tabla totales -->
 
                           </table>
                         </td>
@@ -188,7 +223,8 @@
                      
                      @if (count($planDesarrolloNivel4))
                           {{ $pagination }}
-                      @endif
+                     @endif
+
 
                     </tbody>
                   </table>

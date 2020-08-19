@@ -19,6 +19,7 @@
     <script type="text/javascript" src="{{ asset('js/fondoAnimado.js') }}"></script>
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
     <!-- Confirma ANTES DE ELIMINAR un registro -->
     <script type="text/javascript">
