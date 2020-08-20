@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tarea;
 use App\PlanAccion;
+use App\PlanIndicativo;
+use App\MedicionIndicador;
+
 use App\GeneralZona;
 use App\GeograficaComuna;
 use App\GeograficaCorregimiento;
@@ -89,13 +92,20 @@ class TareaController extends Controller
         else{
             $tarea->evidencia_pdf = $request->file('evidencia_pdf');
             $nombreArchivo = 'accion-' . $tarea->accion_id . '-' . uniqid() . '.pdf';
-            Storage::disk('public')->put($nombreArchivo, file($tarea->evidencia_pdf));
+            Storage::disk('evidence')->put($nombreArchivo, file($tarea->evidencia_pdf));
             $tarea->evidencia_pdf = $nombreArchivo;
 
             $tarea->save();
         }
 
-        return redirect('tarea')->with('message','Guardado Satisfactoriamente !');
+        //Obtiene el codigo del NIVEL4 al que debe regresar en el listado
+        $planAccion = PlanAccion::find($tarea->accion_id);
+        $planIndicativo = PlanIndicativo::find($planAccion->plan_indicativo_id);
+        $medicionIndicador = MedicionIndicador::find($planIndicativo->indicador_id);
+        $nivel4 = $medicionIndicador->nivel4_id;
+        //----------------------------------------------------------------
+     
+        return redirect('/planaccionlistarreporte?filtroactividad='.$nivel4);
     }
 
     /**
@@ -158,8 +168,15 @@ class TareaController extends Controller
         $tarea->impacto_kpi = $request->impacto_kpi;
 
         $tarea->save();
+
+        //Obtiene el codigo del NIVEL4 al que debe regresar en el listado
+        $planAccion = PlanAccion::find($tarea->accion_id);
+        $planIndicativo = PlanIndicativo::find($planAccion->plan_indicativo_id);
+        $medicionIndicador = MedicionIndicador::find($planIndicativo->indicador_id);
+        $nivel4 = $medicionIndicador->nivel4_id;
+        //----------------------------------------------------------------
      
-        return redirect('tarea')->with('message','Editado Satisfactoriamente !');
+        return redirect('/planaccionlistarreporte?filtroactividad='.$nivel4);
     }
 
     /**
@@ -171,9 +188,18 @@ class TareaController extends Controller
     public function destroy($id)
     {
         $tarea = Tarea::find($id);
-        Storage::disk('public')->delete($tarea->evidencia_pdf);
+
+        //Obtiene el codigo del NIVEL4 al que debe regresar en el listado
+        $planAccion = PlanAccion::find($tarea->accion_id);
+        $planIndicativo = PlanIndicativo::find($planAccion->plan_indicativo_id);
+        $medicionIndicador = MedicionIndicador::find($planIndicativo->indicador_id);
+        $nivel4 = $medicionIndicador->nivel4_id;
+        //----------------------------------------------------------------
+
+        Storage::disk('evidence')->delete($tarea->evidencia_pdf);
         Tarea::destroy($id);  
  
-        return redirect('tarea')->with('message','Eliminado Satisfactoriamente !');
+        return redirect('/planaccionlistarreporte?filtroactividad='.$nivel4);
+
     }
 }

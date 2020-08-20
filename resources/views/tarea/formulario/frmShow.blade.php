@@ -109,12 +109,17 @@
 					</div>
 
 					<div class="form-group">
-						<label for="evidencia_pdf" class="negrita">Evidencia PDF</label> 
 						<div>
-							<input class="form-control" readonly placeholder="" required="required" name="evidencia_pdf" type="text" id="evidencia_pdf" value="{{ $tarea->evidencia_pdf }}"> 
-						</div>
-						<div>
-							<a href="{{ asset('storage/'.$tarea->evidencia_pdf) }}">Evidencia anexa</a>
+							@if ($tarea->evidencia_pdf != 'Sin evidencia')
+								<hr>
+								<label for="evidencia_pdf" class="negrita">Evidencia anexa</label> 
+								<a href="{{ asset('storage/evidence/'.$tarea->evidencia_pdf) }}">
+									<img src="{{ asset("images/iconos/icono_pdf.png") }}" alt="Estrategov" width="5%">
+								</a>
+								<hr>
+							@else
+								<hr><label for="evidencia_pdf">Registro sin evidencia anexa</label><hr>
+							@endif
 						</div>
 					</div>
 
