@@ -55,7 +55,11 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a href="{{ url('/planaccionlistar') }}">Consultar el plan</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/planaccionlistarreporte') }}">Reporte de tareas</a></li>
+
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                        @php ($aux = Auth::user()->oficina_id)
+                                        <li class="list-group-item"><a href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reporte de tareas</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>                  

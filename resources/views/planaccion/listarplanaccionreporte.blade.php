@@ -155,9 +155,13 @@
                                           <td style="width:15%;font-size:11px;">{{$accion->objetivo}}</td>
                                           <td style="width:10%;font-size:11px;">{{$accion->ponderacion * 100}} %</td>
                                           <td style="width:20%;">
-                                            @if(Auth::user()->hasRole('super'))
+
+                                            <!-- Valida si es un usuario (SUPERADMINISTRADOR O ADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
+                                            @if( (Auth::user()->hasRole('super') || Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
                                               <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a>
                                             @endif
+                                            <!-- Fin de la validacion de permisos para reportar -->
+
                                           </td>
                                         </tr>
 
@@ -179,8 +183,10 @@
                                                   <td style="width:15%;">{{$registro->fecha_realizacion}}</td>
                                                   <td style="width:65%;">{{$registro->descripcion}}</td>
                                                   <td style="width:20%;">
+                                                    
                                                     <!-- Ocpiones de EDICION y ELIMINAR -->
-                                                    @if(Auth::user()->hasRole('super'))
+                                                    <!-- Valida si es un usuario (SUPERADMINISTRADOR O ADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
+                                                    @if( (Auth::user()->hasRole('super') || Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
                                                       <form action="{{ route('tarea.destroy',$registro->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

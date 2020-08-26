@@ -107,8 +107,10 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <!-- <li><a href="#">.: Reportar</a></li> -->
-                                        <!-- <li><a href="#">.: Consultar</a></li> -->
+                                        @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                            @php ($aux = Auth::user()->oficina_id)
+                                            <li><a href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reportar</a></li>
+                                        @endif
                                     </ul>
                                 </li>
                             @endif

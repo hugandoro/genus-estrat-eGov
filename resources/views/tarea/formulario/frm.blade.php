@@ -202,7 +202,7 @@
  
 				@endif
  
-				@if(Auth::user()->hasRole('super'))
+				@if((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
 					<button type="submit" class="btn btn-info">Guardar</button>
 				@endif
 

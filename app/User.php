@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'oficina_id'
     ];
 
     /**
@@ -26,6 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //Relaciones
+    public function entidadOficina(){
+        return $this->belongsTo('App\EntidadOficina', 'oficina_id');
+    }
 
     /**
      * Relacion muchos a muchos para los ROLES de usuario ( Role - User )
