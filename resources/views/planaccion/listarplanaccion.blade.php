@@ -170,10 +170,10 @@
                               <th style="width:30%;"></th>
                               <th style="width:25%;"></th>
                               <th style="width:15%;"></th>
-                              @if ( $acumPonderadoAccion == 1 ) <!-- Sumas a 100% -->
-                                <th style="width:10%;background:rgb(205, 250, 180);">{{ $acumPonderadoAccion * 100 }} %</th>
+                              @if ( round($acumPonderadoAccion,2) == 1 ) <!-- Sumas a 100% -->
+                                <th style="width:10%;background:rgb(205, 250, 180);">{{ round($acumPonderadoAccion,2) * 100 }} %</th>
                               @else
-                                <th style="width:10%;background:rgb(252, 188, 188);">{{ $acumPonderadoAccion * 100 }} %</th>
+                                <th style="width:10%;background:rgb(252, 188, 188);">{{ round($acumPonderadoAccion,2) * 100 }} %</th>
                               @endif
                             </tr>
                             <!-- Fin tabla totales -->

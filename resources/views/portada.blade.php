@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #003366;
+                background-color: #28A745;
                 color: #ffffff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -44,7 +44,7 @@
             .content {
                 text-align: center;
                 background-color: #ffffff;
-                color: #003366;
+                color: #000000;
             }
 
             .footer {

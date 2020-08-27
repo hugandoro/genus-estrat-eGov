@@ -27,8 +27,8 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/plandesarrollo') }}">Arbol del plan</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/plandesarrollonivel4listarregistros') }}">Consultar el plan</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/plandesarrollo') }}">Arbol del plan</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listarregistros') }}">Consultar el plan</a></li>
                                   </ul>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/planindicativolistar') }}">Consultar el plan</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planindicativolistar') }}">Consultar el plan</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -54,11 +54,11 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/planaccionlistar') }}">Consultar el plan</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistar') }}">Consultar el plan</a></li>
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id)
-                                        <li class="list-group-item"><a href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reporte de tareas</a></li>
+                                        <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reporte de tareas</a></li>
                                     @endif
                                 </ul>
                             </div>
@@ -72,11 +72,11 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -89,10 +89,10 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/1%20-%20PLAN%20DE%20DESARROLLO%20PARA%20IMPRIMIR.pdf') }}">Libro Digital</a></li>
-                                    <li class="list-group-item"><a target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/3%20-%20Anexo%20A%20-%20Dosquebradas%20Solidaria%20(COVID-19).pdf') }}">Anexo A - COVID19</a></li>
-                                    <li class="list-group-item"><a target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/4%20-%20Anexo%20B%20-%20Diagn%C3%B3stico%20estrat%C3%A9gico%20NNAJ.pdf') }}">Anexo B - NNAJ</a></li>
-                                    <li class="list-group-item"><a target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/5%20-%20Anexo%20C%20-%20Plan%20Territorial%20de%20Salud.pdf') }}">Anexo C - PTS</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/1%20-%20PLAN%20DE%20DESARROLLO%20PARA%20IMPRIMIR.pdf') }}">Libro Digital</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/3%20-%20Anexo%20A%20-%20Dosquebradas%20Solidaria%20(COVID-19).pdf') }}">Anexo A - COVID19</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/4%20-%20Anexo%20B%20-%20Diagn%C3%B3stico%20estrat%C3%A9gico%20NNAJ.pdf') }}">Anexo B - NNAJ</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/5%20-%20Anexo%20C%20-%20Plan%20Territorial%20de%20Salud.pdf') }}">Anexo C - PTS</a></li>
                                   </ul>
                             </div>
                         </div>                          
@@ -108,8 +108,8 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/ods') }}">Conocer los objetivos</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/odslistarconvergencia') }}">Convergencia a los ODS</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/ods') }}">Conocer los objetivos</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/odslistarconvergencia') }}">Convergencia a los ODS</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -122,8 +122,8 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/mipg') }}">Conocer las politicas</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/mipglistarconvergencia') }}">Convergencia politicas MIPG</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/mipg') }}">Conocer las politicas</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/mipglistarconvergencia') }}">Convergencia politicas MIPG</a></li>
                                   </ul>
                             </div>
                         </div>
@@ -136,9 +136,9 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/pndesarrollo') }}">Plan nacional de desarrollo</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/ppmunicipal') }}">Politicas publicas municipales</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/ppmunicipallistarconvergencia') }}">Convergencia politicas municipales</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/pndesarrollo') }}">Plan nacional de desarrollo</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/ppmunicipal') }}">Politicas publicas municipales</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/ppmunicipallistarconvergencia') }}">Convergencia politicas municipales</a></li>
                                   </ul>
                             </div>
                         </div>
@@ -151,8 +151,8 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a href="{{ url('/administracion') }}">Datos de la administracion</a></li>
-                                    <li class="list-group-item"><a href="{{ url('/entidadoficina') }}">Gabinete municipal</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/administracion') }}">Datos de la administracion</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/entidadoficina') }}">Gabinete municipal</a></li>
                                   </ul>
                             </div>
                         </div>
