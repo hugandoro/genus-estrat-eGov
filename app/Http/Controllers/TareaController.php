@@ -17,6 +17,7 @@ use App\GeneralSexo;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class TareaController extends Controller
 {
@@ -78,6 +79,8 @@ class TareaController extends Controller
         $tarea->sexo_id = $request->sexo_id;
         $tarea->poblacion = $request->poblacion;
         $tarea->impacto_kpi = $request->impacto_kpi;
+        $tarea->valor_pesos = $request->valor_pesos;
+        $tarea->user_id = Auth::user()->id;
 
         //Valida el tamaño del archivo anexo
         $validator = Validator::make($request->all(), [
@@ -166,6 +169,8 @@ class TareaController extends Controller
         $tarea->sexo_id = $request->sexo_id;
         $tarea->poblacion = $request->poblacion;
         $tarea->impacto_kpi = $request->impacto_kpi;
+        $tarea->valor_pesos = $request->valor_pesos;
+        $tarea->user_id = Auth::user()->id;
 
         $tarea->save();
 

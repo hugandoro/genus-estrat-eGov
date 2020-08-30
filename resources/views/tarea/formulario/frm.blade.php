@@ -108,19 +108,26 @@
 						</div>
 					</div>
 
+					<div class="form-group">
+						<label for="valor_pesos" class="negrita">Valor invertido en pesos</label> 
+						<div>
+							<input class="form-control" placeholder="" required="required" name="valor_pesos" type="number" step="any" id="valor_pesos" value="{{ $tarea->valor_pesos }}"> 
+						</div>
+					</div>
+
 				@else
  
 					<div class="form-group">
 						<label for="fecha_realizacion" class="negrita">Fecha de realizacion</label> 
 						<div>
-							<input class="form-control" placeholder="" required="required" name="fecha_realizacion" type="date" id="fecha_realizacion"> 
+							<input class="form-control" placeholder="Fecha en que se realizo la tarea que se esta reportando..." required="required" name="fecha_realizacion" type="date" id="fecha_realizacion"> 
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="descripcion" class="negrita">Descripcion</label> 
 						<div>
-							<input class="form-control" placeholder="" required="required" name="descripcion" type="text" id="descripcion"> 
+							<input class="form-control" placeholder="Breve descripcion de lo que se hizo..." required="required" name="descripcion" type="text" id="descripcion"> 
 						</div>
 					</div>
 
@@ -182,21 +189,28 @@
 					<div class="form-group">
 						<label for="poblacion" class="negrita">Poblacion impactada</label> 
 						<div>
-							<input class="form-control" value="0" placeholder="" required="required" name="poblacion" type="number" id="poblacion"> 
+							<input class="form-control" placeholder="Cantidad de poblacion impactada..." required="required" name="poblacion" type="number" id="poblacion"> 
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="impacto_kpi" class="negrita">Impacto al KPI</label> 
 						<div>
-							<input class="form-control" value="0" placeholder="" required="required" name="impacto_kpi" type="number" step="any" id="impacto_kpi"> 
+							<input class="form-control" placeholder="Aporte al OBJETIVO del KPI..." required="required" name="impacto_kpi" type="number" step="any" id="impacto_kpi"> 
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="evidencia_pdf" class="negrita">Evidencia PDF</label> 
+						<label for="valor_pesos" class="negrita">Valor invertido en pesos</label> 
 						<div>
-							<input class="form-control" placeholder="" name="evidencia_pdf" type="file" id="evidencia_pdf" accept="application/pdf"> 
+							<input class="form-control" placeholder="Si se invirtieron recuros, indique el valor en pesos..." required="required" name="valor_pesos" type="number" step="any" id="valor_pesos"> 
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="evidencia_pdf" class="negrita">Evidencia PDF - No mayor a 3 megas (Opcional)</label> 
+						<div>
+							<input class="form-control" placeholder="Reservado para cargar evidencia en PDF no mayor a 3 megas" name="evidencia_pdf" type="file" id="evidencia_pdf" accept="application/pdf"> 
 						</div>
 					</div>
  

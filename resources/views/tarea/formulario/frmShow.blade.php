@@ -109,6 +109,16 @@
 					</div>
 
 					<div class="form-group">
+						<hr>
+						<label for="valor_pesos" class="negrita">Valor invertido en pesos</label> 
+						<div>
+							<!--<input class="form-control" readonly placeholder="" required="required" name="valor_pesos" type="number" step="any" id="valor_pesos" value="{{ $tarea->valor_pesos }}"> --> 
+							<label><h3>$ {{ number_format($tarea->valor_pesos,2) }}</h3></label> 
+							<img src="{{ asset("images/iconos/icono_dinero_01.png") }}" alt="" width="50px">
+						</div>
+					</div>
+
+					<div class="form-group">
 						<div>
 							@if ($tarea->evidencia_pdf != 'Sin evidencia')
 								<hr>
@@ -118,7 +128,7 @@
 								</a>
 								<hr>
 							@else
-								<hr><label for="evidencia_pdf">Registro sin evidencia anexa</label><hr>
+								<hr><label for="evidencia_pdf">Tarea reportada SIN evidencia anexa</label><hr>
 							@endif
 						</div>
 					</div>

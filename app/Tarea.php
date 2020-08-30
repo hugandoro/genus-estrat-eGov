@@ -17,7 +17,9 @@ class Tarea extends Model
                             sexo_id,
                             poblacion,
                             impacto_kpi,
-                            evidencia_pdf'];
+                            evidencia_pdf,
+                            valor_pesos,
+                            user_id'];
     protected $guarded = ['id'];
 
     //Relaciones
@@ -43,6 +45,10 @@ class Tarea extends Model
 
     public function sexo(){
         return $this->belongsTo('App\GeneralSexo', 'sexo_id');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id');
     }
 
 }
