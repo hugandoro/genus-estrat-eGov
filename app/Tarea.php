@@ -18,7 +18,12 @@ class Tarea extends Model
                             poblacion,
                             impacto_kpi,
                             evidencia_pdf,
-                            valor_pesos,
+                            valor_fuente1,
+                            fuente1_id,
+                            valor_fuente2,
+                            fuente2_id,
+                            valor_fuente3,
+                            fuente3_id,
                             user_id'];
     protected $guarded = ['id'];
 
@@ -45,6 +50,18 @@ class Tarea extends Model
 
     public function sexo(){
         return $this->belongsTo('App\GeneralSexo', 'sexo_id');
+    }
+
+    public function fuente1(){
+        return $this->belongsTo('App\GeneralFuente', 'fuente1_id');
+    }
+
+    public function fuente2(){
+        return $this->belongsTo('App\GeneralFuente', 'fuente2_id');
+    }
+
+    public function fuente3(){
+        return $this->belongsTo('App\GeneralFuente', 'fuente3_id');
     }
 
     public function user(){

@@ -13,6 +13,7 @@ use App\GeograficaComuna;
 use App\GeograficaCorregimiento;
 use App\GeneralPoblacion;
 use App\GeneralSexo;
+use App\GeneralFuente;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -55,8 +56,9 @@ class TareaController extends Controller
         $geograficaCorregimiento = GeograficaCorregimiento::all();
         $generalPoblacion = GeneralPoblacion::all();
         $generalSexo = GeneralSexo::all();
+        $generalFuente = GeneralFuente::all();
 
-        return view('tarea.create', compact('tarea','generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo'));
+        return view('tarea.create', compact('tarea','generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo', 'generalFuente'));
     }
 
     /**
@@ -79,7 +81,14 @@ class TareaController extends Controller
         $tarea->sexo_id = $request->sexo_id;
         $tarea->poblacion = $request->poblacion;
         $tarea->impacto_kpi = $request->impacto_kpi;
-        $tarea->valor_pesos = $request->valor_pesos;
+
+        $tarea->valor_fuente1 = $request->valor_fuente1;
+        $tarea->fuente1_id = $request->fuente1_id;
+        $tarea->valor_fuente2 = $request->valor_fuente2;
+        $tarea->fuente2_id = $request->fuente2_id;
+        $tarea->valor_fuente3 = $request->valor_fuente3;
+        $tarea->fuente3_id = $request->fuente3_id;
+
         $tarea->user_id = Auth::user()->id;
 
         //Valida el tamaño del archivo anexo
@@ -126,8 +135,9 @@ class TareaController extends Controller
         $geograficaCorregimiento = GeograficaCorregimiento::all();
         $generalPoblacion = GeneralPoblacion::all();
         $generalSexo = GeneralSexo::all();
+        $generalFuente = GeneralFuente::all();
 
-        return view('tarea.show',compact('generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo'),['tarea'=>$tarea]);
+        return view('tarea.show',compact('generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo','generalFuente'),['tarea'=>$tarea]);
     }
 
     /**
@@ -145,8 +155,9 @@ class TareaController extends Controller
         $geograficaCorregimiento = GeograficaCorregimiento::all();
         $generalPoblacion = GeneralPoblacion::all();
         $generalSexo = GeneralSexo::all();
+        $generalFuente = GeneralFuente::all();
 
-        return view('tarea.edit',compact('generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo'),['tarea'=>$tarea]);
+        return view('tarea.edit',compact('generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo','generalFuente'),['tarea'=>$tarea]);
     }
 
     /**
@@ -169,7 +180,14 @@ class TareaController extends Controller
         $tarea->sexo_id = $request->sexo_id;
         $tarea->poblacion = $request->poblacion;
         $tarea->impacto_kpi = $request->impacto_kpi;
-        $tarea->valor_pesos = $request->valor_pesos;
+
+        $tarea->valor_fuente1 = $request->valor_fuente1;
+        $tarea->fuente1_id = $request->fuente1_id;
+        $tarea->valor_fuente2 = $request->valor_fuente2;
+        $tarea->fuente2_id = $request->fuente2_id;
+        $tarea->valor_fuente3 = $request->valor_fuente3;
+        $tarea->fuente3_id = $request->fuente3_id;
+        
         $tarea->user_id = Auth::user()->id;
 
         $tarea->save();

@@ -108,12 +108,81 @@
 						</div>
 					</div>
 
+					<br>
+
+					<!-- FUENTES DE INVERSION Y VALORES INVERTIDOS -->
 					<div class="form-group">
-						<label for="valor_pesos" class="negrita">Valor invertido en pesos</label> 
-						<div>
-							<input class="form-control" placeholder="" required="required" name="valor_pesos" type="number" step="any" id="valor_pesos" value="{{ $tarea->valor_pesos }}"> 
+						<div class="col-md-12">
+							<label for="impacto_kpi" class="negrita">Inversion y Fuentes de inversion</label> 
+						</div>
+
+						<div class="col-md-6">
+							<label for="fuente1_id" class="negrita">Fuente N° 1</label> 
+							<div>
+								<select class="form-control" name="fuente1_id">
+									@foreach($generalFuente as $item)
+										@if ($item->id == $tarea->fuente1_id)	
+											<option value="{{$item->id}}" selected="selected">{{$item->nombre}}</option>
+										@else
+											<option value="{{$item->id}}">{{$item->nombre}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="valor_fuente1" class="negrita">Fuente N° 1 - Valor invertido</label> 
+							<div>
+								<input class="form-control" placeholder="Si se invirtieron recuros, indique el valor en pesos..." required="required" name="valor_fuente1" type="number" step="any" id="valor_fuente1" value="{{ $tarea->valor_fuente1 }}"> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="fuente2_id" class="negrita">Fuente N° 2</label> 
+							<div>
+								<select class="form-control" name="fuente2_id">
+									@foreach($generalFuente as $item)
+										@if ($item->id == $tarea->fuente2_id)	
+											<option value="{{$item->id}}" selected="selected">{{$item->nombre}}</option>
+										@else
+											<option value="{{$item->id}}">{{$item->nombre}}</option>
+										@endif
+									@endforeach
+								</select> 							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="valor_fuente2" class="negrita">Fuente N° 2 - Valor invertido</label> 
+							<div>
+								<input class="form-control" placeholder="Si se invirtieron recuros, indique el valor en pesos..." required="required" name="valor_fuente2" type="number" step="any" id="valor_fuente2" value="{{ $tarea->valor_fuente2 }}"> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="fuente3_id" class="negrita">Fuente N° 3</label> 
+							<div>
+								<select class="form-control" name="fuente3_id">
+									@foreach($generalFuente as $item)
+										@if ($item->id == $tarea->fuente3_id)	
+											<option value="{{$item->id}}" selected="selected">{{$item->nombre}}</option>
+										@else
+											<option value="{{$item->id}}">{{$item->nombre}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="valor_fuente3" class="negrita">Fuente N° 3 - Valor invertido</label> 
+							<div>
+								<input class="form-control" placeholder="Si se invirtieron recuros, indique el valor en pesos..." required="required" name="valor_fuente3" type="number" step="any" id="valor_fuente3" value="{{ $tarea->valor_fuente3 }}"> 
+							</div>
+							<br><br>
 						</div>
 					</div>
+					<!-- FIN SECCION INVERSION Y FUENTES -->
 
 				@else
  
@@ -200,12 +269,70 @@
 						</div>
 					</div>
 
+					<br>
+					
+					<!-- FUENTES DE INVERSION Y VALORES INVERTIDOS -->
 					<div class="form-group">
-						<label for="valor_pesos" class="negrita">Valor invertido en pesos</label> 
-						<div>
-							<input class="form-control" placeholder="Si se invirtieron recuros, indique el valor en pesos..." required="required" name="valor_pesos" type="number" step="any" id="valor_pesos"> 
+						<div class="col-md-12">
+							<label for="impacto_kpi" class="negrita">Inversion y Fuentes de inversion</label> 
+						</div>
+
+						<div class="col-md-6">
+							<label for="fuente1_id" class="negrita">Fuente N° 1</label> 
+							<div>
+								<select class="form-control" name="fuente1_id">
+									@foreach($generalFuente as $item)
+										<option value="{{$item->id}}">{{$item->id}} | {{$item->nombre}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="valor_fuente1" class="negrita">Fuente N° 1 - Valor invertido</label> 
+							<div>
+								<input class="form-control" placeholder="Si se invirtieron recuros, indique el valor en pesos..." required="required" name="valor_fuente1" type="number" step="any" id="valor_fuente1"> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="fuente2_id" class="negrita">Fuente N° 2</label> 
+							<div>
+								<select class="form-control" name="fuente2_id">
+									@foreach($generalFuente as $item)
+										<option value="{{$item->id}}">{{$item->id}} | {{$item->nombre}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="valor_fuente2" class="negrita">Fuente N° 2 - Valor invertido</label> 
+							<div>
+								<input class="form-control" placeholder="Si se invirtieron recuros, indique el valor en pesos..." required="required" name="valor_fuente2" type="number" step="any" id="valor_fuente2"> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="fuente3_id" class="negrita">Fuente N° 3</label> 
+							<div>
+								<select class="form-control" name="fuente3_id">
+									@foreach($generalFuente as $item)
+										<option value="{{$item->id}}">{{$item->id}} | {{$item->nombre}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="valor_fuente3" class="negrita">Fuente N° 3 - Valor invertido</label> 
+							<div>
+								<input class="form-control" placeholder="Si se invirtieron recuros, indique el valor en pesos..." required="required" name="valor_fuente3" type="number" step="any" id="valor_fuente3"> 
+							</div>
+							<br><br>
 						</div>
 					</div>
+					<!-- FIN SECCION INVERSION Y FUENTES -->
 
 					<div class="form-group">
 						<label for="evidencia_pdf" class="negrita">Evidencia PDF - No mayor a 3 megas (Opcional)</label> 
@@ -213,6 +340,8 @@
 							<input class="form-control" placeholder="Reservado para cargar evidencia en PDF no mayor a 3 megas" name="evidencia_pdf" type="file" id="evidencia_pdf" accept="application/pdf"> 
 						</div>
 					</div>
+
+					<hr>
  
 				@endif
  

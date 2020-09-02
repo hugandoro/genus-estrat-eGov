@@ -108,15 +108,35 @@
 						</div>
 					</div>
 
+					<!-- FUENTES DE INVERSION Y VALORES INVERTIDOS -->
 					<div class="form-group">
-						<hr>
-						<label for="valor_pesos" class="negrita">Valor invertido en pesos</label> 
-						<div>
-							<!--<input class="form-control" readonly placeholder="" required="required" name="valor_pesos" type="number" step="any" id="valor_pesos" value="{{ $tarea->valor_pesos }}"> --> 
-							<label><h3>$ {{ number_format($tarea->valor_pesos,2) }}</h3></label> 
-							<img src="{{ asset("images/iconos/icono_dinero_01.png") }}" alt="" width="50px">
+						<div class="col-md-12">
+							<label for="impacto_kpi" class="negrita"><h3>Inversion y Fuentes de inversion</h3></label> 
+						</div>
+
+						<div class="col-md-12">
+							<table class="table table-dark">
+								<tr>
+									<td><b>Fuente de inversion</b></td>
+									<td><b>Valor invertido en pesos</b></td>
+								</tr>
+								<tr>
+									<td>Codigo N° {{ $tarea->fuente1_id }}</td>
+									<td>$ {{ number_format($tarea->valor_fuente1,2) }}</td>
+								</tr>
+								<tr>
+									<td>Codigo N° {{ $tarea->fuente2_id }}</td>
+									<td>$ {{ number_format($tarea->valor_fuente2,2) }}</td>
+								</tr>
+								<tr>
+									<td>Codigo N° {{ $tarea->fuente3_id }}</td>
+									<td>$ {{ number_format($tarea->valor_fuente3,2) }}</td>
+								</tr>
+							</table>
+
 						</div>
 					</div>
+					<!-- FIN SECCION INVERSION Y FUENTES -->
 
 					<div class="form-group">
 						<div>
