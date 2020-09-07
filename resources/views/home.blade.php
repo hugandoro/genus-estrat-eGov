@@ -60,6 +60,8 @@
                                         @php ($aux = Auth::user()->oficina_id)
                                         <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reporte de tareas</a></li>
                                     @endif
+
+                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/tareaslistargeneral') }}">Cronologico tareas reportadas</a></li>
                                 </ul>
                             </div>
                         </div>                  

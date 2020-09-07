@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\PlanDesarrollo;
+use App\PlanDesarrolloNivel1;
+use App\PlanDesarrolloNivel2;
+use App\PlanDesarrolloNivel3;
+use App\PlanDesarrolloNivel4;
+use App\EntidadOficina;
+
 use App\Tarea;
 use App\PlanAccion;
 use App\PlanIndicativo;
@@ -225,4 +233,25 @@ class TareaController extends Controller
         return redirect('/planaccionlistarreporte?filtroactividad='.$nivel4);
 
     }
+
+    /**
+     * Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) 
+     * @return \Illuminate\Http\Response
+     */
+    public function listarRegistros()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+
+        //Hace una primer busqueda GENERAL
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')->paginate(50);
+        
+        //Paginacion de resultados conservando el indice (Metodo GET y no POST)
+        $pagination = $tarea->appends(request () -> except (['page', '_token'])) -> links ();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')->get();
+
+        return view('tarea.listargeneral', compact('planDesarrollo','tarea','entidadOficina','pagination'));
+    }
+
 }

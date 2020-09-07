@@ -66,6 +66,7 @@ Route::match(array('GET', 'POST'), '/planaccionlistar', 'PlanAccionController@li
 Route::match(array('GET', 'POST'), '/planaccionlistarreporte', 'PlanAccionController@listarRegistrosReporte')->name('/planaccionlistarreporte');
 
 Route::resource('/tarea', 'TareaController');
+Route::match(array('GET', 'POST'), '/tareaslistargeneral', 'TareaController@listarRegistros')->name('/tareaslistargeneral');
 
 Route::resource('/ods', 'RefOdsObjetivoController');
 
