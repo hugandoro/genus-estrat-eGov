@@ -14,7 +14,7 @@ class PlanIndicativo extends Model
 
     //Relaciones
     public function indicador(){
-        return $this->belongsTo('App\Medicionindicador', 'indicador_id');
+        return $this->belongsTo('App\MedicionIndicador', 'indicador_id');
     }
 
     //Relaciones
