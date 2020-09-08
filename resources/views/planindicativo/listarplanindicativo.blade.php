@@ -102,27 +102,60 @@
                             <td style="width:5%;font-size:10px;">{{$indicador->Tipo->nombre}}</td>
                             
                             <!-- Validacion dato a mostrar segun el tipo (Incremento - Mantenimiento) -->
-                            @if($indicador->tipo_id == 3)
-                              <td style="width:5%">{{$indicador->meta}}</td>
-                            @else
-                              <td style="width:5%">{{$indicador->objetivo}}</td>
-                            @endif
+                            @if(($indicador->Medida->id == 2) && ($indicador->Tipo->id == 3)) <!-- Objetivo porcentual y es de tipo mantenimiento - Igual a linea base y multiplica por 100 -->
+                            <td style="width:5%">{{$indicador->linea_base * 100}} %</td>
+                           @elseif(($indicador->Medida->id == 2) && ($indicador->Tipo->id != 3)) <!-- Objetivo porcentual y es tipo diferente a mantenimiento - Multiplica por 100 -->
+                            <td style="width:5%">{{$indicador->objetivo * 100}} %</td>
+                           @elseif(($indicador->Medida->id != 2) && ($indicador->Tipo->id == 3)) <!-- Objetivo diferente a porcentual y es de tipo mantenimiento - Igual a linea base-->
+                            <td style="width:5%">{{$indicador->linea_base}}</td>
+                           @elseif(($indicador->Medida->id != 2) && ($indicador->Tipo->id != 3)) <!-- Objetivo diferente a porcentual y es diferente a mantenimiento - Igual a objetivo-->
+                            <td style="width:5%">{{$indicador->objetivo}}</td>
+                           @endif
+
                             <td style="width:5%;font-size:10px;">{{$indicador->Medida->nombre}}</td>
 
                             <!-- Busca EL PLAN INDICATIVO relacionado con el INDICADOR y la VIGENCIA -->
                             @foreach($planIndicativo as $indicativo) 
                               @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
-                                <td style="width:5%">{{$indicativo->valor}}</td>
+
+                                @if($indicador->Medida->id == 2)
+                                  <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
+                                @else
+                                  <td style="width:5%">{{$indicativo->valor}}</td> <!-- Meta numerica o en puntos -->
+                                @endif
+
                               @endif
+
                               @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13'))
-                                <td style="width:5%">{{$indicativo->valor}}</td>
+
+                                @if($indicador->Medida->id == 2)
+                                  <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
+                                @else
+                                  <td style="width:5%">{{$indicativo->valor}}</td> <!-- Meta numerica o en puntos -->
+                                @endif
+
                               @endif
+
                               @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '14'))
-                                <td style="width:5%">{{$indicativo->valor}}</td>
+
+                                @if($indicador->Medida->id == 2)
+                                  <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
+                                @else
+                                  <td style="width:5%">{{$indicativo->valor}}</td> <!-- Meta numerica o en puntos -->
+                                @endif
+
                               @endif
+
                               @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '15'))
-                                <td style="width:5%">{{$indicativo->valor}}</td>
+                              
+                                @if($indicador->Medida->id == 2)
+                                  <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
+                                @else
+                                  <td style="width:5%">{{$indicativo->valor}}</td> <!-- Meta numerica o en puntos -->
+                                @endif
+
                               @endif
+
                             @endforeach
                           @endif
                         @endforeach

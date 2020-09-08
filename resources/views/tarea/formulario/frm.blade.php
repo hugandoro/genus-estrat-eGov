@@ -264,8 +264,9 @@
 
 					<div class="form-group">
 						<label for="impacto_kpi" class="negrita">Impacto al KPI</label> 
+						<h5>Objetivo general del KPI inscrito en el plan de accion <span class="label label-info">{{ $_GET["kpiObjetivo"] }} {{ $_GET["kpi"] }}</span></h5>
 						<div>
-							<input class="form-control" placeholder="Aporte al OBJETIVO del KPI..." required="required" name="impacto_kpi" type="number" step="any" id="impacto_kpi"> 
+							<input class="form-control" placeholder="{{ $_GET["kpi"] }}" required="required" name="impacto_kpi" type="number" step="any" id="impacto_kpi"> 
 						</div>
 					</div>
 

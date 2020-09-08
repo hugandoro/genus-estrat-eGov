@@ -94,10 +94,31 @@
                       <tr>
                        <td style="width:16%">{{$indicador->nombre}}</td>
                        <td style="width:10%">{{$indicador->unidadMedida->nombre}}</td>
-                       <td style="width:10%">{{$indicador->linea_base}}</td>
+
+                       @if($indicador->Medida->id == 2)
+                        <td style="width:10%">{{$indicador->linea_base * 100}} %</td> <!-- Linea base porcentual - Multiplica por 100 -->
+                       @else
+                        <td style="width:10%">{{$indicador->linea_base}}</td> <!-- Linea base numerica o en puntos-->
+                       @endif
+
                        <td style="width:10%">{{$indicador->vigenciaBase->nombre}}</td>
-                       <td style="width:10%">{{$indicador->meta}}</td>
-                       <td style="width:10%">{{$indicador->objetivo}}</td>
+
+                       @if($indicador->Medida->id == 2)
+                        <td style="width:10%">{{$indicador->meta * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
+                       @else
+                        <td style="width:10%">{{$indicador->meta}}</td> <!-- Meta numerica o en puntos -->
+                       @endif
+
+                       @if(($indicador->Medida->id == 2) && ($indicador->Tipo->id == 3)) <!-- Objetivo porcentual y es de tipo mantenimiento - Igual a linea base y multiplica por 100 -->
+                        <td style="width:10%">{{$indicador->linea_base * 100}} %</td>
+                       @elseif(($indicador->Medida->id == 2) && ($indicador->Tipo->id != 3)) <!-- Objetivo porcentual y es tipo diferente a mantenimiento - Multiplica por 100 -->
+                        <td style="width:10%">{{$indicador->objetivo * 100}} %</td>
+                       @elseif(($indicador->Medida->id != 2) && ($indicador->Tipo->id == 3)) <!-- Objetivo diferente a porcentual y es de tipo mantenimiento - Igual a linea base-->
+                        <td style="width:10%">{{$indicador->linea_base}}</td>
+                       @elseif(($indicador->Medida->id != 2) && ($indicador->Tipo->id != 3)) <!-- Objetivo diferente a porcentual y es diferente a mantenimiento - Igual a objetivo-->
+                        <td style="width:10%">{{$indicador->objetivo}}</td>
+                       @endif
+
                        <td style="width:12%">{{$indicador->Medida->nombre}}</td>
                        <td style="width:12%">{{$indicador->Tipo->nombre}}</td>
                        <td style="width:10%">

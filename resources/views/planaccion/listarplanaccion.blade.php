@@ -80,8 +80,7 @@
                         <th>{{$plandesarrollo->nombre_nivel4}}</th>
                         <th>Indicador</th>
                         <th>Tipo</th>
-                        <th>Objetivo</th>
-                        <th></th>
+                        <th>Medicion</th>
                         <th>2020</th>
                         <th>Responsable</th>
                       @endforeach 
@@ -97,19 +96,18 @@
                           @if($indicador->nivel4_id == $Nivel4->id)
                             <td style="width:5%;font-size:15px;">{{$indicador->nombre}}</td>
                             <td style="width:5%;font-size:10px;">{{$indicador->Tipo->nombre}}</td>
-                            
-                            <!-- Validacion dato a mostrar segun el tipo (Incremento - Mantenimiento) -->
-                            @if($indicador->tipo_id == 3)
-                              <td style="width:5%">{{$indicador->meta}}</td>
-                            @else
-                              <td style="width:5%">{{$indicador->objetivo}}</td>
-                            @endif
                             <td style="width:5%;font-size:10px;">{{$indicador->Medida->nombre}}</td>
 
                             <!-- Busca EL PLAN INDICATIVO relacionado con el INDICADOR y la VIGENCIA -->
                             @foreach($planIndicativo as $indicativo) 
                               @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
-                                <td style="width:5%">{{$indicativo->valor}}</td>
+
+                                @if($indicador->Medida->id == 2)
+                                  <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
+                                @else
+                                  <td style="width:5%">{{$indicativo->valor}}</td> <!-- Meta numerica o en puntos -->
+                                @endif
+
                               @endif
                             @endforeach
                           @endif
@@ -128,7 +126,7 @@
                       <!-- Busca las ACCIONES inscritas para el PLAN INDICATIVO respectivo - PLAN DE ACCION -->
                       <tr>
                         <td style="width:5%;" colspan="1"></td>
-                        <td style="width:95%;" colspan="8">
+                        <td style="width:95%;" colspan="7">
                           <table id="mytable" class="table table-bordered table-dark">
                             <tr>
                               <th style="width:75%;">Accion</th>

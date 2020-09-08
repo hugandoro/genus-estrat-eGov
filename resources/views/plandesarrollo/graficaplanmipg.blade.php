@@ -34,7 +34,9 @@
                 nombresMIPG[13],
                 nombresMIPG[14],
                 nombresMIPG[15],
-                nombresMIPG[16]
+                nombresMIPG[16],
+                nombresMIPG[17],
+                nombresMIPG[18]
               ],
 			datasets: [{
 				label: 'Actividades convergentes',
@@ -57,7 +59,9 @@
                 nivel4MIPG[13], 
                 nivel4MIPG[14],
                 nivel4MIPG[15], 
-                nivel4MIPG[16]
+                nivel4MIPG[16],
+                nivel4MIPG[17], 
+                nivel4MIPG[18]
               ],
 			}]
 		};

@@ -61,7 +61,9 @@
                                         <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reporte de tareas</a></li>
                                     @endif
 
-                                    <li class="list-group-item"><a style="color:#000000;" href="{{ url('/tareaslistargeneral') }}">Cronologico tareas reportadas</a></li>
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                        <li class="list-group-item"><a style="color:#000000;" href="{{ url('/tareaslistargeneral') }}">Cronologico tareas reportadas</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>                  

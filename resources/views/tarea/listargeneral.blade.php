@@ -40,7 +40,11 @@
                         <tr>
                           <td>{{$registro->id}}</td>
                           <td>{{$registro->accion->planIndicativo->indicador->Nivel4->entidadOficina->nombre}}</td>
-                          <td>{{$registro->accion->planIndicativo->indicador->Nivel4->numeral}}</td>
+                          <td>
+                            <a href="/planaccionlistarreporte?filtroactividad={{ $registro->accion->planIndicativo->indicador->Nivel4->id }}">
+                              {{$registro->accion->planIndicativo->indicador->Nivel4->numeral}}
+                            </a>
+                          </td>
                           <td>{{$registro->accion->planIndicativo->vigencia->nombre}}</td>
                           <td>{{$registro->accion->descripcion}}</td>
                           <td>{{$registro->fecha_realizacion}}</td>
