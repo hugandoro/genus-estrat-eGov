@@ -243,7 +243,7 @@ class TareaController extends Controller
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
 
         //Hace una primer busqueda GENERAL
-        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')->paginate(50);
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')->paginate(10);
         
         //Paginacion de resultados conservando el indice (Metodo GET y no POST)
         $pagination = $tarea->appends(request () -> except (['page', '_token'])) -> links ();

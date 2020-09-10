@@ -41,7 +41,7 @@
                           <td>{{$registro->id}}</td>
                           <td>{{$registro->accion->planIndicativo->indicador->Nivel4->entidadOficina->nombre}}</td>
                           <td>
-                            <a href="/planaccionlistarreporte?filtroactividad={{ $registro->accion->planIndicativo->indicador->Nivel4->id }}">
+                            <a href="{{ url('/planaccionlistarreporte?filtroactividad=' . $registro->accion->planIndicativo->indicador->Nivel4->id) }}">
                               {{$registro->accion->planIndicativo->indicador->Nivel4->numeral}}
                             </a>
                           </td>
