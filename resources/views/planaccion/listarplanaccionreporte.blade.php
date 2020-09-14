@@ -175,6 +175,8 @@
                                               </tr>
 
                                               <!-- Listado de las tareas reportadas -->
+                                              @php $acumImpactoKPI = 0; @endphp <!-- Inicializa Contador acumulado de impacto KPI -->
+
                                               @foreach ($tarea as $registro)
                                                 @if($registro->accion_id == $accion->id)
 
@@ -199,11 +201,19 @@
                                                     <!-- Fin de los botones de opciones -->
 
                                                   </td>
+                                                  @php $acumImpactoKPI = $acumImpactoKPI + $registro->impacto_kpi; @endphp <!-- Acumula el impacto al KPI reportado en las tareas -->
                                                 </tr>
 
                                                 @endif
                                               @endforeach
                                               <!-- Fin listado tareas reportadas -->
+
+                                              <tr style="color: #ffffff; background-color: #999999;">
+                                                <td style="width:15%;"></td>
+                                                <td style="width:50%;"><h5>Sumatoria impacto al KPI</h5></td>
+                                                <td style="width:15%;"><h4>{{ $acumImpactoKPI }} de <b>{{$accion->objetivo}}</b></h4></td>
+                                                <td style="width:20%;"><h4>{{ (($acumImpactoKPI * 1 )/$accion->objetivo) * 100 }} %</h4></td>
+                                              </tr>
 
                                             </table>
                                           </td>
