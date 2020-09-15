@@ -20,7 +20,7 @@
                     <!-- MENU - Fila 1 -->
                     <div class="row">
                         <div class="col-sm-2">
-                            <div class="card text-center text-white bg-info mb-3">
+                            <div class="card text-center text-white bg-warning mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono2.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>Plan de desarrollo</b></h5>
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="col-sm-2">
-                            <div class="card text-center text-white bg-info mb-3">
+                            <div class="card text-center text-white bg-warning mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono9.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>Plan indicativo</b></h5>
@@ -46,8 +46,8 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-2">
-                            <div class="card text-center text-white bg-info mb-3">
+                        <div class="col-sm-3">
+                            <div class="card text-center text-white bg-warning mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono12.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>Plan de accion</b></h5>
@@ -57,19 +57,30 @@
                                     <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistar') }}">Consultar el plan</a></li>
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        @php ($aux = Auth::user()->oficina_id)
-                                        <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reporte de tareas</a></li>
+                                        @php ($aux = Auth::user()->oficina_id) @endphp
+                                        <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}"><b>Reporte de tareas</b></a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         <li class="list-group-item"><a style="color:#000000;" href="{{ url('/tareaslistargeneral') }}">Cronologico tareas reportadas</a></li>
                                     @endif
+
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                        @php ($aux = Auth::user()->oficina_id) @endphp    
+                                        <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistaravance?filtroSecretaria=' . $aux) }}">Avance ejecucion plan de accion</a></li>
+                                    @endif
+
+                                    <!--
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                        <li class="list-group-item"><a style="color:#000000;" href="{{ url('#') }}">Avance ejecucion de actividades</a></li>
+                                    @endif
+                                    -->
                                 </ul>
                             </div>
                         </div>                  
 
                         <div class="col-sm-3">
-                            <div class="card text-center text-white bg-info mb-3">
+                            <div class="card text-center text-white bg-warning mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono15.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>Analitica de datos</b></h5>
@@ -85,8 +96,8 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-3">
-                            <div class="card text-center text-white bg-info mb-3">
+                        <div class="col-sm-2">
+                            <div class="card text-center text-white bg-warning mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_pdf.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>PDF Documentos tecnicos</b></h5>
@@ -105,7 +116,7 @@
                     <!-- MENU - Fila 2 -->
                     <div class="row">
                         <div class="col-sm-3">
-                            <div class="card text-center text-white bg-info mb-3">
+                            <div class="card text-center text-white bg-success mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_ods.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>Objetivos ODS</b></h5>
@@ -119,7 +130,7 @@
                         </div>
 
                         <div class="col-sm-3">
-                            <div class="card text-center text-white bg-info mb-3">
+                            <div class="card text-center text-white bg-success mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_mipg.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>Politicas MIPG</b></h5>
@@ -133,7 +144,7 @@
                         </div>
 
                         <div class="col-sm-3">
-                            <div class="card text-center text-white bg-info mb-3">
+                            <div class="card text-center text-white bg-success mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono7.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>Plan y politicas publicas</b></h5>
@@ -148,7 +159,7 @@
                         </div>
 
                         <div class="col-sm-3">
-                            <div class="card text-center text-white bg-info mb-3">
+                            <div class="card text-center text-white bg-success mb-3">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono16.png") }}" alt="Estrategov" width="35%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#000000;"><b>Informacion institucional</b></h5>

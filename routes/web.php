@@ -64,6 +64,7 @@ Route::match(array('GET', 'POST'), '/planindicativolistar', 'PlanIndicativoContr
 
 Route::match(array('GET', 'POST'), '/planaccionlistar', 'PlanAccionController@listarRegistros')->name('/planaccionlistar');
 Route::match(array('GET', 'POST'), '/planaccionlistarreporte', 'PlanAccionController@listarRegistrosReporte')->name('/planaccionlistarreporte');
+Route::match(array('GET', 'POST'), '/planaccionlistaravance', 'PlanAccionController@listarAvancePlanAccion')->name('/planaccionlistaravance');
 
 Route::resource('/tarea', 'TareaController');
 Route::match(array('GET', 'POST'), '/tareaslistargeneral', 'TareaController@listarRegistros')->name('/tareaslistargeneral');
