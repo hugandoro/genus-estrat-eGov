@@ -86,6 +86,9 @@
                       @endforeach 
                      </tr>
 
+                     <!-- Inicia contador numero de acciones inscritas - Agrupado por consulta general -->
+                     @php $acumAccionesGeneral = 0; @endphp
+
                      @foreach($planDesarrolloNivel4 as $Nivel4) 
                       <tr>
                         <td style="width:5%">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
@@ -151,6 +154,11 @@
                                           <td style="width:25%;font-size:11px;">{{$accion->kpi}}</td>
                                           <td style="width:15%;font-size:11px;">{{$accion->objetivo}}</td>
                                           <td style="width:10%;font-size:11px;">{{$accion->ponderacion * 100}} %</td>
+
+                                          <!-- Numero de acciones inscritas - Agrupado por consulta general -->
+                                          @php $acumAccionesGeneral = $acumAccionesGeneral + 1; @endphp
+
+                                          <!-- Sumatoria de los ponderados de las acciones agrupado por actividad -->
                                           @php $acumPonderadoAccion = $acumPonderadoAccion + $accion->ponderacion; @endphp <!-- Acumula la ponderacion para mostar en pantalla por Nivel 4 -->
                                         </tr>
 
@@ -191,6 +199,10 @@
                     </tbody>
                   </table>
                 </td>
+              </tr>
+
+              <tr>
+                <td><h4><b>{{ $acumAccionesGeneral }}</b> | Acciones</h4></td>
               </tr>
 
             </tbody>

@@ -87,6 +87,11 @@
                       @endforeach 
                      </tr>
 
+                     <!-- Inicia contador numero de acciones inscritas - Agrupado por consulta general -->
+                     @php $acumAccionesGeneral = 0; @endphp
+                     <!-- Inicia acumulador porcentaje de cumplimiento de los KPI - Agrupado por acciones consulta general  -->
+                     @php $acumImpactoKPIGeneral = 0; @endphp
+
                      @foreach($planDesarrolloNivel4 as $Nivel4) 
                       <tr>
                         <td style="width:5%;font-size:20px;font-weight: bold;">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
@@ -160,13 +165,28 @@
                                           @endforeach
                                           <!-- Fin acumulado KPI tareas reportadas -->
 
+                                          <!-- Mostrar en la grilla en pantalla el acumulado de KPI y el calculo porcentaje de cumplimiento -->
                                           <td style="width:10%;">{{ $acumImpactoKPI }} / <b>{{$accion->objetivo}}</b></td>
                                           @if (($accion->objetivo != '') && ($accion->objetivo > '0'))
                                             <td style="width:10%;">{{ round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) }} %</td>
                                           @else
                                             <td style="width:10%;">0 %</td>
                                           @endif
+                                          <!-- Fin mostrar grilla de resultado -->
                                         </tr>
+
+                                        <!-- Acumulado porcentaje de cumplimiento de los KPI - Agrupado por acciones consulta general  -->
+                                        @if (($accion->objetivo != '') && ($accion->objetivo > '0')) <!-- Evita division Zero cuando no se tiene objetivo -->
+                                          @if (round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) <= 100)
+                                            @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2); @endphp
+                                          @else
+                                            @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + 100; @endphp <!-- Limita a 100 en caso de sobreejecucion -->
+                                          @endif
+                                        @endif
+                                        <!-- Fin Acumulado porcentaje de cumplimiento de los KPI -->
+
+                                        <!-- Numero de acciones inscritas - Agrupado por consulta general -->
+                                        @php $acumAccionesGeneral = $acumAccionesGeneral + 1; @endphp
 
                                       @endif
                                     @endforeach
@@ -194,6 +214,18 @@
                     </tbody>
                   </table>
                 </td>
+              </tr>
+
+              <tr>
+                <td><h4><b>{{ $acumAccionesGeneral }}</b> | Acciones</h4></td>
+              </tr>
+
+              <tr>
+                @if ($acumAccionesGeneral != 0)
+                  <td><h1><b>{{ round(($acumImpactoKPIGeneral/$acumAccionesGeneral),2) }} %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion</h4></td>
+                @else
+                  <td><h1><b>0 %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion</h4></td>
+                @endif
               </tr>
 
             </tbody>
