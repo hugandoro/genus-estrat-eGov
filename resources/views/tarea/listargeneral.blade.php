@@ -20,7 +20,7 @@
               @endforeach 
 
               <tr>
-                <td><h4><b>{{ count($tarea) }}</b> | Tareas registradas en el sistema</h4></td>
+                <td><h4><b>{{ $totalTareas }}</b> | Tareas registradas en el sistema</h4></td>
               </tr>
 
               <tr>

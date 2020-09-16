@@ -244,14 +244,15 @@ class TareaController extends Controller
 
         //Hace una primer busqueda GENERAL
         $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')->paginate(10);
-        
+        $totalTareas = count($tarea);
+
         //Paginacion de resultados conservando el indice (Metodo GET y no POST)
         $pagination = $tarea->appends(request () -> except (['page', '_token'])) -> links ();
 
         //Carga TODAS las oficinas
         $entidadOficina = EntidadOficina::orderBy('nombre')->get();
 
-        return view('tarea.listargeneral', compact('planDesarrollo','tarea','entidadOficina','pagination'));
+        return view('tarea.listargeneral', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
     }
 
 }
