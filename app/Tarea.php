@@ -48,6 +48,12 @@ class Tarea extends Model
         return $this->belongsTo('App\GeneralPoblacion', 'poblacion_id');
     }
 
+    //Se crea una relacion auxiliar "poblacionR" por conflicto de nombres al generar reportes de TAREAS
+    //toda vez que TAREAS tiene un campo con el nombre "poblacion" generand conflicto con la relacion original "poblacion"
+    public function poblacionR(){
+        return $this->belongsTo('App\GeneralPoblacion', 'poblacion_id');
+    }
+
     public function sexo(){
         return $this->belongsTo('App\GeneralSexo', 'sexo_id');
     }
