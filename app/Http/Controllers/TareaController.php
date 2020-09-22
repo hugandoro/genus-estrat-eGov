@@ -23,9 +23,6 @@ use App\GeneralPoblacion;
 use App\GeneralSexo;
 use App\GeneralFuente;
 
-use App\Exports\TareasExport;
-use Maatwebsite\Excel\Facades\Excel;
-
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -259,11 +256,6 @@ class TareaController extends Controller
         $entidadOficina = EntidadOficina::orderBy('nombre')->get();
 
         return view('tarea.listargeneral', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
-    }
-
-    public function listarRegistrosExcel()
-    {
-        return Excel::download(new TareasExport, 'tareas.xlsx');
     }
 
 }

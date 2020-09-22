@@ -68,7 +68,6 @@ Route::match(array('GET', 'POST'), '/planaccionlistaravance', 'PlanAccionControl
 
 Route::resource('/tarea', 'TareaController');
 Route::match(array('GET', 'POST'), '/tareaslistargeneral', 'TareaController@listarRegistros')->name('/tareaslistargeneral');
-Route::match(array('GET', 'POST'), '/tareaslistargeneralexcel', 'TareaController@listarRegistrosExcel')->name('/tareaslistargeneralexcel');
 
 Route::resource('/ods', 'RefOdsObjetivoController');
 
@@ -83,6 +82,5 @@ Route::resource('/ppmunicipal', 'RefMunicipalPoliticaController');
 Route::resource('/mipg', 'RefMipgPoliticaController');
 
 Route::resource('/indicador', 'MedicionIndicadorController');
-
 
 

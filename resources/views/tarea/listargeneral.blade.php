@@ -9,7 +9,6 @@
           <div class="pull-right">
 
           </div>
-
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">
              <tbody>
@@ -21,13 +20,7 @@
               @endforeach 
 
               <tr>
-                <td>
-                  <h4><b>{{ $totalTareas }}</b> | Tareas registradas en el sistema
-                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
-                      | <a href="{{ url('/tareaslistargeneralexcel') }}"><img src="{{ asset("images/iconos/excel.png") }}" alt="Estrategov" width="60px"></a>
-                    @endif
-                  </h4>
-                </td>
+                <td><h4><b>{{ $totalTareas }}</b> | Tareas registradas en el sistema</h4></td>
               </tr>
 
               <tr>
