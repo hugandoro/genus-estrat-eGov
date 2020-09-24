@@ -24,7 +24,9 @@
                 nombresPOLITICAS[3], 
                 nombresPOLITICAS[4], 
                 nombresPOLITICAS[5], 
-                nombresPOLITICAS[6]
+                nombresPOLITICAS[6],
+                nombresPOLITICAS[7], 
+                nombresPOLITICAS[8]
               ],
 			datasets: [{
 				label: 'Actividades convergentes',
@@ -37,7 +39,9 @@
                 nivel4MUNICIPAL[3], 
                 nivel4MUNICIPAL[4], 
                 nivel4MUNICIPAL[5], 
-                nivel4MUNICIPAL[6]
+                nivel4MUNICIPAL[6],
+                nivel4MUNICIPAL[7], 
+                nivel4MUNICIPAL[8]
               ],
 			}]
 		};
