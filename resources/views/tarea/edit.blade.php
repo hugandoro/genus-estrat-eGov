@@ -15,7 +15,16 @@
               <input type="hidden" name="_method" value="PUT">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
              
-              @include('tarea.formulario.frm')
+              <!-- Calcula la diferencia de horas entre Fecha de Reporte y Fecha actual -->
+              @php 
+                $fechaCreado = $tarea->created_at;
+                $fechaActual = new DateTime(); 
+              @endphp
+              
+              <!-- Valida si supera el filtro de las 24 horas permitidas para editar -->
+              @if ($fechaActual->diff($fechaCreado)->days <= 1 )
+                @include('tarea.formulario.frm')
+              @endif
                                                                       
             </form>
             <!-- Fin del formulario -->

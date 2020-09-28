@@ -189,14 +189,26 @@
                                                     <!-- Ocpiones de EDICION y ELIMINAR -->
                                                     <!-- Valida si es un usuario (SUPERADMINISTRADOR O ADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
                                                     @if( (Auth::user()->hasRole('super') || Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
-                                                      <form action="{{ route('tarea.destroy',$registro->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                      
+                                                      <!-- Calcula la diferencia de horas entre Fecha de Reporte y Fecha actual -->
+                                                      @php 
+                                                        $fechaCreado = $registro->created_at;
+                                                        $fechaActual = new DateTime(); 
+                                                      @endphp
 
-                                                        <a href="{{ route('tarea.show',$registro->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-zoom-in"></span></a>
-                                                        <a href="{{ route('tarea.edit',$registro->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
-                                                        <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
-                                                      </form>
+                                                      <!-- Valida si supera el filtro de las 24 horas permitidas para editar -->
+                                                      @if ($fechaActual->diff($fechaCreado)->days <= 1 )
+
+                                                        <form action="{{ route('tarea.destroy',$registro->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                                                          <input type="hidden" name="_method" value="DELETE">
+                                                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                                          <a href="{{ route('tarea.show',$registro->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-zoom-in"></span></a>
+                                                          <a href="{{ route('tarea.edit',$registro->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
+                                                          <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
+                                                        </form>
+                                                      @endif
+
                                                     @endif
                                                     <!-- Fin de los botones de opciones -->
 
