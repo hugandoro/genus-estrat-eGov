@@ -198,7 +198,6 @@
 
                                                       <!-- Valida si supera el filtro de las 24 horas permitidas para editar -->
                                                       @if ($fechaActual->diff($fechaCreado)->days <= 1 )
-
                                                         <form action="{{ route('tarea.destroy',$registro->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                                           <input type="hidden" name="_method" value="DELETE">
                                                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -206,6 +205,11 @@
                                                           <a href="{{ route('tarea.show',$registro->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-zoom-in"></span></a>
                                                           <a href="{{ route('tarea.edit',$registro->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
                                                           <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
+                                                        </form>
+                                                      @else
+                                                        <form action="{{ route('tarea.destroy',$registro->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                                                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                          <a href="{{ route('tarea.show',$registro->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-zoom-in"></span></a>
                                                         </form>
                                                       @endif
 
