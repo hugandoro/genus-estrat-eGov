@@ -22,7 +22,8 @@
               @endphp
               
               <!-- Valida si supera el filtro de las 24 horas permitidas para editar -->
-              @if ($fechaActual->diff($fechaCreado)->days <= 1 )
+              <!-- Tambien se incluye filtro en la vista "listarplanaccionreporte.blade.php" -->
+              @if ($fechaActual->diff($fechaCreado)->days <= 365 )
                 @include('tarea.formulario.frm')
               @endif
                                                                       

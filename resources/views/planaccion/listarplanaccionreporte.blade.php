@@ -197,7 +197,8 @@
                                                       @endphp
 
                                                       <!-- Valida si supera el filtro de las 24 horas permitidas para editar -->
-                                                      @if ($fechaActual->diff($fechaCreado)->days <= 1 )
+                                                      <!-- Tambien se incluye filtro en la vista "edit.blade.php" -->
+                                                      @if ($fechaActual->diff($fechaCreado)->days <= 365 )
                                                         <form action="{{ route('tarea.destroy',$registro->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                                           <input type="hidden" name="_method" value="DELETE">
                                                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
