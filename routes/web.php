@@ -43,6 +43,7 @@ Route::resource('/plandesarrollonivel4', 'PlanDesarrolloNivel4Controller');
 Route::get('plandesarrollonivel4/hojadevida/{idA}/{idB}/{idC}/{idD}', 'PlanDesarrolloNivel4Controller@mostrarHojaDeVida');
 Route::get('plandesarrollonivel4/listarhojadevida/{idA}/{idB}/{idC}/{idD}', 'PlanDesarrolloNivel4Controller@listarRegistrosHojaDeVida');
 Route::match(array('GET', 'POST'), '/plandesarrollonivel4listarregistros', 'PlanDesarrolloNivel4Controller@listarRegistros')->name('/plandesarrollonivel4listarregistros');
+Route::match(array('GET', 'POST'), '/plandesarrollonivel4listaravance', 'PlanDesarrolloNivel4Controller@listarAvanceNivel4')->name('/plandesarrollonivel4listaravance');
 
 //Ruta para validar manualmente un formulario sea por GET o POST
 // ->name se utiliza para definir el nombre con el que la ruta sera llamada desde una vista
