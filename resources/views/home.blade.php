@@ -70,9 +70,9 @@
                                         <li class="list-group-item"><a style="color:#000000;" href="{{ url('/planaccionlistaravance?filtroSecretaria=' . $aux) }}">Avance ejecucion plan de accion</a></li>
                                     @endif
 
-                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp  
-                                        <li class="list-group-item"><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance?filtroSecretaria=' . $aux) }}">Avance ejecucion actividades</a></li>
+                                        <li class="list-group-item"><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>
                                     @endif
                                 </ul>
                             </div>
