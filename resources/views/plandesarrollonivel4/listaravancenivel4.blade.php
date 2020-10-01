@@ -227,7 +227,7 @@
 
                                     <tr>
                                       <td colspan="1"></td>
-                                      <td colspan="4">Actividad (Meta) -> Impacto al indicador -> Objetivo 2020</td>
+                                      <td colspan="4">Actividad (Meta) -> Impacto ponderado al indicador -> Objetivo 2020</td>
                                       @if($indicador->Medida->id == 2)
                                         <td colspan="1">{{ round((($indicativo->valor * $acumProporcionalPonderadoAccion)/1) * 100,2) }} %</td><!-- Meta porcentual - Multiplica por 100 -->
                                       @else
@@ -237,7 +237,7 @@
 
                                     <tr>
                                       <td colspan="1"></td>
-                                      <td colspan="4" style="background:rgb(104, 103, 187);color:#ffffff;">Actividad (Meta) -> Porcentaje cumplimiento -> Cuatrienio</td>
+                                      <td colspan="4" style="background:rgb(104, 103, 187);color:#ffffff;">Actividad (Meta) -> Porcentaje ponderado cumplimiento -> Cuatrienio</td>
                                       
                                       <!-- Diferente de CERO - Calcula dividiendo por el objetivo -->
                                       @if ($indicador->objetivo != 0)
@@ -310,7 +310,7 @@
                 @if ($acumNivel4General != 0)
                   <td><h1><b>{{ round(($acumImpactoIndicador2020General/$acumNivel4General),2) }} %</b></h1><h4>Porcentaje promedio de cumplimiento Cuatrienio | Actividades</h4></td>
                 @else
-                  <td><h1><b>0 %</b></h1><h4>Porcentaje promedio de cumplimiento Cuatrienio | Actividades</h4></td>
+                  <td><h1><b>0 %</b></h1><h4>Porcentaje ponderado de cumplimiento Cuatrienio | Actividades</h4></td>
                 @endif
               </tr>
 
