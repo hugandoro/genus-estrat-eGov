@@ -308,7 +308,7 @@
 
               <tr>
                 @if ($acumNivel4General != 0)
-                  <td><h1><b>{{ round(($acumImpactoIndicador2020General/$acumNivel4General),2) }} %</b></h1><h4>Porcentaje promedio de cumplimiento Cuatrienio | Actividades</h4></td>
+                  <td><h1><b>{{ round(($acumImpactoIndicador2020General/$acumNivel4General),2) }} %</b></h1><h4>Porcentaje ponderado de cumplimiento Cuatrienio | Actividades</h4></td>
                 @else
                   <td><h1><b>0 %</b></h1><h4>Porcentaje ponderado de cumplimiento Cuatrienio | Actividades</h4></td>
                 @endif
