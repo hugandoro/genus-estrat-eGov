@@ -97,8 +97,9 @@
             @endif
 
             <div class="col-md-12 content">
-                <br><br><br><br><br><br><br
-                <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="300px"></picture></center>
+                <br>
+                <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="350px"></picture></center>
+                <br><br>
 
                 <div class="title m-b-md">
                     <b>{{ config('app.nombre_entidad') }}</b>
