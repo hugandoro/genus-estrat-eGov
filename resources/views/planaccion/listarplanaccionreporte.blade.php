@@ -155,7 +155,7 @@
                                           <td style="width:20%;">
 
                                             <!-- Valida si es un usuario (SUPERADMINISTRADOR O ADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
-                                            @if( (Auth::user()->hasRole('super') || Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
+                                            @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
                                               <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a>
                                             @endif
                                             <!-- Fin de la validacion de permisos para reportar -->
@@ -186,9 +186,11 @@
                                                   <td style="width:15%;">{{$registro->impacto_kpi}}</td>
                                                   <td style="width:20%;">
                                                     
+                                                    <a href="{{ route('tarea.show',$registro->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-zoom-in"></span></a>
+
                                                     <!-- Ocpiones de EDICION y ELIMINAR -->
                                                     <!-- Valida si es un usuario (SUPERADMINISTRADOR O ADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
-                                                    @if( (Auth::user()->hasRole('super') || Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
+                                                    @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
                                                       
                                                       <!-- Calcula la diferencia de horas entre Fecha de Reporte y Fecha actual -->
                                                       @php 
@@ -203,7 +205,6 @@
                                                           <input type="hidden" name="_method" value="DELETE">
                                                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                                          <a href="{{ route('tarea.show',$registro->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-zoom-in"></span></a>
                                                           <a href="{{ route('tarea.edit',$registro->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
                                                           <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
                                                         </form>
