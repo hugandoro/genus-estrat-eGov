@@ -49,7 +49,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/home') }}">
+                    <a class="navbar-brand" href="{{ url('/home') }}" style="color: #363636;font-size: 28px;font-weight: 900;">
                         {{ config('app.name', 'Estrat-eGov') }}
                     </a>
                 </div>

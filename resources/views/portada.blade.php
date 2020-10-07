@@ -13,7 +13,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #28A745;
+                background-color: #363636;
                 color: #ffffff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -57,7 +57,12 @@
 
             .subtitle {
                 font-size: 16px;
-                font-weight: 600;
+                font-weight: normal;
+            }
+
+            .subsubtitle {
+                font-size: 20px;
+                font-weight: normal;
             }
 
             .slogantitle {
@@ -75,7 +80,7 @@
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
-                text-transform: uppercase;
+                /*text-transform: uppercase;*/
             }
 
             .m-b-md {
@@ -90,16 +95,18 @@
                     @auth
                         <a href="{{ url('/home') }}">Menu del aplicativo</a>
                     @else
-                        <a href="{{ route('login') }}">.: Ingreso</a>
-                        <a href="{{ route('register') }}">.: Registro</a>
+                        <a href="{{ route('login') }}">.:: Ingreso ::. </a>
+                        <a href="{{ route('register') }}">.:: Registro ::.</a>
                     @endauth
+
+                    <br><br>
                 </div>
             @endif
 
             <div class="col-md-12 content">
                 <br>
-                <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="350px"></picture></center>
-                <br><br>
+                <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="400px"></picture></center>
+                <br>
 
                 <div class="title m-b-md">
                     <b>{{ config('app.nombre_entidad') }}</b>
@@ -109,30 +116,28 @@
                     {{ config('app.nombre_administracion') }} | {{ config('app.slogan_administracion') }}
                 </div>
 
-                <br><br><br>
+                <div class="subsubtitle m-b-md">
+                    ...Bienvenid@ a la plataforma abierta de seguimiento al plan de desarrollo...
+                </div>
+                <br>
             </div>
 
-            <br><br>
+            <br>
 
             <div class="col-md-12 footer">
                 <div class="slogantitle m-b-md">
-                    <b>Estrat-eGov</b> | Gestion pública inteligente
+                    <b>EstrateGov</b> | Gestion pública inteligente
                 </div>
 
                 <div class="version m-b-md">
-                    Version Beta 1.0386 - 07102020
+                    Version 1.0387
                 </div>
-
-
-                <br>
 
                 <div>
-                    <small class="d-block mb-3">Estrat-eGov y Estratego &copy; - Derechos reservados Genus Group SAS - Colombia 2020</small>
+                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Derechos reservados Genus Group SAS - Colombia 2020</small>
                 </div>
 
-                <br>
-
-                <center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="200px"></picture></center>
+                <!-- <center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="160px"></picture></center> -->
 
             </div>
         </div>
