@@ -85,5 +85,7 @@ Route::resource('/mipg', 'RefMipgPoliticaController');
 
 Route::resource('/indicador', 'MedicionIndicadorController');
 
+Route::match(array('GET', 'POST'), '/informetipounoexcel', 'TareaController@informeTipoUnoExcel')->name('/informetipounoexcel');
+
 
 

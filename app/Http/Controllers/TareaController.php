@@ -24,6 +24,7 @@ use App\GeneralSexo;
 use App\GeneralFuente;
 
 use App\Exports\TareasExport;
+use App\Exports\InformeTipoUnoExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Support\Facades\Validator;
@@ -264,6 +265,11 @@ class TareaController extends Controller
     public function listarRegistrosExcel()
     {
         return Excel::download(new TareasExport, 'tareas.xlsx');
+    }
+
+    public function informeTipoUnoExcel()
+    {
+        return Excel::download(new InformeTipoUnoExport, 'informe_tipo_uno.xlsx');
     }
 
 }

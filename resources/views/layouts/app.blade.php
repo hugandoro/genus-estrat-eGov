@@ -108,7 +108,7 @@
 
                                     <ul class="dropdown-menu">
                                         @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                            @php ($aux = Auth::user()->oficina_id)
+                                            @php ($aux = Auth::user()->oficina_id) @endphp
                                             <li><a href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reportar</a></li>
                                         @endif
                                     </ul>
@@ -129,6 +129,22 @@
                                     <li><a href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>       
                                 </ul>
                             </li>
+
+                            <!-- INFORMES -->
+                            @if((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                        Informes |<span class="caret"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
+                                            <li><a href="{{ url('/tareaslistargeneralexcel') }}">Sabana completa tareas reportadas</a></li>
+                                            <li><a href="{{ url('/informetipounoexcel') }}">Informe tipo uno | Actividades programadas - Impactadas</a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            @endif
 
                             <!-- POLITICAS PUBLICAS -->
                             <li class="dropdown">
