@@ -141,14 +141,14 @@
                               <th style="width:10%;">Porcentaje cumplimiento</th>
                             </tr>
 
-                            @foreach($medicionIndicador as $indicador) 
-                              @if($indicador->nivel4_id == $Nivel4->id)
+                            @foreach($medicionIndicador->where('nivel4_id',$Nivel4->id) as $indicador) 
+                              {{-- @if($indicador->nivel4_id == $Nivel4->id) --}}
                                 
-                                @foreach($planIndicativo as $indicativo) 
-                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
+                                @foreach($planIndicativo->where('indicador_id',$indicador->id)->where('vigencia_id','12') as $indicativo) 
+                                  {{-- @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12')) --}}
 
-                                    @foreach($planAccion as $accion) 
-                                      @if($accion->plan_indicativo_id == $indicativo->id)
+                                    @foreach($planAccion->where('plan_indicativo_id',$indicativo->id) as $accion) 
+                                      {{-- @if($accion->plan_indicativo_id == $indicativo->id) --}}
 
                                         <!-- Registos PLAN DE accion -->
                                         <tr>
@@ -158,11 +158,13 @@
 
                                           <!-- Acumulados KPI de las tareas reportadas -->
                                           @php $acumImpactoKPI = 0; @endphp <!-- Inicializa Contador acumulado de impacto KPI -->
-                                          @foreach ($tarea as $registro)
-                                            @if($registro->accion_id == $accion->id)
+
+                                          @foreach ($tarea->where('accion_id',$accion->id) as $registro)
+                                            {{-- @if($registro->accion_id == $accion->id) --}}
                                               @php $acumImpactoKPI = $acumImpactoKPI + $registro->impacto_kpi; @endphp <!-- Acumula el impacto al KPI reportado en las tareas -->
-                                            @endif
+                                            {{-- @endif --}}
                                           @endforeach
+                                          
                                           <!-- Fin acumulado KPI tareas reportadas -->
 
                                           <!-- Mostrar en la grilla en pantalla el acumulado de KPI y el calculo porcentaje de cumplimiento -->
@@ -188,13 +190,13 @@
                                         <!-- Numero de acciones inscritas - Agrupado por consulta general -->
                                         @php $acumAccionesGeneral = $acumAccionesGeneral + 1; @endphp
 
-                                      @endif
+                                      {{-- @endif --}}
                                     @endforeach
 
-                                  @endif
+                                  {{-- @endif --}}
                                 @endforeach
 
-                              @endif
+                              {{-- @endif --}}
                             @endforeach
 
 
