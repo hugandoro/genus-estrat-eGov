@@ -149,17 +149,17 @@
                               <th style="width:10%;">Porcentaje ponderado</th>
                             </tr>
 
-                            @foreach($medicionIndicador as $indicador) 
-                              @if($indicador->nivel4_id == $Nivel4->id)
+                            @foreach($medicionIndicador->where('nivel4_id',$Nivel4->id) as $indicador) 
+                              {{-- @if($indicador->nivel4_id == $Nivel4->id) --}}
                                 
-                                @foreach($planIndicativo as $indicativo) 
-                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
+                                @foreach($planIndicativo->where('indicador_id',$indicador->id)->where('vigencia_id','12') as $indicativo) 
+                                  {{-- @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12')) --}}
 
                                     <!-- Inicializa Contador acumulado de ponderacion -->
                                     @php $acumProporcionalPonderadoAccion = 0; @endphp 
 
-                                    @foreach($planAccion as $accion) 
-                                      @if($accion->plan_indicativo_id == $indicativo->id)
+                                    @foreach($planAccion->where('plan_indicativo_id',$indicativo->id) as $accion) 
+                                      {{-- @if($accion->plan_indicativo_id == $indicativo->id) --}}
 
                                         <!-- Registros PLAN DE accion -->
                                         <tr>
@@ -167,14 +167,13 @@
                                           <td style="width:5%;font-size:11px;">{{$accion->objetivo}}</td>
                                           <td style="width:5%;font-size:11px;">{{ $accion->ponderacion * 100 }} %</td>
 
-                                          <!-- Inicializa Contador acumulado de impacto KPI -->
-                                          @php $acumImpactoKPI = 0; @endphp 
-
                                           <!-- Acumulados KPI de las tareas reportadas -->
-                                          @foreach ($tarea as $registro)
-                                            @if($registro->accion_id == $accion->id)
+                                          @php $acumImpactoKPI = 0; @endphp <!-- Inicializa Contador acumulado de impacto KPI -->
+
+                                          @foreach ($tarea->where('accion_id',$accion->id) as $registro)
+                                            {{-- @if($registro->accion_id == $accion->id) --}}
                                               @php $acumImpactoKPI = $acumImpactoKPI + $registro->impacto_kpi; @endphp <!-- Acumula el impacto al KPI reportado en las tareas -->
-                                            @endif
+                                            {{-- @endif --}}
                                           @endforeach
                                         
                                           @if (($accion->objetivo != '') && ($accion->objetivo > '0')) <!-- Evita division Zero cuando no se tiene objetivo -->
@@ -216,7 +215,7 @@
                                         <!-- Numero de acciones inscritas - Agrupado por consulta general -->
                                         @php $acumAccionesGeneral = $acumAccionesGeneral + 1; @endphp
 
-                                      @endif
+                                      {{-- @endif --}}
                                     @endforeach
 
                                     <tr>
@@ -261,10 +260,10 @@
                                       @endif
                                     </tr>
 
-                                  @endif
+                                  {{-- @endif --}}
                                 @endforeach
 
-                              @endif
+                              {{-- @endif --}}
                             @endforeach
 
 
