@@ -104,7 +104,11 @@
             @endif
 
             <div class="col-md-12 content">
+                <br><br><br>
+                <center><picture><img class='img-responsive' src="{{ asset('images/banner_22102020.jpg') }}" width="65%"></picture></center>
                 <br>
+
+                <!-- <br>
                 <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="400px"></picture></center>
                 <br>
 
@@ -118,7 +122,8 @@
 
                 <div class="subsubtitle m-b-md">
                     ...Bienvenid@ a la plataforma abierta de seguimiento al plan de desarrollo...
-                </div>
+                </div> -->
+
                 <br>
             </div>
 
