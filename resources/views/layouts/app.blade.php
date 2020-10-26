@@ -126,7 +126,9 @@
                                     <li><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li> 
                                     <li><a href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>       
                                     <li><a href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>       
-                                    <li><a href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>       
+                                    <li><a href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>     
+                                    <li><a href="{{ url('/graficaavanceplandeaccion') }}">Avance plan de accion</a></li>       
+                                    <li><a href="{{ url('/graficaavanceplandesarrollo') }}">Avance plan de desarrollo</a></li>         
                                 </ul>
                             </li>
 

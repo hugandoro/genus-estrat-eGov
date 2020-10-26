@@ -450,6 +450,9 @@ class PlanDesarrolloNivel4Controller extends Controller
 
     /**
      * Listar GLOBALMENTE el avance de las actividades NIVEL4
+     * Ponderado cumplimiento ACTIVIDADES
+     * Cumplimiento PLAN DE ACCION 2020
+     * Ponderado cumplimiento PLAN DE DESARROLLO
      * @return \Illuminate\Http\Response
      */
     public function listarAvanceNivel4()
@@ -506,5 +509,191 @@ class PlanDesarrolloNivel4Controller extends Controller
         
         return view('plandesarrollonivel4.listaravancenivel4', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planAccion', 'tarea','entidadOficina','pagination'));
     }
+
+    /**
+     * Calcula y grafica AVANCE PLAN DE ACCION POR DEPENDENIAS y PLAN DESARROLLO POR DEPENDENCIAS
+     * @return \Illuminate\Http\Response
+     */
+    public function graficaListarAvanceNivel4()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))
+                            ->with('administracion')
+                            ->get();
+
+        //Hace una primer busqueda GENERAL
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->get();
+    
+        //Carga TODOS los indicadores
+        $medicionIndicador = MedicionIndicador::orderBy('nivel4_id')
+                                ->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')
+                                ->get(); 
+
+        //Carga TODO el plan indicativo
+        $planIndicativo = PlanIndicativo::orderBy('vigencia_id')
+                            ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                            ->get();
+
+        //Carga TODO el plan de accion (TODAS las acciones inscritas)
+        $planAccion = PlanAccion::orderBy('plan_indicativo_id')
+                            ->with('planIndicativo')
+                            ->get();
+
+        //Carga TODAS las Tareas
+        $tarea = Tarea::orderBy('id')
+                    ->get();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')
+                            ->get();
+
+
+        //* INICIA fecha corte personalizada para calculo de acumuladores
+        $fechaCorte = new \DateTime(); 
+        if (isset($_GET['fecha_corte']))
+            $fechaCorte = $_GET['fecha_corte'];
+        //* FIN fecha corte personalizada para calculo de acumuladores
+
+
+        //* Recorre todas las DEPENDENCIAS (OFICINA)
+        foreach($entidadOficina as $entidad) {
+
+            //Almacena en un arreglo el nombre de la dependencia
+            $nombresSecretarias [$entidad->id] = $entidad->nombre;
+
+            // Inicia contador numero de acciones inscritas - Agrupado por consulta general
+            $acumAccionesGeneral = 0;
+            // Inicia acumulador porcentaje de cumplimiento de los KPI - Agrupado por acciones consulta general
+            $acumImpactoKPIGeneral = 0;
+            // Inicia contador numero de actividades - Agrupado por consulta general
+            $acumNivel4General = 0;
+            // Inicia acumulador porcentaje de cumplimiento de los indicadores - Vigencia 2020
+            $acumImpactoIndicador2020General = 0;
+
+            //* Recorre todos los NIVEL4 (ACTIVIDADES) previamente filtradas
+            foreach ($planDesarrolloNivel4->where('oficina_id', $entidad->id) as $Nivel4) {
+
+                //* Recorre todos los INDICADORES relacionados con cada NIVEL4 (ACTIVIDAD)
+                foreach ($medicionIndicador->where('nivel4_id', $Nivel4->id) as $indicador) {
+
+                    //* Recorre todos los PLANES INDICATIVOS relacionados con cada INDICADOR y para una VIGENCIA especifica
+                    //! OJO se debe organizar para calcular PLAN DESARROLLO Cuatrienio, para la proxima vigencia no sirve, limita tareas solo de una vigencia y no del cuatrienio como se requiere para PLAN DESARROLLO
+                    foreach ($planIndicativo->where('indicador_id', $indicador->id)->where('vigencia_id', '12') as $indicativo) {
+
+                        // Inicializa Contador acumulado de ponderacion
+                        $acumProporcionalPonderadoAccion = 0;
+
+                        //* Recorreo todas las ACCIONES relacionadas con cada PLAN INDICATIVO 
+                        foreach ($planAccion->where('plan_indicativo_id', $indicativo->id) as $accion) {
+
+                            // Inicializa Contador acumulado de impacto KPI tareas reportadas
+                            $acumImpactoKPI = 0;
+
+                            // *** INICIO calculo ACUMULADORES
+                            //* Recorreo todas las TAREAS relacionadas con cada ACCION
+                            foreach ($tarea->where('accion_id', $accion->id)->where('updated_at','<',$fechaCorte) as $registro) {
+                                $acumImpactoKPI = $acumImpactoKPI + $registro->impacto_kpi; // Acumula el impacto al KPI reportado en las tareas
+                            }
+
+                            // Verifica para evitar division Zero cuando no se tiene objetivo
+                            if (($accion->objetivo != '') && ($accion->objetivo > '0')) {
+                                // Verifica no superar limite a 100 en caso de sobreejecucion 
+                                if (round(((($acumImpactoKPI * 1) / $accion->objetivo) * 100), 2) <= 100) {
+                                    $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + round(((($acumImpactoKPI * 1) / $accion->objetivo) * 100), 2);
+
+                                    // Variable auxiliar "% de Cumplimiento accion" para posterior calculo del proporcional al ponderado
+                                    $auxCumplimientoAccion = ($acumImpactoKPI * 1) / $accion->objetivo;
+                                } else {
+                                    // Limita a 100 en caso de sobreejecucion
+                                    $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + 100;
+
+                                    // Variable auxiliar "% de Cumplimiento accion" para posterior caclulo del proporcional al  ponderado
+                                    $auxCumplimientoAccion = 1;
+                                }
+                            }
+                            // *** FIN calculo ACUMULADORES
+
+                            // *** INICIO calculo PONDERADOS
+                            // Evita division Zero cuando no se tiene objetivo
+                            if (($accion->objetivo != '') && ($accion->objetivo > '0')) {
+                                $proporcionalPonderadoAccion = ($auxCumplimientoAccion * $accion->ponderacion) / 1;
+                            } else {
+                                $proporcionalPonderadoAccion = 0;
+                            }
+
+                            $acumProporcionalPonderadoAccion = $acumProporcionalPonderadoAccion + $proporcionalPonderadoAccion;
+                            // *** Fin calculo PONDERADOS
+
+                            // Numero de ACCIONES (PLAN DE ACCION) contabilizadas
+                            $acumAccionesGeneral = $acumAccionesGeneral + 1;
+                        }
+
+                        // Diferente de CERO - Calcula dividiendo por el objetivo
+                        if ($indicador->objetivo != 0) {
+                            // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020
+                            $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + (((($indicativo->valor * $acumProporcionalPonderadoAccion) / 1) * 100) / $indicador->objetivo);
+                        }
+
+                        // CERO y tipo MANTENIMIENTO - Calcula dividiendo por la linea base multiplicado por 4
+                        if (($indicador->objetivo == 0) && ($indicador->tipo_id == 3)) {
+                            // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020)
+                            $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + (((($indicativo->valor * $acumProporcionalPonderadoAccion) / 1) * 100) / ($indicador->linea_base * 4));
+                        }
+
+                        // CERO y tipo NO MANTENIMIENTO - Igual a cero
+                        if (($indicador->objetivo == 0) && ($indicador->tipo_id != 3)) {
+                            // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020)
+                            $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + 0;
+                        }
+                    }
+                }
+
+                // Numero de NIVEL4 (ACTIVIDADES) contabilizadas
+                $acumNivel4General = $acumNivel4General + 1;
+            } 
+
+ 
+            //* PLAN DE ACCION POR DEPENDENCIA/SECRETARIA
+            // Almacena en un vector segun el ID de la dependencia - N° de ACCIONES cargadas PLAN DE ACCION vigencia 
+            $vectorAcumAccionesGeneral[$entidad->id] = $acumAccionesGeneral;
+            // Calcula y almacena en un vector segurn ID de la dependencia - PORCENTAJE cumplimiento PLAN DE ACCION vigencia
+            if ($acumAccionesGeneral != 0) 
+                $vectorPorcentajePlanAccion[$entidad->id] = round(($acumImpactoKPIGeneral/$acumAccionesGeneral),2);
+            else
+                $vectorPorcentajePlanAccion[$entidad->id] = 0;
+
+
+            //* PLAN DE DESARROLLO POR DEPENDENCIA/SECRETARIA
+            // Almacena en un vector segun el ID de la dependencia - N° de NIVEL4 (ACTIVIDADES) a su cargo
+            $vectorAcumNivel4General[$entidad->id] = $acumNivel4General;
+            // Calcula y almacena en un vector segurn ID de la dependencia - PORCENTAJE cumplimiento MINI PLAN DE DESARROLLO cuatrienio
+            if ($acumNivel4General != 0) 
+                $vectorPorcentajePlanDesarrollo[$entidad->id] = round(($acumImpactoIndicador2020General/$acumNivel4General),2);
+            else
+                $vectorPorcentajePlanDesarrollo[$entidad->id] = 0;
+
+        }
+
+        
+        // Tipo 1 | Grafica avance Plan de Accion (Vigencia)
+        if ($_GET['tipo'] == 1) {
+            return view('planaccion.graficaavanceporsecretaria',array(
+                'nombresSecretarias' => $nombresSecretarias,
+                'vectorAcumAccionesGeneral' => $vectorAcumAccionesGeneral,
+                'vectorPorcentajePlanAccion' => $vectorPorcentajePlanAccion
+            ));
+        }
+
+        // Tipo 2 | Grafica avance Plan de Desarrollo
+        if ($_GET['tipo'] == 2) {
+            return view('plandesarrollo.graficaavanceporsecretaria',array(
+                'nombresSecretarias' => $nombresSecretarias,
+                'vectorAcumNivel4General' => $vectorAcumNivel4General,
+                'vectorPorcentajePlanDesarrollo' => $vectorPorcentajePlanDesarrollo
+            ));
+        }
+
+    } 
 
 }

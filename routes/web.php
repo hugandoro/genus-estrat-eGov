@@ -29,6 +29,8 @@ Route::match(array('GET', 'POST'), '/graficaplanresponsables', 'PlanDesarrolloCo
 Route::match(array('GET', 'POST'), '/graficaplanods', 'PlanDesarrolloController@graficaPlanODS')->name('/graficaplanods');
 Route::match(array('GET', 'POST'), '/graficaplanmipg', 'PlanDesarrolloController@graficaPlanMIPG')->name('/graficaplanmipg');
 Route::match(array('GET', 'POST'), '/graficaplanppmunicipal', 'PlanDesarrolloController@graficaPlanPPMunicipal')->name('/graficaplanppmunicipal');
+Route::match(array('GET', 'POST'), '/graficaavanceplandesarrollo', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel4')->name('/graficaavanceplandesarrollo');
+Route::match(array('GET', 'POST'), '/graficaavanceplandeaccion', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel4')->name('/graficaavanceplandeaccion');
 
 Route::resource('/plandesarrollonivel1', 'PlanDesarrolloNivel1Controller');
 Route::get('plandesarrollonivel1/listar/{idA}', 'PlanDesarrolloNivel1Controller@listar');
