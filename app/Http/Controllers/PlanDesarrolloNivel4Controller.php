@@ -516,6 +516,9 @@ class PlanDesarrolloNivel4Controller extends Controller
      */
     public function graficaListarAvanceNivel4()
     {
+        //Ampliacion a 5 minutos el limite de tiempo por ser una consulta extensa
+        set_time_limit(300);
+
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))
                             ->with('administracion')
                             ->get();
@@ -574,6 +577,13 @@ class PlanDesarrolloNivel4Controller extends Controller
             //* Recorre todos los NIVEL4 (ACTIVIDADES) previamente filtradas
             foreach ($planDesarrolloNivel4->where('oficina_id', $entidad->id) as $Nivel4) {
 
+                // TODO Almacena en un arreglo el numero de la meta, la descripcion, el nombre de la secretaria a cargo
+                $metaNumero [$Nivel4->numeral] = $Nivel4->numeral;
+                $metaNombre [$Nivel4->numeral] = $Nivel4->nombre;
+                $metaSecretaria [$Nivel4->numeral] = $entidad->nombre;
+                $metaCumplimientoPlanAccion [$Nivel4->numeral] = 0; //Inicializa vector porque no todas las metas tienen plan de accion, posterior almacena el valor en aquellas que si tengan plan de accion
+                $metaCumplimientoPlanDesarrollo [$Nivel4->numeral] = 0; //Inicializa vector porque no todas las metas tienen plan de accion, posterior almacena el valor en aquellas que si tengan plan de accion
+
                 //* Recorre todos los INDICADORES relacionados con cada NIVEL4 (ACTIVIDAD)
                 foreach ($medicionIndicador->where('nivel4_id', $Nivel4->id) as $indicador) {
 
@@ -623,29 +633,44 @@ class PlanDesarrolloNivel4Controller extends Controller
                             }
 
                             $acumProporcionalPonderadoAccion = $acumProporcionalPonderadoAccion + $proporcionalPonderadoAccion;
-                            // *** Fin calculo PONDERADOS
+
+                            // *** FIN calculo PONDERADOS
 
                             // Numero de ACCIONES (PLAN DE ACCION) contabilizadas
                             $acumAccionesGeneral = $acumAccionesGeneral + 1;
                         }
 
+                        // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE ACCION 2020 de CADA META
+                        $metaCumplimientoPlanAccion [$Nivel4->numeral] = round(($acumProporcionalPonderadoAccion * 100),2);
+
                         // Diferente de CERO - Calcula dividiendo por el objetivo
                         if ($indicador->objetivo != 0) {
+                            // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE DESARROLLO CUATRIENIO de CADA META
+                            $metaCumplimientoPlanDesarrollo [$Nivel4->numeral] = round(((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/$indicador->objetivo,2);
+
                             // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020
                             $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + (((($indicativo->valor * $acumProporcionalPonderadoAccion) / 1) * 100) / $indicador->objetivo);
                         }
 
                         // CERO y tipo MANTENIMIENTO - Calcula dividiendo por la linea base multiplicado por 4
                         if (($indicador->objetivo == 0) && ($indicador->tipo_id == 3)) {
+                            // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE DESARROLLO CUATRIENIO de CADA META
+                            $metaCumplimientoPlanDesarrollo [$Nivel4->numeral] = round(((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/($indicador->linea_base*4),2);
+
                             // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020)
                             $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + (((($indicativo->valor * $acumProporcionalPonderadoAccion) / 1) * 100) / ($indicador->linea_base * 4));
                         }
 
                         // CERO y tipo NO MANTENIMIENTO - Igual a cero
                         if (($indicador->objetivo == 0) && ($indicador->tipo_id != 3)) {
+                            // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE DESARROLLO CUATRIENIO de CADA META
+                            $metaCumplimientoPlanDesarrollo [$Nivel4->numeral] = 0;
+
                             // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020)
                             $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + 0;
                         }
+
+
                     }
                 }
 
@@ -691,6 +716,21 @@ class PlanDesarrolloNivel4Controller extends Controller
                 'nombresSecretarias' => $nombresSecretarias,
                 'vectorAcumNivel4General' => $vectorAcumNivel4General,
                 'vectorPorcentajePlanDesarrollo' => $vectorPorcentajePlanDesarrollo
+            ));
+        }
+
+        // Tipo 3 | Grafica semaforos de cumplimiento ( Plan de Accion - Plan Desarrollo )
+        if ($_GET['tipo'] == 3) {
+            return view('plandesarrollo.graficaavancesemaforos',array(
+                'nombresSecretarias' => $nombresSecretarias,
+                'vectorAcumNivel4General' => $vectorAcumNivel4General,
+                'vectorPorcentajePlanAccion' => $vectorPorcentajePlanAccion,
+                'vectorPorcentajePlanDesarrollo' => $vectorPorcentajePlanDesarrollo,
+                'vectorMetaNumero' => $metaNumero,
+                'vectorMetaNombre' => $metaNombre,
+                'vectorMetaSecretaria' => $metaSecretaria,
+                'vectorMetaCumplimientoPlanAccion' => $metaCumplimientoPlanAccion,
+                'vectorMetaCumplimientoPlanDesarrollo' => $metaCumplimientoPlanDesarrollo
             ));
         }
 

@@ -128,7 +128,8 @@
                                     <li><a href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>       
                                     <li><a href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>     
                                     <li><a href="{{ url('/graficaavanceplandeaccion?tipo=1') }}">Avance plan de accion</a></li>       
-                                    <li><a href="{{ url('/graficaavanceplandesarrollo?tipo=2') }}">Avance plan de desarrollo</a></li>         
+                                    <li><a href="{{ url('/graficaavanceplandesarrollo?tipo=2') }}">Avance plan de desarrollo</a></li>     
+                                    <li><a href="{{ url('/graficaavanceplandesarrollo?tipo=3') }}">Semaforos de cumplimiento</a></li>             
                                 </ul>
                             </li>
 

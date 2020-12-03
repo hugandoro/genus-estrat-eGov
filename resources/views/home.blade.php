@@ -90,9 +90,10 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion?tipo=1') }}">Avance plan de accion</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo?tipo=2') }}">Avance plan de desarrollo</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavancesemaforos?tipo=3') }}">Semaforos de cumplimiento</a></li>
                                 </ul>
                             </div>
                         </div>

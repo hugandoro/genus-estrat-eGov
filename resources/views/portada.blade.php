@@ -105,7 +105,7 @@
 
             <div class="col-md-12 content">
                 <br><br><br>
-                <center><picture><img class='img-responsive' src="{{ asset('images/banner_22102020.jpg') }}" width="65%"></picture></center>
+                <center><picture><img class='img-responsive' src="{{ asset('images/banner_22102020.jpg') }}" width="55%"></picture></center>
                 <br>
 
                 <!-- <br>
@@ -135,7 +135,7 @@
                 </div>
 
                 <div class="version m-b-md">
-                    Version 1.0388
+                    Version 1.0389
                 </div>
 
                 <div>
