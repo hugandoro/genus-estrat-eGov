@@ -105,7 +105,7 @@
 
             <div class="col-md-12 content">
                 <br><br><br>
-                <center><picture><img class='img-responsive' src="{{ asset('images/banner_navidad.jpg') }}" width="60%"></picture></center>
+                <center><picture><img class='img-responsive' src="{{ asset('images/banner_navidad.jpg') }}" width="800px"></picture></center>
                 <br>
 
                 <!-- <br>
