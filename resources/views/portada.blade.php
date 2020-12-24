@@ -135,7 +135,7 @@
                 </div>
 
                 <div class="version m-b-md">
-                    Version 1.0389
+                    Version 1.0390
                 </div>
 
                 <div>
