@@ -161,13 +161,13 @@
                                               <!-- <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a> -->
                                               <!-- *** FIN SUSPENSION *** -->
 
-                                              <!-- *** EXCEPCION DE REPORTE TEMPORAL - POT (Maria Fernanda Vera) - SOCIOECONOMICA (Ruth Nora Salazar) *** -->
+                                              <!-- *** EXCEPCION DE REPORTE TEMPORAL *** -->
                                               @if( 
                                                   (Auth::user()->hasRole('super') || Auth::user()->hasRole('editor')) 
                                                   && 
                                                   (Auth::user()->oficina_id == $Nivel4->oficina_id) 
                                                   && 
-                                                  ((Auth::user()->id == '13') || (Auth::user()->id == '50')) 
+                                                  ((Auth::user()->id == '13') || (Auth::user()->id == '50') || (Auth::user()->id == '30')) 
                                                   )
                                                 <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a>
                                               @endif
