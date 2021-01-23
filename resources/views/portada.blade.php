@@ -7,6 +7,12 @@
 
         <title>Estrat-eGov</title>
 
+        <!-- Styles -->
+        <link href="{{ asset('css/fondoAnimado.css') }}" rel="stylesheet">
+
+        <!-- JavaScript -->
+        <script type="text/javascript" src="{{ asset('js/fondoAnimado.js') }}"></script>
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -104,9 +110,13 @@
             @endif
 
             <div class="col-md-12 content">
+
                 <br><br><br>
-                <center><picture><img class='img-responsive' src="{{ asset('images/banner_navidad.jpg') }}" width="800px"></picture></center>
-                <br>
+                <!--<center><picture><img class='img-responsive' src="{{ asset('images/banner_navidad.jpg') }}" width="800px"></picture></center>
+                <br>-->
+
+                <div id="particles-js"></div>
+
 
                 <!-- <br>
                 <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="400px"></picture></center>
@@ -124,7 +134,6 @@
                     ...Bienvenid@ a la plataforma abierta de seguimiento al plan de desarrollo...
                 </div> -->
 
-                <br>
             </div>
 
             <br>
@@ -134,12 +143,8 @@
                     <b>EstrateGov</b> | Gestion pública inteligente
                 </div>
 
-                <div class="version m-b-md">
-                    Version 1.0390
-                </div>
-
                 <div>
-                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Derechos reservados Genus Group SAS - Colombia 2020</small>
+                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.0390 - Derechos reservados Genus Group SAS - Colombia 2021</small>
                 </div>
 
                 <!-- <center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="160px"></picture></center> -->
