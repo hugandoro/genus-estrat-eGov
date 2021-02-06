@@ -249,7 +249,7 @@
                                                 <td style="width:50%;"><h5>Sumatoria impacto al KPI</h5></td>
                                                 <td style="width:15%;"><h4>{{ $acumImpactoKPI }} de <b>{{$accion->objetivo}}</b></h4></td>
                                                 @if (($accion->objetivo != '') && ($accion->objetivo > '0'))
-                                                  <td style="width:20%;"><h4>{{ (($acumImpactoKPI * 1 )/$accion->objetivo) * 100 }} %</h4></td>
+                                                  <td style="width:20%;"><h4>{{ round((($acumImpactoKPI * 1 )/$accion->objetivo) * 100, 2) }} %</h4></td>
                                                 @else
                                                   <td style="width:20%;"><h4>0 %</h4></td>
                                                 @endif
