@@ -157,9 +157,11 @@
                                             <!-- Valida si es un usuario (SUPERADMINISTRADOR O ADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
                                             @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
                                               
+                                            
                                               <!-- *** SUSPENSION TEMPORAL REPORTE POR FIN DE VIGENCIA 2020 Boton de reporte deshabilitado *** -->
                                               <!-- <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a> -->
                                               <!-- *** FIN SUSPENSION *** -->
+
 
                                               <!-- *** EXCEPCION DE REPORTE TEMPORAL *** -->
                                               @if( 
@@ -167,11 +169,12 @@
                                                   && 
                                                   (Auth::user()->oficina_id == $Nivel4->oficina_id) 
                                                   && 
-                                                  ((Auth::user()->id == '13') || (Auth::user()->id == '50') || (Auth::user()->id == '30')) 
+                                                  ((Auth::user()->id == 'ID USUARIO EXCEPCION N° 1') || (Auth::user()->id == 'ID USUARIO EXCEPCION N° 2') || (Auth::user()->id == 'ID USUARIO EXCEPCION N° 3')) 
                                                   )
                                                 <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a>
                                               @endif
                                               <!-- *** FIN EXCEPCION *** -->
+
 
                                             @endif
                                             <!-- Fin de la validacion de permisos para reportar -->
