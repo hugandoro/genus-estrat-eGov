@@ -177,8 +177,12 @@
                                           @endforeach
                                         
                                           @if (($accion->objetivo != '') && ($accion->objetivo > '0')) <!-- Evita division Zero cuando no se tiene objetivo -->
-                                            @if (round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) <= 100) <!-- Verifica no superar limite a 100 en caso de sobreejecucion -->
-                                              @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2); @endphp
+                                            
+                                            <!-- Lleva el valor del acumulado de Impacto al KPI a terminos de porcentaje acorde al objetivo -->
+                                            @php $porcentajeAcumImpactoKPI = round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) @endphp
+
+                                            @if ($porcentajeAcumImpactoKPI <= 100) <!-- Verifica no superar limite a 100 en caso de sobreejecucion -->
+                                              @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + $porcentajeAcumImpactoKPI; @endphp
                                               @php $auxCumplimientoAccion = ($acumImpactoKPI * 1 ) / $accion->objetivo; @endphp <!-- Variable auxiliar "% de Cumplimiento accion" para posterior caclulo del proporcional al  ponderado -->
                                             @else
                                               @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + 100; @endphp <!-- Limita a 100 en caso de sobreejecucion -->
@@ -201,7 +205,7 @@
                                           <td style="width:10%;">{{ $acumImpactoKPI }} / <b>{{$accion->objetivo}}</b></td>
 
                                           @if (($accion->objetivo != '') && ($accion->objetivo > '0'))
-                                            <td style="width:10%;">{{ round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) }} %</td>
+                                            <td style="width:10%;">{{ $porcentajeAcumImpactoKPI }} %</td>
                                           @else
                                             <td style="width:10%;">0 %</td>
                                           @endif

@@ -608,9 +608,12 @@ class PlanDesarrolloNivel4Controller extends Controller
 
                             // Verifica para evitar division Zero cuando no se tiene objetivo
                             if (($accion->objetivo != '') && ($accion->objetivo > '0')) {
+                                //Lleva el valor del acumulado de Impacto al KPI a terminos de porcentaje acorde al objetivo
+                                $porcentajeAcumImpactoKPI = round(((($acumImpactoKPI * 1) / $accion->objetivo) * 100), 2);
+
                                 // Verifica no superar limite a 100 en caso de sobreejecucion 
-                                if (round(((($acumImpactoKPI * 1) / $accion->objetivo) * 100), 2) <= 100) {
-                                    $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + round(((($acumImpactoKPI * 1) / $accion->objetivo) * 100), 2);
+                                if ($porcentajeAcumImpactoKPI <= 100) {
+                                    $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + $porcentajeAcumImpactoKPI;
 
                                     // Variable auxiliar "% de Cumplimiento accion" para posterior calculo del proporcional al ponderado
                                     $auxCumplimientoAccion = ($acumImpactoKPI * 1) / $accion->objetivo;

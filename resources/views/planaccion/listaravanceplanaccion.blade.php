@@ -170,7 +170,10 @@
                                           <!-- Mostrar en la grilla en pantalla el acumulado de KPI y el calculo porcentaje de cumplimiento -->
                                           <td style="width:10%;">{{ $acumImpactoKPI }} / <b>{{$accion->objetivo}}</b></td>
                                           @if (($accion->objetivo != '') && ($accion->objetivo > '0'))
-                                            <td style="width:10%;">{{ round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) }} %</td>
+                                            <!-- Lleva el valor del acumulado de Impacto al KPI a terminos de porcentaje acorde al objetivo -->
+                                            @php $porcentajeAcumImpactoKPI = round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) @endphp
+
+                                            <td style="width:10%;">{{ $porcentajeAcumImpactoKPI }} %</td>
                                           @else
                                             <td style="width:10%;">0 %</td>
                                           @endif
@@ -179,8 +182,8 @@
 
                                         <!-- Acumulado porcentaje de cumplimiento de los KPI - Agrupado por acciones consulta general  -->
                                         @if (($accion->objetivo != '') && ($accion->objetivo > '0')) <!-- Evita division Zero cuando no se tiene objetivo -->
-                                          @if (round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) <= 100)
-                                            @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2); @endphp
+                                          @if ($porcentajeAcumImpactoKPI <= 100)
+                                            @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + $porcentajeAcumImpactoKPI; @endphp
                                           @else
                                             @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + 100; @endphp <!-- Limita a 100 en caso de sobreejecucion -->
                                           @endif
