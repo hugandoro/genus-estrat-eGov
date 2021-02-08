@@ -5,11 +5,11 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2020</b></h3></div>
+          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2021</b></h3></div>
           <div class="pull-right">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->
-            <form method="GET" action="{{ url('/planaccionlistar') }}" role="form" enctype="multipart/form-data">
+            <form method="GET" action="{{ url('/planaccionlistar2021') }}" role="form" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <table>
                 <tr>
@@ -81,7 +81,7 @@
                         <th>Indicador</th>
                         <th>Tipo</th>
                         <th>Medicion</th>
-                        <th>2020</th>
+                        <th>2021</th>
                         <th>Responsable</th>
                       @endforeach 
                      </tr>
@@ -103,7 +103,7 @@
 
                             <!-- Busca EL PLAN INDICATIVO relacionado con el INDICADOR y la VIGENCIA -->
                             @foreach($planIndicativo as $indicativo) 
-                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
+                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13'))
 
                                 @if($indicador->Medida->id == 2)
                                   <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->

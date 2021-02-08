@@ -57,25 +57,25 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Consultar</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistar2021') }}">Consultar</a></li>
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li class="list-group-item"><a style="color:#adadad;font-size: 16px;" href="{{ url('/home') }}"><b>Reportar tareas</b></a></li>
+                                        <li class="list-group-item"><a style="color:#d8d8d8;font-size: 16px;" href="{{ url('/home') }}"><b>Reportar tareas</b></a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Cronologico tareas reportadas</a></li>
+                                        <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Cronologico tareas reportadas</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp    
-                                        <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Avance de ejecucion</a></li>
+                                        <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Avance de ejecucion</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp  
-                                        <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Ponderado ejecucion actividades</a></li>
+                                        <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Ponderado ejecucion actividades</a></li>
                                     @endif
                                 </ul>
                             </div>
@@ -95,9 +95,9 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas</a></li>
-                                    <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Avance plan de accion 2021</a></li>
-                                    <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Avance plan de desarrollo 2021</a></li>
-                                    <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Avance plan de accion 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Avance plan de desarrollo 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>
                                 </ul>
                             </div>
                         </div>

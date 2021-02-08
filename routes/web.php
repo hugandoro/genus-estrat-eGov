@@ -66,7 +66,9 @@ Route::match(array('GET', 'POST'), '/mipglistarconvergencia', 'RefMipgPoliticaCo
 
 Route::match(array('GET', 'POST'), '/planindicativolistar', 'PlanIndicativoController@listarRegistros')->name('/planindicativolistar');
 
-Route::match(array('GET', 'POST'), '/planaccionlistar', 'PlanAccionController@listarRegistros')->name('/planaccionlistar');
+Route::match(array('GET', 'POST'), '/planaccionlistar2020', 'PlanAccionController@listarRegistros2020')->name('/planaccionlistar2020');
+Route::match(array('GET', 'POST'), '/planaccionlistar2021', 'PlanAccionController@listarRegistros2021')->name('/planaccionlistar2021');
+
 Route::match(array('GET', 'POST'), '/planaccionlistarreporte', 'PlanAccionController@listarRegistrosReporte')->name('/planaccionlistarreporte');
 Route::match(array('GET', 'POST'), '/planaccionlistaravance', 'PlanAccionController@listarAvancePlanAccion')->name('/planaccionlistaravance');
 

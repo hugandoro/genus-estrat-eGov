@@ -93,16 +93,16 @@
                                     <li><a style="color:#000000;" href="{{ url('/planindicativolistar') }}">Plan indicativo | Consultar</a></li>
 
                                     <li role="separator" class="divider"></li>
-                                    <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Consultar</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/planaccionlistar2021') }}"><b>Plan de accion 2021</b> | Consultar</a></li>
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Cronologico tareas reportadas</a></li>
-                                        <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Avance de ejecucion</a></li>
-                                        <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Ponderado ejecucion actividades</a></li>
+                                        <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Cronologico tareas reportadas</a></li>
+                                        <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Avance de ejecucion</a></li>
+                                        <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Ponderado ejecucion actividades</a></li>
                                     @endif
 
                                     <li role="separator" class="divider"></li>
-                                    <li><a style="color:#000000;" href="{{ url('/planaccionlistar') }}">Plan de accion 2020 | Consultar</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/planaccionlistar2020') }}">Plan de accion 2020 | Consultar</a></li>
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
                                         <li><a style="color:#000000;" href="{{ url('/tareaslistargeneral') }}">Plan de accion 2020 | Cronologico tareas reportadas</a></li>
@@ -143,9 +143,9 @@
                                     <li><a style="color:#000000;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>   
                                     
                                     <li role="separator" class="divider"></li>
-                                    <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Avance plan de accion</a></li>       
-                                    <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Avance plan de desarrollo</a></li>     
-                                    <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Semaforos de cumplimiento</a></li>  
+                                    <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Avance plan de accion</a></li>       
+                                    <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Avance plan de desarrollo</a></li>     
+                                    <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Semaforos de cumplimiento</a></li>  
 
                                     <li role="separator" class="divider"></li>
                                     <li><a style="color:#000000;" href="{{ url('/graficaavanceplandeaccion?tipo=1') }}">Analitica 2020 - Avance plan de accion</a></li>       
