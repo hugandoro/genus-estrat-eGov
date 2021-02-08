@@ -74,9 +74,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/entidad') }}">Informacion de la Entidad</a></li>
-                                    <li><a href="{{ url('/administracion') }}">Informacion de la Administración</a></li>
-                                    <li><a href="{{ url('/entidadoficina') }}">Areas o Dependencias de la Entidad</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/entidad') }}">Informacion de la Entidad</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/administracion') }}">Informacion de la Administración</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/entidadoficina') }}">Areas o Dependencias de la Entidad</a></li>
                                 </ul>
                             </li>
 
@@ -87,20 +87,34 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/plandesarrollo') }}">Plan de desarrollo | Recorrer arbol del plan</a></li>
-                                    <li><a href="{{ url('/plandesarrollonivel4listarregistros') }}">Plan de desarrollo | Consultar</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listarregistros') }}">Plan de desarrollo | Consultar</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/plandesarrollo') }}">Plan de desarrollo | Arbol del plan</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ url('/planindicativolistar') }}">Plan indicativo | Consultar</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/planindicativolistar') }}">Plan indicativo | Consultar</a></li>
+
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="{{ url('/planaccionlistar') }}">Plan de accion | Consultar</a></li>
-                                    <!-- <li><a href="#">.: Banco de proyectos</a></li> -->
-                                    <!-- <li><a href="#">.: Marco fiscal mediano plazo</a></li> -->
-                                    <!-- <li><a href="#">.: Plan plurianual de inversion</a></li> -->
+                                    <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Consultar</a></li>
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                        @php ($aux = Auth::user()->oficina_id) @endphp
+                                        <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Cronologico tareas reportadas</a></li>
+                                        <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Avance de ejecucion</a></li>
+                                        <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Ponderado ejecucion actividades</a></li>
+                                    @endif
+
+                                    <li role="separator" class="divider"></li>
+                                    <li><a style="color:#000000;" href="{{ url('/planaccionlistar') }}">Plan de accion 2020 | Consultar</a></li>
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                        @php ($aux = Auth::user()->oficina_id) @endphp
+                                        <li><a style="color:#000000;" href="{{ url('/tareaslistargeneral') }}">Plan de accion 2020 | Cronologico tareas reportadas</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/planaccionlistaravance?filtroSecretaria=' . $aux) }}">Plan de accion 2020 | Avance de ejecucion</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance?filtroSecretaria=' . $aux) }}">Plan de accion 2020 | Ponderado ejecucion actividades</a></li>
+                                    @endif
+
                                 </ul>
                             </li>
 
                             <!-- TAREAS -->
-                            @if(!(Auth::user()->hasRole('user'))) 
+                            <!--@if(!(Auth::user()->hasRole('user'))) 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                         Tareas |<span class="caret"></span>
@@ -109,11 +123,11 @@
                                     <ul class="dropdown-menu">
                                         @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                             @php ($aux = Auth::user()->oficina_id) @endphp
-                                            <li><a href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reportar</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reportar</a></li>
                                         @endif
                                     </ul>
                                 </li>
-                            @endif
+                            @endif-->
 
                             <!-- ANALITICA DE DATOS  -->
                             <li class="dropdown">
@@ -122,14 +136,21 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
-                                    <li><a href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li> 
-                                    <li><a href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>       
-                                    <li><a href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>       
-                                    <li><a href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>     
-                                    <li><a href="{{ url('/graficaavanceplandeaccion?tipo=1') }}">Avance plan de accion</a></li>       
-                                    <li><a href="{{ url('/graficaavanceplandesarrollo?tipo=2') }}">Avance plan de desarrollo</a></li>     
-                                    <li><a href="{{ url('/graficaavanceplandesarrollo?tipo=3') }}">Semaforos de cumplimiento</a></li>             
+                                    <li><a style="color:#000000;" href="{{ url('/graficaplancomponentes') }}">Distribucion del plan</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/graficaplanresponsables') }}">Distribucion por secretarias</a></li> 
+                                    <li><a style="color:#000000;" href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>       
+                                    <li><a style="color:#000000;" href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>       
+                                    <li><a style="color:#000000;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>   
+                                    
+                                    <li role="separator" class="divider"></li>
+                                    <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Avance plan de accion</a></li>       
+                                    <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Avance plan de desarrollo</a></li>     
+                                    <li><a style="color:#adadad;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Semaforos de cumplimiento</a></li>  
+
+                                    <li role="separator" class="divider"></li>
+                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandeaccion?tipo=1') }}">Analitica 2020 - Avance plan de accion</a></li>       
+                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo?tipo=2') }}">Analitica 2020 - Avance plan de desarrollo</a></li>     
+                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo?tipo=3') }}">Analitica 2020 - Semaforos de cumplimiento</a></li>        
                                 </ul>
                             </li>
 
@@ -142,8 +163,8 @@
 
                                     <ul class="dropdown-menu">
                                         @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
-                                            <li><a href="{{ url('/tareaslistargeneralexcel') }}">Sabana completa tareas reportadas</a></li>
-                                            <li><a href="{{ url('/informetipounoexcel') }}">Informe tipo uno | Actividades programadas - Impactadas</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/tareaslistargeneralexcel') }}">Sabana completa tareas reportadas</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/informetipounoexcel') }}">Informe tipo uno | Actividades programadas - Impactadas</a></li>
                                         @endif
                                     </ul>
                                 </li>
@@ -156,12 +177,12 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('/ods') }}">Objetivos desarrollo sostenible ODS</a></li>
-                                    <li><a href="{{ url('/pndesarrollo') }}">Plan nacional de desarrollo</a></li>
-                                    <li><a href="{{ url('/ppnacional') }}">Políticas públicas nacionales</a></li>
-                                    <li><a href="{{ url('/ppdepartamental') }}">Políticas públicas departamentales</a></li>
-                                    <li><a href="{{ url('/ppmunicipal') }}">Políticas públicas municipales</a></li>
-                                    <li><a href="{{ url('/mipg') }}">Modelo Integrado de Planeación y Gestión MIPG</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/ods') }}">Objetivos desarrollo sostenible ODS</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/pndesarrollo') }}">Plan nacional de desarrollo</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/ppnacional') }}">Políticas públicas nacionales</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/ppdepartamental') }}">Políticas públicas departamentales</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/ppmunicipal') }}">Políticas públicas municipales</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/mipg') }}">Modelo Integrado de Planeación y Gestión MIPG</a></li>
                                 </ul>
                             </li>
 
@@ -173,13 +194,14 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{ route('plandesarrollo.edit',config('app.plan_desarrollo')) }}">Plan de desarrollo | Nombres de los niveles</a></li>
+                                        <li><a style="color:#000000;" href="{{ route('plandesarrollo.edit',config('app.plan_desarrollo')) }}">Plan de desarrollo | Nombres de los niveles</a></li>
                                         <!-- <li><a href="#">.: Rangos semaforo de medicion</a></li> -->
                                         <!-- <li><a href="#">.: Definicion de indicadores</a></li> -->
                                     </ul>
                                 </li>
                             @endif
 
+                            <!-- LOGIN DE USUARIO -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -187,7 +209,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a style="color:#000000;" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Cerrar sesion

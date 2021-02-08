@@ -19,6 +19,7 @@
 
                     <!-- MENU - Fila 1 -->
                     <div class="row">
+                        <!-- MENU ICONO - Plan de desarrollo -->
                         <div class="col-sm-2">
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono2.png") }}" alt="Estrategov" width="30%"></div>
@@ -27,12 +28,13 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listarregistros') }}">Consultar</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollo') }}">Arbol del plan</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listarregistros') }}">Consultar el plan</a></li>
                                   </ul>
                             </div>
                         </div>
 
+                        <!-- MENU ICONO - Plan indicativo -->
                         <div class="col-sm-2">
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono9.png") }}" alt="Estrategov" width="30%"></div>
@@ -41,43 +43,45 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planindicativolistar') }}">Consultar el plan</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planindicativolistar') }}">Consultar</a></li>
                                 </ul>
                             </div>
                         </div>
-
+                    
+                        <!-- MENU ICONO - Plan de accion -->
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono12.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title" style="color:#ffffff;">Plan de accion</h5>
+                                    <h5 class="card-title" style="color:#ffffff;">Plan de accion 2021</h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistar') }}">Consultar el plan</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/home') }}">Consultar</a></li>
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}"><b>Reporte de tareas</b></a></li>
+                                        <li class="list-group-item"><a style="color:#243d74;font-size: 16px;" href="{{ url('/home') }}"><b>Reportar tareas</b></a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tareaslistargeneral') }}">Cronologico tareas reportadas</a></li>
+                                        <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Cronologico tareas reportadas</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp    
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistaravance?filtroSecretaria=' . $aux) }}">Avance ejecucion plan de accion</a></li>
+                                        <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Avance de ejecucion</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp  
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listaravance?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>
+                                        <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Ponderado ejecucion actividades</a></li>
                                     @endif
                                 </ul>
                             </div>
                         </div>                  
 
+                        <!-- MENU ICONO - Analitica de datos -->
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono15.png") }}" alt="Estrategov" width="30%"></div>
@@ -91,13 +95,14 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion?tipo=1') }}">Avance plan de accion</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo?tipo=2') }}">Avance plan de desarrollo</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavancesemaforos?tipo=3') }}">Semaforos de cumplimiento</a></li>
+                                    <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Avance plan de accion 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Avance plan de desarrollo 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>
                                 </ul>
                             </div>
                         </div>
 
+                        <!-- MENU ICONO - Documentos tecnicos -->
                         <div class="col-sm-2">
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_pdf.png") }}" alt="Estrategov" width="30%"></div>
@@ -122,6 +127,7 @@
 
                     <!-- MENU - Fila 2 -->
                     <div class="row">
+                        <!-- MENU ICONO - Objetivos ODS -->
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_ods.png") }}" alt="Estrategov" width="30%"></div>
@@ -136,6 +142,7 @@
                             </div>
                         </div>
 
+                        <!-- MENU ICONO - Politicas MIPG -->
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_mipg.png") }}" alt="Estrategov" width="30%"></div>
@@ -150,6 +157,7 @@
                             </div>
                         </div>
 
+                        <!-- MENU ICONO - Plan y politicas publicas -->
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono7.png") }}" alt="Estrategov" width="30%"></div>
@@ -165,6 +173,7 @@
                             </div>
                         </div>
 
+                        <!-- MENU ICONO - Informacion institucional -->
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono16.png") }}" alt="Estrategov" width="30%"></div>
