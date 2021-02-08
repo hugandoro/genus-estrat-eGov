@@ -57,11 +57,11 @@
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/home') }}">Consultar</a></li>
+                                    <li class="list-group-item"><a style="color:#adadad;font-size: 12px;" href="{{ url('/home') }}">Consultar</a></li>
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li class="list-group-item"><a style="color:#243d74;font-size: 16px;" href="{{ url('/home') }}"><b>Reportar tareas</b></a></li>
+                                        <li class="list-group-item"><a style="color:#adadad;font-size: 16px;" href="{{ url('/home') }}"><b>Reportar tareas</b></a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
