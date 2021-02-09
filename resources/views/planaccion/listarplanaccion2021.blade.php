@@ -144,7 +144,7 @@
                               @if($indicador->nivel4_id == $Nivel4->id)
                                 
                                 @foreach($planIndicativo as $indicativo) 
-                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
+                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13'))
 
                                     @foreach($planAccion as $accion) 
                                       @if($accion->plan_indicativo_id == $indicativo->id)
