@@ -114,7 +114,7 @@
                             </li>
 
                             <!-- TAREAS -->
-                            <!--@if(!(Auth::user()->hasRole('user'))) 
+                            <@if(!(Auth::user()->hasRole('user'))) 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                         Tareas |<span class="caret"></span>
@@ -123,11 +123,13 @@
                                     <ul class="dropdown-menu">
                                         @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                             @php ($aux = Auth::user()->oficina_id) @endphp
-                                            <li><a style="color:#000000;" href="{{ url('/planaccionlistarreporte?filtroSecretaria=' . $aux) }}">Reportar</a></li>
+
+                                            <li><a style="color:#000000;" href="{{ url('/planaccionlistarreporte2021?filtroSecretaria=' . $aux) }}"><b>Vigencia 2021</b> | Reportar</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/planaccionlistarreporte2020?filtroSecretaria=' . $aux) }}">Vigencia 2020 | Ver tareas reportadas</a></li>
                                         @endif
                                     </ul>
                                 </li>
-                            @endif-->
+                            @endif
 
                             <!-- ANALITICA DE DATOS  -->
                             <li class="dropdown">

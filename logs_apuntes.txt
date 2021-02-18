@@ -1,0 +1,23 @@
+Al cambiar de vigencia...
+
+Atento a los codigos para cambio de vigencia, return de las rutas y vistas, etc...
+
+<!-- *** CUIDADO *** CON EL CODIGO SEGUN LA VIGENCIA -->
+listarplanaccion2020.blade.php
+listarplanaccion2021.blade.php
+
+listarplanaccionreporte2020.blade.php
+listarplanaccionreporte2021.blade.php
+
+
+//! vigencia_id cambia segun la vigencia
+PlanAccionController.php
+-- function listarRegistros2020()
+-- function listarRegistros2021()
+-- function listarRegistrosReporte2020()
+-- function listarRegistrosReporte2021()
+
+TareaController.php
+-- La ruta del return en function update()
+-- La ruta del return en function store()
+-- La ruta del return en function destroy()

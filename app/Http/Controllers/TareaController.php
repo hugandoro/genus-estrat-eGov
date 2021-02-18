@@ -129,7 +129,7 @@ class TareaController extends Controller
         $nivel4 = $medicionIndicador->nivel4_id;
         //----------------------------------------------------------------
      
-        return redirect('/planaccionlistarreporte?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2021?filtroactividad='.$nivel4);
     }
 
     /**
@@ -211,7 +211,7 @@ class TareaController extends Controller
         $nivel4 = $medicionIndicador->nivel4_id;
         //----------------------------------------------------------------
      
-        return redirect('/planaccionlistarreporte?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2021?filtroactividad='.$nivel4);
     }
 
     /**
@@ -234,7 +234,7 @@ class TareaController extends Controller
         Storage::disk('evidence')->delete($tarea->evidencia_pdf);
         Tarea::destroy($id);  
  
-        return redirect('/planaccionlistarreporte?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2021?filtroactividad='.$nivel4);
 
     }
 

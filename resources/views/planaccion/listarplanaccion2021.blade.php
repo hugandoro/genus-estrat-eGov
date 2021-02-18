@@ -103,7 +103,7 @@
 
                             <!-- Busca EL PLAN INDICATIVO relacionado con el INDICADOR y la VIGENCIA -->
                             @foreach($planIndicativo as $indicativo) 
-                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13'))
+                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13')) <!-- *** CUIDADO *** CON EL CODIGO SEGUN LA VIGENCIA -->
 
                                 @if($indicador->Medida->id == 2)
                                   <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
@@ -144,7 +144,7 @@
                               @if($indicador->nivel4_id == $Nivel4->id)
                                 
                                 @foreach($planIndicativo as $indicativo) 
-                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13'))
+                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13')) <!-- *** CUIDADO *** CON EL CODIGO SEGUN LA VIGENCIA -->
 
                                     @foreach($planAccion as $accion) 
                                       @if($accion->plan_indicativo_id == $indicativo->id)

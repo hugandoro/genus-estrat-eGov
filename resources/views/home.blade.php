@@ -61,7 +61,7 @@
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li class="list-group-item"><a style="color:#d8d8d8;font-size: 16px;" href="{{ url('/home') }}"><b>Reportar tareas</b></a></li>
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/planaccionlistarreporte2021?filtroSecretaria=' . $aux) }}"><b>Reportar tareas</b></a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))

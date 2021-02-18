@@ -6,11 +6,11 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2020 - Reporte tareas realizadas</b></h3></div>
+          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2021 - Reporte de tareas</b></h3></div>
           <div class="pull-right">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->
-            <form method="GET" action="{{ url('/planaccionlistarreporte') }}" role="form" enctype="multipart/form-data">
+            <form method="GET" action="{{ url('/planaccionlistarreporte2021') }}" role="form" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <table>
                 <tr>
@@ -82,7 +82,7 @@
                         <th>Indicador</th>
                         <th>Tipo</th>
                         <th>Medicion</th>
-                        <th>2020</th>
+                        <th>2021</th>
                         <th>Responsable</th>
                       @endforeach 
                      </tr>
@@ -101,7 +101,7 @@
 
                             <!-- Busca EL PLAN INDICATIVO relacionado con el INDICADOR y la VIGENCIA -->
                             @foreach($planIndicativo as $indicativo) 
-                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
+                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13')) <!-- *** CUIDADO *** CON EL CODIGO SEGUN LA VIGENCIA -->
                               
                                 @if($indicador->Medida->id == 2)
                                   <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
@@ -141,7 +141,7 @@
                               @if($indicador->nivel4_id == $Nivel4->id)
                                 
                                 @foreach($planIndicativo as $indicativo) 
-                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
+                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13')) <!-- *** CUIDADO *** CON EL CODIGO SEGUN LA VIGENCIA -->
 
                                     @foreach($planAccion as $accion) 
                                       @if($accion->plan_indicativo_id == $indicativo->id)
@@ -157,11 +157,7 @@
                                             <!-- Valida si es un usuario (SUPERADMINISTRADOR O ADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
                                             @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
                                               
-                                            
-                                              <!-- *** SUSPENSION TEMPORAL REPORTE POR FIN DE VIGENCIA 2020 Boton de reporte deshabilitado *** -->
-                                              <!-- <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a> -->
-                                              <!-- *** FIN SUSPENSION *** -->
-
+                                              <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a>
 
                                               <!-- *** EXCEPCION DE REPORTE TEMPORAL *** -->
                                               @if( 
