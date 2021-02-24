@@ -21,3 +21,5 @@ TareaController.php
 -- La ruta del return en function update()
 -- La ruta del return en function store()
 -- La ruta del return en function destroy()
+
+php artisan migrate

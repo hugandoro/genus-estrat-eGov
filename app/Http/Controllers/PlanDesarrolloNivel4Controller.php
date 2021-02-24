@@ -641,6 +641,7 @@ class PlanDesarrolloNivel4Controller extends Controller
 
                             // Numero de ACCIONES (PLAN DE ACCION) contabilizadas
                             $acumAccionesGeneral = $acumAccionesGeneral + 1;
+
                         }
 
                         // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE ACCION 2020 de CADA META
@@ -672,7 +673,6 @@ class PlanDesarrolloNivel4Controller extends Controller
                             // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020)
                             $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + 0;
                         }
-
 
                     }
                 }
@@ -738,5 +738,204 @@ class PlanDesarrolloNivel4Controller extends Controller
         }
 
     } 
+
+    /**
+     * Calcula y regenera niveles (Para TODAS las metas) de ejecucion tablas PLAN ACCION -> PLAN INDICATIVO -> INDICADOR 
+     * @return \Illuminate\Http\Response
+     */
+    public function regenerarNivelesEjecucionTodasMetas()
+    {
+        //Ampliacion a 10 minutos el limite de tiempo por ser una consulta extensa
+        set_time_limit(600);
+
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))
+                            ->with('administracion')
+                            ->get();
+
+        //Hace una primer busqueda GENERAL
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->get();
+    
+        //Carga TODOS los indicadores
+        $medicionIndicador = MedicionIndicador::orderBy('nivel4_id')
+                                ->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')
+                                ->get(); 
+
+        //Carga TODO el plan indicativo
+        $planIndicativo = PlanIndicativo::orderBy('vigencia_id')
+                            ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                            ->get();
+
+        //Carga TODO el plan de accion (TODAS las acciones inscritas)
+        $planAccion = PlanAccion::orderBy('plan_indicativo_id')
+                            ->with('planIndicativo')
+                            ->get();
+
+        //Carga TODAS las Tareas
+        $tarea = Tarea::orderBy('id')
+                    ->get();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')
+                            ->get();
+
+
+        //* INICIA fecha corte personalizada para calculo de acumuladores
+        $fechaCorte = new \DateTime(); 
+        if (isset($_GET['fecha_corte']))
+            $fechaCorte = $_GET['fecha_corte'];
+        //* FIN fecha corte personalizada para calculo de acumuladores
+
+
+        //* Recorre todas las DEPENDENCIAS (OFICINA)
+        foreach($entidadOficina as $entidad) {
+
+            //* Recorre todos los NIVEL4 (ACTIVIDADES) previamente filtradas
+            foreach ($planDesarrolloNivel4->where('oficina_id', $entidad->id) as $Nivel4) {
+
+                //* Recorre todos los INDICADORES relacionados con cada NIVEL4 (ACTIVIDAD)
+                foreach ($medicionIndicador->where('nivel4_id', $Nivel4->id) as $indicador) {
+
+                    //* Recorre todos los PLANES INDICATIVOS relacionados con cada INDICADOR y para una VIGENCIA especifica
+                    for ($vigenciaCalcular = 12; $vigenciaCalcular <= 15; $vigenciaCalcular++) {
+
+                        foreach ($planIndicativo->where('indicador_id', $indicador->id)->where('vigencia_id', $vigenciaCalcular) as $indicativo) {
+
+                            // Inicializa Contador acumulado de ponderacion por CAMBIO DE ITEM PLAN INDICATIVO
+                            $acumProporcionalPonderadoAccion = 0;
+
+                            //* Recorreo todas las ACCIONES relacionadas con cada PLAN INDICATIVO 
+                            foreach ($planAccion->where('plan_indicativo_id', $indicativo->id) as $accion) {
+
+                                // Inicializa Contador acumulado de impacto KPI tareas reportadas
+                                $acumImpactoKPI = 0;
+                                // Inicializa por defecto en 0% una variable para almacenar "% de Cumplimiento accion"
+                                $auxCumplimientoAccion = 0;
+
+                                // *** INICIO calculo ACUMULADORES
+                                //* Recorreo todas las TAREAS relacionadas con cada ACCION
+                                foreach ($tarea->where('accion_id', $accion->id)->where('updated_at','<',$fechaCorte) as $registro) {
+                                    $acumImpactoKPI = $acumImpactoKPI + $registro->impacto_kpi; // Acumula el impacto al KPI reportado en las tareas
+                                }
+
+                                // Verifica para evitar division Zero cuando no se tiene objetivo
+                                if (($accion->objetivo != '') && ($accion->objetivo > '0')) {
+
+                                    // Variable auxiliar "% de Cumplimiento accion" para posterior calculo del proporcional al ponderado
+                                    $auxCumplimientoAccion = ($acumImpactoKPI * 1) / $accion->objetivo;
+
+                                }
+                                // *** FIN calculo ACUMULADORES
+
+                                // *** INICIO calculo PONDERADOS
+                                // Evita division Zero cuando no se tiene objetivo
+                                if (($accion->objetivo != '') && ($accion->objetivo > '0')) {
+                                    $proporcionalPonderadoAccion = ($auxCumplimientoAccion * $accion->ponderacion) / 1;
+                                } else {
+                                    $proporcionalPonderadoAccion = 0;
+                                }
+
+                                // Valida y en caso de sobreejecucion del ponderado limita al valor maximo inscrito como ponderado para la accion
+                                if ($proporcionalPonderadoAccion > $accion->ponderacion ) $proporcionalPonderadoAccion = $accion->ponderacion;
+
+                                $acumProporcionalPonderadoAccion = $acumProporcionalPonderadoAccion + $proporcionalPonderadoAccion;
+
+                                // *** FIN calculo PONDERADOS
+
+
+                                //? --------------------------------------------------------------------------------------------------
+                                //? FASE NUMERO - 1
+                                //? ALMACENA niveles de avance DIRECTAMENTE en la 3 ultimas columnas de la TABLA PLAN ACCION
+                                //? Regenera las columnas valor_realizado | porcentaje_realizado | rezago de la tabla plan_accions
+                                //? --------------------------------------------------------------------------------------------------
+                                $auxPlanAccion = PlanAccion::find($accion->id);
+                                $auxPlanAccion->valor_realizado = $acumImpactoKPI;
+                                $auxPlanAccion->porcentaje_realizado = $auxCumplimientoAccion;
+                                $auxPlanAccion->ponderado_realizado = $proporcionalPonderadoAccion;
+                                $auxPlanAccion->rezago = $accion->objetivo - $auxPlanAccion->valor_realizado;
+                                $auxPlanAccion->save();
+                                //? FIN ----------------------------------------------------------------------------------------------
+
+                            }
+
+
+                            // Diferente de CERO - Calcula dividiendo por el objetivo
+                            if ($indicador->objetivo != 0) {
+
+                                // Calcula el impacto al indicador en cantidades y en terminos de porcentajes
+                                $impactoIndicador = ($indicativo->valor * $acumProporcionalPonderadoAccion) / 1;
+                                $porcentajeImpactoIndicador = (($impactoIndicador * 1) / $indicador->objetivo);
+
+                            }
+
+                            // CERO y tipo MANTENIMIENTO - Calcula dividiendo por la linea base multiplicado por 4
+                            if (($indicador->objetivo == 0) && ($indicador->tipo_id == 3)) {
+
+                                // Calcula el impacto al indicador en cantidades y en terminos de porcentajes
+                                $impactoIndicador = ($indicativo->valor * $acumProporcionalPonderadoAccion) / 1;
+                                $porcentajeImpactoIndicador = (($impactoIndicador * 1) / ($indicador->linea_base * 4)); // Nor remitimos a la linea base por ser de Mantenimiento
+
+                            }
+
+                            // CERO y tipo NO MANTENIMIENTO - Igual a cero
+                            if (($indicador->objetivo == 0) && ($indicador->tipo_id != 3)) {
+
+                                // Calcula el impacto al indicador en cantidades y en terminos de porcentajes
+                                $impactoIndicador = 0; // Se lleva a 0 unidades por ser aciones informativas sin objetivo en el indicador para medir
+                                $porcentajeImpactoIndicador = 0; // Se lleva a 0 % por ser aciones informativas sin objetivo en el indicador para medir
+
+                            }
+
+                            //? --------------------------------------------------------------------------------------------------
+                            //? FASE NUMERO - 2
+                            //? ALMACENA niveles de avance DIRECTAMENTE en la 3 ultimas columnas de la TABLA PLAN INDICATIVO
+                            //? Regenera las columnas valor_realizado | porcentaje_realizado | rezago de la tabla plan_indicativos
+                            //? --------------------------------------------------------------------------------------------------
+                            $auxPlanIndicativo = PlanIndicativo::find($indicativo->id);
+                            $auxPlanIndicativo->valor_realizado = (($indicativo->valor * $acumProporcionalPonderadoAccion) / 1);
+                            if ($indicativo->valor != 0) 
+                                $auxPlanIndicativo->porcentaje_realizado = (($auxPlanIndicativo->valor_realizado * 1) / $indicativo->valor);
+                            else
+                                $auxPlanIndicativo->porcentaje_realizado = 'NP';
+                            $auxPlanIndicativo->rezago = $indicativo->valor - $auxPlanIndicativo->valor_realizado;
+                            $auxPlanIndicativo->save();
+                            //? FIN ----------------------------------------------------------------------------------------------
+
+
+                            //? --------------------------------------------------------------------------------------------------
+                            //? FASE NUMERO - 3
+                            //? ALMACENA niveles de avance DIRECTAMENTE en la 3 ultimas columnas de la TABLA MEDICION INDICADORES
+                            //? Regenera las columnas valor_realizado | porcentaje_realizado | rezago de la tabla medicion_indicadors
+                            //? --------------------------------------------------------------------------------------------------
+                            $auxIndicador = MedicionIndicador::find($indicador->id);
+
+                            if ($vigenciaCalcular == 12) $auxIndicador->valor_realizado = 0; //? Validacion previa PRIMERA VIGIENCIA para limpiar el contenido antes de acumular
+                            if ($vigenciaCalcular == 12) $auxIndicador->porcentaje_realizado = 0; //? Validacion previa PRIMERA VIGIENCIA para limpiar el contenido antes de acumular
+
+                            $auxIndicador->valor_realizado = $auxIndicador->valor_realizado + $impactoIndicador; //? Acumulativo
+                            $auxIndicador->porcentaje_realizado = $auxIndicador->porcentaje_realizado + $porcentajeImpactoIndicador; //? Acumulativo
+                            if ($indicador->tipo_id == 3)
+                                $auxIndicador->rezago = ($indicador->linea_base * 2) - $auxIndicador->valor_realizado; //! OJO AJUSTE MANUAL - Se multiplica por el N° de la vigencia actual (1,2..4)
+                            else
+                                $auxIndicador->rezago = $indicador->objetivo - $auxIndicador->valor_realizado;
+                            $auxIndicador->save();
+                            //? FIN ----------------------------------------------------------------------------------------------
+
+                        }
+
+                    }
+                    
+                }
+
+            } 
+
+
+        }
+
+        return view('portada');
+
+    } 
+
 
 }

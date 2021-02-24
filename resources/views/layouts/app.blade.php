@@ -197,8 +197,7 @@
 
                                     <ul class="dropdown-menu">
                                         <li><a style="color:#000000;" href="{{ route('plandesarrollo.edit',config('app.plan_desarrollo')) }}">Plan de desarrollo | Nombres de los niveles</a></li>
-                                        <!-- <li><a href="#">.: Rangos semaforo de medicion</a></li> -->
-                                        <!-- <li><a href="#">.: Definicion de indicadores</a></li> -->
+                                        <li><a style="color:#000000;" href="{{ url('/regenerarNivelesEjecucionTodasMetas') }}">Regeneración niveles de ejecución</a></li>
                                     </ul>
                                 </li>
                             @endif

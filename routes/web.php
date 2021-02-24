@@ -54,6 +54,11 @@ Route::match(array('GET', 'POST'), '/graficaavanceplandeaccion', 'PlanDesarrollo
 Route::match(array('GET', 'POST'), '/graficaavancesemaforos', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel4')->name('/graficaavancesemaforos');
 // Fin Rutas ***
 
+// Ruta Regeneracion de los Niveles de Ejecucion - Para las 4 vigencias - TODAS LAS METAS
+// Tablas PLAN ACCION -> PLAN INDICATIVO -> INDICADOR -> NIVEL4
+Route::match(array('GET', 'POST'), '/regenerarNivelesEjecucionTodasMetas', 'PlanDesarrolloNivel4Controller@regenerarNivelesEjecucionTodasMetas')->name('/regenerarNivelesEjecucionTodasMetas');
+// Fin Rutas ***
+
 // Rutas convergencias ODS
 Route::match(array('GET', 'POST'), 'vincularods', 'PlanDesarrolloNivel4Controller@vincularODS')->name('vincularods');
 Route::match(array('GET', 'POST'), '/odslistarconvergencia', 'RefOdsObjetivoController@listarConvergencia')->name('/odslistarconvergencia');

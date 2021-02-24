@@ -9,7 +9,10 @@ class PlanIndicativo extends Model
     protected $table = 'plan_indicativos';
     protected $fillable = [ 'indicador_id',
                             'vigencia_id',
-                            'valor'];
+                            'valor',
+                            'valor_realizado',
+                            'porcentaje_realizado',
+                            'rezago'];
     protected $guarded = ['id'];
 
     //Relaciones
