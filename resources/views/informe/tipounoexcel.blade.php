@@ -30,9 +30,11 @@
         @php $contadorTareas = '0' @endphp
         @php $objetivoImpactado = 'NO' @endphp
         @foreach ($tarea as $tareaR)
-          @if ($tareaR->accion->planIndicativo->indicador->Nivel4->id == $n4->id) <!-- OJO actualmente no discrimina vigencia de la tarea reportada--> 
-            @php $contadorTareas++ @endphp
-            @if ($tareaR->impacto_KPI != '0') @php $objetivoImpactado = 'SI' @endphp @endif
+          @if ($tareaR->accion->planIndicativo->vigencia_id == 12) <!-- OJO actualmente solo aplica a la vigencia 2020--> 
+            @if ($tareaR->accion->planIndicativo->indicador->Nivel4->id == $n4->id)
+              @php $contadorTareas++ @endphp
+              @if ($tareaR->impacto_KPI != '0') @php $objetivoImpactado = 'SI' @endphp @endif
+            @endif
           @endif
         @endforeach
 
