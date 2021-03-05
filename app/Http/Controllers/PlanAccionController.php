@@ -207,6 +207,12 @@ class PlanAccionController extends Controller
                             ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
                             ->get();
 
+        //Carga TODO el plan indicativo - Vigencia 2020 (Codigo ID N° 12) - PARA MOSTRAR LOS REZAGOS
+        $planIndicativoRezago2020 = PlanIndicativo::orderBy('vigencia_id')
+                                    ->where('vigencia_id', '=', "12")
+                                    ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                                    ->get();
+
         //Carga TODO el plan de accion (TODAS las acciones inscritas)
         $planAccion = PlanAccion::orderBy('plan_indicativo_id')
                             ->with('planIndicativo')
@@ -214,7 +220,7 @@ class PlanAccionController extends Controller
 
         //Carga TODAS las oficinas
         $entidadOficina = EntidadOficina::orderBy('nombre')->get();
-        return view('planaccion.listarplanaccion2021', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planAccion','entidadOficina','pagination'));
+        return view('planaccion.listarplanaccion2021', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planIndicativoRezago2020','planAccion','entidadOficina','pagination'));
     }
 
     /**
@@ -323,6 +329,12 @@ class PlanAccionController extends Controller
                             ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
                             ->get();
 
+        //Carga TODO el plan indicativo - Vigencia 2020 (Codigo ID N° 12) - PARA MOSTRAR LOS REZAGOS
+        $planIndicativoRezago2020 = PlanIndicativo::orderBy('vigencia_id')
+                                    ->where('vigencia_id', '=', "12")
+                                    ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                                    ->get();              
+
         //Carga TODO el plan de accion (TODAS las acciones inscritas)
         $planAccion = PlanAccion::orderBy('plan_indicativo_id')
                             ->with('planIndicativo')
@@ -334,7 +346,7 @@ class PlanAccionController extends Controller
         //Carga TODAS las oficinas
         $entidadOficina = EntidadOficina::orderBy('nombre')->get();
         
-        return view('planaccion.listarplanaccionreporte2021', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planAccion', 'tarea','entidadOficina','pagination'));
+        return view('planaccion.listarplanaccionreporte2021', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planIndicativoRezago2020','planAccion', 'tarea','entidadOficina','pagination'));
     }
 
     /**

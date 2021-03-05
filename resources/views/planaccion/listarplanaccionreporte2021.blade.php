@@ -75,22 +75,22 @@
                   <!-- Datos generales -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
-                     <tr>
-                      @foreach($planDesarrollo as $plandesarrollo) 
+
+                     @foreach($planDesarrolloNivel4 as $Nivel4) 
+                      <tr>
                         <th>Codigo</th>
                         <th>{{$plandesarrollo->nombre_nivel4}}</th>
                         <th>Indicador</th>
                         <th>Tipo</th>
                         <th>Medicion</th>
-                        <th>2021</th>
+                        <th>Obj. 2021</th>
+                        <th>Rezago 2020</th>
                         <th>Responsable</th>
-                      @endforeach 
-                     </tr>
+                      </tr>
 
-                     @foreach($planDesarrolloNivel4 as $Nivel4) 
                       <tr>
                         <td style="width:5%;font-size:20px;font-weight: bold;">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
-                        <td style="width:25%">{{$Nivel4->nombre}}</td>
+                        <td style="width:20%">{{$Nivel4->nombre}}</td>
 
                         <!-- Busca INDICADORES relacionados con el NIVEL4 -->
                         @foreach($medicionIndicador as $indicador) 
@@ -111,6 +111,28 @@
 
                               @endif
                             @endforeach
+
+                            <!-- Busca EL REZAGO 2020 PLAN INDICATIVO relacionado con el INDICADOR -->
+                            @foreach($planIndicativoRezago2020 as $indicativoRezago) 
+                              @if($indicativoRezago->indicador_id == $indicador->id) 
+
+                                @if($indicativoRezago->rezago != 0)
+                                  @if($indicador->Medida->id == 2)
+                                    <td style="width:5%;background:rgb(252, 188, 188);">{{round($indicativoRezago->rezago * 100,4)}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
+                                  @else
+                                    <td style="width:5%;background:rgb(252, 188, 188);">{{round($indicativoRezago->rezago,4)}}</td> <!-- Meta numerica o en puntos -->
+                                  @endif
+                                @else
+                                  @if($indicador->Medida->id == 2)
+                                    <td style="width:5%;background:rgb(205, 250, 180);">{{round($indicativoRezago->rezago * 100,4)}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
+                                  @else
+                                    <td style="width:5%;background:rgb(205, 250, 180);">{{round($indicativoRezago->rezago,4)}}</td> <!-- Meta numerica o en puntos -->
+                                  @endif
+                                @endif
+
+                              @endif
+                            @endforeach
+
                           @endif
                         @endforeach
 
@@ -127,7 +149,7 @@
                       <!-- Busca las ACCIONES inscritas para el PLAN INDICATIVO respectivo - PLAN DE ACCION -->
                       <tr>
                         <td style="width:5%;" colspan="1"></td>
-                        <td style="width:95%;" colspan="7">
+                        <td style="width:95%;" colspan="8">
                           <table id="mytable" class="table table-bordered table-dark">
                             <tr>
                               <th style="width:65%;">Accion</th>
@@ -269,7 +291,7 @@
                         </td>
                       </tr>
 
-                      <tr><td colspan="9"></td></tr>
+                      <tr><td colspan="10"></td></tr>
                      @endforeach 
 
                      

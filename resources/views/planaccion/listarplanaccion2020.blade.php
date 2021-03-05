@@ -74,8 +74,12 @@
                   <!-- Datos generales -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
-                     <tr>
-                      @foreach($planDesarrollo as $plandesarrollo) 
+                      
+                     <!-- Inicia contador numero de acciones inscritas - Agrupado por consulta general -->
+                     @php $acumAccionesGeneral = 0; @endphp
+
+                     @foreach($planDesarrolloNivel4 as $Nivel4) 
+                      <tr>
                         <th>Codigo</th>
                         <th>{{$plandesarrollo->nombre_nivel4}}</th>
                         <th>Indicador</th>
@@ -83,13 +87,8 @@
                         <th>Medicion</th>
                         <th>2020</th>
                         <th>Responsable</th>
-                      @endforeach 
-                     </tr>
+                      </tr>
 
-                     <!-- Inicia contador numero de acciones inscritas - Agrupado por consulta general -->
-                     @php $acumAccionesGeneral = 0; @endphp
-
-                     @foreach($planDesarrolloNivel4 as $Nivel4) 
                       <tr>
                         <td style="width:5%">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
                         <td style="width:25%">{{$Nivel4->nombre}}</td>

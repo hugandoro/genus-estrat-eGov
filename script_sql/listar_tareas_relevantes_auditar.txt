@@ -1,0 +1,32 @@
+Listar todas la tareas mas relevantes, que mas impacto generacion a sus respectivos planes de accion
+----------------------------------------------------------------------------------------------------
+
+SELECT 
+e.numeral as numero_meta,
+b.id as codigo_accion,
+b.descripcion as accion_descripcion,
+b.objetivo as accion_objetivo,
+b.ponderacion as accion_ponderacion,
+a.id as codigo_tarea,
+a.descripcion as tarea_descripcion,
+a.impacto_kpi as tarea_impacto_kpi,
+f.nombre as dependencia_responsable
+
+FROM tareas AS a
+
+INNER JOIN plan_accions AS b
+ON a.accion_id = b.id
+
+INNER JOIN plan_indicativos AS c
+ON b.plan_indicativo_id = c.id
+
+INNER JOIN medicion_indicadors AS d
+ON c.indicador_id = d.id
+
+INNER JOIN plan_desarrollo_nivel4s AS e
+ON d.nivel4_id = e.id
+
+INNER JOIN entidad_oficinas AS f
+ON e.oficina_id = f.id
+
+WHERE c.vigencia_id = 12
