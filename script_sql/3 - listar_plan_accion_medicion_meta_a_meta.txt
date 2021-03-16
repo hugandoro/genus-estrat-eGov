@@ -1,0 +1,48 @@
+Listar todo el PLAN DE ACCION filtrado por una vigencia respectiva, su medicion actual y los datos de la meta respectiva
+-------------------------------------------------------------------------------------------------------------------------
+
+SELECT 
+d.numeral as numero_meta,
+d.nombre  as meta,
+c.nombre  as indicador,
+e.nombre  as medida,
+f.nombre  as tipo_medida,
+c.linea_base as linea_base_2019,
+c.meta as meta_2023,
+c.objetivo as objetivo_cuatrienio,
+
+h.nombre as vigencia,
+b.valor as objetivo_vigencia,
+
+a.descripcion as accion,
+a.kpi as accion_kpi,
+a.objetivo as accion_kpi_objetivo,
+a.valor_realizado as valor_realizado,
+a.porcentaje_realizado as porcentaje_realizado,
+a.rezago as rezago_accion,
+g.nombre as dependencia_responsable
+
+FROM plan_accions AS a
+
+INNER JOIN plan_indicativos AS b
+ON a.plan_indicativo_id = b.id
+
+INNER JOIN medicion_indicadors AS c
+ON b.indicador_id = c.id
+
+INNER JOIN plan_desarrollo_nivel4s AS d
+ON c.nivel4_id = d.id
+
+INNER JOIN medicion_medidas AS e
+ON c.medida_id = e.id
+
+INNER JOIN medicion_tipos AS f
+ON c.tipo_id = f.id
+
+INNER JOIN entidad_oficinas AS g
+ON d.oficina_id = g.id
+
+INNER JOIN general_vigencias AS h
+ON b.vigencia_id = h.id
+
+WHERE b.vigencia_id = 12

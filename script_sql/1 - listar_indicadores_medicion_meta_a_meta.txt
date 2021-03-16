@@ -1,4 +1,4 @@
-Listar todos los indicadores que conforman el plan, su medicion actual y los datos de la meta respectiva
+Listar todos los INDICADORES que conforman el plan, su medicion actual y los datos de la meta respectiva
 --------------------------------------------------------------------------------------------------------
 
 SELECT 
