@@ -166,7 +166,8 @@
                                     <ul class="dropdown-menu">
                                         @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
                                             <li><a style="color:#000000;" href="{{ url('/tareaslistargeneralexcel') }}">Sabana completa tareas reportadas</a></li>
-                                            <li><a style="color:#000000;" href="{{ url('/informetipounoexcel') }}">Informe tipo uno | Actividades programadas - Impactadas</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/informetipounoexcel2020') }}">Informe tipo uno | Actividades programadas - Impactadas 2020</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/informetipounoexcel2021') }}">Informe tipo uno | Actividades programadas - Impactadas 2021</a></li>
                                         @endif
                                     </ul>
                                 </li>

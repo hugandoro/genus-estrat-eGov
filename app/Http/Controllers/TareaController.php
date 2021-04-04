@@ -24,7 +24,8 @@ use App\GeneralSexo;
 use App\GeneralFuente;
 
 use App\Exports\TareasExport;
-use App\Exports\InformeTipoUnoExport;
+use App\Exports\Informe2020TipoUnoExport;
+use App\Exports\Informe2021TipoUnoExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Support\Facades\Validator;
@@ -276,11 +277,15 @@ class TareaController extends Controller
         return Excel::download(new TareasExport, 'tareas.xlsx');
     }
 
-    public function informeTipoUnoExcel()
+    public function informeTipoUnoExcel2020()
     {
-        return Excel::download(new InformeTipoUnoExport, 'informe_tipo_uno.xlsx');
+        return Excel::download(new Informe2020TipoUnoExport, 'informe_tipo_uno_2020.xlsx');
     }
 
+    public function informeTipoUnoExcel2021()
+    {
+        return Excel::download(new Informe2021TipoUnoExport, 'informe_tipo_uno_2021.xlsx');
+    }
 
     /**
      * Calcula y regenera niveles (Para UNA meta) de ejecucion tablas PLAN ACCION -> PLAN INDICATIVO -> INDICADOR 

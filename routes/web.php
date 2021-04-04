@@ -108,7 +108,9 @@ Route::resource('/mipg', 'RefMipgPoliticaController');
 
 Route::resource('/indicador', 'MedicionIndicadorController');
 
-Route::match(array('GET', 'POST'), '/informetipounoexcel', 'TareaController@informeTipoUnoExcel')->name('/informetipounoexcel');
-
+// Informes tipo Export
+Route::match(array('GET', 'POST'), '/informetipounoexcel2020', 'TareaController@informeTipoUnoExcel2020')->name('/informetipounoexcel2020');
+Route::match(array('GET', 'POST'), '/informetipounoexcel2021', 'TareaController@informeTipoUnoExcel2021')->name('/informetipounoexcel2021');
+// Fin informes ***
 
 
