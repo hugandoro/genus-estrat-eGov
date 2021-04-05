@@ -19,7 +19,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #363636;
+                background-color: #000000;
                 color: #ffffff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -112,39 +112,26 @@
             <div class="col-md-12 content">
 
                 <br><br><br>
-                <!--<center><picture><img class='img-responsive' src="{{ asset('images/banner_navidad.jpg') }}" width="800px"></picture></center>
-                <br>-->
 
                 <div id="particles-js"></div>
-
-
-                <!-- <br>
-                <center><picture><img class='img-responsive' src="{{ asset('images/portada.png') }}" width="400px"></picture></center>
-                <br>
-
-                <div class="title m-b-md">
-                    <b>{{ config('app.nombre_entidad') }}</b>
-                </div>
-
-                <div class="subtitle m-b-md">
-                    {{ config('app.nombre_administracion') }} | {{ config('app.slogan_administracion') }}
-                </div>
-
-                <div class="subsubtitle m-b-md">
-                    ...Bienvenid@ a la plataforma abierta de seguimiento al plan de desarrollo...
-                </div> -->
 
             </div>
 
             <br>
 
             <div class="col-md-12 footer">
+
                 <div class="slogantitle m-b-md">
                     <b>EstrateGov</b> | Gestion pública inteligente
                 </div>
 
                 <div>
-                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.4004 - Derechos reservados Genus Group SAS - Colombia 2021</small>
+                    <iframe width="450" height="400" src="https://www.youtube.com/embed/FVfCXhthgGc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <br>
+                </div>
+
+                <div>
+                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.4005 - Derechos reservados Genus Group SAS - Colombia 2021</small>
                 </div>
 
                 <!-- <center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="160px"></picture></center> -->

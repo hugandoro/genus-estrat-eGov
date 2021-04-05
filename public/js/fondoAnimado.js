@@ -16,16 +16,16 @@
         /* config dom id (optional) + config particles params */
         particlesJS('particles-js', {
         particles: {
-          color: '#F7DC6F',
+          color: '#000000',
           shape: 'circle', // "circle", "edge" or "triangle"
           opacity: 1,
-          size: 60,
+          size: 40,
           size_random: true,
           nb: 20,
           line_linked: {
             enable_auto: true,
             distance: 200,
-            color: '#F7DC6F',
+            color: '#000000',
             opacity: 1,
             width: 1,
             condensed_mode: {
@@ -36,7 +36,7 @@
           },
           anim: {
             enable: true,
-            speed: 2
+            speed: 3
           }
         },
         interactivity: {
