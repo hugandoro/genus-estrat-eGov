@@ -106,7 +106,7 @@ class TareaController extends Controller
 
         //Valida el tamaño del archivo anexo
         $validator = Validator::make($request->all(), [
-            'evidencia_pdf' => 'max:2048000',
+            'evidencia_pdf' => 'max:24000',
         ]);
 
         //Valida si no fallo por tamaño o por ser NULL
