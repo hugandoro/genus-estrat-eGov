@@ -111,7 +111,7 @@ class TareaController extends Controller
 
         //Valida si no fallo por tamaño o por ser NULL
         if(($validator->fails()) || ($request->evidencia_pdf == NULL)){
-            echo "<script type=text/javascript>alert('Tarea registrada SIN EVIDENCIA (No fue anexada o el PDF supera los 3 megas')</script>";
+            echo "<script>alert('Tarea registrada SIN EVIDENCIA (No fue anexada o el PDF supera los 3 megas')</script>";
             $tarea->evidencia_pdf = 'Sin evidencia';
             $tarea->save();
         }
