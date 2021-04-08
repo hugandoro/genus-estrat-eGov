@@ -3,6 +3,14 @@
 
 <div class="row">
   <section class="content">
+    @if(Session::has('messageA'))
+    <p class="alert alert-danger" style="font-size:20px;font-weight: bold;text-align: center;">{{ Session::get('messageA') }}</p>
+    @endif
+
+    @if(Session::has('messageB'))
+    <p class="alert alert-success" style="font-size:20px;font-weight: bold;text-align: center;">{{ Session::get('messageB') }}</p>
+    @endif
+
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -57,8 +65,6 @@
               </table>
             </form>
           <!-- Fin del formulario de filtros -->
-
-
           </div>
           <div class="table-container">
             <table id="mytable" class="table table-bordred table-striped">

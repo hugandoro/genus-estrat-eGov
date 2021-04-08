@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class TareaController extends Controller
 {
@@ -111,11 +112,12 @@ class TareaController extends Controller
 
         //Valida si no fallo por tamaño o por ser NULL
         if(($validator->fails()) || ($request->evidencia_pdf == NULL)){
-            echo "<script>alert('Tarea registrada SIN EVIDENCIA (No fue anexada o el PDF supera los 3 megas')</script>";
+            Session::flash('messageA', 'Tarea guardada con NOVEDAD | No se cargo evidencia o el PDF supera las 3 megas como tamaño maximo permitido');
             $tarea->evidencia_pdf = 'Sin evidencia';
             $tarea->save();
         }
         else{
+            Session::flash('messageB', 'Tarea guardada correctamente con evidencia');
             $tarea->evidencia_pdf = $request->file('evidencia_pdf');
             $nombreArchivo = 'accion-' . $tarea->accion_id . '-' . uniqid() . '.pdf';
             Storage::disk('evidence')->put($nombreArchivo, file($tarea->evidencia_pdf));
