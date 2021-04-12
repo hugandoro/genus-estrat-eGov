@@ -65,7 +65,7 @@
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Cronologico tareas reportadas</a></li>
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tareaslistargeneral2021') }}">Cronologico tareas reportadas</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
