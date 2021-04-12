@@ -125,16 +125,18 @@
                     <b>EstrateGov</b> | Gestion pública inteligente
                 </div>
 
+                <!--
                 <div>
                     <iframe width="450" height="400" src="https://www.youtube.com/embed/FVfCXhthgGc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <br>
                 </div>
+                -->
 
                 <div>
-                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.4005 - Derechos reservados Genus Group SAS - Colombia 2021</small>
+                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.4006 - Derechos reservados Genus Group SAS - Colombia 2021</small>
                 </div>
 
-                <!-- <center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="160px"></picture></center> -->
+                <br><br><center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="160px"></picture></center>
 
             </div>
         </div>

@@ -92,9 +92,16 @@ Route::match(array('GET', 'POST'), '/planaccionlistarreporte2021', 'PlanAccionCo
 
 Route::match(array('GET', 'POST'), '/planaccionlistaravance', 'PlanAccionController@listarAvancePlanAccion')->name('/planaccionlistaravance');
 
+// Rutas para listar tareas reportadas por vigencias
 Route::resource('/tarea', 'TareaController');
-Route::match(array('GET', 'POST'), '/tareaslistargeneral', 'TareaController@listarRegistros')->name('/tareaslistargeneral');
-Route::match(array('GET', 'POST'), '/tareaslistargeneralexcel', 'TareaController@listarRegistrosExcel')->name('/tareaslistargeneralexcel');
+Route::match(array('GET', 'POST'), '/tareaslistargeneral2020', 'TareaController@listarRegistros2020')->name('/tareaslistargeneral2020');
+Route::match(array('GET', 'POST'), '/tareaslistargeneral2021', 'TareaController@listarRegistros2021')->name('/tareaslistargeneral2021');
+// Fin Rutas ***
+
+// Rutas para listar tareas reportadas por vigencias EXPORT EXCEL
+Route::match(array('GET', 'POST'), '/tareaslistargeneralexcel2020', 'TareaController@listarRegistrosExcel2020')->name('/tareaslistargeneralexcel2020');
+Route::match(array('GET', 'POST'), '/tareaslistargeneralexcel2021', 'TareaController@listarRegistrosExcel2021')->name('/tareaslistargeneralexcel2021');
+// Fin Rutas ***
 
 Route::resource('/ods', 'RefOdsObjetivoController');
 

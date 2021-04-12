@@ -7,11 +7,11 @@ use Illuminate\Contracts\View\View;
 
 use Maatwebsite\Excel\Concerns\FromView;
 
-class TareasExport implements FromView
+class Tareas2020Export implements FromView
 {
     public function view(): View
     {
-        return view('tarea.listargeneralexcel', [
+        return view('tarea.listargeneralexcel2020', [
             'tarea' => Tarea::orderBy('id','desc')->with(
                 'accion',
                 'accion.planIndicativo',
@@ -28,7 +28,7 @@ class TareasExport implements FromView
                 'fuente2',
                 'fuente3',
                 'user'
-            )->get(),
+            )->where('accion_id','<','1325')->get(),  //! Vigencia 2020 - Plan Accion ID entre del 1 al 1324 
         ]);
     }
 }

@@ -5,7 +5,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Plan de Desarrollo | <b>Cronologico tareas reportadas en plataforma</b></h3></div>
+          <div class="pull-left"><h3>Plan de Desarrollo | <b>Cronologico tareas reportadas en plataforma | 2021</b></h3></div>
           <div class="pull-right">
 
           </div>
@@ -24,7 +24,7 @@
                 <td>
                   <h4><b>{{ $totalTareas }}</b> | Tareas registradas en el sistema
                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
-                      | <a href="{{ url('/tareaslistargeneralexcel') }}"><img src="{{ asset("images/iconos/excel.png") }}" alt="Estrategov" width="60px"></a>
+                      | <a href="{{ url('/tareaslistargeneralexcel2021') }}"><img src="{{ asset("images/iconos/excel.png") }}" alt="Estrategov" width="60px"></a>
                     @endif
                   </h4>
                 </td>

@@ -23,7 +23,8 @@ use App\GeneralPoblacion;
 use App\GeneralSexo;
 use App\GeneralFuente;
 
-use App\Exports\TareasExport;
+use App\Exports\Tareas2020Export;
+use App\Exports\Tareas2021Export;
 use App\Exports\Informe2020TipoUnoExport;
 use App\Exports\Informe2021TipoUnoExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -252,19 +253,23 @@ class TareaController extends Controller
     }
 
     /**
-     * Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) 
+     * Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) - Vigencia 2020
      * @return \Illuminate\Http\Response
      */
-    public function listarRegistros()
+    public function listarRegistros2020()
     {
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
 
         //Hace una primer busqueda GENERAL
-        $tarea = Tarea::All();
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
+                                            ->where('accion_id','<','1325') //! Vigencia 2020 - Plan Accion ID entre del 1 al 1324 
+                                            ->get();
         $totalTareas = count($tarea);
 
         //Hace una segunda busqueda GENERAL con resultado paginados
-        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')->paginate(10);
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
+                                            ->where('accion_id','<','1325') //! Vigencia 2020 - Plan Accion ID entre del 1 al 1324 
+                                            ->paginate(10);
 
         //Paginacion de resultados conservando el indice (Metodo GET y no POST)
         $pagination = $tarea->appends(request () -> except (['page', '_token'])) -> links ();
@@ -272,12 +277,45 @@ class TareaController extends Controller
         //Carga TODAS las oficinas
         $entidadOficina = EntidadOficina::orderBy('nombre')->get();
 
-        return view('tarea.listargeneral', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
+        return view('tarea.listargeneral2020', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
     }
 
-    public function listarRegistrosExcel()
+    /**
+     * Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) - Vigencia 2021
+     * @return \Illuminate\Http\Response
+     */
+    public function listarRegistros2021()
     {
-        return Excel::download(new TareasExport, 'tareas.xlsx');
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+
+        //Hace una primer busqueda GENERAL
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
+                                            ->where('accion_id','>','1324') //! Vigencia 2021 - Plan Accion ID entre del 1325 al 2501
+                                            ->get();
+        $totalTareas = count($tarea);
+
+        //Hace una segunda busqueda GENERAL con resultado paginados
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
+                                            ->where('accion_id','>','1324') //! Vigencia 2021 - Plan Accion ID entre del 1325 al 2501
+                                            ->paginate(10);
+
+        //Paginacion de resultados conservando el indice (Metodo GET y no POST)
+        $pagination = $tarea->appends(request () -> except (['page', '_token'])) -> links ();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')->get();
+
+        return view('tarea.listargeneral2021', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
+    }    
+
+    public function listarRegistrosExcel2020()
+    {
+        return Excel::download(new Tareas2020Export, 'tareas.xlsx');
+    }
+
+    public function listarRegistrosExcel2021()
+    {
+        return Excel::download(new Tareas2021Export, 'tareas.xlsx');
     }
 
     public function informeTipoUnoExcel2020()
