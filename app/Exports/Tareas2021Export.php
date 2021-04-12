@@ -28,7 +28,7 @@ class Tareas2021Export implements FromView
                 'fuente2',
                 'fuente3',
                 'user'
-            ) ->where('accion_id','>','1325')->get(),  //! Vigencia 2021 - Plan Accion ID entre del 1325 al 2501
+            ) ->where('accion_id','>','1324')->get(),  //! Vigencia 2021 - Plan Accion ID entre del 1325 al 2501
         ]);
     }
 }
