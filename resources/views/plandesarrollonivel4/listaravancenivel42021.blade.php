@@ -244,12 +244,9 @@
                                       <td colspan="1"></td>
                                       <td colspan="4" style="background:rgb(104, 103, 187);color:#ffffff;">Actividad (Meta) -> Porcentaje ponderado cumplimiento -> Cuatrienio</td>
                                       
-                                      @if ($indicador->objetivo != 0)
                                         <td colspan="1" style="font-size:18px;font-weight: bold;">{{ round($indicador->porcentaje_realizado * 100,2) }} %</td>
-
                                         <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021 -->
                                         @php $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + ($indicador->porcentaje_realizado * 100); @endphp
-                                      @endif 
                                     </tr>
 
                                   {{-- @endif --}}
