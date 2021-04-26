@@ -244,26 +244,12 @@
                                       <td colspan="1"></td>
                                       <td colspan="4" style="background:rgb(104, 103, 187);color:#ffffff;">Actividad (Meta) -> Porcentaje ponderado cumplimiento -> Cuatrienio</td>
                                       
-                                      <!-- Diferente de CERO - Calcula dividiendo por el objetivo -->
                                       @if ($indicador->objetivo != 0)
-                                        <td colspan="1" style="font-size:18px;font-weight: bold;">{{ round(((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/$indicador->objetivo,2) }} %</td>
+                                        <td colspan="1" style="font-size:18px;font-weight: bold;">{{ round($indicador->porcentaje_realizado * 100,2) }} %</td>
+
                                         <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021 -->
-                                        @php $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + ( ((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/$indicador->objetivo ); @endphp
+                                        @php $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + ($indicador->porcentaje_realizado * 100); @endphp
                                       @endif 
-
-                                      <!-- CERO y tipo MANTENIMIENTO - Calcula dividiendo por la linea base multiplicado por 4 -->
-                                      @if (($indicador->objetivo == 0) && ($indicador->tipo_id == 3))
-                                        <td colspan="1" style="font-size:18px;font-weight: bold;">{{ round(((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/($indicador->linea_base*4),2) }} %</td>
-                                        <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021 -->
-                                        @php $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + ( ((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/($indicador->linea_base*4) ); @endphp
-                                      @endif
-
-                                      <!-- CERO y tipo NO MANTENIMIENTO - Igual a cero -->
-                                      @if (($indicador->objetivo == 0) && ($indicador->tipo_id != 3))
-                                        <td colspan="1" style="font-size:18px;font-weight: bold;">0 %</td>
-                                        <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021 -->
-                                        @php $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + 0; @endphp
-                                      @endif
                                     </tr>
 
                                   {{-- @endif --}}
