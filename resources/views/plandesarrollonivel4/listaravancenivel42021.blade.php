@@ -3,14 +3,16 @@
 
 <div class="row">
   <section class="content">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
+    <!-- <div class="col-md-8 col-md-offset-2"> -->
+
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Plan de Desarrollo | <b>Actividades (Metas) - Niveles de avance y ejecución</b></h3></div>
+          <div class="pull-left"><h3>Plan de Desarrollo | <b>Actividades (Metas) - Niveles de avance y ejecución 2021</b></h3></div>
           <div class="pull-right">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->
-            <form method="GET" action="{{ url('/plandesarrollonivel4listaravance') }}" role="form" enctype="multipart/form-data">
+            <form method="GET" action="{{ url('/plandesarrollonivel4listaravance2021') }}" role="form" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <table>
                 <tr>
@@ -82,7 +84,7 @@
                         <th>Indicador</th>
                         <th>Tipo</th>
                         <th>Medicion</th>
-                        <th>Objetivo 2020</th>
+                        <th>Objetivo 2021</th>
                         <th>Objetivo Cuatrienio</th>
                         <th>Responsable</th>
                       @endforeach 
@@ -95,8 +97,8 @@
 
                      <!-- Inicia contador numero de actividades - Agrupado por consulta general -->
                      @php $acumNivel4General = 0; @endphp
-                     <!-- Inicia acumulador porcentaje de cumplimiento de los indicadores - Vigencia 2020 -->
-                     @php $acumImpactoIndicador2020General = 0; @endphp
+                     <!-- Inicia acumulador porcentaje de cumplimiento de los indicadores - Vigencia 2021 -->
+                     @php $acumImpactoIndicador2021General = 0; @endphp
 
                      @foreach($planDesarrolloNivel4 as $Nivel4) 
                       <tr>
@@ -113,7 +115,7 @@
 
                             <!-- Busca EL PLAN INDICATIVO relacionado con el INDICADOR y la VIGENCIA -->
                             @foreach($planIndicativo as $indicativo) 
-                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12'))
+                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13'))
                               
                                 @if($indicador->Medida->id == 2)
                                   <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
@@ -152,8 +154,8 @@
                             @foreach($medicionIndicador->where('nivel4_id',$Nivel4->id) as $indicador) 
                               {{-- @if($indicador->nivel4_id == $Nivel4->id) --}}
                                 
-                                @foreach($planIndicativo->where('indicador_id',$indicador->id)->where('vigencia_id','12') as $indicativo) 
-                                  {{-- @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '12')) --}}
+                                @foreach($planIndicativo->where('indicador_id',$indicador->id)->where('vigencia_id','13') as $indicativo) 
+                                  {{-- @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13')) --}}
 
                                     <!-- Inicializa Contador acumulado de ponderacion -->
                                     @php $acumProporcionalPonderadoAccion = 0; @endphp 
@@ -224,13 +226,13 @@
 
                                     <tr>
                                       <td colspan="1"></td>
-                                      <td colspan="4">Plan Accion -> Ponderados -> Acumulado 2020</td>
+                                      <td colspan="4">Plan Accion -> Ponderados -> Acumulado 2021</td>
                                       <td colspan="1">{{ round(($acumProporcionalPonderadoAccion * 100),2) }} %</td>
                                     </tr>
 
                                     <tr>
                                       <td colspan="1"></td>
-                                      <td colspan="4">Actividad (Meta) -> Impacto ponderado al indicador -> Objetivo 2020</td>
+                                      <td colspan="4">Actividad (Meta) -> Impacto ponderado al indicador -> Objetivo 2021</td>
                                       @if($indicador->Medida->id == 2)
                                         <td colspan="1">{{ round((($indicativo->valor * $acumProporcionalPonderadoAccion)/1) * 100,2) }} %</td><!-- Meta porcentual - Multiplica por 100 -->
                                       @else
@@ -245,22 +247,22 @@
                                       <!-- Diferente de CERO - Calcula dividiendo por el objetivo -->
                                       @if ($indicador->objetivo != 0)
                                         <td colspan="1" style="font-size:18px;font-weight: bold;">{{ round(((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/$indicador->objetivo,2) }} %</td>
-                                        <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020 -->
-                                        @php $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + ( ((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/$indicador->objetivo ); @endphp
+                                        <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021 -->
+                                        @php $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + ( ((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/$indicador->objetivo ); @endphp
                                       @endif 
 
                                       <!-- CERO y tipo MANTENIMIENTO - Calcula dividiendo por la linea base multiplicado por 4 -->
                                       @if (($indicador->objetivo == 0) && ($indicador->tipo_id == 3))
                                         <td colspan="1" style="font-size:18px;font-weight: bold;">{{ round(((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/($indicador->linea_base*4),2) }} %</td>
-                                        <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020 -->
-                                        @php $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + ( ((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/($indicador->linea_base*4) ); @endphp
+                                        <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021 -->
+                                        @php $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + ( ((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/($indicador->linea_base*4) ); @endphp
                                       @endif
 
                                       <!-- CERO y tipo NO MANTENIMIENTO - Igual a cero -->
                                       @if (($indicador->objetivo == 0) && ($indicador->tipo_id != 3))
                                         <td colspan="1" style="font-size:18px;font-weight: bold;">0 %</td>
-                                        <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2020 -->
-                                        @php $acumImpactoIndicador2020General = $acumImpactoIndicador2020General + 0; @endphp
+                                        <!-- Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021 -->
+                                        @php $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + 0; @endphp
                                       @endif
                                     </tr>
 
@@ -299,9 +301,9 @@
 
               <tr>
                 @if ($acumAccionesGeneral != 0)
-                  <td><h1><b>{{ round(($acumImpactoKPIGeneral/$acumAccionesGeneral),2) }} %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion 2020</h4></td>
+                  <td><h1><b>{{ round(($acumImpactoKPIGeneral/$acumAccionesGeneral),2) }} %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion 2021</h4></td>
                 @else
-                  <td><h1><b>0 %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion 2020</h4></td>
+                  <td><h1><b>0 %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion 2021</h4></td>
                 @endif
               </tr>
 
@@ -311,7 +313,7 @@
 
               <tr>
                 @if ($acumNivel4General != 0)
-                  <td><h1><b>{{ round(($acumImpactoIndicador2020General/$acumNivel4General),2) }} %</b></h1><h4>Porcentaje ponderado de cumplimiento Cuatrienio | Actividades</h4></td>
+                  <td><h1><b>{{ round(($acumImpactoIndicador2021General/$acumNivel4General),2) }} %</b></h1><h4>Porcentaje ponderado de cumplimiento Cuatrienio | Actividades</h4></td>
                 @else
                   <td><h1><b>0 %</b></h1><h4>Porcentaje ponderado de cumplimiento Cuatrienio | Actividades</h4></td>
                 @endif

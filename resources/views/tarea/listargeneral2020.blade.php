@@ -2,7 +2,9 @@
 @section('content')
 <div class="row">
   <section class="content">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
+    <!-- <div class="col-md-8 col-md-offset-2"> -->
+
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left"><h3>Plan de Desarrollo | <b>Cronologico tareas reportadas en plataforma | 2020</b></h3></div>

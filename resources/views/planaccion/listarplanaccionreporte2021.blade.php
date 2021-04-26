@@ -11,7 +11,9 @@
     <p class="alert alert-success" style="font-size:20px;font-weight: bold;text-align: center;">{{ Session::get('messageB') }}</p>
     @endif
 
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
+    <!-- <div class="col-md-8 col-md-offset-2"> -->
+
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2021 - Reporte de tareas</b></h3></div>

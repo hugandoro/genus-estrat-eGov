@@ -3,14 +3,16 @@
 
 <div class="row">
   <section class="content">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
+    <!-- <div class="col-md-8 col-md-offset-2"> -->
+
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2020 - Niveles de avance y ejecución</b></h3></div>
           <div class="pull-right">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->
-            <form method="GET" action="{{ url('/planaccionlistaravance') }}" role="form" enctype="multipart/form-data">
+            <form method="GET" action="{{ url('/planaccionlistaravance2020') }}" role="form" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <table>
                 <tr>
@@ -227,9 +229,9 @@
 
               <tr>
                 @if ($acumAccionesGeneral != 0)
-                  <td><h1><b>{{ round(($acumImpactoKPIGeneral/$acumAccionesGeneral),2) }} %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion</h4></td>
+                  <td><h1><b>{{ round(($acumImpactoKPIGeneral/$acumAccionesGeneral),2) }} %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion 2020</h4></td>
                 @else
-                  <td><h1><b>0 %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion</h4></td>
+                  <td><h1><b>0 %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion 2020</h4></td>
                 @endif
               </tr>
 

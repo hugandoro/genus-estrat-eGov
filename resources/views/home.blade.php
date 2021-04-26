@@ -70,12 +70,12 @@
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp    
-                                        <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Avance de ejecucion</a></li>
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistaravance2021?filtroSecretaria=' . $aux) }}">Avance de ejecucion</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp  
-                                        <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Ponderado ejecucion actividades</a></li>
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listaravance2021?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>
                                     @endif
                                 </ul>
                             </div>
@@ -147,13 +147,16 @@
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_mipg.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title" style="color:#ffffff;">Politicas MIPG</h5>
+                                    <h5 class="card-title" style="color:#ffffff;">Modelo integrado MIPG</h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipg') }}">Conocer las politicas</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipglistarconvergencia') }}">Convergencia politicas MIPG</a></li>
-                                  </ul>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipglistarconvergencia') }}">Convergencia de politicas MIPG</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Consultar plan de accion MIPG 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Reportar tareas MIPG 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Nivel avance plan accion MIPG 2021</a></li>
+                                </ul>
                             </div>
                         </div>
 

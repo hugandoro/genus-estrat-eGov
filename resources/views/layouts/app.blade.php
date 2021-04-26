@@ -97,8 +97,8 @@
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
                                         <li><a style="color:#000000;" href="{{ url('/tareaslistargeneral2021') }}"><b>Plan de accion 2021</b> | Cronologico tareas reportadas</a></li>
-                                        <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Avance de ejecucion</a></li>
-                                        <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Plan de accion 2021</b> | Ponderado ejecucion actividades</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/planaccionlistaravance2021?filtroSecretaria=' . $aux) }}"><b>Plan de accion 2021</b> | Avance de ejecucion</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance2021?filtroSecretaria=' . $aux) }}"><b>Plan de accion 2021</b> | Ponderado ejecucion actividades</a></li>
                                     @endif
 
                                     <li role="separator" class="divider"></li>
@@ -106,8 +106,8 @@
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
                                         <li><a style="color:#000000;" href="{{ url('/tareaslistargeneral2020') }}">Plan de accion 2020 | Cronologico tareas reportadas</a></li>
-                                        <li><a style="color:#000000;" href="{{ url('/planaccionlistaravance?filtroSecretaria=' . $aux) }}">Plan de accion 2020 | Avance de ejecucion</a></li>
-                                        <li><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance?filtroSecretaria=' . $aux) }}">Plan de accion 2020 | Ponderado ejecucion actividades</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/planaccionlistaravance2020?filtroSecretaria=' . $aux) }}">Plan de accion 2020 | Avance de ejecucion</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance2020?filtroSecretaria=' . $aux) }}">Plan de accion 2020 | Ponderado ejecucion actividades</a></li>
                                     @endif
 
                                 </ul>
@@ -165,11 +165,12 @@
 
                                     <ul class="dropdown-menu">
                                         @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
-                                            <li><a style="color:#000000;" href="{{ url('/tareaslistargeneralexcel2020') }}">Sabana completa tareas reportadas | Vigencia 2020</a></li>
-                                            <li><a style="color:#000000;" href="{{ url('/tareaslistargeneralexcel2021') }}">Sabana completa tareas reportadas | Vigencia 2021</a></li>
-
-                                            <li><a style="color:#000000;" href="{{ url('/informetipounoexcel2020') }}">Informe tipo uno | Actividades programadas - Impactadas 2020</a></li>
-                                            <li><a style="color:#000000;" href="{{ url('/informetipounoexcel2021') }}">Informe tipo uno | Actividades programadas - Impactadas 2021</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/informetipounoexcel2021') }}"><b>Informes 2021</b> | Informe T1 actividades programadas</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/tareaslistargeneralexcel2021') }}"><b>Informes 2021</b> | Sabana completa tareas reportadas</a></li>
+                                            
+                                            <li role="separator" class="divider"></li>
+                                            <li><a style="color:#000000;" href="{{ url('/informetipounoexcel2020') }}">Informes 2020 | Informe T1 actividades programadas</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/tareaslistargeneralexcel2020') }}">Informes 2020 | Sabana completa tareas reportadas</a></li>
                                         @endif
                                     </ul>
                                 </li>

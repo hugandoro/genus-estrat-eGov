@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="row">
   <section class="content">
     <div class="col-md-10 col-md-offset-1">
@@ -7,11 +8,11 @@
 
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2021</b></h3></div>
+          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2021 - Niveles de avance y ejecución</b></h3></div>
           <div class="pull-right">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->
-            <form method="GET" action="{{ url('/planaccionlistar2021') }}" role="form" enctype="multipart/form-data">
+            <form method="GET" action="{{ url('/planaccionlistaravance2021') }}" role="form" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <table>
                 <tr>
@@ -76,25 +77,27 @@
                   <!-- Datos generales -->
                   <table id="mytable" class="table table-bordred table-striped">
                     <tbody>
-
-                     <!-- Inicia contador numero de acciones inscritas - Agrupado por consulta general -->
-                     @php $acumAccionesGeneral = 0; @endphp
-
-                     @foreach($planDesarrolloNivel4 as $Nivel4) 
-                      <tr>
+                     <tr>
+                      @foreach($planDesarrollo as $plandesarrollo) 
                         <th>Codigo</th>
                         <th>{{$plandesarrollo->nombre_nivel4}}</th>
                         <th>Indicador</th>
                         <th>Tipo</th>
                         <th>Medicion</th>
-                        <th>Obj. 2021</th>
-                        <th>Rezago 2020</th>
+                        <th>2021</th>
                         <th>Responsable</th>
-                      </tr>
+                      @endforeach 
+                     </tr>
 
+                     <!-- Inicia contador numero de acciones inscritas - Agrupado por consulta general -->
+                     @php $acumAccionesGeneral = 0; @endphp
+                     <!-- Inicia acumulador porcentaje de cumplimiento de los KPI - Agrupado por acciones consulta general  -->
+                     @php $acumImpactoKPIGeneral = 0; @endphp
+
+                     @foreach($planDesarrolloNivel4 as $Nivel4) 
                       <tr>
-                        <td style="width:5%">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
-                        <td style="width:20%">{{$Nivel4->nombre}}</td>
+                        <td style="width:5%;font-size:20px;font-weight: bold;">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
+                        <td style="width:25%">{{$Nivel4->nombre}}</td>
 
                         <!-- Busca INDICADORES relacionados con el NIVEL4 -->
                         @foreach($medicionIndicador as $indicador) 
@@ -105,8 +108,8 @@
 
                             <!-- Busca EL PLAN INDICATIVO relacionado con el INDICADOR y la VIGENCIA -->
                             @foreach($planIndicativo as $indicativo) 
-                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13')) <!-- *** CUIDADO *** CON EL CODIGO SEGUN LA VIGENCIA -->
-
+                              @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13'))
+                              
                                 @if($indicador->Medida->id == 2)
                                   <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
                                 @else
@@ -115,28 +118,6 @@
 
                               @endif
                             @endforeach
-
-                            <!-- Busca EL REZAGO 2020 PLAN INDICATIVO relacionado con el INDICADOR -->
-                            @foreach($planIndicativoRezago2020 as $indicativoRezago) 
-                              @if($indicativoRezago->indicador_id == $indicador->id) 
-
-                                @if($indicativoRezago->rezago != 0)
-                                  @if($indicador->Medida->id == 2)
-                                    <td style="width:5%;background:rgb(252, 188, 188);">{{round($indicativoRezago->rezago * 100,4)}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
-                                  @else
-                                    <td style="width:5%;background:rgb(252, 188, 188);">{{round($indicativoRezago->rezago,4)}}</td> <!-- Meta numerica o en puntos -->
-                                  @endif
-                                @else
-                                  @if($indicador->Medida->id == 2)
-                                    <td style="width:5%;background:rgb(205, 250, 180);">{{round($indicativoRezago->rezago * 100,4)}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
-                                  @else
-                                    <td style="width:5%;background:rgb(205, 250, 180);">{{round($indicativoRezago->rezago,4)}}</td> <!-- Meta numerica o en puntos -->
-                                  @endif
-                                @endif
-
-                              @endif
-                            @endforeach
-
                           @endif
                         @endforeach
 
@@ -146,79 +127,96 @@
                       <!--<tr>
                         <td style="width:30%;" colspan="2"></td>
                         <td style="width:70%;" colspan="7">
-                          <b>Plan de Accion - Vigencia 2020</b></td>
+                          <b>Plan de Accion - Vigencia 2021</b></td>
                         </td>
                       </tr>-->
 
                       <!-- Busca las ACCIONES inscritas para el PLAN INDICATIVO respectivo - PLAN DE ACCION -->
                       <tr>
-                        <td style="width:5%;" colspan="1"></td>
-                        <td style="width:95%;" colspan="8">
+                        <td style="width:95%;" colspan="7">
                           <table id="mytable" class="table table-bordered table-dark">
                             <tr>
-                              <th style="width:75%;">Accion</th>
-                              <th style="width:10%;">KPI</th>
+                              <th style="width:50%;">Accion</th>
+                              <th style="width:15%;">KPI</th>
                               <th style="width:5%;">Objetivo</th>
-                              <th style="width:10%;">Ponderacion</th>
+                              <th style="width:10%;">Acumulado reportado</th>
+                              <th style="width:10%;">Porcentaje cumplimiento</th>
                             </tr>
 
-                            @php $acumPonderadoAccion = 0; @endphp <!-- Inicializa Contador acumulado de ponderacion para mostar en pantalla por Nivel 4 -->
-
-                            @foreach($medicionIndicador as $indicador) 
-                              @if($indicador->nivel4_id == $Nivel4->id)
+                            @foreach($medicionIndicador->where('nivel4_id',$Nivel4->id) as $indicador) 
+                              {{-- @if($indicador->nivel4_id == $Nivel4->id) --}}
                                 
-                                @foreach($planIndicativo as $indicativo) 
-                                  @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13')) <!-- *** CUIDADO *** CON EL CODIGO SEGUN LA VIGENCIA -->
+                                @foreach($planIndicativo->where('indicador_id',$indicador->id)->where('vigencia_id','13') as $indicativo) 
+                                  {{-- @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '13')) --}}
 
-                                    @foreach($planAccion as $accion) 
-                                      @if($accion->plan_indicativo_id == $indicativo->id)
+                                    @foreach($planAccion->where('plan_indicativo_id',$indicativo->id) as $accion) 
+                                      {{-- @if($accion->plan_indicativo_id == $indicativo->id) --}}
 
+                                        <!-- Registos PLAN DE accion -->
                                         <tr>
-                                          <td style="width:30%;font-size:11px;">{{$accion->descripcion}}</td>
-                                          <td style="width:25%;font-size:11px;">{{$accion->kpi}}</td>
-                                          <td style="width:15%;font-size:11px;">{{$accion->objetivo}}</td>
-                                          <td style="width:10%;font-size:11px;">{{$accion->ponderacion * 100}} %</td>
+                                          <td style="width:60%;font-size:11px;">{{$accion->descripcion}}</td>
+                                          <td style="width:15%;font-size:11px;">{{$accion->kpi}}</td>
+                                          <td style="width:5%;font-size:11px;">{{$accion->objetivo}}</td>
 
-                                          <!-- Numero de acciones inscritas - Agrupado por consulta general -->
-                                          @php $acumAccionesGeneral = $acumAccionesGeneral + 1; @endphp
+                                          <!-- Acumulados KPI de las tareas reportadas -->
+                                          @php $acumImpactoKPI = 0; @endphp <!-- Inicializa Contador acumulado de impacto KPI -->
 
-                                          <!-- Sumatoria de los ponderados de las acciones agrupado por actividad -->
-                                          @php $acumPonderadoAccion = $acumPonderadoAccion + $accion->ponderacion; @endphp <!-- Acumula la ponderacion para mostar en pantalla por Nivel 4 -->
+                                          @foreach ($tarea->where('accion_id',$accion->id) as $registro)
+                                            {{-- @if($registro->accion_id == $accion->id) --}}
+                                              @php $acumImpactoKPI = $acumImpactoKPI + $registro->impacto_kpi; @endphp <!-- Acumula el impacto al KPI reportado en las tareas -->
+                                            {{-- @endif --}}
+                                          @endforeach
+                                          
+                                          <!-- Fin acumulado KPI tareas reportadas -->
+
+                                          <!-- Mostrar en la grilla en pantalla el acumulado de KPI y el calculo porcentaje de cumplimiento -->
+                                          <td style="width:10%;">{{ $acumImpactoKPI }} / <b>{{$accion->objetivo}}</b></td>
+                                          @if (($accion->objetivo != '') && ($accion->objetivo > '0'))
+                                            <!-- Lleva el valor del acumulado de Impacto al KPI a terminos de porcentaje acorde al objetivo -->
+                                            @php $porcentajeAcumImpactoKPI = round(((($acumImpactoKPI * 1 )/$accion->objetivo) * 100),2) @endphp
+
+                                            <td style="width:10%;">{{ $porcentajeAcumImpactoKPI }} %</td>
+                                          @else
+                                            <td style="width:10%;">0 %</td>
+                                          @endif
+                                          <!-- Fin mostrar grilla de resultado -->
                                         </tr>
 
-                                      @endif
+                                        <!-- Acumulado porcentaje de cumplimiento de los KPI - Agrupado por acciones consulta general  -->
+                                        @if (($accion->objetivo != '') && ($accion->objetivo > '0')) <!-- Evita division Zero cuando no se tiene objetivo -->
+                                          @if ($porcentajeAcumImpactoKPI <= 100)
+                                            @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + $porcentajeAcumImpactoKPI; @endphp
+                                          @else
+                                            @php $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + 100; @endphp <!-- Limita a 100 en caso de sobreejecucion -->
+                                          @endif
+                                        @endif
+                                        <!-- Fin Acumulado porcentaje de cumplimiento de los KPI -->
+
+                                        <!-- Numero de acciones inscritas - Agrupado por consulta general -->
+                                        @php $acumAccionesGeneral = $acumAccionesGeneral + 1; @endphp
+
+                                      {{-- @endif --}}
                                     @endforeach
 
-                                  @endif
+                                  {{-- @endif --}}
                                 @endforeach
 
-                              @endif
+                              {{-- @endif --}}
                             @endforeach
 
-                            <!-- Mostrar totales al final de cada Tabla que conforma un plan de accion -->
-                            <tr>
-                              <th style="width:30%;"></th>
-                              <th style="width:25%;"></th>
-                              <th style="width:15%;"></th>
-                              @if ( round($acumPonderadoAccion,2) == 1 ) <!-- Sumas a 100% -->
-                                <th style="width:10%;background:rgb(205, 250, 180);">{{ round($acumPonderadoAccion,2) * 100 }} %</th>
-                              @else
-                                <th style="width:10%;background:rgb(252, 188, 188);">{{ round($acumPonderadoAccion,2) * 100 }} %</th>
-                              @endif
-                            </tr>
-                            <!-- Fin tabla totales -->
 
                           </table>
                         </td>
                       </tr>
 
-                      <tr><td colspan="10"></td></tr>
+                      <tr><td colspan="9"></td></tr>
                      @endforeach 
 
                      
                      @if (count($planDesarrolloNivel4))
                           {{ $pagination }}
-                      @endif
+                     @endif
+
 
                     </tbody>
                   </table>
@@ -227,6 +225,14 @@
 
               <tr>
                 <td><h4><b>{{ $acumAccionesGeneral }}</b> | Acciones</h4></td>
+              </tr>
+
+              <tr>
+                @if ($acumAccionesGeneral != 0)
+                  <td><h1><b>{{ round(($acumImpactoKPIGeneral/$acumAccionesGeneral),2) }} %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion 2021</h4></td>
+                @else
+                  <td><h1><b>0 %</b></h1><h4>Porcentaje promedio de cumplimiento | Plan de Accion 2021</h4></td>
+                @endif
               </tr>
 
             </tbody>

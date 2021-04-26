@@ -133,7 +133,7 @@
                 -->
 
                 <div>
-                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.4006 - Derechos reservados Genus Group SAS - Colombia 2021</small>
+                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.501 - Derechos reservados Genus Group SAS - Colombia 2021</small>
                 </div>
 
                 <br><br><center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="160px"></picture></center>
