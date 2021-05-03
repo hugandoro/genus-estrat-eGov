@@ -19,6 +19,28 @@ class UserTableSeeder extends Seeder
         $role_supervisor = Role::where('nombre', 'supervisor')->first();
         $role_user = Role::where('nombre', 'user')->first();
 
+        $role_editor_mipg = Role::where('nombre', 'editorMipg')->first();
+        $role_admin_mipg = Role::where('nombre', 'adminMipg')->first();
+
+
+        // Usuarios MIPG
+
+        $user = new User();
+        $user->name = 'Hugo Andres Orozco';
+        $user->email = 'adminmipg@gmail.com';
+        $user->password = bcrypt('huanorri27');
+        $user->save();
+        $user->roles()->attach($role_admin_mipg);
+
+        $user = new User();
+        $user->name = 'Hugo Andres Orozco';
+        $user->email = 'editormipg@gmail.com';
+        $user->password = bcrypt('huanorri27');
+        $user->save();
+        $user->roles()->attach($role_editor_mipg);
+
+        // Usuarios PLAN DESARROLLO
+
         $user = new User();
         $user->name = 'Hugo Andres Orozco';
         $user->email = 'super@gmail.com';

@@ -1,6 +1,8 @@
 Listar todo el PLAN DE ACCION filtrado por una vigencia respectiva, su medicion actual y los datos de la meta respectiva
 -------------------------------------------------------------------------------------------------------------------------
 
+ATENCION !!!!! Se debe corregir para exportar columna adicional LIMITADO A 100 para limitar sobreejecuciones de cumplimiento !!!!
+
 SELECT 
 d.numeral as numero_meta,
 d.nombre  as meta,

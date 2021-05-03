@@ -41,5 +41,17 @@ class RoleTableSeeder extends Seeder
         $role->nombre = 'user';
         $role->descripcion = 'Usuario externo para consulta basica general';
         $role->save();
+
+        //Usuario MIPG con permisos de reporte y edicion SECRETARIA
+        $role = new Role();
+        $role->nombre = 'editorMipg';
+        $role->descripcion = 'Enlace de reporte MIPG por Secretaria o Dependencia';
+        $role->save();
+
+        //Usuario MIPG con permisos de consulta COMPLETA GENERAL
+        $role = new Role();
+        $role->nombre = 'adminMipg';
+        $role->descripcion = 'Administrador modulo MIPG';
+        $role->save();
     }
 }
