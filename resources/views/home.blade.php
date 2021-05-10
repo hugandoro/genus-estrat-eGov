@@ -154,7 +154,10 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipg') }}">Conocer las politicas</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipglistarconvergencia') }}">Convergencia de politicas MIPG</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Consultar plan de accion MIPG 2021</a></li>
-                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Reportar tareas MIPG 2021</a></li>
+
+                                    @php ($aux = Auth::user()->oficina_id) @endphp
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistarreporte2021?filtroSecretaria=' . $aux) }}">Reportar tareas MIPG 2021</a></li>
+                                    
                                     <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Nivel avance plan accion MIPG 2021</a></li>
                                 </ul>
                             </div>

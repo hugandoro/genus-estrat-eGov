@@ -101,6 +101,8 @@
                         <th>Accion</th>
                         <th>Objetivo</th>
                         <th>Unidad medida</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha fin</th>
                         <th>Responsable</th>
                       </tr>
 
@@ -109,9 +111,11 @@
                         <td style="width:5%">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
                         <td style="width:10%">{{$Nivel4->nivel3->nivel2->nivel1->dimension}}</td>
                         <td style="width:10%">{{$Nivel4->nivel3->nivel2->politica}}</td>
-                        <td style="width:35%">{{$Nivel4->accion}}</td>
+                        <td style="width:30%">{{$Nivel4->accion}}</td>
                         <td style="width:5%">{{$Nivel4->objetivo}}</td>
-                        <td style="width:20%">{{$Nivel4->unidad_medida}}</td>
+                        <td style="width:15%">{{$Nivel4->unidad_medida}}</td>
+                        <td style="width:5%"></td>
+                        <td style="width:5%"></td>
                         <td style="width:15%;font-size:10px;">{{$Nivel4->entidadOficina->nombre}}</td>
                       </tr>
                      @endforeach 
