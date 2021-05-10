@@ -82,6 +82,8 @@ Route::match(array('GET', 'POST'), 'vincularmipg', 'PlanDesarrolloNivel4Controll
 Route::match(array('GET', 'POST'), '/mipglistarconvergencia', 'RefMipgPoliticaController@listarConvergencia')->name('/mipglistarconvergencia');
 
 Route::match(array('GET', 'POST'), '/mipgplanaccionlistar2021', 'MipgPlanAccionController@listarRegistros2021')->name('/mipgplanaccionlistar2021');
+Route::match(array('GET', 'POST'), '/mipgplanaccionlistarreporte2021', 'MipgPlanAccionController@listarRegistrosReporte2021')->name('/mipgpplanaccionlistarreporte2021');
+
 //Fin Rutas ***
 
 
