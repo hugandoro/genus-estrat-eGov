@@ -115,13 +115,35 @@ class MipgPlanAccionController extends Controller
         //Hace una primer busqueda GENERAL
         $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')->paginate(10);
 
-        //Valida si trae un filtro de busqueda por Secretaria | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
+        //Valida si trae un filtro de busqueda por SECRETARIA | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
         if ((isset($_GET['filtroSecretaria'])) && ($_GET['filtroSecretaria'] != '9999')) 
             $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('numeral')
                                         ->where('oficina_id', $_GET['filtroSecretaria'])
                                         ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
                                         ->paginate(10);
 
+        //Valida si trae un filtro de busqueda por DIMENSION | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS           
+        if ((isset($_GET['filtroDimension'])) && ($_GET['filtroDimension'] != '9999')) 
+        $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('modulo_mipg_nivel4s.numeral')
+                                ->join('modulo_mipg_nivel3s','modulo_mipg_nivel4s.nivel3_id','=','modulo_mipg_nivel3s.id')
+                                ->join('modulo_mipg_nivel2s','modulo_mipg_nivel3s.nivel2_id','=','modulo_mipg_nivel2s.id')
+                                ->join('modulo_mipg_nivel1s','modulo_mipg_nivel2s.nivel1_id','=','modulo_mipg_nivel1s.id')
+
+                                ->where('modulo_mipg_nivel1s.id', $_GET['filtroDimension'])
+                                ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
+                                ->paginate(10);  
+
+        //Valida si trae un filtro de busqueda por POLITICA | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS           
+        if ((isset($_GET['filtropolitica'])) && ($_GET['filtropolitica'] != '9999')) 
+        $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('modulo_mipg_nivel4s.numeral')
+                                ->join('modulo_mipg_nivel3s','modulo_mipg_nivel4s.nivel3_id','=','modulo_mipg_nivel3s.id')
+                                ->join('modulo_mipg_nivel2s','modulo_mipg_nivel3s.nivel2_id','=','modulo_mipg_nivel2s.id')
+
+                                ->where('modulo_mipg_nivel2s.id', $_GET['filtropolitica'])
+                                ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
+                                ->paginate(10);                                      
+
+        //Valida si trae un filtro de busqueda por PALABRAS CLAVE          
         if ((isset($_GET['filtropalabras'])) && ($_GET['filtropalabras'] != '')){ 
             $filtropalabra = $_GET['filtropalabras'];
             $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('numeral')
@@ -133,6 +155,13 @@ class MipgPlanAccionController extends Controller
                                     ->paginate(10);
         }
         
+        //Valida si trae un filtro de busqueda por ACTIVIDAD (N° ACCION)       
+        if ((isset($_GET['filtroactividad'])) && ($_GET['filtroactividad'] != '')) 
+        $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('numeral')
+                                ->where('numeral', $_GET['filtroactividad'])
+                                ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
+                                ->paginate(1);
+
         //Paginacion de resultados conservando el indice (Metodo GET y no POST)
         $pagination = $moduloMipgNivel4->appends(request () -> except (['page', '_token'])) -> links ();
 
@@ -154,13 +183,35 @@ class MipgPlanAccionController extends Controller
         //Hace una primer busqueda GENERAL
         $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')->paginate(10);
 
-        //Valida si trae un filtro de busqueda por Secretaria | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
+        //Valida si trae un filtro de busqueda por SECRETARIA | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
         if ((isset($_GET['filtroSecretaria'])) && ($_GET['filtroSecretaria'] != '9999')) 
             $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('numeral')
                                         ->where('oficina_id', $_GET['filtroSecretaria'])
                                         ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
                                         ->paginate(10);
 
+        //Valida si trae un filtro de busqueda por DIMENSION | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS           
+        if ((isset($_GET['filtroDimension'])) && ($_GET['filtroDimension'] != '9999')) 
+        $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('modulo_mipg_nivel4s.numeral')
+                                ->join('modulo_mipg_nivel3s','modulo_mipg_nivel4s.nivel3_id','=','modulo_mipg_nivel3s.id')
+                                ->join('modulo_mipg_nivel2s','modulo_mipg_nivel3s.nivel2_id','=','modulo_mipg_nivel2s.id')
+                                ->join('modulo_mipg_nivel1s','modulo_mipg_nivel2s.nivel1_id','=','modulo_mipg_nivel1s.id')
+
+                                ->where('modulo_mipg_nivel1s.id', $_GET['filtroDimension'])
+                                ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
+                                ->paginate(10);  
+
+        //Valida si trae un filtro de busqueda por POLITICA | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS           
+        if ((isset($_GET['filtropolitica'])) && ($_GET['filtropolitica'] != '9999')) 
+        $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('modulo_mipg_nivel4s.numeral')
+                                ->join('modulo_mipg_nivel3s','modulo_mipg_nivel4s.nivel3_id','=','modulo_mipg_nivel3s.id')
+                                ->join('modulo_mipg_nivel2s','modulo_mipg_nivel3s.nivel2_id','=','modulo_mipg_nivel2s.id')
+
+                                ->where('modulo_mipg_nivel2s.id', $_GET['filtropolitica'])
+                                ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
+                                ->paginate(10);                                      
+
+        //Valida si trae un filtro de busqueda por PALABRAS CLAVE          
         if ((isset($_GET['filtropalabras'])) && ($_GET['filtropalabras'] != '')){ 
             $filtropalabra = $_GET['filtropalabras'];
             $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('numeral')
@@ -171,6 +222,14 @@ class MipgPlanAccionController extends Controller
                                     ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
                                     ->paginate(10);
         }
+
+        //Valida si trae un filtro de busqueda por ACTIVIDAD (N° ACCION)       
+        if ((isset($_GET['filtroactividad'])) && ($_GET['filtroactividad'] != '')) 
+        $moduloMipgNivel4 = ModuloMipgNivel4::orderBy('numeral')
+                                ->where('numeral', $_GET['filtroactividad'])
+                                ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','Vigencia','Tipo','Medida')
+                                ->paginate(1);
+                              
         
         //Paginacion de resultados conservando el indice (Metodo GET y no POST)
         $pagination = $moduloMipgNivel4->appends(request () -> except (['page', '_token'])) -> links ();

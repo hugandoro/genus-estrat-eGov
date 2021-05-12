@@ -24,7 +24,7 @@
           <div class="pull-left">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->
-            <form method="GET" action="{{ url('/mipgplanaccionlistar2021') }}" role="form" enctype="multipart/form-data">
+            <form method="GET" action="{{ url('/mipgplanaccionlistarreporte2021') }}" role="form" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <table>
                 <tr>
@@ -124,11 +124,11 @@
                         <td style="width:5%">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
                         <td style="width:10%">{{$Nivel4->nivel3->nivel2->nivel1->dimension}}</td>
                         <td style="width:10%">{{$Nivel4->nivel3->nivel2->politica}}</td>
-                        <td style="width:30%">{{$Nivel4->accion}}</td>
+                        <td style="width:24%">{{$Nivel4->accion}}</td>
                         <td style="width:5%">{{$Nivel4->objetivo}}</td>
                         <td style="width:15%">{{$Nivel4->unidad_medida}}</td>
-                        <td style="width:5%"></td>
-                        <td style="width:5%"></td>
+                        <td style="width:8%">{{$Nivel4->fecha_inicio}}</td>
+                        <td style="width:8%">{{$Nivel4->fecha_fin}}</td>
                         <td style="width:15%;font-size:10px;">{{$Nivel4->entidadOficina->nombre}}</td>
 
                         <!-- Valida si es un usuario (SUPERADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
@@ -146,10 +146,10 @@
                         <td style="width:95%;" colspan="8">
                           <table id="mytable" class="table table-bordered table-dark" style="background: #ffffff;">
                             <tr>
-                              <th style="width:15%;background: #FFBEA6;">Fecha</th>
-                              <th style="width:50%;background: #FFBEA6;">Tarea realizada</th>
-                              <th style="width:15%;background: #FFBEA6;">Impacto al KPI OBJETIVO</th>
-                              <th style="width:20%;background: #FFBEA6;">Opciones</th>
+                              <th style="width:15%;background: #FFFBDB;">Fecha</th>
+                              <th style="width:50%;background: #FFFBDB;">Tarea realizada</th>
+                              <th style="width:15%;background: #FFFBDB;">Impacto al KPI OBJETIVO</th>
+                              <th style="width:20%;background: #FFFBDB;">Opciones</th>
                             </tr>
 
                             @foreach ($tarea as $registro)

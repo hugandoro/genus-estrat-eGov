@@ -156,8 +156,11 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Consultar plan de accion MIPG 2021</a></li>
 
                                     @php ($aux = Auth::user()->oficina_id) @endphp
+
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editorMipg')) || (Auth::user()->hasRole('adminMipg')))
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistarreporte2021?filtroSecretaria=' . $aux) }}">Reportar tareas MIPG 2021</a></li>
-                                    
+                                    @endif
+
                                     <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Nivel avance plan accion MIPG 2021</a></li>
                                 </ul>
                             </div>

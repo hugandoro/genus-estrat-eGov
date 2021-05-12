@@ -94,7 +94,7 @@ class MipgTareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->nivel4_id);
 
-        return redirect('/mipgplanaccionlistarreporte2021');
+        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad='.$tarea->nivel4->numeral);
     }
 
     /**
@@ -145,7 +145,7 @@ class MipgTareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->nivel4_id);
      
-        return redirect('/mipgplanaccionlistarreporte2021');
+        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad='.$tarea->nivel4->numeral);
     }
 
     /**
@@ -164,7 +164,7 @@ class MipgTareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->nivel4_id);
 
-        return redirect('/mipgplanaccionlistarreporte2021');
+        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad='.$tarea->nivel4->numeral);
 
     }
 

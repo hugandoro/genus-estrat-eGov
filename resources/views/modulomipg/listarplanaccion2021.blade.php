@@ -111,11 +111,11 @@
                         <td style="width:5%">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
                         <td style="width:10%">{{$Nivel4->nivel3->nivel2->nivel1->dimension}}</td>
                         <td style="width:10%">{{$Nivel4->nivel3->nivel2->politica}}</td>
-                        <td style="width:30%">{{$Nivel4->accion}}</td>
+                        <td style="width:24%">{{$Nivel4->accion}}</td>
                         <td style="width:5%">{{$Nivel4->objetivo}}</td>
                         <td style="width:15%">{{$Nivel4->unidad_medida}}</td>
-                        <td style="width:5%"></td>
-                        <td style="width:5%"></td>
+                        <td style="width:8%">{{$Nivel4->fecha_inicio}}</td>
+                        <td style="width:8%">{{$Nivel4->fecha_fin}}</td>
                         <td style="width:15%;font-size:10px;">{{$Nivel4->entidadOficina->nombre}}</td>
                       </tr>
                      @endforeach 

@@ -61,7 +61,7 @@ class RefMipgPoliticaController extends Controller
     public function show($id)
     {
         $refMipgPolitica = RefMipgPolitica::find($id);
-        return view('refmipgPolitica.show', compact('refMipgPolitica'));
+        return view('refmipgpolitica.show', compact('refMipgPolitica'));
     }
 
     /**

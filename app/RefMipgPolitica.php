@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class RefMipgPolitica extends Model
 {
     protected $table = 'ref_mipg_politicas';
-    protected $fillable = ['nombre', 'dimension', 'logo'];
+    protected $fillable = ['nombre', 'dimension', 'logo', 'descripcion'];
     protected $guarded = ['id'];
 
     //Relacion muchos a muchos para TABLA PIVOTE

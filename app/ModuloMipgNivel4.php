@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ModuloMipgNivel4 extends Model
 {
     protected $table = 'modulo_mipg_nivel4s';
-    protected $fillable = ['nivel3_id','numeral','accion','descripcion_corta','descripcion_larga','linea_base','meta','objetivo','unidad_medida','medida_id','tipo_id','vigencia_id','oficina_id','valor_realizado','porcentaje_realizado','rezago'];
+    protected $fillable = ['nivel3_id','numeral','accion','descripcion_corta','descripcion_larga','linea_base','meta','objetivo','unidad_medida','medida_id','tipo_id','vigencia_id','oficina_id','valor_realizado','porcentaje_realizado','rezago','fecha_inicio','fecha_fin'];
     protected $guarded = ['id'];
 
     //Relaciones
