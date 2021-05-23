@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<script>
+<script type="application/javascript">
 
   //GRAFICO N° 1
   var randomScalingFactor = function() {
@@ -44,10 +44,10 @@
           '{{ $nivel2DNivel1 }}'
         ],
         backgroundColor: [
-          window.chartColors.red,
-          window.chartColors.orange,
-          window.chartColors.green,
-          window.chartColors.blue,
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
         ],
         label: 'Actividades'
       }],
@@ -93,10 +93,10 @@
           '{{ $nivel3DNivel1 }}'
         ],
         backgroundColor: [
-          window.chartColors.red,
-          window.chartColors.orange,
-          window.chartColors.green,
-          window.chartColors.blue,
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
         ],
         label: 'Actividades'
       }],
@@ -141,10 +141,10 @@
           '{{ $nivel4DNivel1 }}'
         ],
         backgroundColor: [
-          window.chartColors.red,
-          window.chartColors.orange,
-          window.chartColors.green,
-          window.chartColors.blue,
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
+          'rgba(89, 165, 127, 1)',
         ],
         label: 'Actividades'
       }],

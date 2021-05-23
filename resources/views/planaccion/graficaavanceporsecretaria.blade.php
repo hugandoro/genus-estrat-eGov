@@ -94,8 +94,8 @@
               ],
 			datasets: [{
 				label: '% Cumplimiento',
-				backgroundColor: color(window.chartColors.blue).alpha(0.8).rgbString(),
-				borderColor: window.chartColors.blue,
+				backgroundColor: 'rgba(89, 165, 127, 1)',
+				borderColor: 'rgba(89, 165, 127, 1)',
 				borderWidth: 1,
 				data: [ vectorPorcentajePlanAccion[3], 
                 vectorPorcentajePlanAccion[4], 

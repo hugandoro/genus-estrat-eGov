@@ -30,8 +30,8 @@
               ],
 			datasets: [{
 				label: 'Actividades convergentes',
-				backgroundColor: color(window.chartColors.yellow).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.yellow,
+				backgroundColor: 'rgba(89, 165, 127, 1)',
+				borderColor: 'rgba(89, 165, 127, 1)',
 				borderWidth: 1,
 				data: [
                 nivel4MUNICIPAL[1], 

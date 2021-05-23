@@ -17,9 +17,16 @@
 
     <!-- JavaScript -->
     <script type="text/javascript" src="{{ asset('js/fondoAnimado.js') }}"></script>
-    <script type="text/javascript" src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
-    <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+    <!-- Librerias Chart.JS -->
+    <script type="text/javascript" src="{{ asset('js/chart.js-2.9.3/Chart.bundle.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/chart.js-2.9.3/Chart.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/chart.js-2.9.3/Chart.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/chart.js-2.9.3/Chart.min.js') }}"></script>
+    <link href="{{ asset('css/chart.js-2.9.3/Chart.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/chart.js-2.9.3/Chart.min.css') }}" rel="stylesheet">
+
 
     <!-- Confirma ANTES DE ELIMINAR un registro -->
     <script type="text/javascript">
