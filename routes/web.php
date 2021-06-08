@@ -50,8 +50,15 @@ Route::match(array('GET', 'POST'), '/graficaplanresponsables', 'PlanDesarrolloCo
 Route::match(array('GET', 'POST'), '/graficaplanods', 'PlanDesarrolloController@graficaPlanODS')->name('/graficaplanods');
 Route::match(array('GET', 'POST'), '/graficaplanmipg', 'PlanDesarrolloController@graficaPlanMIPG')->name('/graficaplanmipg');
 Route::match(array('GET', 'POST'), '/graficaplanppmunicipal', 'PlanDesarrolloController@graficaPlanPPMunicipal')->name('/graficaplanppmunicipal');
-Route::match(array('GET', 'POST'), '/graficaavanceplandesarrollo', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel4')->name('/graficaavanceplandesarrollo');
-Route::match(array('GET', 'POST'), '/graficaavanceplandeaccion', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel4')->name('/graficaavanceplandeaccion');
+
+Route::match(array('GET', 'POST'), '/graficaavanceplandesarrollo2020', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel42020')->name('/graficaavanceplandesarrollo2020');
+Route::match(array('GET', 'POST'), '/graficaavanceplandeaccion2020', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel42020')->name('/graficaavanceplandeaccion2020');
+
+Route::match(array('GET', 'POST'), '/graficaavanceplandesarrollo2021', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel42021')->name('/graficaavanceplandesarrollo2021');
+Route::match(array('GET', 'POST'), '/graficaavanceplandeaccion2021', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel42021')->name('/graficaavanceplandeaccion2021');
+
+Route::match(array('GET', 'POST'), '/graficacarreracumplimiento', 'PlanDesarrolloNivel4Controller@graficaCarreraCumplimiento')->name('/graficacarreracumplimiento');
+
 Route::match(array('GET', 'POST'), '/graficaavancesemaforos', 'PlanDesarrolloNivel4Controller@graficaListarAvanceNivel4')->name('/graficaavancesemaforos');
 // Fin Rutas ***
 

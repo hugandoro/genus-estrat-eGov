@@ -152,14 +152,14 @@
                                     <li><a style="color:#000000;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas Municipales</a></li>   
                                     
                                     <li role="separator" class="divider"></li>
-                                    <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Avance plan de accion</a></li>       
-                                    <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Avance plan de desarrollo</a></li>     
-                                    <li><a style="color:#d8d8d8;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Semaforos de cumplimiento</a></li>  
+                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandeaccion2021?tipo=1') }}"><b>Analitica 2021</b> - Avance plan de accion</a></li>       
+                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo2021?tipo=2') }}"><b>Analitica 2021</b> - Avance plan de desarrollo</a></li>     
+                                    <!-- <li><a style="color:#000000;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Semaforos de cumplimiento</a></li> -->  
 
                                     <li role="separator" class="divider"></li>
-                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandeaccion?tipo=1') }}">Analitica 2020 - Avance plan de accion</a></li>       
-                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo?tipo=2') }}">Analitica 2020 - Avance plan de desarrollo</a></li>     
-                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo?tipo=3') }}">Analitica 2020 - Semaforos de cumplimiento</a></li>        
+                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandeaccion2020?tipo=1') }}">Analitica 2020 - Avance plan de accion</a></li>       
+                                    <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo2020?tipo=2') }}">Analitica 2020 - Avance plan de desarrollo</a></li>     
+                                    <!-- <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo?tipo=3') }}">Analitica 2020 - Semaforos de cumplimiento</a></li> -->        
                                 </ul>
                             </li>
 

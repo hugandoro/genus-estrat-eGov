@@ -95,9 +95,11 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas</a></li>
-                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Avance plan de accion 2021</a></li>
-                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Avance plan de desarrollo 2021</a></li>
-                                    <li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion2021?tipo=1') }}">Avance plan de accion 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo2021?tipo=2') }}">Avance plan de desarrollo 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficacarreracumplimiento') }}">Carrera de cumplimiento plan desarrollo 2020 - 2023</a></li>
+
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>-->
                                 </ul>
                             </div>
                         </div>

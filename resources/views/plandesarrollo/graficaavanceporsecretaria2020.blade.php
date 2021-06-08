@@ -7,7 +7,7 @@
       <div class="panel panel-default">
 
         <!-- INICIO Establecer fecha de corte para el informe -->
-        <form method="GET" action="{{ url('/graficaavanceplandeaccion') }}" role="form" enctype="multipart/form-data">
+        <form method="GET" action="{{ url('/graficaavanceplandeaccion2020') }}" role="form" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="tipo" value="2">
           <table>
@@ -68,6 +68,7 @@
 //GRAFICO N° 7
     var nombresSecretarias = <?php echo json_encode((array) $nombresSecretarias);  ?>;
     var vectorPorcentajePlanDesarrollo = <?php echo json_encode((array) $vectorPorcentajePlanDesarrollo);  ?>;
+    var fechaCorte = <?php echo json_encode($fechaCorte); ?>;
 
     //Se debe CORREGIR que se elimina manualmente los primeros 2 registros que no tienen asignacion de actividades ( Despacho y Privada )
 		var color = Chart.helpers.color;
@@ -134,7 +135,7 @@
 				},
 				title: {
 					display: true,
-					text: 'Cumplimiento PLAN DESARROLLO - Secretaria/Dependencia'
+					text: 'Avance PLAN DESARROLLO - NO acumulado - VIGENCIA 2020 - Secretaria/Dependencia - Fecha de corte ' + fechaCorte
 				}
 			}
     });

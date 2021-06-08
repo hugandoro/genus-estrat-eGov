@@ -573,10 +573,10 @@ class PlanDesarrolloNivel4Controller extends Controller
     }
 
     /**
-     * Calcula y grafica AVANCE PLAN DE ACCION POR DEPENDENIAS y PLAN DESARROLLO POR DEPENDENCIAS
+     * Calcula y grafica AVANCE PLAN DE ACCION POR DEPENDENIAS y PLAN DESARROLLO POR DEPENDENCIAS  - VIGENCIA 2020
      * @return \Illuminate\Http\Response
      */
-    public function graficaListarAvanceNivel4()
+    public function graficaListarAvanceNivel42020()
     {
         //Ampliacion a 5 minutos el limite de tiempo por ser una consulta extensa
         set_time_limit(300);
@@ -615,9 +615,11 @@ class PlanDesarrolloNivel4Controller extends Controller
 
 
         //* INICIA fecha corte personalizada para calculo de acumuladores
-        $fechaCorte = new \DateTime(); 
+        $fechaCorte = "2020-12-31"; // Fecha por defecto
         if (isset($_GET['fecha_corte']))
-            $fechaCorte = $_GET['fecha_corte'];
+            $fechaCorte = $_GET['fecha_corte']; // Fecha indicada por el usuario
+        if ($fechaCorte > "2020-12-31")
+            $fechaCorte = "2020-12-31"; // Limita fecha a maximo Diciembre 31 de la vigencia a graficar
         //* FIN fecha corte personalizada para calculo de acumuladores
 
 
@@ -768,19 +770,21 @@ class PlanDesarrolloNivel4Controller extends Controller
         
         // Tipo 1 | Grafica avance Plan de Accion (Vigencia)
         if ($_GET['tipo'] == 1) {
-            return view('planaccion.graficaavanceporsecretaria',array(
+            return view('planaccion.graficaavanceporsecretaria2020',array(
                 'nombresSecretarias' => $nombresSecretarias,
                 'vectorAcumAccionesGeneral' => $vectorAcumAccionesGeneral,
-                'vectorPorcentajePlanAccion' => $vectorPorcentajePlanAccion
+                'vectorPorcentajePlanAccion' => $vectorPorcentajePlanAccion,
+                'fechaCorte' => $fechaCorte
             ));
         }
 
         // Tipo 2 | Grafica avance Plan de Desarrollo
         if ($_GET['tipo'] == 2) {
-            return view('plandesarrollo.graficaavanceporsecretaria',array(
+            return view('plandesarrollo.graficaavanceporsecretaria2020',array(
                 'nombresSecretarias' => $nombresSecretarias,
                 'vectorAcumNivel4General' => $vectorAcumNivel4General,
-                'vectorPorcentajePlanDesarrollo' => $vectorPorcentajePlanDesarrollo
+                'vectorPorcentajePlanDesarrollo' => $vectorPorcentajePlanDesarrollo,
+                'fechaCorte' => $fechaCorte
             ));
         }
 
@@ -795,11 +799,313 @@ class PlanDesarrolloNivel4Controller extends Controller
                 'vectorMetaNombre' => $metaNombre,
                 'vectorMetaSecretaria' => $metaSecretaria,
                 'vectorMetaCumplimientoPlanAccion' => $metaCumplimientoPlanAccion,
-                'vectorMetaCumplimientoPlanDesarrollo' => $metaCumplimientoPlanDesarrollo
+                'vectorMetaCumplimientoPlanDesarrollo' => $metaCumplimientoPlanDesarrollo,
+                'fechaCorte' => $fechaCorte
             ));
         }
 
     } 
+
+    /**
+     * Calcula y grafica AVANCE PLAN DE ACCION POR DEPENDENIAS y PLAN DESARROLLO POR DEPENDENCIAS - VIGENCIA 2021
+     * @return \Illuminate\Http\Response
+     */
+    public function graficaListarAvanceNivel42021()
+    {
+        //Ampliacion a 5 minutos el limite de tiempo por ser una consulta extensa
+        set_time_limit(300);
+
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))
+                            ->with('administracion')
+                            ->get();
+
+        //Hace una primer busqueda GENERAL
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->get();
+    
+        //Carga TODOS los indicadores
+        $medicionIndicador = MedicionIndicador::orderBy('nivel4_id')
+                                ->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')
+                                ->get(); 
+
+        //Carga TODO el plan indicativo
+        $planIndicativo = PlanIndicativo::orderBy('vigencia_id')
+                            ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                            ->get();
+
+        //Carga TODO el plan de accion (TODAS las acciones inscritas)
+        $planAccion = PlanAccion::orderBy('plan_indicativo_id')
+                            ->with('planIndicativo')
+                            ->get();
+
+        //Carga TODAS las Tareas
+        $tarea = Tarea::orderBy('id')
+                    ->get();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')
+                            ->get();
+
+
+        //* INICIA fecha corte personalizada para calculo de acumuladores
+        $fechaCorte = "2021-12-31"; // Fecha por defecto
+        if (isset($_GET['fecha_corte']))
+            $fechaCorte = $_GET['fecha_corte']; // Fecha indicada por el usuario
+        if ($fechaCorte > "2021-12-31")
+            $fechaCorte = "2021-12-31"; // Limita fecha a maximo Diciembre 31 de la vigencia a graficar
+        if ($fechaCorte < "2021-01-01")
+            $fechaCorte = "2021-01-01"; // Limita fecha a minimo Enero 01 de la vigencia a graficar
+        //* FIN fecha corte personalizada para calculo de acumuladores
+
+
+        //* Recorre todas las DEPENDENCIAS (OFICINA)
+        foreach($entidadOficina as $entidad) {
+
+            //Almacena en un arreglo el nombre de la dependencia
+            $nombresSecretarias [$entidad->id] = $entidad->nombre;
+
+            // Inicia contador numero de acciones inscritas - Agrupado por consulta general
+            $acumAccionesGeneral = 0;
+            // Inicia acumulador porcentaje de cumplimiento de los KPI - Agrupado por acciones consulta general
+            $acumImpactoKPIGeneral = 0;
+            // Inicia contador numero de actividades - Agrupado por consulta general
+            $acumNivel4General = 0;
+            // Inicia acumulador porcentaje de cumplimiento de los indicadores - Vigencia 2021
+            $acumImpactoIndicador2021General = 0;
+
+            //* Recorre todos los NIVEL4 (ACTIVIDADES) previamente filtradas
+            foreach ($planDesarrolloNivel4->where('oficina_id', $entidad->id) as $Nivel4) {
+
+                // TODO Almacena en un arreglo el numero de la meta, la descripcion, el nombre de la secretaria a cargo
+                $metaNumero [$Nivel4->numeral] = $Nivel4->numeral;
+                $metaNombre [$Nivel4->numeral] = $Nivel4->nombre;
+                $metaSecretaria [$Nivel4->numeral] = $entidad->nombre;
+                $metaCumplimientoPlanAccion [$Nivel4->numeral] = 0; //Inicializa vector porque no todas las metas tienen plan de accion, posterior almacena el valor en aquellas que si tengan plan de accion
+                $metaCumplimientoPlanDesarrollo [$Nivel4->numeral] = 0; //Inicializa vector porque no todas las metas tienen plan de accion, posterior almacena el valor en aquellas que si tengan plan de accion
+
+                //* Recorre todos los INDICADORES relacionados con cada NIVEL4 (ACTIVIDAD)
+                foreach ($medicionIndicador->where('nivel4_id', $Nivel4->id) as $indicador) {
+
+                    //* Recorre todos los PLANES INDICATIVOS relacionados con cada INDICADOR y para una VIGENCIA especifica
+                    //! OJO se debe organizar para calcular PLAN DESARROLLO Cuatrienio, para la proxima vigencia no sirve, limita tareas solo de una vigencia y no del cuatrienio como se requiere para PLAN DESARROLLO
+                    foreach ($planIndicativo->where('indicador_id', $indicador->id)->where('vigencia_id', '13') as $indicativo) {
+
+                        // Inicializa Contador acumulado de ponderacion
+                        $acumProporcionalPonderadoAccion = 0;
+
+                        //* Recorreo todas las ACCIONES relacionadas con cada PLAN INDICATIVO 
+                        foreach ($planAccion->where('plan_indicativo_id', $indicativo->id) as $accion) {
+
+                            // Inicializa Contador acumulado de impacto KPI tareas reportadas
+                            $acumImpactoKPI = 0;
+
+                            // *** INICIO calculo ACUMULADORES
+                            //* Recorreo todas las TAREAS relacionadas con cada ACCION
+                            foreach ($tarea->where('accion_id', $accion->id)->where('updated_at','<',$fechaCorte) as $registro) {
+                                $acumImpactoKPI = $acumImpactoKPI + $registro->impacto_kpi; // Acumula el impacto al KPI reportado en las tareas
+                            }
+
+                            // Verifica para evitar division Zero cuando no se tiene objetivo
+                            if (($accion->objetivo != '') && ($accion->objetivo > '0')) {
+                                //Lleva el valor del acumulado de Impacto al KPI a terminos de porcentaje acorde al objetivo
+                                $porcentajeAcumImpactoKPI = round(((($acumImpactoKPI * 1) / $accion->objetivo) * 100), 2);
+
+                                // Verifica no superar limite a 100 en caso de sobreejecucion 
+                                if ($porcentajeAcumImpactoKPI <= 100) {
+                                    $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + $porcentajeAcumImpactoKPI;
+
+                                    // Variable auxiliar "% de Cumplimiento accion" para posterior calculo del proporcional al ponderado
+                                    $auxCumplimientoAccion = ($acumImpactoKPI * 1) / $accion->objetivo;
+                                } else {
+                                    // Limita a 100 en caso de sobreejecucion
+                                    $acumImpactoKPIGeneral = $acumImpactoKPIGeneral + 100;
+
+                                    // Variable auxiliar "% de Cumplimiento accion" para posterior caclulo del proporcional al  ponderado
+                                    $auxCumplimientoAccion = 1;
+                                }
+                            }
+                            // *** FIN calculo ACUMULADORES
+
+                            // *** INICIO calculo PONDERADOS
+                            // Evita division Zero cuando no se tiene objetivo
+                            if (($accion->objetivo != '') && ($accion->objetivo > '0')) {
+                                $proporcionalPonderadoAccion = ($auxCumplimientoAccion * $accion->ponderacion) / 1;
+                            } else {
+                                $proporcionalPonderadoAccion = 0;
+                            }
+
+                            $acumProporcionalPonderadoAccion = $acumProporcionalPonderadoAccion + $proporcionalPonderadoAccion;
+
+                            // *** FIN calculo PONDERADOS
+
+                            // Numero de ACCIONES (PLAN DE ACCION) contabilizadas
+                            $acumAccionesGeneral = $acumAccionesGeneral + 1;
+
+                        }
+
+                        // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE ACCION 2021 de CADA META
+                        $metaCumplimientoPlanAccion [$Nivel4->numeral] = round(($acumProporcionalPonderadoAccion * 100),2);
+
+                        // Diferente de CERO - Calcula dividiendo por el objetivo
+                        if ($indicador->objetivo != 0) {
+                            // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE DESARROLLO CUATRIENIO de CADA META
+                            $metaCumplimientoPlanDesarrollo [$Nivel4->numeral] = round(((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/$indicador->objetivo,2);
+
+                            // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021
+                            $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + (((($indicativo->valor * $acumProporcionalPonderadoAccion) / 1) * 100) / $indicador->objetivo);
+                        }
+
+                        // CERO y tipo MANTENIMIENTO - Calcula dividiendo por la linea base multiplicado por 4
+                        if (($indicador->objetivo == 0) && ($indicador->tipo_id == 3)) {
+                            // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE DESARROLLO CUATRIENIO de CADA META
+                            $metaCumplimientoPlanDesarrollo [$Nivel4->numeral] = round(((($indicativo->valor * $acumProporcionalPonderadoAccion)/1)*100)/($indicador->linea_base*4),2);
+
+                            // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021)
+                            $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + (((($indicativo->valor * $acumProporcionalPonderadoAccion) / 1) * 100) / ($indicador->linea_base * 4));
+                        }
+
+                        // CERO y tipo NO MANTENIMIENTO - Igual a cero
+                        if (($indicador->objetivo == 0) && ($indicador->tipo_id != 3)) {
+                            // TODO Almacena en un arreglo el porcentaje cumplimiento PLAN DE DESARROLLO CUATRIENIO de CADA META
+                            $metaCumplimientoPlanDesarrollo [$Nivel4->numeral] = 0;
+
+                            // Acumula a nivel GENERAL el nivel de avance de cada Actividad Nivel 4 (Vigencia 2021)
+                            $acumImpactoIndicador2021General = $acumImpactoIndicador2021General + 0;
+                        }
+
+                    }
+                }
+
+                // Numero de NIVEL4 (ACTIVIDADES) contabilizadas
+                $acumNivel4General = $acumNivel4General + 1;
+            } 
+
+ 
+            //* PLAN DE ACCION POR DEPENDENCIA/SECRETARIA
+            // Almacena en un vector segun el ID de la dependencia - N° de ACCIONES cargadas PLAN DE ACCION vigencia 
+            $vectorAcumAccionesGeneral[$entidad->id] = $acumAccionesGeneral;
+            // Calcula y almacena en un vector segurn ID de la dependencia - PORCENTAJE cumplimiento PLAN DE ACCION vigencia
+            if ($acumAccionesGeneral != 0) 
+                $vectorPorcentajePlanAccion[$entidad->id] = round(($acumImpactoKPIGeneral/$acumAccionesGeneral),2);
+            else
+                $vectorPorcentajePlanAccion[$entidad->id] = 0;
+
+
+            //* PLAN DE DESARROLLO POR DEPENDENCIA/SECRETARIA
+            // Almacena en un vector segun el ID de la dependencia - N° de NIVEL4 (ACTIVIDADES) a su cargo
+            $vectorAcumNivel4General[$entidad->id] = $acumNivel4General;
+            // Calcula y almacena en un vector segurn ID de la dependencia - PORCENTAJE cumplimiento MINI PLAN DE DESARROLLO cuatrienio
+            if ($acumNivel4General != 0) 
+                $vectorPorcentajePlanDesarrollo[$entidad->id] = round(($acumImpactoIndicador2021General/$acumNivel4General),2);
+            else
+                $vectorPorcentajePlanDesarrollo[$entidad->id] = 0;
+
+        }
+
+        
+        // Tipo 1 | Grafica avance Plan de Accion (Vigencia)
+        if ($_GET['tipo'] == 1) {
+            return view('planaccion.graficaavanceporsecretaria2021',array(
+                'nombresSecretarias' => $nombresSecretarias,
+                'vectorAcumAccionesGeneral' => $vectorAcumAccionesGeneral,
+                'vectorPorcentajePlanAccion' => $vectorPorcentajePlanAccion,
+                'fechaCorte' => $fechaCorte
+            ));
+        }
+
+        // Tipo 2 | Grafica avance Plan de Desarrollo
+        if ($_GET['tipo'] == 2) {
+            return view('plandesarrollo.graficaavanceporsecretaria2021',array(
+                'nombresSecretarias' => $nombresSecretarias,
+                'vectorAcumNivel4General' => $vectorAcumNivel4General,
+                'vectorPorcentajePlanDesarrollo' => $vectorPorcentajePlanDesarrollo,
+                'fechaCorte' => $fechaCorte
+            ));
+        }
+
+        // Tipo 3 | Grafica semaforos de cumplimiento ( Plan de Accion - Plan Desarrollo )
+        if ($_GET['tipo'] == 3) {
+            return view('plandesarrollo.graficaavancesemaforos',array(
+                'nombresSecretarias' => $nombresSecretarias,
+                'vectorAcumNivel4General' => $vectorAcumNivel4General,
+                'vectorPorcentajePlanAccion' => $vectorPorcentajePlanAccion,
+                'vectorPorcentajePlanDesarrollo' => $vectorPorcentajePlanDesarrollo,
+                'vectorMetaNumero' => $metaNumero,
+                'vectorMetaNombre' => $metaNombre,
+                'vectorMetaSecretaria' => $metaSecretaria,
+                'vectorMetaCumplimientoPlanAccion' => $metaCumplimientoPlanAccion,
+                'vectorMetaCumplimientoPlanDesarrollo' => $metaCumplimientoPlanDesarrollo,
+                'fechaCorte' => $fechaCorte
+            ));
+        }
+
+    } 
+
+    /**
+     * Grafica cumplimiento acumulado PLAN DESARROLLO a manera de Carrera de Cumplimiento por Dependencias
+     * @return \Illuminate\Http\Response
+     */
+    public function graficaCarreraCumplimiento()
+    {
+        //Ampliacion a 5 minutos el limite de tiempo por ser una consulta extensa
+        set_time_limit(300);
+
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))
+                            ->with('administracion')
+                            ->get();
+
+        //Hace una primer busqueda GENERAL
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->get();
+    
+        //Carga TODOS los indicadores
+        $medicionIndicador = MedicionIndicador::orderBy('nivel4_id')
+                                ->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')
+                                ->get(); 
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')
+                            ->get();
+
+        //Recorre todas las DEPENDENCIAS (OFICINA)
+        foreach($entidadOficina as $entidad) {
+
+            //Almacena en un arreglo el nombre de la dependencia
+            $nombresSecretarias [$entidad->id] = $entidad->nombre;
+            //Inicializa posicion en un arreglo basado en el ID de la entidad/dependencia para acumular PROCENTAJE cumplimiento de las metas a cargo
+            $secretariasPromedioCumplimientoPD [$entidad->id] = 0;
+            //Inicializa posicion en un arreglo basado en el ID de la entidad/dependencia para conteo N° de metas asignadas (A cargo)
+            $secretariasTotalMetasAsignadas [$entidad->id] = 0;
+
+            //Recorre todos los NIVEL4 (ACTIVIDADES) previamente filtradas
+            foreach ($planDesarrolloNivel4->where('oficina_id', $entidad->id) as $Nivel4) {
+                //Recorre todos los INDICADORES relacionados con cada NIVEL4 (ACTIVIDAD)
+                foreach ($medicionIndicador->where('nivel4_id', $Nivel4->id) as $indicador) {
+                    //Acumula porcentajes de cumplimiento de cada meta a su cargo
+                    $secretariasPromedioCumplimientoPD [$entidad->id] = $secretariasPromedioCumplimientoPD [$entidad->id] + $indicador->porcentaje_realizado;
+                    //Lleva conteo de numero de metas a cargo
+                    $secretariasTotalMetasAsignadas [$entidad->id] = $secretariasTotalMetasAsignadas [$entidad->id] + 1;
+                }
+            } 
+
+            //Terminado de recorrer los NIVEL 4 (ACTIVIDADEs/METAS) de la dependencia, valida que tenga minimo 1 meta a cargo y divide el acumulado por el numero a cargo para sacar promedio
+            if ($secretariasTotalMetasAsignadas [$entidad->id] != 0){
+                $secretariasPromedioCumplimientoPD [$entidad->id] = $secretariasPromedioCumplimientoPD [$entidad->id] / $secretariasTotalMetasAsignadas [$entidad->id];
+                $secretariasPromedioCumplimientoPD [$entidad->id] = round($secretariasPromedioCumplimientoPD [$entidad->id],4);
+                $secretariasPromedioCumplimientoPD [$entidad->id] = $secretariasPromedioCumplimientoPD [$entidad->id] * 100;
+            }
+        }
+
+        return view('plandesarrollo.graficacarreracumplimiento',array(
+            'nombresSecretarias' => $nombresSecretarias,
+            'secretariasPromedioCumplimientoPD' => $secretariasPromedioCumplimientoPD,
+            'secretariasTotalMetasAsignadas' => $secretariasTotalMetasAsignadas,
+        ));
+    }
+
+
 
     /**
      * Calcula y regenera niveles (Para TODAS las metas) de ejecucion tablas PLAN ACCION -> PLAN INDICATIVO -> INDICADOR 

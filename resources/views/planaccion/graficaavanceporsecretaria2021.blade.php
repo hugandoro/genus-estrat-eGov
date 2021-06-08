@@ -7,7 +7,7 @@
       <div class="panel panel-default">
 
         <!-- INICIO Establecer fecha de corte para el informe -->
-        <form method="GET" action="{{ url('/graficaavanceplandeaccion') }}" role="form" enctype="multipart/form-data">
+        <form method="GET" action="{{ url('/graficaavanceplandeaccion2021') }}" role="form" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" name="tipo" value="1">
           <table>
@@ -37,7 +37,7 @@
               <b>Secretaria/Dependencia</b>
             </td>
             <td style="width:20%">
-              <b>N° de acciones inscritas | Vigencia 2020</b>
+              <b>N° de acciones inscritas | Vigencia 2021</b>
             </td>
             <td style="width:20%">
               <b>% Cumplimiento</b>
@@ -68,6 +68,7 @@
 //GRAFICO N° 6
     var nombresSecretarias = <?php echo json_encode((array) $nombresSecretarias);  ?>;
     var vectorPorcentajePlanAccion = <?php echo json_encode((array) $vectorPorcentajePlanAccion);  ?>;
+    var fechaCorte = <?php echo json_encode($fechaCorte); ?>;
 
     //Se debe CORREGIR que se elimina manualmente los primeros 2 registros que no tienen asignacion de actividades ( Despacho y Privada )
 		var color = Chart.helpers.color;
@@ -134,7 +135,7 @@
 				},
 				title: {
 					display: true,
-					text: 'Cumplimiento PLAN DE ACCION (Vigencia 2020) - Secretaria/Dependencia'
+					text: 'Cumplimiento PLAN DE ACCION (Vigencia 2021) - Secretaria/Dependencia - Fecha de corte ' + fechaCorte
 				}
 			}
     });
