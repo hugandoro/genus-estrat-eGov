@@ -4,6 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+        <h6>Los porcentajes visualizados son calculados en tiempo real, las cifras finales pueden variar levemente producto de auditorias posteriores y correciones en los reportes <span class="badge badge-primary">Informacion de interes</span></h6>
+        </div>
+
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <!--<div class="panel-heading">Menu principal</div> -->
 
@@ -21,7 +25,7 @@
                     <div class="row">
                         <!-- MENU ICONO - Plan de desarrollo -->
                         <div class="col-sm-2">
-                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono2.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#ffffff;">Plan de desarrollo</h5>
@@ -36,7 +40,7 @@
 
                         <!-- MENU ICONO - Plan indicativo -->
                         <div class="col-sm-2">
-                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono9.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#ffffff;">Plan indicativo</h5>
@@ -50,7 +54,7 @@
                     
                         <!-- MENU ICONO - Plan de accion -->
                         <div class="col-sm-3">
-                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono12.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#ffffff;">Plan de accion 2021</h5>
@@ -83,7 +87,7 @@
 
                         <!-- MENU ICONO - Analitica de datos -->
                         <div class="col-sm-3">
-                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono15.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#ffffff;">Analitica de datos</h5>
@@ -95,9 +99,12 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion2021?tipo=1') }}">Avance plan de accion 2021</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo2021?tipo=2') }}">Avance plan de desarrollo 2021</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficacarreracumplimiento') }}">Carrera de cumplimiento plan desarrollo 2020 - 2023</a></li>
+                                    
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion2021?tipo=1') }}">Avance plan de accion 2021</a></li>
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo2021?tipo=2') }}">Avance plan de desarrollo 2021</a></li>
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficacarreracumplimiento') }}">Carrera de cumplimiento plan desarrollo 2020 - 2023</a></li>
+                                    @endif
 
                                     <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>-->
                                 </ul>
@@ -106,7 +113,7 @@
 
                         <!-- MENU ICONO - Documentos tecnicos -->
                         <div class="col-sm-2">
-                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_pdf.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#ffffff;">Documentos tecnicos</h5>
@@ -130,8 +137,8 @@
                     <!-- MENU - Fila 2 -->
                     <div class="row">
                         <!-- MENU ICONO - Objetivos ODS -->
-                        <div class="col-sm-3">
-                            <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                        <div class="col-sm-2">
+                            <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_ods.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
                                     <h5 class="card-title" style="color:#ffffff;">Objetivos ODS</h5>
@@ -145,11 +152,11 @@
                         </div>
 
                         <!-- MENU ICONO - Politicas MIPG -->
-                        <div class="col-sm-3">
-                            <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                        <div class="col-sm-2">
+                            <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_mipg.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title" style="color:#ffffff;">Modelo integrado MIPG</h5>
+                                    <h5 class="card-title" style="color:#ffffff;">Modelo MIPG</h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -169,11 +176,11 @@
                         </div>
 
                         <!-- MENU ICONO - Plan y politicas publicas -->
-                        <div class="col-sm-3">
-                            <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                        <div class="col-sm-2">
+                            <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono7.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title" style="color:#ffffff;">Plan y politicas publicas</h5>
+                                    <h5 class="card-title" style="color:#ffffff;">Politicas publicas</h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -185,16 +192,34 @@
                         </div>
 
                         <!-- MENU ICONO - Informacion institucional -->
-                        <div class="col-sm-3">
-                            <div class="card text-center text-white bg-success mb-3" style="background-color: #363636;border-radius: 10px 10px 10px 10px;">
+                        <div class="col-sm-2">
+                            <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono16.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title" style="color:#ffffff;">Informacion institucional</h5>
+                                    <h5 class="card-title" style="color:#ffffff;">Institucional</h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/administracion') }}">Datos de la administracion</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/entidadoficina') }}">Gabinete municipal</a></li>
+                                  </ul>
+                            </div>
+                        </div>
+
+                        <!-- MENU ICONO - Video tutorial -->
+                        <div class="col-sm-4">
+                            <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
+                                <br>
+                                <div class="card-body">
+                                        <iframe width="100%"  src="https://www.youtube.com/embed/FVfCXhthgGc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('https://www.youtube.com/channel/UCJBXrP1sBVcY9s-Fu5keCSg') }}">Canal youtube Videotutoriales</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/') }}">Micrositio web Plan Desarrollo</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('https://pot.dosquebradas.gov.co/') }}">Micrositio web POT</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('https://presupuestoparticipativo.dosquebradas.gov.co/') }}">Micrositio web Presupuesto Participativo</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('https://planeacion.dosquebradas.gov.co/') }}">Micrositio web Secretaria de Planeación</a></li>
                                   </ul>
                             </div>
                         </div>
