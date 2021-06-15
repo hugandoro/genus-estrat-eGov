@@ -198,6 +198,34 @@
                             @endforeach
                             <!-- Fin listado tareas reportadas -->
 
+                            <!-- Resultados de cumplimiento -->
+                            <tr>
+                              <td style="width:15%;"></td>
+                              <td style="width:50%;background: #FFFBDB;">Sumatoria impactos al KPI reportados</td>
+                              <td style="width:15%;">{{$Nivel4->valor_realizado}}</td>
+                              <td style="width:20%;"></td>
+                            </tr>
+
+                            <tr>
+                              <td style="width:15%;"></td>
+                              <td style="width:50%;background: #FFFBDB;">Porcentaje realizado respecto al objetivo</td>
+                              <td style="width:15%;"><h1><b>{{ round($Nivel4->porcentaje_realizado * 100,2) }} %</b></h1></td>
+                              <td style="width:20%;">
+                              <br>
+                              <div class="progress">
+                                  <?php $temp = $Nivel4->porcentaje_realizado * 100; ?>
+                                  <div class="progress-bar progress-bar-striped" style="width:<?=$temp?>%;">{{ round($Nivel4->porcentaje_realizado * 100,2) }} %</div>
+                                </div>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td style="width:15%;"></td>
+                              <td style="width:50%;background: #FFFBDB;">Rezago o faltante</td>
+                              <td style="width:15%;">{{ round($Nivel4->rezago,4) }}</td>
+                              <td style="width:20%;"></td>
+                            </tr>  
+                            <!-- Fin resultados cumplimiento -->                         
 
                           </table>
                         </td>

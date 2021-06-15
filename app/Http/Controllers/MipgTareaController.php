@@ -62,7 +62,7 @@ class MipgTareaController extends Controller
     public function store(Request $request)
     {
         $tarea = new ModuloMipgTarea;
- 
+
         $tarea->fecha_realizacion = $request->fecha_realizacion;
         $tarea->descripcion = $request->descripcion;
         $tarea->nivel4_id = $request->nivel4_id;
@@ -76,12 +76,11 @@ class MipgTareaController extends Controller
         ]);
 
         //Valida si no fallo por tamaño o por ser NULL
-        if(($validator->fails()) || ($request->evidencia_pdf == NULL)){
+        if (($validator->fails()) || ($request->evidencia_pdf == NULL)) {
             Session::flash('messageA', 'Tarea guardada con NOVEDAD | No se cargo evidencia o el PDF supera las 3 megas como tamaño maximo permitido');
             $tarea->evidencia_pdf = 'Sin evidencia';
             $tarea->save();
-        }
-        else{
+        } else {
             Session::flash('messageB', 'Tarea guardada correctamente con evidencia');
             $tarea->evidencia_pdf = $request->file('evidencia_pdf');
             $nombreArchivo = 'MIPG-accion-' . $tarea->nivel4_id . '-' . uniqid() . '.pdf';
@@ -91,10 +90,10 @@ class MipgTareaController extends Controller
             $tarea->save();
         }
 
-        //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
-        $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->nivel4_id);
+        //Ejecuta regeneracion de medicion de cumplimiento
+        $this->regenerarNivelEjecucionAccion($tarea->impacto_kpi, $tarea->nivel4_id);
 
-        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad='.$tarea->nivel4->numeral);
+        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad=' . $tarea->nivel4->numeral);
     }
 
     /**
@@ -107,7 +106,7 @@ class MipgTareaController extends Controller
     {
         $tarea = ModuloMipgTarea::find($id);
 
-        return view('modulomipgtarea.show',['tarea'=>$tarea]);
+        return view('modulomipgtarea.show', ['tarea' => $tarea]);
     }
 
     /**
@@ -120,7 +119,7 @@ class MipgTareaController extends Controller
     {
         $tarea = ModuloMipgTarea::find($id);
 
-        return view('modulomipgtarea.edit',['tarea'=>$tarea]);
+        return view('modulomipgtarea.edit', ['tarea' => $tarea]);
     }
 
     /**
@@ -133,7 +132,7 @@ class MipgTareaController extends Controller
     public function update(Request $request, $id)
     {
         $tarea = ModuloMipgTarea::find($id);
- 
+
         $tarea->fecha_realizacion = $request->fecha_realizacion;
         $tarea->descripcion = $request->descripcion;
         $tarea->impacto_kpi = $request->impacto_kpi;
@@ -142,10 +141,10 @@ class MipgTareaController extends Controller
 
         $tarea->save();
 
-        //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
-        $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->nivel4_id);
-     
-        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad='.$tarea->nivel4->numeral);
+        //Ejecuta regeneracion de medicion de cumplimiento
+        $this->regenerarNivelEjecucionAccion($tarea->impacto_kpi, $tarea->nivel4_id);
+
+        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad=' . $tarea->nivel4->numeral);
     }
 
     /**
@@ -159,27 +158,60 @@ class MipgTareaController extends Controller
         $tarea = ModuloMipgTarea::find($id);
 
         Storage::disk('evidence')->delete($tarea->evidencia_pdf);
-        ModuloMipgTarea::destroy($id);  
+        ModuloMipgTarea::destroy($id);
 
-        //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
-        $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->nivel4_id);
+        //Ejecuta regeneracion de medicion de cumplimiento
+        $this->regenerarNivelEjecucionAccion($tarea->impacto_kpi, $tarea->nivel4_id);
 
-        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad='.$tarea->nivel4->numeral);
-
+        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad=' . $tarea->nivel4->numeral);
     }
 
-     /**
+    /**
      * Calcula y regenera niveles (Para UNA ACCION MIPG)
      * @return \Illuminate\Http\Response
      */
-    public function regenerarNivelEjecucionMeta($tareaImpactoKPI, $IDplanAccion)
+    public function regenerarNivelEjecucionAccion($tareaImpactoKPI, $IDplanAccion)
     {
-        //Ampliacion a 10 minutos el limite de tiempo por ser una consulta extensa
+        // Ampliacion a 10 minutos el limite de tiempo por ser una consulta extensa
         set_time_limit(600);
 
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))
-                            ->with('administracion');
+            ->with('administracion');
 
-    } 
+        // Carga las acciones respectivas de la viogencia 2021 ( Codigo 13 )
+        $planAccion = ModuloMipgNivel4::orderBy('id')
+            ->where('vigencia_id', '13')
+            ->get();
 
+        // Recorre todas las ACCIONES del PLAN ACCION MIPG vigencia 2021
+        foreach ($planAccion as $accion) {
+
+            // Inicializa Contador acumulado de impacto KPI tareas reportadas
+            $acumImpactoKPI = 0;
+            // Inicializa por defecto en 0% una variable para almacenar "% de Cumplimiento accion"
+            $porcentajCumplimientoAccion = 0;
+            // Carga las tareas relacionadas con la accion
+            $tareasRelacionadas = ModuloMipgTarea::orderBy('id')
+                ->where('nivel4_id', $accion->id)
+                ->get();
+
+            // Recorreo todas las TAREAS relacionadas con cada ACCION
+            foreach ($tareasRelacionadas as $registro) {
+                // Acumula el impacto al KPI reportado en las tareas
+                $acumImpactoKPI = $acumImpactoKPI + $registro->impacto_kpi; 
+            }
+
+            // Verifica para evitar division Zero cuando no se tiene objetivo y  calcula PORTENTAJE DE CUMPLIMIENTO
+            if (($accion->objetivo != '') && ($accion->objetivo > '0')) 
+                $porcentajCumplimientoAccion = ($acumImpactoKPI * 1) / $accion->objetivo;
+
+                $auxPlanAccion = ModuloMipgNivel4::find($accion->id);
+                $auxPlanAccion->valor_realizado = $acumImpactoKPI;
+                $auxPlanAccion->porcentaje_realizado = $porcentajCumplimientoAccion;
+                $auxPlanAccion->rezago = $accion->objetivo - $auxPlanAccion->valor_realizado;
+                $auxPlanAccion->save();
+
+        }
+
+    }
 }
