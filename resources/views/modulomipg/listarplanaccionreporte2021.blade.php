@@ -46,6 +46,8 @@
 
                   <td> >> </td>
 
+                  <!--
+
                   <td>
                     <select class="form-control form-control-sm" name="filtroDimension">
                       <option value='9999' selected>Todas las dimensiones</option>
@@ -75,6 +77,8 @@
                   </td>
 
                   <td> >> </td>
+
+                  -->
 
                   <td>
                     @if(isset($_GET['filtropalabras']))
