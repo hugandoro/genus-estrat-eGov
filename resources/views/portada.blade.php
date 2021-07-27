@@ -19,7 +19,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #000000;
+                background-color: #28A745;
                 color: #ffffff;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -75,6 +75,10 @@
                 font-size: 24px;
             }
 
+            .saludo {
+                font-size: 16px;
+            }
+
             .version {
                 font-size: 14px;
             }
@@ -113,7 +117,9 @@
 
                 <br><br><br>
 
-                <div id="particles-js"></div>
+                <!-- <div id="particles-js"></div> -->
+
+                <div><iframe width="60%" height="400" src="https://www.youtube.com/embed/FVfCXhthgGc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
             </div>
 
@@ -121,16 +127,20 @@
 
             <div class="col-md-12 footer">
 
+                <div class="saludo m-b-md">
+                    <br>
+                    Estimado ciudadan@ bienvenido a nuestra <b>Plataforma de Seguimiento y Control Social</b>  del plan de desarrollo <b>Dosquebradas Empresa de Todos 2020 - 2023</b>
+                    <br><br>
+                    Hemos dispuesto de esta herramienta web como mecanismo para que conozcas más al detalle nuestra gestión pública, lo que hemos hecho y lo que nos queda por hacer,
+                    <br>
+                    si es la primera vez que nos visitas, te invitamos a que previamente te <a href="{{ route('register') }}">registres aquí</a> para poder ingresar.
+                    <br>
+                </div>
+
                 <div class="slogantitle m-b-md">
                     <b>EstrateGov</b> | Gestion pública inteligente
                 </div>
 
-                <!--
-                <div>
-                    <iframe width="450" height="400" src="https://www.youtube.com/embed/FVfCXhthgGc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <br>
-                </div>
-                -->
 
                 <div>
                     <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.505 (14.06.2021) - Derechos reservados Genus Group SAS - Colombia 2021</small>
