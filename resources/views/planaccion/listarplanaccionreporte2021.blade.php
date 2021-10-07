@@ -213,7 +213,8 @@
                                           <td style="width:95%;" colspan="5">
                                             <table id="mytable" class="table table-bordered table-dark" style="background: #ffffff;">
                                               <tr>
-                                                <th style="width:15%;">Fecha</th>
+                                                <th style="width:5%;">ID</th>
+                                                <th style="width:10%;">Fecha</th>
                                                 <th style="width:50%;">Tarea realizada</th>
                                                 <th style="width:15%;">Impacto al KPI</th>
                                                 <th style="width:20%;">Opciones</th>
@@ -226,7 +227,8 @@
                                                 @if($registro->accion_id == $accion->id)
 
                                                 <tr>
-                                                  <td style="width:15%;">{{$registro->fecha_realizacion}}</td>
+                                                  <td style="width:5%;">{{$registro->id}}</td>
+                                                  <td style="width:10%;">{{$registro->fecha_realizacion}}</td>
                                                   <td style="width:50%;">{{$registro->descripcion}}</td>
                                                   <td style="width:15%;">{{$registro->impacto_kpi}}</td>
                                                   <td style="width:20%;">
@@ -271,7 +273,8 @@
                                               <!-- Fin listado tareas reportadas -->
 
                                               <tr style="color: #ffffff; background-color: #999999;">
-                                                <td style="width:15%;"></td>
+                                                <td style="width:5%;"></td>
+                                                <td style="width:10%;"></td>
                                                 <td style="width:50%;"><h5>Sumatoria impacto al KPI</h5></td>
                                                 <td style="width:15%;"><h4>{{ $acumImpactoKPI }} de <b>{{$accion->objetivo}}</b></h4></td>
                                                 @if (($accion->objetivo != '') && ($accion->objetivo > '0'))
