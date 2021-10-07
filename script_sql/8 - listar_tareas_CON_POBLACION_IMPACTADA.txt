@@ -1,0 +1,51 @@
+Listar las tareas cargadas en plataforma CON POBLACION IMPACTADA - CARACTERIZACION y filtrado por vigencias y dependencia
+--------------------------------------------------------------------------------
+SELECT 
+e.numeral as numero_meta,
+a.id as codigo_tarea,
+a.descripcion as tarea_descripcion,
+a.impacto_kpi as tarea_impacto_kpi,
+a.fecha_realizacion as fecha_realizacion,
+a.created_at as fecha_reporte,
+a.evidencia_pdf as evidencia_pd,
+f.nombre as dependencia_responsable,
+comuna.nombre as comuna,
+corregimiento.nombre as corregimiento,
+zona.nombre as tipo_zona,
+poblacion.nombre as tipo_poblacion,
+a.poblacion as cantidad_poblacion,
+sexo.nombre as sexo
+
+FROM tareas AS a
+
+INNER JOIN plan_accions AS b
+ON a.accion_id = b.id
+
+INNER JOIN plan_indicativos AS c
+ON b.plan_indicativo_id = c.id
+
+INNER JOIN medicion_indicadors AS d
+ON c.indicador_id = d.id
+
+INNER JOIN plan_desarrollo_nivel4s AS e
+ON d.nivel4_id = e.id
+
+INNER JOIN entidad_oficinas AS f
+ON e.oficina_id = f.id
+
+INNER JOIN geografica_comunas AS comuna
+ON a.comuna_id = comuna.id
+
+INNER JOIN geografica_corregimientos AS corregimiento
+ON a.corregimiento_id = corregimiento.id
+
+INNER JOIN general_zonas AS zona
+ON a.zona_id = zona.id
+
+INNER JOIN general_poblacions AS poblacion
+ON a.poblacion_id = poblacion.id
+
+INNER JOIN general_sexos AS sexo
+ON a.sexo_id = sexo.id
+
+WHERE (c.vigencia_id = 13) 

@@ -1,0 +1,31 @@
+MODULO MIPG Listar las tareas cargadas en plataforma
+----------------------------------------------------
+SELECT 
+b.numeral as numero_accion,
+b.accion as accion,
+b.linea_base as linea_base,
+b.objetivo as objetivo,
+b.unidad_medida as unidad_medida,
+b.valor_realizado as valor_realizado,
+b.rezago as valor_por_realizar,
+b.porcentaje_realizado as porcentaje_cumplimiento,
+d.nombre as oficina_responsable,
+f.politica as politica,
+g.dimension as dimension
+
+
+FROM modulo_mipg_nivel4s AS b
+
+INNER JOIN entidad_oficinas AS d
+ON b.oficina_id = d.id
+
+INNER JOIN modulo_mipg_nivel3s AS e
+ON b.nivel3_id = e.id
+
+INNER JOIN modulo_mipg_nivel2s AS f
+ON e.nivel2_id = f.id
+
+INNER JOIN modulo_mipg_nivel1s AS g
+ON f.nivel1_id = g.id
+
+ORDER BY b.numeral

@@ -1,4 +1,4 @@
-Listar las tareas cargadas en plataforma SIN EVIDENCIAS y filtrado por vigencias
+Listar las tareas cargadas en plataforma CON VALORES FINANCIEROS y filtrado por vigencias y dependencia
 --------------------------------------------------------------------------------
 SELECT 
 e.numeral as numero_meta,
@@ -8,7 +8,12 @@ a.impacto_kpi as tarea_impacto_kpi,
 a.fecha_realizacion as fecha_realizacion,
 a.created_at as fecha_reporte,
 a.evidencia_pdf as evidencia_pd,
-
+fu1.nombre as fuente1,
+a.valor_fuente1 as valor_fuente1,
+fu2.nombre as fuente2,
+a.valor_fuente2 as valor_fuente2,
+fu3.nombre as fuente3,
+a.valor_fuente3 as valor_fuente3,
 f.nombre as dependencia_responsable
 
 FROM tareas AS a
@@ -28,4 +33,13 @@ ON d.nivel4_id = e.id
 INNER JOIN entidad_oficinas AS f
 ON e.oficina_id = f.id
 
-WHERE (c.vigencia_id = 13) && (a.evidencia_pdf = "Sin evidencia")
+INNER JOIN general_fuentes AS fu1
+ON a.fuente1_id = fu1.id
+
+INNER JOIN general_fuentes AS fu2
+ON a.fuente2_id = fu2.id
+
+INNER JOIN general_fuentes AS fu3
+ON a.fuente3_id = fu3.id
+
+WHERE (c.vigencia_id = 13)  && (f.id = 20)
