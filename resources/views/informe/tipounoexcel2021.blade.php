@@ -1,4 +1,4 @@
-@php set_time_limit(1500) @endphp
+@php set_time_limit(4000) @endphp
 
 <table>
   <thead>
