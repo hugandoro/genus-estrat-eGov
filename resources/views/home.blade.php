@@ -229,5 +229,9 @@
             </div>
         </div>
     </div>
+
+    <hr><center><a href="https://www.funcionpublica.gov.co/documents/35000242/38598841/Resultados_pnga_2021.pdf/42709c0f-ee16-b018-d02c-b2ade919010e?t=1635550747007"><picture><img class='img-responsive' src="{{ asset('images/banner_alta_gerencia_2021.jpg') }}" width="100%"></picture></a></center><hr><br>
+
+
 </div>
 @endsection
