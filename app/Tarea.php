@@ -24,7 +24,8 @@ class Tarea extends Model
                             fuente2_id,
                             valor_fuente3,
                             fuente3_id,
-                            user_id'];
+                            user_id,
+                            destacado'];
     protected $guarded = ['id'];
 
     //Relaciones

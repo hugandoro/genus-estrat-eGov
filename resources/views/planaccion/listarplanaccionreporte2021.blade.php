@@ -261,6 +261,18 @@
                                                         </form>
                                                       @endif
 
+                                                      <!-- Boton para DESTACAR una tarea reportada -->
+                                                      <form action="{{ route('/tareasdestacar') }}" method="POST">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <input type="hidden" name="id" value="{{ $registro->id }}">
+                                                        @if ($registro->destacado == 'No' )
+                                                          <button type="submit" class="btn btn-secondary btn-xs">Destacar esta actividad</button>
+                                                        @else
+                                                          <button type="submit" class="btn btn-warning btn-xs">Actividad destacada</button>
+                                                        @endif
+                                                      </form>
+                                                      <!-- FIN Boton para DESTACAR una tarea reportada -->
+
                                                     @endif
                                                     <!-- Fin de los botones de opciones -->
 

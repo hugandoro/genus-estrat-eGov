@@ -486,5 +486,30 @@ class TareaController extends Controller
         //? FIN ----------------------------------------------------------------------------------------------
 
     } 
+    
+    /**
+     * Destaca o normaliza la tarea seleccionada
+     * @return \Illuminate\Http\Response
+     */
+    public function tareaDestacada(Request $parametros)
+    {
+        $tarea = Tarea::find($parametros->id);
+
+        if ($tarea->destacado == 'Si')
+            $tarea->destacado = 'No';
+        else $tarea->destacado = 'Si';
+
+        $tarea->save();
+
+        //Obtiene el codigo del NIVEL4 al que debe regresar en el listado
+        $planAccion = PlanAccion::find($tarea->accion_id);
+        $planIndicativo = PlanIndicativo::find($planAccion->plan_indicativo_id);
+        $medicionIndicador = MedicionIndicador::find($planIndicativo->indicador_id);
+        $nivel4 = PlanDesarrolloNivel4::find($medicionIndicador->nivel4_id);
+        $secretaria = $nivel4->oficina_id;
+        //----------------------------------------------------------------
+     
+        return redirect('/planaccionlistarreporte2021?filtroSecretaria='.$secretaria);
+    }
 
 }

@@ -127,6 +127,7 @@ Route::match(array('GET', 'POST'), '/plandesarrollonivel4listaravance2021', 'Pla
 
 // Rutas para listar tareas reportadas por vigencias
 Route::resource('/tarea', 'TareaController');
+Route::match(array('GET', 'POST'), '/tareasdestacar', 'TareaController@tareaDestacada')->name('/tareasdestacar');
 Route::match(array('GET', 'POST'), '/tareaslistargeneral2020', 'TareaController@listarRegistros2020')->name('/tareaslistargeneral2020');
 Route::match(array('GET', 'POST'), '/tareaslistargeneral2021', 'TareaController@listarRegistros2021')->name('/tareaslistargeneral2021');
 // Fin Rutas ***
