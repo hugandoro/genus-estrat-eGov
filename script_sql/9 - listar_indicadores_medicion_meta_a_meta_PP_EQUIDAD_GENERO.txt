@@ -1,0 +1,56 @@
+Listar todos los INDICADORES - POLITICA - EQUIDAD DE GENERO, su medicion actual y los datos de la meta respectiva
+--------------------------------------------------------------------------------------------------------
+
+SELECT 
+b.numeral as numero_meta,
+b.nombre  as meta,
+a.nombre  as indicador,
+c.nombre  as medida,
+d.nombre  as tipo_medida,
+a.linea_base as linea_base_2019,
+a.meta as meta_2023,
+a.objetivo as objetivo_cuatrienio,
+a.valor_realizado as valor_realizado,
+a.porcentaje_realizado as porcentaje_realizado,
+a.rezago as rezago_acumulado,
+e.nombre as dependencia_responsable
+
+FROM medicion_indicadors AS a
+
+INNER JOIN plan_desarrollo_nivel4s AS b
+ON a.nivel4_id = b.id
+
+INNER JOIN medicion_medidas AS c
+ON a.medida_id = c.id
+
+INNER JOIN medicion_tipos AS d
+ON a.tipo_id = d.id
+
+INNER JOIN entidad_oficinas AS e
+ON b.oficina_id = e.id
+
+WHERE 
+
+b.numeral = 8 OR
+b.numeral = 9 OR
+b.numeral = 10 OR
+b.numeral = 28 OR
+b.numeral = 113 OR
+b.numeral = 114 OR
+b.numeral = 115 OR
+b.numeral = 116 OR
+b.numeral = 117 OR
+b.numeral = 149 OR
+b.numeral = 150 OR
+b.numeral = 151 OR
+b.numeral = 152 OR
+b.numeral = 175 OR
+b.numeral = 176 OR
+b.numeral = 177 OR
+b.numeral = 178 OR
+b.numeral = 179 OR
+b.numeral = 180 OR
+b.numeral = 181 OR
+b.numeral = 182 OR
+b.numeral = 183 OR
+b.numeral = 417
