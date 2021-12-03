@@ -23,7 +23,10 @@
         @php $programada = 'NO' @endphp
         @foreach ($planIndicativo as $planI)
           @if ($planI->indicador->Nivel4->id == $n4->id)
-            @if ($planI->valor != '0') @php $programada = 'SI' @endphp @endif
+            @if ($planI->valor != '0') 
+              @php $programada = 'SI' @endphp 
+              @php break @endphp 
+            @endif
           @endif
         @endforeach
 
