@@ -1,0 +1,137 @@
+Listar todos los INDICADORES - POLITICA - EQUIDAD DE GENERO, su medicion actual y los datos de la meta respectiva
+--------------------------------------------------------------------------------------------------------
+
+SELECT 
+b.numeral as numero_meta,
+b.nombre  as meta,
+a.nombre  as indicador,
+c.nombre  as medida,
+d.nombre  as tipo_medida,
+a.linea_base as linea_base_2019,
+a.meta as meta_2023,
+a.objetivo as objetivo_cuatrienio,
+a.valor_realizado as valor_realizado,
+a.porcentaje_realizado as porcentaje_realizado,
+a.rezago as rezago_acumulado,
+e.nombre as dependencia_responsable
+
+FROM medicion_indicadors AS a
+
+INNER JOIN plan_desarrollo_nivel4s AS b
+ON a.nivel4_id = b.id
+
+INNER JOIN medicion_medidas AS c
+ON a.medida_id = c.id
+
+INNER JOIN medicion_tipos AS d
+ON a.tipo_id = d.id
+
+INNER JOIN entidad_oficinas AS e
+ON b.oficina_id = e.id
+
+WHERE 
+
+b.numeral = 1 OR
+b.numeral = 4 OR
+b.numeral = 5 OR
+b.numeral = 6 OR
+b.numeral = 7 OR
+b.numeral = 48 OR
+b.numeral = 50 OR
+b.numeral = 51 OR
+b.numeral = 87 OR
+b.numeral = 106 OR
+b.numeral = 116 OR
+b.numeral = 126 OR
+b.numeral = 134 OR
+b.numeral = 153 OR
+b.numeral = 155 OR
+b.numeral = 158 OR
+b.numeral = 159 OR
+b.numeral = 164 OR
+b.numeral = 174 OR
+b.numeral = 177 OR
+b.numeral = 179 OR
+b.numeral = 181 OR
+b.numeral = 182 OR
+b.numeral = 183 OR
+b.numeral = 184 OR
+b.numeral = 185 OR
+b.numeral = 186 OR
+b.numeral = 187 OR
+b.numeral = 188 OR
+b.numeral = 189 OR
+b.numeral = 190 OR
+b.numeral = 191 OR
+b.numeral = 192 OR
+b.numeral = 193 OR
+b.numeral = 194 OR
+b.numeral = 195 OR
+b.numeral = 196 OR
+b.numeral = 197 OR
+b.numeral = 198 OR
+b.numeral = 199 OR
+b.numeral = 200 OR
+b.numeral = 201 OR
+b.numeral = 202 OR
+b.numeral = 203 OR
+b.numeral = 205 OR
+b.numeral = 206 OR
+b.numeral = 207 OR
+b.numeral = 208 OR
+b.numeral = 210 OR
+b.numeral = 211 OR
+b.numeral = 212 OR
+b.numeral = 213 OR
+b.numeral = 214 OR
+b.numeral = 215 OR
+b.numeral = 216 OR
+b.numeral = 217 OR
+b.numeral = 218 OR
+b.numeral = 226 OR
+b.numeral = 233 OR
+b.numeral = 234 OR
+b.numeral = 241 OR
+b.numeral = 242 OR
+b.numeral = 243 OR
+b.numeral = 244 OR
+b.numeral = 245 OR
+b.numeral = 246 OR
+b.numeral = 247 OR
+b.numeral = 274 OR
+b.numeral = 312 OR
+b.numeral = 314 OR
+b.numeral = 316 OR
+b.numeral = 319 OR
+b.numeral = 320 OR
+b.numeral = 323 OR
+b.numeral = 325 OR
+b.numeral = 331 OR
+b.numeral = 333 OR
+b.numeral = 334 OR
+b.numeral = 336 OR
+b.numeral = 344 OR
+b.numeral = 346 OR
+b.numeral = 351 OR
+b.numeral = 355 OR
+b.numeral = 363 OR
+b.numeral = 364 OR
+b.numeral = 365 OR
+b.numeral = 374 OR
+b.numeral = 384 OR
+b.numeral = 386 OR
+b.numeral = 392 OR
+b.numeral = 402 OR
+b.numeral = 407 OR
+b.numeral = 408 OR
+b.numeral = 412 OR
+b.numeral = 414 OR
+b.numeral = 419 OR
+b.numeral = 420 OR
+b.numeral = 423 OR
+b.numeral = 424 OR
+b.numeral = 427 OR
+b.numeral = 431 OR
+b.numeral = 432 OR
+b.numeral = 433 OR
+b.numeral = 434

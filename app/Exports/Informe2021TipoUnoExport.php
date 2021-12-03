@@ -17,7 +17,7 @@ class Informe2021TipoUnoExport implements FromView
 
     public function view(): View
     {
-        set_time_limit(1200); //Ampliacion a 5 minutos el limite de tiempo por ser una consulta extensa
+        set_time_limit(8000); //Ampliacion a 5 minutos el limite de tiempo por ser una consulta extensa
 
         return view('informe.tipounoexcel2021', [
             'nivel4' => PlanDesarrolloNivel4::orderBy('id','asc')->with(            //Carga todo el plan de desarrollo
