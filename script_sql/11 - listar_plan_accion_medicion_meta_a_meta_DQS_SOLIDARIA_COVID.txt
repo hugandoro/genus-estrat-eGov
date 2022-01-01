@@ -1,0 +1,158 @@
+Listar todo el PLAN DE ACCION filtrado por una vigencia respectiva, su medicion actual y los datos de la meta respectiva INDICADORES - DOSQUEBRADAS SOLIDARIA - COVID
+-------------------------
+
+ATENCION !!!!! Se debe corregir para exportar columna adicional LIMITADO A 100 para limitar sobreejecuciones de cumplimiento !!!!
+
+
+SELECT 
+d.numeral as numero_meta,
+d.nombre  as meta,
+c.nombre  as indicador,
+e.nombre  as medida,
+f.nombre  as tipo_medida,
+c.linea_base as linea_base_2019,
+c.meta as meta_2023,
+c.objetivo as objetivo_cuatrienio,
+
+h.nombre as vigencia,
+b.valor as objetivo_vigencia,
+
+a.descripcion as accion,
+a.kpi as accion_kpi,
+a.objetivo as accion_kpi_objetivo,
+a.valor_realizado as valor_realizado,
+a.porcentaje_realizado as porcentaje_realizado,
+a.rezago as rezago_accion,
+g.nombre as dependencia_responsable
+
+FROM plan_accions AS a
+
+INNER JOIN plan_indicativos AS b
+ON a.plan_indicativo_id = b.id
+
+INNER JOIN medicion_indicadors AS c
+ON b.indicador_id = c.id
+
+INNER JOIN plan_desarrollo_nivel4s AS d
+ON c.nivel4_id = d.id
+
+INNER JOIN medicion_medidas AS e
+ON c.medida_id = e.id
+
+INNER JOIN medicion_tipos AS f
+ON c.tipo_id = f.id
+
+INNER JOIN entidad_oficinas AS g
+ON d.oficina_id = g.id
+
+INNER JOIN general_vigencias AS h
+ON b.vigencia_id = h.id
+
+WHERE b.vigencia_id = 13 AND (
+    
+d.numeral = 1 OR
+d.numeral = 4 OR
+d.numeral = 5 OR
+d.numeral = 6 OR
+d.numeral = 7 OR
+d.numeral = 48 OR
+d.numeral = 50 OR
+d.numeral = 51 OR
+d.numeral = 87 OR
+d.numeral = 106 OR
+d.numeral = 116 OR
+d.numeral = 126 OR
+d.numeral = 134 OR
+d.numeral = 153 OR
+d.numeral = 155 OR
+d.numeral = 158 OR
+d.numeral = 159 OR
+d.numeral = 164 OR
+d.numeral = 174 OR
+d.numeral = 177 OR
+d.numeral = 179 OR
+d.numeral = 181 OR
+d.numeral = 182 OR
+d.numeral = 183 OR
+d.numeral = 184 OR
+d.numeral = 185 OR
+d.numeral = 186 OR
+d.numeral = 187 OR
+d.numeral = 188 OR
+d.numeral = 189 OR
+d.numeral = 190 OR
+d.numeral = 191 OR
+d.numeral = 192 OR
+d.numeral = 193 OR
+d.numeral = 194 OR
+d.numeral = 195 OR
+d.numeral = 196 OR
+d.numeral = 197 OR
+d.numeral = 198 OR
+d.numeral = 199 OR
+d.numeral = 200 OR
+d.numeral = 201 OR
+d.numeral = 202 OR
+d.numeral = 203 OR
+d.numeral = 205 OR
+d.numeral = 206 OR
+d.numeral = 207 OR
+d.numeral = 208 OR
+d.numeral = 210 OR
+d.numeral = 211 OR
+d.numeral = 212 OR
+d.numeral = 213 OR
+d.numeral = 214 OR
+d.numeral = 215 OR
+d.numeral = 216 OR
+d.numeral = 217 OR
+d.numeral = 218 OR
+d.numeral = 226 OR
+d.numeral = 233 OR
+d.numeral = 234 OR
+d.numeral = 241 OR
+d.numeral = 242 OR
+d.numeral = 243 OR
+d.numeral = 244 OR
+d.numeral = 245 OR
+d.numeral = 246 OR
+d.numeral = 247 OR
+d.numeral = 274 OR
+d.numeral = 312 OR
+d.numeral = 314 OR
+d.numeral = 316 OR
+d.numeral = 319 OR
+d.numeral = 320 OR
+d.numeral = 323 OR
+d.numeral = 325 OR
+d.numeral = 331 OR
+d.numeral = 333 OR
+d.numeral = 334 OR
+d.numeral = 336 OR
+d.numeral = 344 OR
+d.numeral = 346 OR
+d.numeral = 351 OR
+d.numeral = 355 OR
+d.numeral = 363 OR
+d.numeral = 364 OR
+d.numeral = 365 OR
+d.numeral = 374 OR
+d.numeral = 384 OR
+d.numeral = 386 OR
+d.numeral = 392 OR
+d.numeral = 402 OR
+d.numeral = 407 OR
+d.numeral = 408 OR
+d.numeral = 412 OR
+d.numeral = 414 OR
+d.numeral = 419 OR
+d.numeral = 420 OR
+d.numeral = 423 OR
+d.numeral = 424 OR
+d.numeral = 427 OR
+d.numeral = 431 OR
+d.numeral = 432 OR
+d.numeral = 433 OR
+d.numeral = 434
+    
+)

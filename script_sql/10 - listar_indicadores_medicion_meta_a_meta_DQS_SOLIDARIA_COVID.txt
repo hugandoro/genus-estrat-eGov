@@ -1,4 +1,4 @@
-Listar todos los INDICADORES - POLITICA - EQUIDAD DE GENERO, su medicion actual y los datos de la meta respectiva
+Listar todos los INDICADORES - DOSQUEBRADAS SOLIDARIA - COVID, su medicion actual y los datos de la meta respectiva
 --------------------------------------------------------------------------------------------------------
 
 SELECT 
