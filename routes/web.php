@@ -106,6 +106,10 @@ Route::match(array('GET', 'POST'), '/planaccionlistar2020', 'PlanAccionControlle
 Route::match(array('GET', 'POST'), '/planaccionlistar2021', 'PlanAccionController@listarRegistros2021')->name('/planaccionlistar2021');
 // Fin Rutas ***
 
+// Rutas para construir planes de accion por vigencias
+Route::match(array('GET', 'POST'), '/planaccionconstruir2022', 'PlanAccionController@listarConstruir2022')->name('/planaccionconstruir2022');
+// Fin Rutas ***
+
 
 // Rutas para reportar tareas en los planes de accion por vigencias
 Route::match(array('GET', 'POST'), '/planaccionlistarreporte2020', 'PlanAccionController@listarRegistrosReporte2020')->name('/planaccionlistarreporte2020');

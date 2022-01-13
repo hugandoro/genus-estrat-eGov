@@ -73,7 +73,8 @@ class TareaController extends Controller
         $generalSexo = GeneralSexo::all();
         $generalFuente = GeneralFuente::all();
 
-        return view('tarea.create', compact('tarea','generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo', 'generalFuente'));
+        //return view('tarea.create', compact('tarea','generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo', 'generalFuente'));
+        return redirect('/home');
     }
 
     /**

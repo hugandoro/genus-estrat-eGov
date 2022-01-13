@@ -100,12 +100,21 @@
                                     <li><a style="color:#000000;" href="{{ url('/planindicativolistar') }}">Plan indicativo | Consultar</a></li>
 
                                     <li role="separator" class="divider"></li>
-                                    <li><a style="color:#000000;" href="{{ url('/planaccionlistar2021') }}"><b>Plan de accion 2021</b> | Consultar</a></li>
+                                    <li><a style="color:#000000;" href="{{ url('/planaccionlistar2022') }}"><b>Plan de accion 2022</b> | Consultar</a></li>
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li><a style="color:#000000;" href="{{ url('/tareaslistargeneral2021') }}"><b>Plan de accion 2021</b> | Cronologico tareas reportadas</a></li>
-                                        <li><a style="color:#000000;" href="{{ url('/planaccionlistaravance2021?filtroSecretaria=' . $aux) }}"><b>Plan de accion 2021</b> | Avance de ejecucion</a></li>
-                                        <li><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance2021?filtroSecretaria=' . $aux) }}"><b>Plan de accion 2021</b> | Ponderado ejecucion actividades</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/tareaslistargeneral2022') }}"><b>Plan de accion 2022</b> | Cronologico tareas reportadas</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/planaccionlistaravance2022?filtroSecretaria=' . $aux) }}"><b>Plan de accion 2022</b> | Avance de ejecucion</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance2022?filtroSecretaria=' . $aux) }}"><b>Plan de accion 2022</b> | Ponderado ejecucion actividades</a></li>
+                                    @endif
+
+                                    <li role="separator" class="divider"></li>
+                                    <li><a style="color:#000000;" href="{{ url('/planaccionlistar2021') }}">Plan de accion 2021 | Consultar</a></li>
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                        @php ($aux = Auth::user()->oficina_id) @endphp
+                                        <li><a style="color:#000000;" href="{{ url('/tareaslistargeneral2021') }}">Plan de accion 2021 | Cronologico tareas reportadas</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/planaccionlistaravance2021?filtroSecretaria=' . $aux) }}">Plan de accion 2021 | Avance de ejecucion</a></li>
+                                        <li><a style="color:#000000;" href="{{ url('/plandesarrollonivel4listaravance2021?filtroSecretaria=' . $aux) }}">Plan de accion 2021 | Ponderado ejecucion actividades</a></li>
                                     @endif
 
                                     <li role="separator" class="divider"></li>
@@ -131,7 +140,8 @@
                                         @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                             @php ($aux = Auth::user()->oficina_id) @endphp
 
-                                            <!--<li><a style="color:#000000;" href="{{ url('/planaccionlistarreporte2021?filtroSecretaria=' . $aux) }}"><b>Vigencia 2021</b> | Reportar</a></li>-->
+                                            <li><a style="color:#000000;" href="{{ url('/planaccionlistarreporte2022?filtroSecretaria=' . $aux) }}"><b>Vigencia 2022</b> | Reportar</a></li>
+                                            <li><a style="color:#000000;" href="{{ url('/planaccionlistarreporte2021?filtroSecretaria=' . $aux) }}">Vigencia 2021 | Ver tareas reportadas</a></li>
                                             <li><a style="color:#000000;" href="{{ url('/planaccionlistarreporte2020?filtroSecretaria=' . $aux) }}">Vigencia 2020 | Ver tareas reportadas</a></li>
                                         @endif
                                     </ul>
@@ -153,8 +163,13 @@
                                     
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         <li role="separator" class="divider"></li>
-                                        <li><a style="color:#000000;" href="{{ url('/graficaavanceplandeaccion2021?tipo=1') }}"><b>Analitica 2021</b> - Avance plan de accion</a></li>       
-                                        <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo2021?tipo=2') }}"><b>Analitica 2021</b> - Avance plan de desarrollo</a></li>     
+                                        <li><a style="color:#000000;" href="{{ url('/graficaavanceplandeaccion2022?tipo=1') }}"><b>Analitica 2022</b> - Avance plan de accion</a></li>       
+                                        <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo2022?tipo=2') }}"><b>Analitica 2022</b> - Avance plan de desarrollo</a></li>     
+                                        <!-- <li><a style="color:#000000;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Semaforos de cumplimiento</a></li> -->  
+
+                                        <li role="separator" class="divider"></li>
+                                        <li><a style="color:#000000;" href="{{ url('/graficaavanceplandeaccion2021?tipo=1') }}">Analitica 2021 - Avance plan de accion</a></li>       
+                                        <li><a style="color:#000000;" href="{{ url('/graficaavanceplandesarrollo2021?tipo=2') }}">Analitica 2021 - Avance plan de desarrollo</a></li>     
                                         <!-- <li><a style="color:#000000;" href="{{ url('/home') }}"><b>Analitica 2021</b> - Semaforos de cumplimiento</a></li> -->  
 
                                         <li role="separator" class="divider"></li>
@@ -167,6 +182,7 @@
 
                             <!-- INFORMES -->
                             @if((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')))
+                                <!-- 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                         Informes |<span class="caret"></span>
@@ -183,6 +199,7 @@
                                         @endif
                                     </ul>
                                 </li>
+                                -->
                             @endif
 
                             <!-- POLITICAS PUBLICAS -->

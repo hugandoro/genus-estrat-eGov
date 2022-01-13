@@ -16,7 +16,7 @@
 
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2021 - Reporte de tareas</b></h3></div>
+          <div class="pull-left"><h3>Plan de Desarrollo | <b>Plan de Accion 2021 - Tareas reportadas</b></h3></div>
           <div class="pull-right">
 
             <!-- Formulario para filtro de consulta por SECRETARIAS -->
@@ -187,7 +187,7 @@
                                             <!-- Valida si es un usuario (SUPERADMINISTRADOR O ADMINISTRADOR) o si es un usuario (EDITOR asignado a la DEPENDENCIA) responable de esa actividad Nivel 4 -->
                                             @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
                                               
-                                              <a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a>
+                                              <!--<a class="btn btn-success" href="{{ url('tarea/create?idAccion='.$accion->id.'&kpi='.$accion->kpi.'&kpiObjetivo='.$accion->objetivo) }}" ><span class="glyphicon glyphicon-plus"></span>  Reportar</a>-->
 
                                               <!-- *** EXCEPCION DE REPORTE TEMPORAL *** -->
                                               @if( 
