@@ -11,7 +11,18 @@ class PlanAccion extends Model
                             'descripcion',
                             'kpi',
                             'objetivo',
-                            'ponderacion'];
+                            'ponderacion',
+                            'n2022_converge_politica_publica',
+                            'n2022_converge_pgirs',
+                            'n2022_converge_gestion_riesgo',
+                            'n2022_converge_mipg',
+                            'n2022_recursos',
+                            'n2022_fuente',
+                            'n2022_codigo_fut',
+                            'n2022_sector',
+                            'n2022_codigo_bpim',
+                            'n2022_producto_actividad_proyectos',
+                            'n2022_ods'];
     protected $guarded = ['id'];
 
     //Relaciones
