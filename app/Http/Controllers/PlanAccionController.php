@@ -46,7 +46,7 @@ class PlanAccionController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        return view('planaccion.create');
     }
 
     /**
@@ -57,7 +57,32 @@ class PlanAccionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $planaccion = new PlanAccion;
+ 
+        $planaccion->plan_indicativo_id = $request->indicativo_id;
+        $planaccion->descripcion = $request->descripcion;
+        $planaccion->kpi = $request->kpi;
+        $planaccion->objetivo = $request->objetivo;
+        $planaccion->ponderacion = $request->ponderacion / 100;
+        $planaccion->n2022_converge_politica_publica = $request->n2022_converge_politica_publica;
+        $planaccion->n2022_converge_pgirs = $request->n2022_converge_pgirs;
+        $planaccion->n2022_converge_gestion_riesgo = $request->n2022_converge_gestion_riesgo;
+        $planaccion->n2022_converge_mipg = $request->n2022_converge_mipg;
+        $planaccion->n2022_recursos = $request->n2022_recursos;
+        $planaccion->n2022_fuente = $request->n2022_fuente;
+        $planaccion->n2022_codigo_fut = $request->n2022_codigo_fut;
+        $planaccion->n2022_sector = $request->n2022_sector;
+        $planaccion->n2022_codigo_bpim = $request->n2022_codigo_bpim;
+        $planaccion->n2022_producto_actividad_proyectos = $request->n2022_producto_actividad_proyectos;
+        $planaccion->n2022_ods = $request->n2022_ods;
+        $planaccion->rezago = $planaccion->objetivo;
+
+        $planaccion->save();
+ 
+        $nivel4id = $request->nivel4_id;
+
+        return redirect('/planaccionconstruir2022?filtroactividad='. $nivel4id);
+
     }
 
     /**

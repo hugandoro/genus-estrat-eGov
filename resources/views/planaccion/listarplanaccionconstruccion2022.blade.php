@@ -107,6 +107,8 @@
                             <!-- Busca EL PLAN INDICATIVO relacionado con el INDICADOR y la VIGENCIA -->
                             @foreach($planIndicativo as $indicativo) 
                               @if(($indicativo->indicador_id == $indicador->id) && ($indicativo->vigencia_id == '14')) <!-- *** CUIDADO *** CON EL CODIGO SEGUN LA VIGENCIA -->
+                                
+                                @php $auxIndicativo = $indicativo->id; @endphp <!-- Codigo del plan indicativo para encadenar con el boton de inscribir actividades -->
 
                                 @if($indicador->Medida->id == 2)
                                   <td style="width:5%">{{$indicativo->valor * 100}} %</td> <!-- Meta porcentual - Multiplica por 100 -->
@@ -145,8 +147,8 @@
 
                         <td style="width:5%;font-size:10px;">
                         @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
-                           <!--<a class="btn btn-success" href="{{ url('tarea/create?idNivel4='.$Nivel4->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>-->
-                           <a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>
+                           <a class="btn btn-success" href="{{ url('acciones/create?idIndicativo='.$auxIndicativo.'&idNivel4='.$Nivel4->id) }}" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>
+                           <!--<a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>-->
                         @endif
                         </td>
 

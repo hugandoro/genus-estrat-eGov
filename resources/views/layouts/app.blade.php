@@ -17,7 +17,8 @@
 
     <!-- JavaScript -->
     <script type="text/javascript" src="{{ asset('js/fondoAnimado.js') }}"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <!-- Librerias Chart.JS -->
     <script type="text/javascript" src="{{ asset('js/chart.js-2.9.3/Chart.bundle.js') }}"></script>
@@ -40,6 +41,27 @@
       }
     </script>
     <!-- Fin del Script confirmarEliminar -->
+
+    <!-- Convierte en tiempo real cadena a FORMATO MONEDA -->
+    <script type="text/javascript">
+        //Se aplica para los INPUT con ID number
+        $(document).ready(function () {
+            $("#number").on({
+                "focus": function(event) {
+                    $(event.target).select();
+                },
+                "keyup": function(event) {
+                    $(event.target).val(function(index, value) {
+                        return value.replace(/\D/g, "")
+                        .replace(/([0-9])([0-9]{2})$/, '$1.$2')
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+                    });
+                }
+            });
+        });
+    </script>
+    <!-- Fin del Script formatoMoneda -->
+
 </head>
 <body>
     <div id="app">
@@ -273,5 +295,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>
