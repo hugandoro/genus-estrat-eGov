@@ -80,9 +80,7 @@ class PlanAccionController extends Controller
         $planaccion->save();
  
         $nivel4id = $request->nivel4_id;
-
         return redirect('/planaccionconstruir2022?filtroactividad='. $nivel4id);
-
     }
 
     /**
@@ -104,7 +102,8 @@ class PlanAccionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $planaccion = PlanAccion::find($id);
+        return view('planaccion.edit',['planaccion'=>$planaccion]);
     }
 
     /**
@@ -116,7 +115,34 @@ class PlanAccionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $planaccion = PlanAccion::find($id);
+
+        $planaccion->descripcion = $request->descripcion;
+        $planaccion->kpi = $request->kpi;
+        $planaccion->objetivo = $request->objetivo;
+        $planaccion->ponderacion = $request->ponderacion / 100;
+        $planaccion->n2022_converge_politica_publica = $request->n2022_converge_politica_publica;
+        $planaccion->n2022_converge_pgirs = $request->n2022_converge_pgirs;
+        $planaccion->n2022_converge_gestion_riesgo = $request->n2022_converge_gestion_riesgo;
+        $planaccion->n2022_converge_mipg = $request->n2022_converge_mipg;
+        $planaccion->n2022_recursos = $request->n2022_recursos;
+        $planaccion->n2022_fuente = $request->n2022_fuente;
+        $planaccion->n2022_codigo_fut = $request->n2022_codigo_fut;
+        $planaccion->n2022_sector = $request->n2022_sector;
+        $planaccion->n2022_codigo_bpim = $request->n2022_codigo_bpim;
+        $planaccion->n2022_producto_actividad_proyectos = $request->n2022_producto_actividad_proyectos;
+        $planaccion->n2022_ods = $request->n2022_ods;
+        $planaccion->rezago = $planaccion->objetivo;
+
+        $planaccion->save();
+
+        //Obtiene el codigo del NIVEL4 al que debe regresar en el listado
+        $planIndicativo = PlanIndicativo::find($planaccion->plan_indicativo_id);
+        $medicionIndicador = MedicionIndicador::find($planIndicativo->indicador_id);
+        $nivel4 = $medicionIndicador->nivel4_id;
+        //----------------------------------------------------------------
+
+        return redirect('/planaccionconstruir2022?filtroactividad='.$nivel4);
     }
 
     /**
@@ -125,9 +151,13 @@ class PlanAccionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $planaccion = PlanAccion::find($id);
+        PlanAccion::destroy($id);  
+
+        $nivel4id = $request->nivel4_id;
+        return redirect('/planaccionconstruir2022?filtroactividad='. $nivel4id);
     }
 
     /**
@@ -508,20 +538,20 @@ class PlanAccionController extends Controller
             $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
                                         ->where('oficina_id', $_GET['filtroSecretaria'])
                                         ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
-                                        ->paginate(10);
+                                        ->paginate(1000);
                                         
         if ((isset($_GET['filtroactividad'])) && ($_GET['filtroactividad'] != '')) 
             $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
                                     ->where('numeral', $_GET['filtroactividad'])
                                     ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
-                                    ->paginate(10);
+                                    ->paginate(1000);
 
         if ((isset($_GET['filtropalabras'])) && ($_GET['filtropalabras'] != '')){ 
             $filtropalabra = $_GET['filtropalabras'];
             $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
                                     ->where('nombre', 'LIKE', "%$filtropalabra%")
                                     ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
-                                    ->paginate(10);
+                                    ->paginate(1000);
         }
         
         //Paginacion de resultados conservando el indice (Metodo GET y no POST)

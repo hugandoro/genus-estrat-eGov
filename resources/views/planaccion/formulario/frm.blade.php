@@ -1,263 +1,1327 @@
-<div class="row">
-	<div class="col-md-12">
-		<section class="panel"> 
-			<div class="panel-body">
- 
+<!-- Existe un registro por lo tanto esta en modo EDIT -->
+@if ( !empty ( $planaccion->id) ) 
 
-					<div class="form-group">
-						<label for="descripcion" class="negrita">Descripcion</label> 
-						<div>
-							<input class="form-control" placeholder="Breve desripcion de la accion..." required="required" name="descripcion" type="text" id="descripcion"> 
+	<div class="row">
+		<div class="col-md-12">
+			<section class="panel"> 
+				<div class="panel-body">
+	
+
+						<div class="form-group">
+							<label for="descripcion" class="negrita">Descripcion</label> 
+							<div>
+								<input value="{{ $planaccion->descripcion }}" class="form-control" placeholder="Breve desripcion de la accion..." required="required" name="descripcion" type="text" id="descripcion"> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="kpi" class="negrita">KPI (Indicador clave de rendimiento)</label> 
-						<div>
-							<input class="form-control" placeholder="Unidad de medida de rendimiento (Vacunas, proyectos, reuniones, kilometros pavimentados, etc)..." required="required" name="kpi" type="text" id="kpi"> 
+						<div class="form-group">
+							<label for="kpi" class="negrita">KPI (Indicador clave de rendimiento)</label> 
+							<div>
+								<input value="{{ $planaccion->kpi }}" class="form-control" placeholder="Unidad de medida de rendimiento (Vacunas, proyectos, reuniones, kilometros pavimentados, etc)..." required="required" name="kpi" type="text" id="kpi"> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="objetivo" class="negrita">Valor objetivo KPI</label> 
-						<div>
-							<input class="form-control" placeholder="Valor a realizar respecto al KPI..." required="required" name="objetivo" type="number" min="1" id="objetivo"> 
+						<div class="form-group">
+							<label for="objetivo" class="negrita">Valor objetivo KPI</label> 
+							<div>
+								<input value="{{ $planaccion->objetivo }}" class="form-control" placeholder="Valor a realizar respecto al KPI..." required="required" name="objetivo" type="number" min="1" id="objetivo"> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="ponderacion" class="negrita">Peso ponderado entre el 1 y el 100 %</label> 
-						<div>
-							<input class="form-control" placeholder="Indique el peso porcentual asignado a esta accion..." required="required" name="ponderacion" type="number" min="0" max="100" id="ponderacion"> 
+						<div class="form-group">
+							<label for="ponderacion" class="negrita">Peso ponderado entre el 1 y el 100 %</label> 
+							<div>
+								<input value="{{ $planaccion->ponderacion * 100 }}" class="form-control" placeholder="Indique el peso porcentual asignado a esta accion..." required="required" name="ponderacion" type="number" min="0" max="100" id="ponderacion"> 
+							</div>
 						</div>
-					</div>
 
-					<hr>
+						<hr>
 
-					<div class="form-group" style="background-color: #C9F7C1;">
-						<label for="n2022_converge_politica_publica" class="negrita">Alineacion | Politica publica</label> 
-						<div>
-							<select class="form-control" name="n2022_converge_politica_publica">
-								<option value="no" selected>No aplica</option>
-								<option value="1-Equidad de genero">Politica pública municipal de Equidad de Genero</option>
-								<option value="2-Discapacidad">Politica pública municipal de Discapacidad</option>
-								<option value="3-Juventudes">Politica pública municipal de Juventudes</option>
-								<option value="4-Migrados">Politica pública municipal de Migrados</option>
-								<option value="5-Adulto Mayor">Politica pública municipal del Adulto Mayor</option>
-								<option value="6-Primera Infancia, Infancia y Adolescencia">Politica pública municipal de Primera Infancia, Infancia y Adolescencia</option>
-								<option value="7-Victimas del conflicto armado">Política pública municipal Victimas del Conflicto Armado</option>
-								<option value="8-Presupuesto participativo">Política pública municipal de Presupuesto Participativo</option>
-								<option value="9-Seguridad y Convivencia Ciudadana">Política pública municipal de Seguridad y Convivencia Ciudadana</option>
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_converge_politica_publica" class="negrita">Alineacion | Politica publica</label> 
+							<div>
+								<select class="form-control" name="n2022_converge_politica_publica">
+									@if ($planaccion->n2022_converge_politica_publica == "no")
+										<option value="no" selected>No aplica</option>
+									@else
+										<option value="no">No aplica</option>
+									@endif	
 
-							</select> 
+									@if ($planaccion->n2022_converge_politica_publica == "1-Equidad de genero")
+										<option value="1-Equidad de genero" selected>Politica pública municipal de Equidad de Genero</option>
+									@else
+										<option value="1-Equidad de genero">Politica pública municipal de Equidad de Genero</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_politica_publica == "2-Discapacidad")
+										<option value="2-Discapacidad" selected>Politica pública municipal de Discapacidad</option>
+									@else
+										<option value="2-Discapacidad">Politica pública municipal de Discapacidad</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_politica_publica == "3-Juventudes")
+										<option value="3-Juventudes" selected>Politica pública municipal de Juventudes</option>
+									@else
+										<option value="3-Juventudes">Politica pública municipal de Juventudes</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_politica_publica == "4-Migrados")
+										<option value="4-Migrados" selected>Politica pública municipal de Migrados</option>
+									@else
+										<option value="4-Migrados">Politica pública municipal de Migrados</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_politica_publica == "5-Adulto Mayor")
+										<option value="5-Adulto Mayor" selected>Politica pública municipal del Adulto Mayor</option>
+									@else
+										<option value="5-Adulto Mayor">Politica pública municipal del Adulto Mayor</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_politica_publica == "6-Primera Infancia, Infancia y Adolescencia")
+										<option value="6-Primera Infancia, Infancia y Adolescencia" selected>Politica pública municipal de Primera Infancia, Infancia y Adolescencia</option>
+									@else
+										<option value="6-Primera Infancia, Infancia y Adolescencia">Politica pública municipal de Primera Infancia, Infancia y Adolescencia</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_politica_publica == "7-Victimas del conflicto armado")
+										<option value="7-Victimas del conflicto armado" selected>Política pública municipal Victimas del Conflicto Armado</option>
+									@else
+										<option value="7-Victimas del conflicto armado">Política pública municipal Victimas del Conflicto Armado</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_politica_publica == "8-Presupuesto participativo")
+										<option value="8-Presupuesto participativo" selected>Política pública municipal de Presupuesto Participativo</option>
+									@else
+										<option value="8-Presupuesto participativo">Política pública municipal de Presupuesto Participativo</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_politica_publica == "9-Seguridad y Convivencia Ciudadana")
+										<option value="9-Seguridad y Convivencia Ciudadana" selected>Política pública municipal de Seguridad y Convivencia Ciudadana</option>
+									@else
+										<option value="9-Seguridad y Convivencia Ciudadana">Política pública municipal de Seguridad y Convivencia Ciudadana</option>
+									@endif
+
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group" style="background-color: #C9F7C1;">
-						<label for="n2022_converge_pgirs" class="negrita">Alineacion | PGIRS</label> 
-						<div>
-							<select class="form-control" name="n2022_converge_pgirs">
-								<option value="no" selected>No aplica</option>
-								<option value="Objetivo PGIRS 1">Objetivo PGIRS 1</option>
-								<option value="Objetivo PGIRS 2">Objetivo PGIRS 2</option>
-								<option value="Objetivo PGIRS 3">Objetivo PGIRS 3</option>
-								<option value="Objetivo PGIRS 4">Objetivo PGIRS 4</option>
-								<option value="Objetivo PGIRS 5">Objetivo PGIRS 5</option>
-							</select> 
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_converge_pgirs" class="negrita">Alineacion | PGIRS</label> 
+							<div>
+								<select class="form-control" name="n2022_converge_pgirs">
+									@if ($planaccion->n2022_converge_pgirs == "no")
+										<option value="no" selected>No aplica</option>
+									@else
+										<option value="no">No aplica</option>
+									@endif
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group" style="background-color: #C9F7C1;">
-						<label for="n2022_converge_gestion_riesgo" class="negrita">Alineacion | Gestion del riesgo</label> 
-						<div>
-							<select class="form-control" name="n2022_converge_gestion_riesgo">
-								<option value="no" selected>No aplica</option>
-								<option value="Programa 1.1">Programa 1.1. Conocimiento y evaluación de los riesgos de origen natural, socio-natural, tecnológico y humano no intencional</option>
-								<option value="Programa 1.2">Programa 1.2. Adelantar los estudios y construcción de los mapas de amenaza, identificando los peligros de origen natural, socio natural, tecnológico y humano no intencional, así como estudios sobre exposición y vulnerabilidad</option>
-								<option value="Programa 1.3">Programa 1.3. Implementar y fortalecer los servicios de vigilancia y alerta temprana que permitan monitorear el comportamiento de los factores generadores de riesgo en el territorio municipal</option>
-								<option value="Programa 2.1">Programa 2.1. Incorporación de la gestión del riesgo y medidas de adaptación al cambio climático en el POT y planes de desarrollo municipal y sectoriales</option>
-								<option value="Programa 2.2">Programa 2.2. Reducción y mitigación del riesgo sectorial y territorial</option>
-								<option value="Programa 3.1">Programa 3.1. Formulación, actualización, preparación y seguimiento de la estrategia municipal para la respuesta a emergencias (EMRE)</option>
-								<option value="Programa 3.2">Programa 3.2. Preparación para la recuperación y rehabilitación de zonas afectadas por desastres</option>
-								<option value="Programa 3.3">Programa 3.3. Fortalecimiento de los organismos de socorro y del consejo municipal para la gestión del riesgo de desastres</option>
-							</select> 
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_converge_gestion_riesgo" class="negrita">Alineacion | Gestion del riesgo</label> 
+							<div>
+								<select class="form-control" name="n2022_converge_gestion_riesgo">
+									@if ($planaccion->n2022_converge_gestion_riesgo == "no")
+										<option value="no" selected>No aplica</option>
+									@else
+										<option value="no">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_gestion_riesgo == "Programa 1.1")
+										<option value="Programa 1.1" selected>Programa 1.1. Conocimiento y evaluación de los riesgos de origen natural, socio-natural, tecnológico y humano no intencional</option>
+									@else
+										<option value="Programa 1.1">Programa 1.1. Conocimiento y evaluación de los riesgos de origen natural, socio-natural, tecnológico y humano no intencional</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_gestion_riesgo == "Programa 1.2")
+										<option value="Programa 1.2" selected>Programa 1.2. Adelantar los estudios y construcción de los mapas de amenaza, identificando los peligros de origen natural, socio natural, tecnológico y humano no intencional, así como estudios sobre exposición y vulnerabilidad</option>
+									@else
+										<option value="Programa 1.2">Programa 1.2. Adelantar los estudios y construcción de los mapas de amenaza, identificando los peligros de origen natural, socio natural, tecnológico y humano no intencional, así como estudios sobre exposición y vulnerabilidad</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_gestion_riesgo == "Programa 1.3")
+										<option value="Programa 1.3" selected>Programa 1.3. Implementar y fortalecer los servicios de vigilancia y alerta temprana que permitan monitorear el comportamiento de los factores generadores de riesgo en el territorio municipal</option>
+									@else
+										<option value="Programa 1.3">Programa 1.3. Implementar y fortalecer los servicios de vigilancia y alerta temprana que permitan monitorear el comportamiento de los factores generadores de riesgo en el territorio municipal</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_gestion_riesgo == "Programa 2.1")
+										<option value="Programa 2.1" selected>Programa 2.1. Incorporación de la gestión del riesgo y medidas de adaptación al cambio climático en el POT y planes de desarrollo municipal y sectoriales</option>
+									@else
+										<option value="Programa 2.1">Programa 2.1. Incorporación de la gestión del riesgo y medidas de adaptación al cambio climático en el POT y planes de desarrollo municipal y sectoriales</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_gestion_riesgo == "Programa 2.2")
+										<option value="Programa 2.2" selected>Programa 2.2. Reducción y mitigación del riesgo sectorial y territorial</option>
+									@else
+										<option value="Programa 2.2">Programa 2.2. Reducción y mitigación del riesgo sectorial y territorial</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_gestion_riesgo == "Programa 3.1")
+										<option value="Programa 3.1" selected>Programa 3.1. Formulación, actualización, preparación y seguimiento de la estrategia municipal para la respuesta a emergencias (EMRE)</option>
+									@else
+										<option value="Programa 3.1">Programa 3.1. Formulación, actualización, preparación y seguimiento de la estrategia municipal para la respuesta a emergencias (EMRE)</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_gestion_riesgo == "Programa 3.2")
+										<option value="Programa 3.2" selected>Programa 3.2. Preparación para la recuperación y rehabilitación de zonas afectadas por desastres</option>
+									@else
+										<option value="Programa 3.2">Programa 3.2. Preparación para la recuperación y rehabilitación de zonas afectadas por desastres</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_gestion_riesgo == "Programa 3.3")
+										<option value="Programa 3.3" selected>Programa 3.3. Fortalecimiento de los organismos de socorro y del consejo municipal para la gestión del riesgo de desastres</option>
+									@else
+										<option value="Programa 3.3">Programa 3.3. Fortalecimiento de los organismos de socorro y del consejo municipal para la gestión del riesgo de desastres</option>
+									@endif
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group" style="background-color: #C9F7C1;">
-						<label for="n2022_converge_mipg" class="negrita">Alineacion | MIPG</label> 
-						<div>
-							<select class="form-control" name="n2022_converge_mipg">
-								<option value="no" selected>No aplica</option>
-								<option value="1-Política de Gestión Estratégica del Talento Humano GETH">Política de Gestión Estratégica del Talento Humano GETH</option>
-								<option value="2-Política de Integridad">Política de Integridad</option>
-								<option value="3-Política de Planeación Institucional">Política de Planeación Institucional</option>
-								<option value="4-Política de Gestion Presupuestal y Eficiencia del Gasto Público">Política de Gestion Presupuestal y Eficiencia del Gasto Público</option>
-								<option value="5-Política Gobierno Digital">Política Gobierno Digital</option>
-								<option value="6-Política Seguridad Digital">Política Seguridad Digital</option>
-								<option value="7-Política de Defensa Juridica">Política de Defensa Juridica</option>
-								<option value="8-Política de Servicio al ciudadano">Política de Servicio al ciudadano</option>
-								<option value="9-Política de Racionalizacion de Tramites">Política de Racionalizacion de Tramites</option>
-								<option value="10-Política de Participacion Ciudadana en la Gestion Publica">Política de Participacion Ciudadana en la Gestion Publica</option>
-								<option value="11-Política de fortalecimiento organizacional y simplicación de procesos">Política de fortalecimiento organizacional y simplicación de procesos</option>
-								<option value="12-Política de Seguimiento y Evaluación del Desempeño Institucional">Política de Seguimiento y Evaluación del Desempeño Institucional</option>
-								<option value="13-Política de Gestión Documental">Política de Gestión Documental</option>
-								<option value="14-Política de Transparencia, acceso a la información pública y lucha contra la corrupción">Política de Transparencia, acceso a la información pública y lucha contra la corrupción</option>
-								<option value="15-Política de Gestión del Conocimiento y la Innovación">Política de Gestión del Conocimiento y la Innovación</option>
-								<option value="16-Política de Control Interno">Política de Control Interno</option>
-								<option value="17-Política de información estadística">Política de información estadística</option>
-								<option value="18-Política de mejora normativa">Política de mejora normativa</option>
-							</select> 
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_converge_mipg" class="negrita">Alineacion | MIPG</label> 
+							<div>
+								<select class="form-control" name="n2022_converge_mipg">
+									@if ($planaccion->n2022_converge_mipg == "no")
+										<option value="no" selected>No aplica</option>
+									@else
+										<option value="no">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "1-Política de Gestión Estratégica del Talento Humano GETH")
+										<option value="1-Política de Gestión Estratégica del Talento Humano GETH" selected>Política de Gestión Estratégica del Talento Humano GETH</option>
+									@else
+										<option value="1-Política de Gestión Estratégica del Talento Humano GETH">Política de Gestión Estratégica del Talento Humano GETH</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "2-Política de Integridad")
+										<option value="2-Política de Integridad" selected>Política de Integridad</option>
+									@else
+										<option value="2-Política de Integridad">Política de Integridad</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "3-Política de Planeación Institucional")
+										<option value="3-Política de Planeación Institucional" selected>Política de Planeación Institucional</option>
+									@else
+										<option value="3-Política de Planeación Institucional">Política de Planeación Institucional</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "4-Política de Gestion Presupuestal y Eficiencia del Gasto Público")
+										<option value="4-Política de Gestion Presupuestal y Eficiencia del Gasto Público" selected>Política de Gestion Presupuestal y Eficiencia del Gasto Público</option>
+									@else
+										<option value="4-Política de Gestion Presupuestal y Eficiencia del Gasto Público">Política de Gestion Presupuestal y Eficiencia del Gasto Público</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "5-Política Gobierno Digital")
+										<option value="5-Política Gobierno Digital" selected>Política Gobierno Digital</option>
+									@else
+										<option value="5-Política Gobierno Digital">Política Gobierno Digital</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "6-Política Seguridad Digital")
+										<option value="6-Política Seguridad Digital" selected>Política Seguridad Digital</option>
+									@else
+										<option value="6-Política Seguridad Digital">Política Seguridad Digital</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "7-Política de Defensa Juridica")
+										<option value="7-Política de Defensa Juridica" selected>Política de Defensa Juridica</option>
+									@else
+										<option value="7-Política de Defensa Juridica">Política de Defensa Juridica</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "8-Política de Servicio al ciudadano")
+										<option value="8-Política de Servicio al ciudadano" selected>Política de Servicio al ciudadano</option>
+									@else
+										<option value="8-Política de Servicio al ciudadano">Política de Servicio al ciudadano</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "9-Política de Racionalizacion de Tramites")
+										<option value="9-Política de Racionalizacion de Tramites" selected>Política de Racionalizacion de Tramites</option>
+									@else
+										<option value="9-Política de Racionalizacion de Tramites">Política de Racionalizacion de Tramites</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "10-Política de Participacion Ciudadana en la Gestion Publica")
+										<option value="10-Política de Participacion Ciudadana en la Gestion Publica" selected>Política de Participacion Ciudadana en la Gestion Publica</option>
+									@else
+										<option value="10-Política de Participacion Ciudadana en la Gestion Publica">Política de Participacion Ciudadana en la Gestion Publica</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "11-Política de fortalecimiento organizacional y simplicación de procesos")
+										<option value="11-Política de fortalecimiento organizacional y simplicación de procesos" selected>Política de fortalecimiento organizacional y simplicación de procesos</option>
+									@else
+										<option value="11-Política de fortalecimiento organizacional y simplicación de procesos">Política de fortalecimiento organizacional y simplicación de procesos</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "12-Política de Seguimiento y Evaluación del Desempeño Institucional")
+										<option value="12-Política de Seguimiento y Evaluación del Desempeño Institucional" selected>Política de Seguimiento y Evaluación del Desempeño Institucional</option>
+									@else
+										<option value="12-Política de Seguimiento y Evaluación del Desempeño Institucional">Política de Seguimiento y Evaluación del Desempeño Institucional</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "13-Política de Gestión Documental")
+										<option value="13-Política de Gestión Documental" selected>Política de Gestión Documental</option>
+									@else
+										<option value="13-Política de Gestión Documental">Política de Gestión Documental</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "14-Política de Transparencia, acceso a la información pública y lucha contra la corrupción")
+										<option value="14-Política de Transparencia, acceso a la información pública y lucha contra la corrupción" selected>Política de Transparencia, acceso a la información pública y lucha contra la corrupción</option>
+									@else
+										<option value="14-Política de Transparencia, acceso a la información pública y lucha contra la corrupción">Política de Transparencia, acceso a la información pública y lucha contra la corrupción</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "15-Política de Gestión del Conocimiento y la Innovación")
+										<option value="15-Política de Gestión del Conocimiento y la Innovación" selected>Política de Gestión del Conocimiento y la Innovación</option>
+									@else
+										<option value="15-Política de Gestión del Conocimiento y la Innovación">Política de Gestión del Conocimiento y la Innovación</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "16-Política de Control Interno")
+										<option value="16-Política de Control Interno" selected>Política de Control Interno</option>
+									@else
+										<option value="16-Política de Control Interno">Política de Control Interno</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "17-Política de información estadística")
+										<option value="17-Política de información estadística" selected>Política de información estadística</option>
+									@else
+										<option value="17-Política de información estadística">Política de información estadística</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_mipg == "18-Política de mejora normativa")
+										<option value="18-Política de mejora normativa" selected>Política de mejora normativa</option>
+									@else
+										<option value="18-Política de mejora normativa">Política de mejora normativa</option>
+									@endif
+
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group" style="background-color: #C9F7C1;">
-						<label for="n2022_ods" class="negrita">Alineacion | ODS objetivos del desarrollo sostenible</label> 
-						<div>
-							<select class="form-control" name="n2022_ods">
-								<option value="no" selected>No aplica</option>
-								<option value="1-ODS">Objetivo 1: Poner fin a la pobreza en todas sus formas en todo el mundo</option>
-								<option value="2-ODS">Objetivo 2: Poner fin al hambre, lograr la seguridad alimentaria y la mejora de la nutrición y promover la agricultura sostenible</option>
-								<option value="3-ODS">Objetivo 3: Garantizar una vida sana y promover el bienestar para todos en todas las edades</option>
-								<option value="4-ODS">Objetivo 4: Garantizar una educación inclusiva, equitativa y de calidad y promover oportunidades de aprendizaje durante toda la vida para todo</option>
-								<option value="5-ODS">Objetivo 5: Lograr la igualdad entre los géneros y empoderar a todas las mujeres y las niñas</option>
-								<option value="6-ODS">Objetivo 6: Garantizar la disponibilidad de agua y su gestión sostenible y el saneamiento para todos</option>
-								<option value="7-ODS">Objetivo 7: Garantizar el acceso a una energía asequible, segura, sostenible y moderna para todos</option>
-								<option value="8-ODS">Objetivo 8: Promover el crecimiento económico sostenido, inclusivo y sostenible, el empleo pleno y productivo y el trabajo decente para todos</option>
-								<option value="9-ODS">Objetivo 9: Construir infraestructuras resilientes, promover la industrialización inclusiva y sostenible y fomentar la innovación</option>
-								<option value="10-ODS">Objetivo 10: Reducir la desigualdad en y entre los países</option>
-								<option value="11-ODS">Objetivo 11: Lograr que las ciudades y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles</option>
-								<option value="12-ODS">Objetivo 12: Garantizar modalidades de consumo y producción sostenibles</option>
-								<option value="13-ODS">Objetivo 13: Adoptar medidas urgentes para combatir el cambio climático y sus efectos</option>
-								<option value="14-ODS">Objetivo 14: Conservar y utilizar en forma sostenible los océanos, los mares y los recursos marinos para el desarrollo sostenible</option>
-								<option value="15-ODS">Objetivo 15: Proteger, restablecer y promover el uso sostenible de los ecosistemas terrestres, gestionar los bosques de forma sostenible, luchar contra la desertificación, detener e invertir la degradación de las tierras y poner freno a la pérdida de la diversidad biológica</option>
-								<option value="16-ODS">Objetivo 16: Promover sociedades pacíficas e inclusivas para el desarrollo sostenible, facilitar el acceso a la justicia para todos y crear instituciones eficaces, responsables e inclusivas a todos los niveles</option>
-								<option value="17-ODS">Objetivo 17: Fortalecer los medios de ejecución y revitalizar la Alianza Mundial para el Desarrollo Sostenible</option>
-							</select> 
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_ods" class="negrita">Alineacion | ODS objetivos del desarrollo sostenible</label> 
+							<div>
+								<select class="form-control" name="n2022_ods">
+									@if ($planaccion->n2022_ods == "no")
+										<option value="no" selected>No aplica</option>
+									@else
+										<option value="no">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "1-ODS")
+										<option value="1-ODS" selected>Objetivo 1: Poner fin a la pobreza en todas sus formas en todo el mundo</option>
+									@else
+										<option value="1-ODS">Objetivo 1: Poner fin a la pobreza en todas sus formas en todo el mundo</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "2-ODS")
+										<option value="2-ODS" selected>Objetivo 2: Poner fin al hambre, lograr la seguridad alimentaria y la mejora de la nutrición y promover la agricultura sostenible</option>
+									@else
+										<option value="2-ODS">Objetivo 2: Poner fin al hambre, lograr la seguridad alimentaria y la mejora de la nutrición y promover la agricultura sostenible</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "3-ODS")
+										<option value="3-ODS" selected>Objetivo 3: Garantizar una vida sana y promover el bienestar para todos en todas las edades</option>
+									@else
+										<option value="3-ODS">Objetivo 3: Garantizar una vida sana y promover el bienestar para todos en todas las edades</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "4-ODS")
+										<option value="4-ODS" selected>Objetivo 4: Garantizar una educación inclusiva, equitativa y de calidad y promover oportunidades de aprendizaje durante toda la vida para todo</option>
+									@else
+										<option value="4-ODS">Objetivo 4: Garantizar una educación inclusiva, equitativa y de calidad y promover oportunidades de aprendizaje durante toda la vida para todo</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "5-ODS")
+										<option value="5-ODS" selected>Objetivo 5: Lograr la igualdad entre los géneros y empoderar a todas las mujeres y las niñas</option>
+									@else
+										<option value="5-ODS">Objetivo 5: Lograr la igualdad entre los géneros y empoderar a todas las mujeres y las niñas</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "6-ODS")
+										<option value="6-ODS" selected>Objetivo 6: Garantizar la disponibilidad de agua y su gestión sostenible y el saneamiento para todos</option>
+									@else
+										<option value="6-ODS">Objetivo 6: Garantizar la disponibilidad de agua y su gestión sostenible y el saneamiento para todos</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "7-ODS")
+										<option value="7-ODS" selected>Objetivo 7: Garantizar el acceso a una energía asequible, segura, sostenible y moderna para todos</option>
+									@else
+										<option value="7-ODS">Objetivo 7: Garantizar el acceso a una energía asequible, segura, sostenible y moderna para todos</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "8-ODS")
+										<option value="8-ODS" selected>Objetivo 8: Promover el crecimiento económico sostenido, inclusivo y sostenible, el empleo pleno y productivo y el trabajo decente para todos</option>
+									@else
+										<option value="8-ODS">Objetivo 8: Promover el crecimiento económico sostenido, inclusivo y sostenible, el empleo pleno y productivo y el trabajo decente para todos</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "9-ODS")
+										<option value="9-ODS" selected>Objetivo 9: Construir infraestructuras resilientes, promover la industrialización inclusiva y sostenible y fomentar la innovación</option>
+									@else
+										<option value="9-ODS">Objetivo 9: Construir infraestructuras resilientes, promover la industrialización inclusiva y sostenible y fomentar la innovación</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "10-ODS")
+										<option value="10-ODS" selected>Objetivo 10: Reducir la desigualdad en y entre los países</option>
+									@else
+										<option value="10-ODS">Objetivo 10: Reducir la desigualdad en y entre los países</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "11-ODS")
+										<option value="11-ODS" selected>Objetivo 11: Lograr que las ciudades y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles</option>
+									@else
+										<option value="11-ODS">Objetivo 11: Lograr que las ciudades y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "12-ODS")
+										<option value="12-ODS" selected>Objetivo 12: Garantizar modalidades de consumo y producción sostenibles</option>
+									@else
+										<option value="12-ODS">Objetivo 12: Garantizar modalidades de consumo y producción sostenibles</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "13-ODS")
+										<option value="13-ODS" selected>Objetivo 13: Adoptar medidas urgentes para combatir el cambio climático y sus efectos</option>
+									@else
+										<option value="13-ODS">Objetivo 13: Adoptar medidas urgentes para combatir el cambio climático y sus efectos</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "14-ODS")
+										<option value="14-ODS" selected>Objetivo 14: Conservar y utilizar en forma sostenible los océanos, los mares y los recursos marinos para el desarrollo sostenible</option>
+									@else
+										<option value="14-ODS">Objetivo 14: Conservar y utilizar en forma sostenible los océanos, los mares y los recursos marinos para el desarrollo sostenible</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "15-ODS")
+										<option value="15-ODS" selected>Objetivo 15: Proteger, restablecer y promover el uso sostenible de los ecosistemas terrestres, gestionar los bosques de forma sostenible, luchar contra la desertificación, detener e invertir la degradación de las tierras y poner freno a la pérdida de la diversidad biológica</option>
+									@else
+										<option value="15-ODS">Objetivo 15: Proteger, restablecer y promover el uso sostenible de los ecosistemas terrestres, gestionar los bosques de forma sostenible, luchar contra la desertificación, detener e invertir la degradación de las tierras y poner freno a la pérdida de la diversidad biológica</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "16-ODS")
+										<option value="16-ODS" selected>Objetivo 16: Promover sociedades pacíficas e inclusivas para el desarrollo sostenible, facilitar el acceso a la justicia para todos y crear instituciones eficaces, responsables e inclusivas a todos los niveles</option>
+									@else
+										<option value="16-ODS">Objetivo 16: Promover sociedades pacíficas e inclusivas para el desarrollo sostenible, facilitar el acceso a la justicia para todos y crear instituciones eficaces, responsables e inclusivas a todos los niveles</option>
+									@endif
+
+									@if ($planaccion->n2022_ods == "17-ODS")
+										<option value="17-ODS" selected>Objetivo 17: Fortalecer los medios de ejecución y revitalizar la Alianza Mundial para el Desarrollo Sostenible</option>
+									@else
+										<option value="17-ODS">Objetivo 17: Fortalecer los medios de ejecución y revitalizar la Alianza Mundial para el Desarrollo Sostenible</option>
+									@endif
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<hr>
+						<hr>
 
-					<div class="form-group" style="background-color: #C1E2F7;">
-						<label for="n2022_recursos" class="negrita">Recursos asignados para esta accion</label> 
-						<div>
-							<input class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos" type="text" min="0" id="number" style="font-size: 20px;"> 
+						<div class="form-group" style="background-color: #C1E2F7;">
+							<label for="n2022_recursos" class="negrita">Recursos asignados para esta accion</label> 
+							<div>
+								<input value="{{ $planaccion->n2022_recursos }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos" type="text" min="0" id="number" style="font-size: 20px;"> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group" style="background-color: #C1E2F7;">
-						<label for="n2022_fuente" class="negrita">Fuente de los recursos</label> 
-						<div>
-							<select class="form-control" name="n2022_fuente">
-								<option value="0" selected>No aplica</option>
-								<option value="1">Recursos por funcionamiento</option>
-								<option value="2">Recursos por gestión</option>
-								<option value="3">IDM | Propios | Otras fuentes</option>
-								<option value="4">Bomberos | Propios | Otras fuentes</option>
-								<option value="5">Serviciudad | Propios | Otras fuentes</option>
-								<option value="1101">Recursos propios de libre destinacion</option>
-								<option value="1202">Multas de transito propios destinación especifica</option>
-								<option value="1205">Estampilla pro cultura propios destinación especif...</option>
-								<option value="1206">Rendimientos sobre tasa gasolina- Pago contratos...</option>
-								<option value="1214">Estampilla pro bienestar del adulto mayor propios...</option>
-								<option value="1215">Impuesto de consumo al cigarrillo</option>
-								<option value="1216">Estampilla adulto mayor gobernacion</option>
-								<option value="1217">Contribución parafiscal</option>
-								<option value="1218">Código policía</option>
-								<option value="2101">SGP Educación prestación del servicio</option>
-								<option value="2102">Educación calidad</option>
-								<option value="2201">Fondo de salud</option>
-								<option value="2202">Salud oferta</option>
-								<option value="2203">SGP Salud publica</option>
-								<option value="2301">SGP Agua potable y saneamiento básico</option>
-								<option value="2302">SGP Deporte</option>
-								<option value="2303">SGP Cultura</option>
-								<option value="2304">SGP Alimentación escolar</option>
-								<option value="2305">SGP Propósito general</option>
-								<option value="2306">SGP Primera infancia</option>
-								<option value="3101">Fondo de seguridad</option>
-								<option value="3201">Áreas de cesión</option>
-								<option value="3301">Fondo de solidaridad y redistribución ingreso</option>
-								<option value="3401">Fondo multa incumplimiento a medidas de P. Violenc...</option>
-								<option value="4102">Convenios salud</option>
-								<option value="4106">Presupuesto participativo</option>
-								<option value="4107">Convenios educación por liquidar</option>
-								<option value="4121">Fonpet educación</option>
-								<option value="4122">Fonpet propósito general</option>
-								<option value="4123">Fonpet otros sectores</option>
-								<option value="4124">Convenio Fonade</option>
-								<option value="4127">Residuos solidos</option>
-								<option value="4201">Etesa</option>
-								<option value="4303">Regalías régimen anterior</option>
-								<option value="4501">Empréstito malla vial</option>
-								<option value="4506">Donaciones</option>
-								<option value="4508">Rendimiento propios</option>
-								<option value="4601">Convenio estratificacion</option>
-							</select> 
+						<div class="form-group" style="background-color: #C1E2F7;">
+							<label for="n2022_fuente" class="negrita">Fuente de los recursos</label> 
+							<div>
+								<select class="form-control" name="n2022_fuente">
+									@if ($planaccion->n2022_fuente == "no")
+										<option value="0" selected>No aplica</option>
+									@else
+										<option value="0">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1")
+										<option value="1" selected>Recursos por funcionamiento</option>
+									@else
+										<option value="1">Recursos por funcionamiento</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2")
+										<option value="2" selected>Recursos por gestión</option>
+									@else
+										<option value="2">Recursos por gestión</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "3")
+										<option value="3" selected>IDM | Propios | Otras fuentes</option>
+									@else
+										<option value="3">IDM | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4")
+										<option value="4" selected>Bomberos | Propios | Otras fuentes</option>
+									@else
+										<option value="4">Bomberos | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "5")
+										<option value="5" selected>Serviciudad | Propios | Otras fuentes</option>
+									@else
+										<option value="5">Serviciudad | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1101")
+										<option value="1101" selected>Recursos propios de libre destinacion</option>
+									@else
+										<option value="1101">Recursos propios de libre destinacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1202")
+										<option value="1202" selected>Multas de transito propios destinación especifica</option>
+									@else
+										<option value="1202">Multas de transito propios destinación especifica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1205")
+										<option value="1205" selected>Estampilla pro cultura propios destinación especif...</option>
+									@else
+										<option value="1205">Estampilla pro cultura propios destinación especif...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1206")
+										<option value="1206" selected>Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									@else
+										<option value="1206">Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1214")
+										<option value="1214" selected>Estampilla pro bienestar del adulto mayor propios...</option>
+									@else
+										<option value="1214">Estampilla pro bienestar del adulto mayor propios...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1215")
+										<option value="1215" selected>Impuesto de consumo al cigarrillo</option>
+									@else
+										<option value="1215">Impuesto de consumo al cigarrillo</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1216")
+										<option value="1216" selected>Estampilla adulto mayor gobernacion</option>
+									@else
+										<option value="1216">Estampilla adulto mayor gobernacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1217")
+										<option value="1217" selected>Contribución parafiscal</option>
+									@else
+										<option value="1217">Contribución parafiscal</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "1218")
+										<option value="1218" selected>Código policía</option>
+									@else
+										<option value="1218">Código policía</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2101")
+										<option value="2101" selected>SGP Educación prestación del servicio</option>
+									@else
+										<option value="2101">SGP Educación prestación del servicio</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2102")
+										<option value="2102" selected>Educación calidad</option>
+									@else
+										<option value="2102">Educación calidad</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2201")
+										<option value="2201" selected>Fondo de salud</option>
+									@else
+										<option value="2201">Fondo de salud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2202")
+										<option value="2202" selected>Salud oferta</option>
+									@else
+										<option value="2202">Salud oferta</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2203")
+										<option value="2203" selected>SGP Salud publica</option>
+									@else
+										<option value="2203">SGP Salud publica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2301")
+										<option value="2301" selected>SGP Agua potable y saneamiento básico</option>
+									@else
+										<option value="2301">SGP Agua potable y saneamiento básico</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2302")
+										<option value="2302" selected>SGP Deporte</option>
+									@else
+										<option value="2302">SGP Deporte</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2303")
+										<option value="2303" selected>SGP Cultura</option>
+									@else
+										<option value="2303">SGP Cultura</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2304")
+										<option value="2304" selected>SGP Alimentación escolar</option>
+									@else
+										<option value="2304">SGP Alimentación escolar</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2305")
+										<option value="2305" selected>SGP Propósito general</option>
+									@else
+										<option value="2305">SGP Propósito general</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "2306")
+										<option value="2306" selected>SGP Primera infancia</option>
+									@else
+										<option value="2306">SGP Primera infancia</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "3101")
+										<option value="3101" selected>Fondo de seguridad</option>
+									@else
+										<option value="3101">Fondo de seguridad</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "3201")
+										<option value="3201" selected>Áreas de cesión</option>
+									@else
+										<option value="3201">Áreas de cesión</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "3301")
+										<option value="3301" selected>Fondo de solidaridad y redistribución ingreso</option>
+									@else
+										<option value="3301">Fondo de solidaridad y redistribución ingreso</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "3401")
+										<option value="3401" selected>Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									@else
+										<option value="3401">Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4102")
+										<option value="4102" selected>Convenios salud</option>
+									@else
+										<option value="4102">Convenios salud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4106")
+										<option value="4106" selected>Presupuesto participativo</option>
+									@else
+										<option value="4106">Presupuesto participativo</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4107")
+										<option value="4107" selected>Convenios educación por liquidar</option>
+									@else
+										<option value="4107">Convenios educación por liquidar</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4121")
+										<option value="4121" selected>Fonpet educación</option>
+									@else
+										<option value="4121">Fonpet educación</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4122")
+										<option value="4122" selected>Fonpet propósito general</option>
+									@else
+										<option value="4122">Fonpet propósito general</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4123")
+										<option value="4123" selected>Fonpet otros sectores</option>
+									@else
+										<option value="4123">Fonpet otros sectores</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4124")
+										<option value="4124" selected>Convenio Fonade</option>
+									@else
+										<option value="4124">Convenio Fonade</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4127")
+										<option value="4127" selected>Residuos solidos</option>
+									@else
+										<option value="4127">Residuos solidos</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4201")
+										<option value="4201" selected>Etesa</option>
+									@else
+										<option value="4201">Etesa</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4303")
+										<option value="4303" selected>Regalías régimen anterior</option>
+									@else
+										<option value="4303">Regalías régimen anterior</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4501")
+										<option value="4501" selected>Empréstito malla vial</option>
+									@else
+										<option value="4501">Empréstito malla vial</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4506")
+										<option value="4506" selected>Donaciones</option>
+									@else
+										<option value="4506">Donaciones</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4508")
+										<option value="4508" selected>Rendimiento propios</option>
+									@else
+										<option value="4508">Rendimiento propios</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "4601")
+										<option value="4601" selected>Convenio estratificacion</option>
+									@else
+										<option value="4601">Convenio estratificacion</option>
+									@endif
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<hr>
+						<hr>
 
-					<div class="form-group" style="background-color: #C9F7C1;">
-						<label for="n2022_codigo_fut" class="negrita">Codigo FUT</label> 
-						<div>
-							<select class="form-control" name="n2022_codigo_fut">
-								<option value="no" selected>No aplica</option>
-								<option value="Codigo FUT 1">Codigo FUT 1</option>
-								<option value="Codigo FUT 1">Codigo FUT 2</option>
-								<option value="Codigo FUT 1">Codigo FUT 3</option>
-								<option value="Codigo FUT 1">Codigo FUT 4</option>
-								<option value="Codigo FUT 1">Codigo FUT 5</option>
-
-							</select> 
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_codigo_fut" class="negrita">Codigo FUT</label> 
+							<div>
+								<select class="form-control" name="n2022_codigo_fut">
+									@if ($planaccion->n2022_codigo_fut == "no")
+										<option value="no" selected>No aplica</option>
+									@else
+										<option value="no">No aplica</option>
+									@endif
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group" style="background-color: #C9F7C1;">
-						<label for="n2022_sector" class="negrita">Sector</label> 
-						<div>
-							<select class="form-control" name="n2022_sector">
-								<option value="no" selected>No aplica</option>
-								<option value="Sector 1">Sector 1</option>
-								<option value="Sector 1">Sector 2</option>
-								<option value="Sector 1">Sector 3</option>
-								<option value="Sector 1">Sector 4</option>
-								<option value="Sector 1">Sector 5</option>
-							</select> 
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_sector" class="negrita">Sector</label> 
+							<div>
+								<select class="form-control" name="n2022_sector">
+									@if ($planaccion->n2022_sector == "no")
+										<option value="no" selected>No aplica</option>
+									@else
+										<option value="no">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "INFORMACIÓN ESTADÍSTICA")
+										<option value="INFORMACIÓN ESTADÍSTICA" selected>04-INFORMACIÓN ESTADÍSTICA</option>
+									@else
+										<option value="INFORMACIÓN ESTADÍSTICA">04-INFORMACIÓN ESTADÍSTICA</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "JUSTICIA Y DEL DERECHO")
+										<option value="JUSTICIA Y DEL DERECHO" selected>12-JUSTICIA Y DEL DERECHO</option>
+									@else
+										<option value="JUSTICIA Y DEL DERECHO">12-JUSTICIA Y DEL DERECHO</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "AGRICULTURA Y DESARROLLO RURAL")
+										<option value="AGRICULTURA Y DESARROLLO RURAL" selected>17-AGRICULTURA Y DESARROLLO RURAL</option>
+									@else
+										<option value="AGRICULTURA Y DESARROLLO RURAL">17-AGRICULTURA Y DESARROLLO RURAL</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "SALUD Y PROTECCIÓN SOCIAL")
+										<option value="SALUD Y PROTECCIÓN SOCIAL" selected>19-SALUD Y PROTECCIÓN SOCIAL</option>
+									@else
+										<option value="SALUD Y PROTECCIÓN SOCIAL">19-SALUD Y PROTECCIÓN SOCIAL</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "MINAS Y ENERGÍA")
+										<option value="MINAS Y ENERGÍA" selected>21-MINAS Y ENERGÍA</option>
+									@else
+										<option value="MINAS Y ENERGÍA">21-MINAS Y ENERGÍA</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "EDUCACIÓN")
+										<option value="EDUCACIÓN" selected>22-EDUCACIÓN</option>
+									@else
+										<option value="EDUCACIÓN">22-EDUCACIÓN</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES")
+										<option value="TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES" selected>23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
+									@else
+										<option value="TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "TRANSPORTE")
+										<option value="TRANSPORTE" selected>24-TRANSPORTE</option>
+									@else
+										<option value="TRANSPORTE">24-TRANSPORTE</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "ORGANISMOS DE CONTROL")
+										<option value="ORGANISMOS DE CONTROL" selected>25-ORGANISMOS DE CONTROL</option>
+									@else
+										<option value="ORGANISMOS DE CONTROL">25-ORGANISMOS DE CONTROL</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "AMBIENTE Y DESARROLLO SOSTENIBLE")
+										<option value="AMBIENTE Y DESARROLLO SOSTENIBLE" selected>32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
+									@else
+										<option value="AMBIENTE Y DESARROLLO SOSTENIBLE">32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "CULTURA")
+										<option value="CULTURA" selected>33-CULTURA</option>
+									@else
+										<option value="CULTURA">33-CULTURA</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "COMERCIO, INDUSTRIA Y TURISMO")
+										<option value="COMERCIO, INDUSTRIA Y TURISMO" selected>35-COMERCIO, INDUSTRIA Y TURISMO</option>
+									@else
+										<option value="COMERCIO, INDUSTRIA Y TURISMO">35-COMERCIO, INDUSTRIA Y TURISMO</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "TRABAJO")
+										<option value="TRABAJO" selected>36-TRABAJO</option>
+									@else
+										<option value="TRABAJO">36-TRABAJO</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "CIENCIA, TECNOLOGÍA E INNOVACIÓN")
+										<option value="CIENCIA, TECNOLOGÍA E INNOVACIÓN" selected>39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
+									@else
+										<option value="CIENCIA, TECNOLOGÍA E INNOVACIÓN">39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "VIVIENDA, CIUDAD Y TERRITORIO")
+										<option value="VIVIENDA, CIUDAD Y TERRITORIO" selected>40-VIVIENDA, CIUDAD Y TERRITORIO</option>
+									@else
+										<option value="VIVIENDA, CIUDAD Y TERRITORIO">40-VIVIENDA, CIUDAD Y TERRITORIO</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "INCLUSIÓN SOCIAL Y RECONCILIACIÓN")
+										<option value="INCLUSIÓN SOCIAL Y RECONCILIACIÓN" selected>41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
+									@else
+										<option value="INCLUSIÓN SOCIAL Y RECONCILIACIÓN">41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "DEPORTE Y RECREACIÓN")
+										<option value="DEPORTE Y RECREACIÓN" selected>43-DEPORTE Y RECREACIÓN</option>
+									@else
+										<option value="DEPORTE Y RECREACIÓN">43-DEPORTE Y RECREACIÓN</option>
+									@endif
+
+									@if ($planaccion->n2022_sector == "GOBIERNO TERRITORIAL")
+										<option value="GOBIERNO TERRITORIAL" selected>45-GOBIERNO TERRITORIAL</option>
+									@else
+										<option value="GOBIERNO TERRITORIAL">45-GOBIERNO TERRITORIAL</option>
+									@endif
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<hr>
+						<hr>
 
-					<div class="form-group" style="background-color: #C1E2F7;">
-						<label for="n2022_codigo_bpim" class="negrita">Codigo BPIM</label> 
-						<div>
-							<input class="form-control" placeholder="Codigo BPIM del banco de proyectos..." required="required" name="n2022_codigo_bpim" type="number" min="0" id="n2022_codigo_bpim"> 
+						<div class="form-group" style="background-color: #C1E2F7;">
+							<label for="n2022_codigo_bpim" class="negrita">Codigo BPIM</label> 
+							<div>
+								<select class="form-control" name="n2022_codigo_bpim">
+									@if ($planaccion->n2022_codigo_bpim == "no")
+										<option value="no" selected>No aplica</option>
+									@else
+										<option value="no">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700002")
+										<option value="2020661700002" selected>2020661700002 - fortalecimiento de la seguridad,convivencia y participación ciudadana, en el municipio   dos quebradas</option>
+									@else
+										<option value="2020661700002">2020661700002 - fortalecimiento de la seguridad,convivencia y participación ciudadana, en el municipio   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700003")
+										<option value="2020661700003" selected>2020661700003 - fortalecimiento de la movilidad y seguridad vial en el municipio de   dos quebradas</option>
+									@else
+										<option value="2020661700003">2020661700003 - fortalecimiento de la movilidad y seguridad vial en el municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700004")
+										<option value="2020661700004" selected>2020661700004 - fortalecimiento de la economía local  como territorio empresarial y competitivo en el municipio de   dos quebradas</option>
+									@else
+										<option value="2020661700004">2020661700004 - fortalecimiento de la economía local  como territorio empresarial y competitivo en el municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700005")
+										<option value="2020661700005" selected>2020661700005 - construcción adecuación y mejoramiento de la infraestructura física y de transporte del municipio de   dos quebradas</option>
+									@else
+										<option value="2020661700005">2020661700005 - construcción adecuación y mejoramiento de la infraestructura física y de transporte del municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700006")
+										<option value="2020661700006" selected>2020661700006 - mejoramiento  de la gestión tributaria, financiera y desempeño fiscal de la secretaría de hacienda y finanzas públicas del  municipio de  dos quebradas</option>
+									@else
+										<option value="2020661700006">2020661700006 - mejoramiento  de la gestión tributaria, financiera y desempeño fiscal de la secretaría de hacienda y finanzas públicas del  municipio de  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700007")
+										<option value="2020661700007" selected>2020661700007 - asistencia y atención integral a la población vulnerable del municipio de dosquebradas, risaralda  dos quebradas</option>
+									@else
+										<option value="2020661700007">2020661700007 - asistencia y atención integral a la población vulnerable del municipio de dosquebradas, risaralda  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700008")
+										<option value="2020661700008" selected>2020661700008 - mejoramiento de la gestión institucional y el desarrollo del talento humano en el municipio de   dos quebradas</option>
+									@else
+										<option value="2020661700008">2020661700008 - mejoramiento de la gestión institucional y el desarrollo del talento humano en el municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700010")
+										<option value="2020661700010" selected>2020661700010 - fortalecimiento tecnológico de la administración al servicio de la ciudadanía en el municipio de   dos quebradas</option>
+									@else
+										<option value="2020661700010">2020661700010 - fortalecimiento tecnológico de la administración al servicio de la ciudadanía en el municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700013")
+										<option value="2020661700013" selected>2020661700013 - implementación de estrategias para el mejoramiento de la productividad y competitividad del sector rural del municipio de  dos quebradas</option>
+									@else
+										<option value="2020661700013">2020661700013 - implementación de estrategias para el mejoramiento de la productividad y competitividad del sector rural del municipio de  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700014")
+										<option value="2020661700014" selected>2020661700014 - implementación de acciones para la gestión ambiental sostenible e inclusiva en el municipio de  dos quebradas</option>
+									@else
+										<option value="2020661700014">2020661700014 - implementación de acciones para la gestión ambiental sostenible e inclusiva en el municipio de  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700019")
+										<option value="2020661700019" selected>2020661700019 - fortalecimiento a la gestión jurídica de la defensa judicial y de la gestión de la contratación del municipio de  dos quebradas</option>
+									@else
+										<option value="2020661700019">2020661700019 - fortalecimiento a la gestión jurídica de la defensa judicial y de la gestión de la contratación del municipio de  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700020")
+										<option value="2020661700020" selected>2020661700020 - fortalecimiento  de las capacidades institucionales de la dirección socioeconómica en la secretaría de planeación del municipio de  dos quebradas</option>
+									@else
+										<option value="2020661700020">2020661700020 - fortalecimiento  de las capacidades institucionales de la dirección socioeconómica en la secretaría de planeación del municipio de  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700021")
+										<option value="2020661700021" selected>2020661700021 - fortalecimiento del sistema de gestión de la alcaldía de  dos quebradas</option>
+									@else
+										<option value="2020661700021">2020661700021 - fortalecimiento del sistema de gestión de la alcaldía de  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700022")
+										<option value="2020661700022" selected>2020661700022 - fortalecimiento proceso de gestion del riesgo  dos quebradas</option>
+									@else
+										<option value="2020661700022">2020661700022 - fortalecimiento proceso de gestion del riesgo  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700023")
+										<option value="2020661700023" selected>2020661700023 - implementación de los programas de educación física, deporte, recreación y actividad física en el municipio de   dos quebradas</option>
+									@else
+										<option value="2020661700023">2020661700023 - implementación de los programas de educación física, deporte, recreación y actividad física en el municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700024")
+										<option value="2020661700024" selected>2020661700024 - administración de la ejecución, vigilancia y control de la salud pública en  dos quebradas</option>
+									@else
+										<option value="2020661700024">2020661700024 - administración de la ejecución, vigilancia y control de la salud pública en  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700025")
+										<option value="2020661700025" selected>2020661700025 - administración de los recursos del régimen subsidiado de dos quebradas</option>
+									@else
+										<option value="2020661700025">2020661700025 - administración de los recursos del régimen subsidiado de dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700026")
+										<option value="2020661700026" selected>2020661700026 - generación de servicios públicos para la competitividad y el bienestar de todos en el municipio de   dos quebradas</option>
+									@else
+										<option value="2020661700026">2020661700026 - generación de servicios públicos para la competitividad y el bienestar de todos en el municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700027")
+										<option value="2020661700027" selected>2020661700027 - generación del desarrollo ordenado, planificado y dinámico del territorio del municipio de  dos quebradas</option>
+									@else
+										<option value="2020661700027">2020661700027 - generación del desarrollo ordenado, planificado y dinámico del territorio del municipio de  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700028")
+										<option value="2020661700028" selected>2020661700028 - mejoramiento  de los procesos educativos en calidad, cobertura, permanencia y eficiencia en el servicio educativo del municipio de dosquebradas  dos quebradas</option>
+									@else
+										<option value="2020661700028">2020661700028 - mejoramiento  de los procesos educativos en calidad, cobertura, permanencia y eficiencia en el servicio educativo del municipio de dosquebradas  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2021661700004")
+										<option value="2021661700004" selected>2021661700004 - fortalecimiento del desarrollo artístico y cultural en el municipio de   dos quebradas</option>
+									@else
+										<option value="2021661700004">2021661700004 - fortalecimiento del desarrollo artístico y cultural en el municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2021661700013")
+										<option value="2021661700013" selected>2021661700013 - apoyo  financiero para la construcción de la planta de tratamiento de aguas residuales para las ciudades de dos quebradas - pereira,   dos quebradas</option>
+									@else
+										<option value="2021661700013">2021661700013 - apoyo  financiero para la construcción de la planta de tratamiento de aguas residuales para las ciudades de dos quebradas - pereira,   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2021661700015")
+										<option value="2021661700015" selected>2021661700015 - implementación  de los programas de educación física, deporte, recreación y actividad física en el municipio de   dos quebradas</option>
+									@else
+										<option value="2021661700015">2021661700015 - implementación  de los programas de educación física, deporte, recreación y actividad física en el municipio de   dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2021661700016")
+										<option value="2021661700016" selected>2021661700016 - administración de los recursos de aseguramiento y prestación integral de servicios de salud en el municipio de    dos quebradas</option>
+									@else
+										<option value="2021661700016">2021661700016 - administración de los recursos de aseguramiento y prestación integral de servicios de salud en el municipio de    dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2021661700017")
+										<option value="2021661700017" selected>2021661700017 - administración de la ejecución, vigilancia y control de la salud pública en  dos quebradas</option>
+									@else
+										<option value="2021661700017">2021661700017 - administración de la ejecución, vigilancia y control de la salud pública en  dos quebradas</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2021661700018")
+										<option value="2021661700018" selected>2021661700018 - generación del desarrollo ordenado, planificado y dinámico del territorio del municipio  dos quebradas</option>
+									@else
+										<option value="2021661700018">2021661700018 - generación del desarrollo ordenado, planificado y dinámico del territorio del municipio  dos quebradas</option>
+									@endif
+								</select> 
+							</div>
 						</div>
-					</div>
 
-					<div class="form-group" style="background-color: #C1E2F7;">
-						<label for="n2022_producto_actividad_proyectos" class="negrita">Producto o actividad relacionada del proyecto</label> 
-						<div>
-							<input class="form-control" placeholder="Producto o actividad0..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
+						<div class="form-group" style="background-color: #C1E2F7;">
+							<label for="n2022_producto_actividad_proyectos" class="negrita">Producto o actividad relacionada del proyecto</label> 
+							<div>
+								<input value="{{ $planaccion->n2022_producto_actividad_proyectos }}" class="form-control" placeholder="Producto o actividad0..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
+							</div>
 						</div>
-					</div>
 
-					<hr>
- 
- 
-				@if((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-					<button type="submit" class="btn btn-info">Inscribir</button>
-				@endif
+						<hr>
+	
+	
+					@if((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+						<button type="submit" class="btn btn-info">Guardar cambios</button>
+					@endif
 
-				<a href="{{ URL::previous() }}" class="btn btn-warning">Cancelar</a>
- 
-				<br>
-				<br>
- 
-			</div>
-		</section>
+					<a href="{{ URL::previous() }}" class="btn btn-warning">Cancelar</a>
+	
+					<br>
+					<br>
+	
+				</div>
+			</section>
+		</div>
 	</div>
-</div>
+
+<!-- NO Existe un registro por lo tanto esta en modo CREATE -->
+@else 
+
+	<div class="row">
+		<div class="col-md-12">
+			<section class="panel"> 
+				<div class="panel-body">
+	
+
+						<div class="form-group">
+							<label for="descripcion" class="negrita">Descripcion</label> 
+							<div>
+								<input class="form-control" placeholder="Breve desripcion de la accion..." required="required" name="descripcion" type="text" id="descripcion"> 
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="kpi" class="negrita">KPI (Indicador clave de rendimiento)</label> 
+							<div>
+								<input class="form-control" placeholder="Unidad de medida de rendimiento (Vacunas, proyectos, reuniones, kilometros pavimentados, etc)..." required="required" name="kpi" type="text" id="kpi"> 
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="objetivo" class="negrita">Valor objetivo KPI</label> 
+							<div>
+								<input class="form-control" placeholder="Valor a realizar respecto al KPI..." required="required" name="objetivo" type="number" min="1" id="objetivo"> 
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="ponderacion" class="negrita">Peso ponderado entre el 1 y el 100 %</label> 
+							<div>
+								<input class="form-control" placeholder="Indique el peso porcentual asignado a esta accion..." required="required" name="ponderacion" type="number" min="0" max="100" id="ponderacion"> 
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_converge_politica_publica" class="negrita">Alineacion | Politica publica</label> 
+							<div>
+								<select class="form-control" name="n2022_converge_politica_publica">
+									<option value="no" selected>No aplica</option>
+									<option value="1-Equidad de genero">Politica pública municipal de Equidad de Genero</option>
+									<option value="2-Discapacidad">Politica pública municipal de Discapacidad</option>
+									<option value="3-Juventudes">Politica pública municipal de Juventudes</option>
+									<option value="4-Migrados">Politica pública municipal de Migrados</option>
+									<option value="5-Adulto Mayor">Politica pública municipal del Adulto Mayor</option>
+									<option value="6-Primera Infancia, Infancia y Adolescencia">Politica pública municipal de Primera Infancia, Infancia y Adolescencia</option>
+									<option value="7-Victimas del conflicto armado">Política pública municipal Victimas del Conflicto Armado</option>
+									<option value="8-Presupuesto participativo">Política pública municipal de Presupuesto Participativo</option>
+									<option value="9-Seguridad y Convivencia Ciudadana">Política pública municipal de Seguridad y Convivencia Ciudadana</option>
+
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_converge_pgirs" class="negrita">Alineacion | PGIRS</label> 
+							<div>
+								<select class="form-control" name="n2022_converge_pgirs">
+									<option value="no" selected>No aplica</option>
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_converge_gestion_riesgo" class="negrita">Alineacion | Gestion del riesgo</label> 
+							<div>
+								<select class="form-control" name="n2022_converge_gestion_riesgo">
+									<option value="no" selected>No aplica</option>
+									<option value="Programa 1.1">Programa 1.1. Conocimiento y evaluación de los riesgos de origen natural, socio-natural, tecnológico y humano no intencional</option>
+									<option value="Programa 1.2">Programa 1.2. Adelantar los estudios y construcción de los mapas de amenaza, identificando los peligros de origen natural, socio natural, tecnológico y humano no intencional, así como estudios sobre exposición y vulnerabilidad</option>
+									<option value="Programa 1.3">Programa 1.3. Implementar y fortalecer los servicios de vigilancia y alerta temprana que permitan monitorear el comportamiento de los factores generadores de riesgo en el territorio municipal</option>
+									<option value="Programa 2.1">Programa 2.1. Incorporación de la gestión del riesgo y medidas de adaptación al cambio climático en el POT y planes de desarrollo municipal y sectoriales</option>
+									<option value="Programa 2.2">Programa 2.2. Reducción y mitigación del riesgo sectorial y territorial</option>
+									<option value="Programa 3.1">Programa 3.1. Formulación, actualización, preparación y seguimiento de la estrategia municipal para la respuesta a emergencias (EMRE)</option>
+									<option value="Programa 3.2">Programa 3.2. Preparación para la recuperación y rehabilitación de zonas afectadas por desastres</option>
+									<option value="Programa 3.3">Programa 3.3. Fortalecimiento de los organismos de socorro y del consejo municipal para la gestión del riesgo de desastres</option>
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_converge_mipg" class="negrita">Alineacion | MIPG</label> 
+							<div>
+								<select class="form-control" name="n2022_converge_mipg">
+									<option value="no" selected>No aplica</option>
+									<option value="1-Política de Gestión Estratégica del Talento Humano GETH">Política de Gestión Estratégica del Talento Humano GETH</option>
+									<option value="2-Política de Integridad">Política de Integridad</option>
+									<option value="3-Política de Planeación Institucional">Política de Planeación Institucional</option>
+									<option value="4-Política de Gestion Presupuestal y Eficiencia del Gasto Público">Política de Gestion Presupuestal y Eficiencia del Gasto Público</option>
+									<option value="5-Política Gobierno Digital">Política Gobierno Digital</option>
+									<option value="6-Política Seguridad Digital">Política Seguridad Digital</option>
+									<option value="7-Política de Defensa Juridica">Política de Defensa Juridica</option>
+									<option value="8-Política de Servicio al ciudadano">Política de Servicio al ciudadano</option>
+									<option value="9-Política de Racionalizacion de Tramites">Política de Racionalizacion de Tramites</option>
+									<option value="10-Política de Participacion Ciudadana en la Gestion Publica">Política de Participacion Ciudadana en la Gestion Publica</option>
+									<option value="11-Política de fortalecimiento organizacional y simplicación de procesos">Política de fortalecimiento organizacional y simplicación de procesos</option>
+									<option value="12-Política de Seguimiento y Evaluación del Desempeño Institucional">Política de Seguimiento y Evaluación del Desempeño Institucional</option>
+									<option value="13-Política de Gestión Documental">Política de Gestión Documental</option>
+									<option value="14-Política de Transparencia, acceso a la información pública y lucha contra la corrupción">Política de Transparencia, acceso a la información pública y lucha contra la corrupción</option>
+									<option value="15-Política de Gestión del Conocimiento y la Innovación">Política de Gestión del Conocimiento y la Innovación</option>
+									<option value="16-Política de Control Interno">Política de Control Interno</option>
+									<option value="17-Política de información estadística">Política de información estadística</option>
+									<option value="18-Política de mejora normativa">Política de mejora normativa</option>
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_ods" class="negrita">Alineacion | ODS objetivos del desarrollo sostenible</label> 
+							<div>
+								<select class="form-control" name="n2022_ods">
+									<option value="no" selected>No aplica</option>
+									<option value="1-ODS">Objetivo 1: Poner fin a la pobreza en todas sus formas en todo el mundo</option>
+									<option value="2-ODS">Objetivo 2: Poner fin al hambre, lograr la seguridad alimentaria y la mejora de la nutrición y promover la agricultura sostenible</option>
+									<option value="3-ODS">Objetivo 3: Garantizar una vida sana y promover el bienestar para todos en todas las edades</option>
+									<option value="4-ODS">Objetivo 4: Garantizar una educación inclusiva, equitativa y de calidad y promover oportunidades de aprendizaje durante toda la vida para todo</option>
+									<option value="5-ODS">Objetivo 5: Lograr la igualdad entre los géneros y empoderar a todas las mujeres y las niñas</option>
+									<option value="6-ODS">Objetivo 6: Garantizar la disponibilidad de agua y su gestión sostenible y el saneamiento para todos</option>
+									<option value="7-ODS">Objetivo 7: Garantizar el acceso a una energía asequible, segura, sostenible y moderna para todos</option>
+									<option value="8-ODS">Objetivo 8: Promover el crecimiento económico sostenido, inclusivo y sostenible, el empleo pleno y productivo y el trabajo decente para todos</option>
+									<option value="9-ODS">Objetivo 9: Construir infraestructuras resilientes, promover la industrialización inclusiva y sostenible y fomentar la innovación</option>
+									<option value="10-ODS">Objetivo 10: Reducir la desigualdad en y entre los países</option>
+									<option value="11-ODS">Objetivo 11: Lograr que las ciudades y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles</option>
+									<option value="12-ODS">Objetivo 12: Garantizar modalidades de consumo y producción sostenibles</option>
+									<option value="13-ODS">Objetivo 13: Adoptar medidas urgentes para combatir el cambio climático y sus efectos</option>
+									<option value="14-ODS">Objetivo 14: Conservar y utilizar en forma sostenible los océanos, los mares y los recursos marinos para el desarrollo sostenible</option>
+									<option value="15-ODS">Objetivo 15: Proteger, restablecer y promover el uso sostenible de los ecosistemas terrestres, gestionar los bosques de forma sostenible, luchar contra la desertificación, detener e invertir la degradación de las tierras y poner freno a la pérdida de la diversidad biológica</option>
+									<option value="16-ODS">Objetivo 16: Promover sociedades pacíficas e inclusivas para el desarrollo sostenible, facilitar el acceso a la justicia para todos y crear instituciones eficaces, responsables e inclusivas a todos los niveles</option>
+									<option value="17-ODS">Objetivo 17: Fortalecer los medios de ejecución y revitalizar la Alianza Mundial para el Desarrollo Sostenible</option>
+								</select> 
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="form-group" style="background-color: #C1E2F7;">
+							<label for="n2022_recursos" class="negrita">Recursos asignados para esta accion</label> 
+							<div>
+								<input class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos" type="text" min="0" id="number" style="font-size: 20px;"> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #C1E2F7;">
+							<label for="n2022_fuente" class="negrita">Fuente de los recursos</label> 
+							<div>
+								<select class="form-control" name="n2022_fuente">
+									<option value="0" selected>No aplica</option>
+									<option value="1">Recursos por funcionamiento</option>
+									<option value="2">Recursos por gestión</option>
+									<option value="3">IDM | Propios | Otras fuentes</option>
+									<option value="4">Bomberos | Propios | Otras fuentes</option>
+									<option value="5">Serviciudad | Propios | Otras fuentes</option>
+									<option value="1101">Recursos propios de libre destinacion</option>
+									<option value="1202">Multas de transito propios destinación especifica</option>
+									<option value="1205">Estampilla pro cultura propios destinación especif...</option>
+									<option value="1206">Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									<option value="1214">Estampilla pro bienestar del adulto mayor propios...</option>
+									<option value="1215">Impuesto de consumo al cigarrillo</option>
+									<option value="1216">Estampilla adulto mayor gobernacion</option>
+									<option value="1217">Contribución parafiscal</option>
+									<option value="1218">Código policía</option>
+									<option value="2101">SGP Educación prestación del servicio</option>
+									<option value="2102">Educación calidad</option>
+									<option value="2201">Fondo de salud</option>
+									<option value="2202">Salud oferta</option>
+									<option value="2203">SGP Salud publica</option>
+									<option value="2301">SGP Agua potable y saneamiento básico</option>
+									<option value="2302">SGP Deporte</option>
+									<option value="2303">SGP Cultura</option>
+									<option value="2304">SGP Alimentación escolar</option>
+									<option value="2305">SGP Propósito general</option>
+									<option value="2306">SGP Primera infancia</option>
+									<option value="3101">Fondo de seguridad</option>
+									<option value="3201">Áreas de cesión</option>
+									<option value="3301">Fondo de solidaridad y redistribución ingreso</option>
+									<option value="3401">Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									<option value="4102">Convenios salud</option>
+									<option value="4106">Presupuesto participativo</option>
+									<option value="4107">Convenios educación por liquidar</option>
+									<option value="4121">Fonpet educación</option>
+									<option value="4122">Fonpet propósito general</option>
+									<option value="4123">Fonpet otros sectores</option>
+									<option value="4124">Convenio Fonade</option>
+									<option value="4127">Residuos solidos</option>
+									<option value="4201">Etesa</option>
+									<option value="4303">Regalías régimen anterior</option>
+									<option value="4501">Empréstito malla vial</option>
+									<option value="4506">Donaciones</option>
+									<option value="4508">Rendimiento propios</option>
+									<option value="4601">Convenio estratificacion</option>
+								</select> 
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_codigo_fut" class="negrita">Codigo FUT</label> 
+							<div>
+								<select class="form-control" name="n2022_codigo_fut">
+									<option value="no" selected>No aplica</option>
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #C9F7C1;">
+							<label for="n2022_sector" class="negrita">Sector</label> 
+							<div>
+								<select class="form-control" name="n2022_sector">
+									<option value="no" selected>No aplica</option>
+									<option value="INFORMACIÓN ESTADÍSTICA">04-INFORMACIÓN ESTADÍSTICA</option>
+									<option value="JUSTICIA Y DEL DERECHO">12-JUSTICIA Y DEL DERECHO</option>
+									<option value="AGRICULTURA Y DESARROLLO RURAL">17-AGRICULTURA Y DESARROLLO RURAL</option>
+									<option value="SALUD Y PROTECCIÓN SOCIAL">19-SALUD Y PROTECCIÓN SOCIAL</option>
+									<option value="MINAS Y ENERGÍA">21-MINAS Y ENERGÍA</option>
+									<option value="EDUCACIÓN">22-EDUCACIÓN</option>
+									<option value="TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
+									<option value="TRANSPORTE">24-TRANSPORTE</option>
+									<option value="ORGANISMOS DE CONTROL">25-ORGANISMOS DE CONTROL</option>
+									<option value="AMBIENTE Y DESARROLLO SOSTENIBLE">32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
+									<option value="CULTURA">33-CULTURA</option>
+									<option value="COMERCIO, INDUSTRIA Y TURISMO">35-COMERCIO, INDUSTRIA Y TURISMO</option>
+									<option value="TRABAJO">36-TRABAJO</option>
+									<option value="CIENCIA, TECNOLOGÍA E INNOVACIÓN">39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
+									<option value="VIVIENDA, CIUDAD Y TERRITORIO">40-VIVIENDA, CIUDAD Y TERRITORIO</option>
+									<option value="INCLUSIÓN SOCIAL Y RECONCILIACIÓN">41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
+									<option value="DEPORTE Y RECREACIÓN">43-DEPORTE Y RECREACIÓN</option>
+									<option value="GOBIERNO TERRITORIAL">45-GOBIERNO TERRITORIAL</option>
+								</select> 
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="form-group" style="background-color: #C1E2F7;">
+							<label for="n2022_codigo_bpim" class="negrita">Codigo BPIM</label> 
+							<div>
+								<select class="form-control" name="n2022_codigo_bpim">
+									<option value="no" selected>No aplica</option>
+									<option value="2020661700002">2020661700002 - fortalecimiento de la seguridad,convivencia y participación ciudadana, en el municipio   dos quebradas</option>
+									<option value="2020661700003">2020661700003 - fortalecimiento de la movilidad y seguridad vial en el municipio de   dos quebradas</option>
+									<option value="2020661700004">2020661700004 - fortalecimiento de la economía local  como territorio empresarial y competitivo en el municipio de   dos quebradas</option>
+									<option value="2020661700005">2020661700005 - construcción adecuación y mejoramiento de la infraestructura física y de transporte del municipio de   dos quebradas</option>
+									<option value="2020661700006">2020661700006 - mejoramiento  de la gestión tributaria, financiera y desempeño fiscal de la secretaría de hacienda y finanzas públicas del  municipio de  dos quebradas</option>
+									<option value="2020661700007">2020661700007 - asistencia y atención integral a la población vulnerable del municipio de dosquebradas, risaralda  dos quebradas</option>
+									<option value="2020661700008">2020661700008 - mejoramiento de la gestión institucional y el desarrollo del talento humano en el municipio de   dos quebradas</option>
+									<option value="2020661700010">2020661700010 - fortalecimiento tecnológico de la administración al servicio de la ciudadanía en el municipio de   dos quebradas</option>
+									<option value="2020661700013">2020661700013 - implementación de estrategias para el mejoramiento de la productividad y competitividad del sector rural del municipio de  dos quebradas</option>
+									<option value="2020661700014">2020661700014 - implementación de acciones para la gestión ambiental sostenible e inclusiva en el municipio de  dos quebradas</option>
+									<option value="2020661700019">2020661700019 - fortalecimiento a la gestión jurídica de la defensa judicial y de la gestión de la contratación del municipio de  dos quebradas</option>
+									<option value="2020661700020">2020661700020 - fortalecimiento  de las capacidades institucionales de la dirección socioeconómica en la secretaría de planeación del municipio de  dos quebradas</option>
+									<option value="2020661700021">2020661700021 - fortalecimiento del sistema de gestión de la alcaldía de  dos quebradas</option>
+									<option value="2020661700022">2020661700022 - fortalecimiento proceso de gestion del riesgo  dos quebradas</option>
+									<option value="2020661700023">2020661700023 - implementación de los programas de educación física, deporte, recreación y actividad física en el municipio de   dos quebradas</option>
+									<option value="2020661700024">2020661700024 - administración de la ejecución, vigilancia y control de la salud pública en  dos quebradas</option>
+									<option value="2020661700025">2020661700025 - administración de los recursos del régimen subsidiado de dos quebradas</option>
+									<option value="2020661700026">2020661700026 - generación de servicios públicos para la competitividad y el bienestar de todos en el municipio de   dos quebradas</option>
+									<option value="2020661700027">2020661700027 - generación del desarrollo ordenado, planificado y dinámico del territorio del municipio de  dos quebradas</option>
+									<option value="2020661700028">2020661700028 - mejoramiento  de los procesos educativos en calidad, cobertura, permanencia y eficiencia en el servicio educativo del municipio de dosquebradas  dos quebradas</option>
+									<option value="2021661700004">2021661700004 - fortalecimiento del desarrollo artístico y cultural en el municipio de   dos quebradas</option>
+									<option value="2021661700013">2021661700013 - apoyo  financiero para la construcción de la planta de tratamiento de aguas residuales para las ciudades de dos quebradas - pereira,   dos quebradas</option>
+									<option value="2021661700015">2021661700015 - implementación  de los programas de educación física, deporte, recreación y actividad física en el municipio de   dos quebradas</option>
+									<option value="2021661700016">2021661700016 - administración de los recursos de aseguramiento y prestación integral de servicios de salud en el municipio de    dos quebradas</option>
+									<option value="2021661700017">2021661700017 - administración de la ejecución, vigilancia y control de la salud pública en  dos quebradas</option>
+									<option value="2021661700018">2021661700018 - generación del desarrollo ordenado, planificado y dinámico del territorio del municipio  dos quebradas</option>
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #C1E2F7;">
+							<label for="n2022_producto_actividad_proyectos" class="negrita">Producto o actividad relacionada del proyecto</label> 
+							<div>
+								<input class="form-control" placeholder="Producto o actividad0..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
+							</div>
+						</div>
+
+						<hr>
+	
+	
+					@if((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+						<button type="submit" class="btn btn-info">Inscribir</button>
+					@endif
+
+					<a href="{{ URL::previous() }}" class="btn btn-warning">Cancelar</a>
+	
+					<br>
+					<br>
+	
+				</div>
+			</section>
+		</div>
+	</div>
+
+@endif

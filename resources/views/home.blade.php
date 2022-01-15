@@ -66,7 +66,7 @@
                                     <!-- Opcion temporal en ENERO para construir plan de accion de la nueva vigencia -->
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                         @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/planaccionconstruir2022?filtroSecretaria=' . $aux) }}"><b>Construir de plan accion</b></a></li>
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/planaccionconstruir2022?filtroSecretaria=' . $aux) }}"><b>Construccion plan accion</b></a></li>
                                     @endif
                                     <!-- Fin opcion temporal construccion plan de accion -->
 

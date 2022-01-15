@@ -94,7 +94,7 @@
                       </tr>
 
                       <tr>
-                        <td style="width:5%">{{$Nivel4->nivel3->nivel2->nivel1->numeral}}.{{$Nivel4->nivel3->nivel2->numeral}}.{{$Nivel4->nivel3->numeral}}.{{$Nivel4->numeral}}</td>
+                        <td style="width:5%;font-size:28px;"><b>{{$Nivel4->numeral}}</b></td>
                         <td style="width:20%">{{$Nivel4->nombre}}</td>
 
                         <!-- Busca INDICADORES relacionados con el NIVEL4 -->
@@ -165,9 +165,10 @@
                       <tr>
                         <td style="width:5%;" colspan="1"></td>
                         <td style="width:95%;" colspan="8">
-                          <table id="mytable" class="table table-bordered table-dark">
+                          <table id="mytable" class="table table-bordered" style="background-color: #EBF5FB;">
                             <tr>
-                              <th style="width:75%;">Accion</th>
+                              <th style="width:10%;">Opciones</th>
+                              <th style="width:65%;">Accion</th>
                               <th style="width:10%;">KPI</th>
                               <th style="width:5%;">Objetivo</th>
                               <th style="width:10%;">Ponderacion</th>
@@ -185,9 +186,19 @@
                                       @if($accion->plan_indicativo_id == $indicativo->id)
 
                                         <tr>
-                                          <td style="width:30%;font-size:11px;">{{$accion->descripcion}}</td>
-                                          <td style="width:25%;font-size:11px;">{{$accion->kpi}}</td>
-                                          <td style="width:15%;font-size:11px;">{{$accion->objetivo}}</td>
+                                          <td style="width:10%;font-size:11px;">
+                                            <form action="{{ route('acciones.destroy',$accion->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                                              <input type="hidden" name="_method" value="DELETE">
+                                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                              <input type="hidden" name="nivel4_id" value="{{ $Nivel4->id }}">
+
+                                              <a href="{{ route('acciones.edit',$accion->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
+                                              <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
+                                            </form>
+                                          </td>
+                                          <td style="width:65%;font-size:11px;">{{$accion->descripcion}}</td>
+                                          <td style="width:10%;font-size:11px;">{{$accion->kpi}}</td>
+                                          <td style="width:5%;font-size:11px;">{{$accion->objetivo}}</td>
                                           <td style="width:10%;font-size:11px;">{{$accion->ponderacion * 100}} %</td>
 
                                           <!-- Numero de acciones inscritas - Agrupado por consulta general -->
@@ -208,13 +219,14 @@
 
                             <!-- Mostrar totales al final de cada Tabla que conforma un plan de accion -->
                             <tr>
-                              <th style="width:30%;"></th>
-                              <th style="width:25%;"></th>
-                              <th style="width:15%;"></th>
+                              <th style="width:10%;"></th>
+                              <th style="width:65%;"></th>
+                              <th style="width:10%;"></th>
+                              <th style="width:5%;"></th>
                               @if ( round($acumPonderadoAccion,2) == 1 ) <!-- Sumas a 100% -->
-                                <th style="width:10%;background:rgb(205, 250, 180);">{{ round($acumPonderadoAccion,2) * 100 }} %</th>
+                                <th style="width:10%;background:rgb(0, 161, 53);color:#ffffff;font-size:20px;">{{ round($acumPonderadoAccion,2) * 100 }} %</th>
                               @else
-                                <th style="width:10%;background:rgb(252, 188, 188);">{{ round($acumPonderadoAccion,2) * 100 }} %</th>
+                                <th style="width:10%;background:rgb(204, 6, 5);color:#ffffff;font-size:20px;">{{ round($acumPonderadoAccion,2) * 100 }} %</th>
                               @endif
                             </tr>
                             <!-- Fin tabla totales -->
@@ -224,6 +236,7 @@
                       </tr>
 
                       <tr><td colspan="10"></td></tr>
+
                      @endforeach 
 
                      
@@ -235,6 +248,17 @@
                   </table>
                 </td>
               </tr>
+
+              <!-- Boton para salir de vista simplificada y volver al listado -->
+              <tr>
+                <td>
+                  <div class="pull-right">
+                    @php ($aux = Auth::user()->oficina_id) @endphp
+                    <a href="{{ url('/planaccionconstruir2022?filtroSecretaria=' . $aux)  }}"> <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-list"></span> Volver al listado</button></a>
+                  </div>
+                </td>
+              </tr>
+              <!-- Fin boton de volver al listado -->
 
               <tr>
                 <td><h4><b>{{ $acumAccionesGeneral }}</b> | Acciones</h4></td>
