@@ -515,261 +515,261 @@
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1")
-										<option value="1" selected>Recursos por funcionamiento</option>
+										<option value="1" selected>1 - Recursos por funcionamiento</option>
 									@else
-										<option value="1">Recursos por funcionamiento</option>
+										<option value="1">1 - Recursos por funcionamiento</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2")
-										<option value="2" selected>Recursos por gestión</option>
+										<option value="2" selected>2 - Recursos por gestión</option>
 									@else
-										<option value="2">Recursos por gestión</option>
+										<option value="2">2 - Recursos por gestión</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "3")
-										<option value="3" selected>IDM | Propios | Otras fuentes</option>
+										<option value="3" selected>3 - IDM | Propios | Otras fuentes</option>
 									@else
-										<option value="3">IDM | Propios | Otras fuentes</option>
+										<option value="3">3 - IDM | Propios | Otras fuentes</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4")
-										<option value="4" selected>Bomberos | Propios | Otras fuentes</option>
+										<option value="4" selected>4 - Bomberos | Propios | Otras fuentes</option>
 									@else
-										<option value="4">Bomberos | Propios | Otras fuentes</option>
+										<option value="4">4 - Bomberos | Propios | Otras fuentes</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "5")
-										<option value="5" selected>Serviciudad | Propios | Otras fuentes</option>
+										<option value="5" selected>5 - Serviciudad | Propios | Otras fuentes</option>
 									@else
-										<option value="5">Serviciudad | Propios | Otras fuentes</option>
+										<option value="5">5 - Serviciudad | Propios | Otras fuentes</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1101")
-										<option value="1101" selected>Recursos propios de libre destinacion</option>
+										<option value="1101" selected>1101 - Recursos propios de libre destinacion</option>
 									@else
-										<option value="1101">Recursos propios de libre destinacion</option>
+										<option value="1101">1101 - Recursos propios de libre destinacion</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1202")
-										<option value="1202" selected>Multas de transito propios destinación especifica</option>
+										<option value="1202" selected>1202 - Multas de transito propios destinación especifica</option>
 									@else
-										<option value="1202">Multas de transito propios destinación especifica</option>
+										<option value="1202">1202 - Multas de transito propios destinación especifica</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1205")
-										<option value="1205" selected>Estampilla pro cultura propios destinación especif...</option>
+										<option value="1205" selected>1205 - Estampilla pro cultura propios destinación especif...</option>
 									@else
-										<option value="1205">Estampilla pro cultura propios destinación especif...</option>
+										<option value="1205">1205 - Estampilla pro cultura propios destinación especif...</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1206")
-										<option value="1206" selected>Rendimientos sobre tasa gasolina- Pago contratos...</option>
+										<option value="1206" selected>1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
 									@else
-										<option value="1206">Rendimientos sobre tasa gasolina- Pago contratos...</option>
+										<option value="1206">1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1214")
-										<option value="1214" selected>Estampilla pro bienestar del adulto mayor propios...</option>
+										<option value="1214" selected>1214 - Estampilla pro bienestar del adulto mayor propios...</option>
 									@else
-										<option value="1214">Estampilla pro bienestar del adulto mayor propios...</option>
+										<option value="1214">1214 - Estampilla pro bienestar del adulto mayor propios...</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1215")
-										<option value="1215" selected>Impuesto de consumo al cigarrillo</option>
+										<option value="1215" selected>1215 - Impuesto de consumo al cigarrillo</option>
 									@else
-										<option value="1215">Impuesto de consumo al cigarrillo</option>
+										<option value="1215">1215 - Impuesto de consumo al cigarrillo</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1216")
-										<option value="1216" selected>Estampilla adulto mayor gobernacion</option>
+										<option value="1216" selected>1216 - Estampilla adulto mayor gobernacion</option>
 									@else
-										<option value="1216">Estampilla adulto mayor gobernacion</option>
+										<option value="1216">1216 - Estampilla adulto mayor gobernacion</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1217")
-										<option value="1217" selected>Contribución parafiscal</option>
+										<option value="1217" selected>1217 - Contribución parafiscal</option>
 									@else
-										<option value="1217">Contribución parafiscal</option>
+										<option value="1217">1217 - Contribución parafiscal</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "1218")
-										<option value="1218" selected>Código policía</option>
+										<option value="1218" selected>1218 - Código policía</option>
 									@else
-										<option value="1218">Código policía</option>
+										<option value="1218">1218 - Código policía</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2101")
-										<option value="2101" selected>SGP Educación prestación del servicio</option>
+										<option value="2101" selected>2101 - SGP Educación prestación del servicio</option>
 									@else
-										<option value="2101">SGP Educación prestación del servicio</option>
+										<option value="2101">2101 - SGP Educación prestación del servicio</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2102")
-										<option value="2102" selected>Educación calidad</option>
+										<option value="2102" selected>2102 - Educación calidad</option>
 									@else
-										<option value="2102">Educación calidad</option>
+										<option value="2102">2102 - Educación calidad</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2201")
-										<option value="2201" selected>Fondo de salud</option>
+										<option value="2201" selected>2201 - Fondo de salud</option>
 									@else
-										<option value="2201">Fondo de salud</option>
+										<option value="2201">2201 - Fondo de salud</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2202")
-										<option value="2202" selected>Salud oferta</option>
+										<option value="2202" selected>2202 - Salud oferta</option>
 									@else
-										<option value="2202">Salud oferta</option>
+										<option value="2202">2202 - Salud oferta</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2203")
-										<option value="2203" selected>SGP Salud publica</option>
+										<option value="2203" selected>2203 - SGP Salud publica</option>
 									@else
-										<option value="2203">SGP Salud publica</option>
+										<option value="2203">2203 - SGP Salud publica</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2301")
-										<option value="2301" selected>SGP Agua potable y saneamiento básico</option>
+										<option value="2301" selected>2301 - SGP Agua potable y saneamiento básico</option>
 									@else
-										<option value="2301">SGP Agua potable y saneamiento básico</option>
+										<option value="2301">2301 - SGP Agua potable y saneamiento básico</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2302")
-										<option value="2302" selected>SGP Deporte</option>
+										<option value="2302" selected>2302 - SGP Deporte</option>
 									@else
-										<option value="2302">SGP Deporte</option>
+										<option value="2302">2302 - SGP Deporte</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2303")
-										<option value="2303" selected>SGP Cultura</option>
+										<option value="2303" selected>2303 - SGP Cultura</option>
 									@else
-										<option value="2303">SGP Cultura</option>
+										<option value="2303">2303 - SGP Cultura</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2304")
-										<option value="2304" selected>SGP Alimentación escolar</option>
+										<option value="2304" selected>2304 - SGP Alimentación escolar</option>
 									@else
-										<option value="2304">SGP Alimentación escolar</option>
+										<option value="2304">2304 - SGP Alimentación escolar</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2305")
-										<option value="2305" selected>SGP Propósito general</option>
+										<option value="2305" selected>2305 - SGP Propósito general</option>
 									@else
-										<option value="2305">SGP Propósito general</option>
+										<option value="2305">2305 - SGP Propósito general</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "2306")
-										<option value="2306" selected>SGP Primera infancia</option>
+										<option value="2306" selected>2306 - SGP Primera infancia</option>
 									@else
-										<option value="2306">SGP Primera infancia</option>
+										<option value="2306">2306 - SGP Primera infancia</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "3101")
-										<option value="3101" selected>Fondo de seguridad</option>
+										<option value="3101" selected>3101 - Fondo de seguridad</option>
 									@else
-										<option value="3101">Fondo de seguridad</option>
+										<option value="3101">3101 - Fondo de seguridad</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "3201")
-										<option value="3201" selected>Áreas de cesión</option>
+										<option value="3201" selected>3201 - Áreas de cesión</option>
 									@else
-										<option value="3201">Áreas de cesión</option>
+										<option value="3201">3101 - Áreas de cesión</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "3301")
-										<option value="3301" selected>Fondo de solidaridad y redistribución ingreso</option>
+										<option value="3301" selected>3301 - Fondo de solidaridad y redistribución ingreso</option>
 									@else
-										<option value="3301">Fondo de solidaridad y redistribución ingreso</option>
+										<option value="3301">3301 - Fondo de solidaridad y redistribución ingreso</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "3401")
-										<option value="3401" selected>Fondo multa incumplimiento a medidas de P. Violenc...</option>
+										<option value="3401" selected>3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
 									@else
-										<option value="3401">Fondo multa incumplimiento a medidas de P. Violenc...</option>
+										<option value="3401">3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4102")
-										<option value="4102" selected>Convenios salud</option>
+										<option value="4102" selected>4102 - Convenios salud</option>
 									@else
-										<option value="4102">Convenios salud</option>
+										<option value="4102">4102 - Convenios salud</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4106")
-										<option value="4106" selected>Presupuesto participativo</option>
+										<option value="4106" selected>4106 - Presupuesto participativo</option>
 									@else
-										<option value="4106">Presupuesto participativo</option>
+										<option value="4106">4106 - Presupuesto participativo</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4107")
-										<option value="4107" selected>Convenios educación por liquidar</option>
+										<option value="4107" selected>4107 - Convenios educación por liquidar</option>
 									@else
-										<option value="4107">Convenios educación por liquidar</option>
+										<option value="4107">4107 - Convenios educación por liquidar</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4121")
-										<option value="4121" selected>Fonpet educación</option>
+										<option value="4121" selected>4121 - Fonpet educación</option>
 									@else
-										<option value="4121">Fonpet educación</option>
+										<option value="4121">4121 - Fonpet educación</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4122")
-										<option value="4122" selected>Fonpet propósito general</option>
+										<option value="4122" selected>4122 - Fonpet propósito general</option>
 									@else
-										<option value="4122">Fonpet propósito general</option>
+										<option value="4122">4122 - Fonpet propósito general</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4123")
-										<option value="4123" selected>Fonpet otros sectores</option>
+										<option value="4123" selected>4123 - Fonpet otros sectores</option>
 									@else
-										<option value="4123">Fonpet otros sectores</option>
+										<option value="4123">4123 - Fonpet otros sectores</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4124")
-										<option value="4124" selected>Convenio Fonade</option>
+										<option value="4124" selected>4124 - Convenio Fonade</option>
 									@else
-										<option value="4124">Convenio Fonade</option>
+										<option value="4124">4124 - Convenio Fonade</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4127")
-										<option value="4127" selected>Residuos solidos</option>
+										<option value="4127" selected>4127 - Residuos solidos</option>
 									@else
-										<option value="4127">Residuos solidos</option>
+										<option value="4127">4127 - Residuos solidos</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4201")
-										<option value="4201" selected>Etesa</option>
+										<option value="4201" selected>4201 - Etesa</option>
 									@else
-										<option value="4201">Etesa</option>
+										<option value="4201">4201 - Etesa</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4303")
-										<option value="4303" selected>Regalías régimen anterior</option>
+										<option value="4303" selected>4303 - Regalías régimen anterior</option>
 									@else
-										<option value="4303">Regalías régimen anterior</option>
+										<option value="4303">4303 - Regalías régimen anterior</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4501")
-										<option value="4501" selected>Empréstito malla vial</option>
+										<option value="4501" selected>4501 - Empréstito malla vial</option>
 									@else
-										<option value="4501">Empréstito malla vial</option>
+										<option value="4501">4501 - Empréstito malla vial</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4506")
-										<option value="4506" selected>Donaciones</option>
+										<option value="4506" selected>4506 - Donaciones</option>
 									@else
-										<option value="4506">Donaciones</option>
+										<option value="4506">4506 - Donaciones</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4508")
-										<option value="4508" selected>Rendimiento propios</option>
+										<option value="4508" selected>4508 - Rendimiento propios</option>
 									@else
-										<option value="4508">Rendimiento propios</option>
+										<option value="4508">4508 - Rendimiento propios</option>
 									@endif
 
 									@if ($planaccion->n2022_fuente == "4601")
-										<option value="4601" selected>Convenio estratificacion</option>
+										<option value="4601" selected>4601 - Convenio estratificacion</option>
 									@else
-										<option value="4601">Convenio estratificacion</option>
+										<option value="4601">4601 - Convenio estratificacion</option>
 									@endif
 								</select> 
 							</div>
@@ -1270,49 +1270,49 @@
 							<div>
 								<select class="form-control" name="n2022_fuente">
 									<option value="0" selected>No aplica</option>
-									<option value="1">Recursos por funcionamiento</option>
-									<option value="2">Recursos por gestión</option>
-									<option value="3">IDM | Propios | Otras fuentes</option>
-									<option value="4">Bomberos | Propios | Otras fuentes</option>
-									<option value="5">Serviciudad | Propios | Otras fuentes</option>
-									<option value="1101">Recursos propios de libre destinacion</option>
-									<option value="1202">Multas de transito propios destinación especifica</option>
-									<option value="1205">Estampilla pro cultura propios destinación especif...</option>
-									<option value="1206">Rendimientos sobre tasa gasolina- Pago contratos...</option>
-									<option value="1214">Estampilla pro bienestar del adulto mayor propios...</option>
-									<option value="1215">Impuesto de consumo al cigarrillo</option>
-									<option value="1216">Estampilla adulto mayor gobernacion</option>
-									<option value="1217">Contribución parafiscal</option>
-									<option value="1218">Código policía</option>
-									<option value="2101">SGP Educación prestación del servicio</option>
-									<option value="2102">Educación calidad</option>
-									<option value="2201">Fondo de salud</option>
-									<option value="2202">Salud oferta</option>
-									<option value="2203">SGP Salud publica</option>
-									<option value="2301">SGP Agua potable y saneamiento básico</option>
-									<option value="2302">SGP Deporte</option>
-									<option value="2303">SGP Cultura</option>
-									<option value="2304">SGP Alimentación escolar</option>
-									<option value="2305">SGP Propósito general</option>
-									<option value="2306">SGP Primera infancia</option>
-									<option value="3101">Fondo de seguridad</option>
-									<option value="3201">Áreas de cesión</option>
-									<option value="3301">Fondo de solidaridad y redistribución ingreso</option>
-									<option value="3401">Fondo multa incumplimiento a medidas de P. Violenc...</option>
-									<option value="4102">Convenios salud</option>
-									<option value="4106">Presupuesto participativo</option>
-									<option value="4107">Convenios educación por liquidar</option>
-									<option value="4121">Fonpet educación</option>
-									<option value="4122">Fonpet propósito general</option>
-									<option value="4123">Fonpet otros sectores</option>
-									<option value="4124">Convenio Fonade</option>
-									<option value="4127">Residuos solidos</option>
-									<option value="4201">Etesa</option>
-									<option value="4303">Regalías régimen anterior</option>
-									<option value="4501">Empréstito malla vial</option>
-									<option value="4506">Donaciones</option>
-									<option value="4508">Rendimiento propios</option>
-									<option value="4601">Convenio estratificacion</option>
+									<option value="1">1 - Recursos por funcionamiento</option>
+									<option value="2">2 - Recursos por gestión</option>
+									<option value="3">3 - IDM | Propios | Otras fuentes</option>
+									<option value="4">4 - Bomberos | Propios | Otras fuentes</option>
+									<option value="5">5 - Serviciudad | Propios | Otras fuentes</option>
+									<option value="1101">1101 - Recursos propios de libre destinacion</option>
+									<option value="1202">1202 - Multas de transito propios destinación especifica</option>
+									<option value="1205">1205 - Estampilla pro cultura propios destinación especif...</option>
+									<option value="1206">1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									<option value="1214">1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									<option value="1215">1215 - Impuesto de consumo al cigarrillo</option>
+									<option value="1216">1216 - Estampilla adulto mayor gobernacion</option>
+									<option value="1217">1217 - Contribución parafiscal</option>
+									<option value="1218">1218 - Código policía</option>
+									<option value="2101">2101 - SGP Educación prestación del servicio</option>
+									<option value="2102">2102 - Educación calidad</option>
+									<option value="2201">2201 - Fondo de salud</option>
+									<option value="2202">2202 - Salud oferta</option>
+									<option value="2203">2203 - SGP Salud publica</option>
+									<option value="2301">2301 - SGP Agua potable y saneamiento básico</option>
+									<option value="2302">2302 - SGP Deporte</option>
+									<option value="2303">2303 - SGP Cultura</option>
+									<option value="2304">2304 - SGP Alimentación escolar</option>
+									<option value="2305">2305 - SGP Propósito general</option>
+									<option value="2306">2306 - SGP Primera infancia</option>
+									<option value="3101">3101 - Fondo de seguridad</option>
+									<option value="3201">3201 - Áreas de cesión</option>
+									<option value="3301">3301 - Fondo de solidaridad y redistribución ingreso</option>
+									<option value="3401">3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									<option value="4102">4102 - Convenios salud</option>
+									<option value="4106">4106 - Presupuesto participativo</option>
+									<option value="4107">4107 - Convenios educación por liquidar</option>
+									<option value="4121">4121 - Fonpet educación</option>
+									<option value="4122">4122 - Fonpet propósito general</option>
+									<option value="4123">4123 - Fonpet otros sectores</option>
+									<option value="4124">4124 - Convenio Fonade</option>
+									<option value="4127">4127 - Residuos solidos</option>
+									<option value="4201">4201 - Etesa</option>
+									<option value="4303">4303 - Regalías régimen anterior</option>
+									<option value="4501">4501 - Empréstito malla vial</option>
+									<option value="4506">4506 - Donaciones</option>
+									<option value="4508">4508 - Rendimiento propios</option>
+									<option value="4601">4601 - Convenio estratificacion</option>
 								</select> 
 							</div>
 						</div>

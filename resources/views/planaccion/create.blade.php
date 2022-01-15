@@ -5,7 +5,13 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Inscripcion de ACCIONES para PLAN DE ACCION 2022</h3></div>
+          <div class="pull-left">
+            <h3>Inscripcion de ACCIONES para PLAN DE ACCION 2022</h3>
+            <hr>
+            <h2>Actividad N° <b>{{ $_GET["idNivel4"] }}</b></h2>
+            <h4>{{ $_GET["textoNivel4"] }}</h4>
+            <hr>
+          </div>
           <div class="pull-right"></div>
           <div class="table-container">
 
