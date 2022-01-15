@@ -114,6 +114,85 @@
 									@else
 										<option value="no">No aplica</option>
 									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "1-Aspecto Institucional del servicio público de aseo")
+										<option value="1-Aspecto Institucional del servicio público de aseo" selected>Aspecto Institucional del servicio público de aseo</option>
+									@else
+										<option value="1-Aspecto Institucional del servicio público de aseo">Aspecto Institucional del servicio público de aseo</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "2-Recolección, transporte y transferencia")
+										<option value="2-Recolección, transporte y transferencia" selected>Recolección, transporte y transferencia</option>
+									@else
+										<option value="2-Recolección, transporte y transferencia">Recolección, transporte y transferencia</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "3-Barrido y limpieza de vias y areas públicas")
+										<option value="3-Barrido y limpieza de vias y areas públicas" selected>Barrido y limpieza de vias y areas públicas</option>
+									@else
+										<option value="3-Barrido y limpieza de vias y areas públicas">Barrido y limpieza de vias y areas públicas</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "4-Limpieza de playas costeras y ribereñas")
+										<option value="4-Limpieza de playas costeras y ribereñas" selected>Limpieza de playas costeras y ribereñas</option>
+									@else
+										<option value="4-Limpieza de playas costeras y ribereñas">Limpieza de playas costeras y ribereñas</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "5-Corte de cesped y poda de árboles")
+										<option value="5-Corte de cesped y poda de árboles" selected>Corte de cesped y poda de árboles</option>
+									@else
+										<option value="5-Corte de cesped y poda de árboles">Corte de cesped y poda de árboles</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "6-Lavado de areas públicas")
+										<option value="6-Lavado de areas públicas" selected>Lavado de areas públicas</option>
+									@else
+										<option value="6-Lavado de areas públicas">Lavado de areas públicas</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "7-Aprovechamiento")
+										<option value="7-Aprovechamiento" selected>Aprovechamiento</option>
+									@else
+										<option value="7-Aprovechamiento">Aprovechamiento</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "8-Inclusion de recicladores")
+										<option value="8-Inclusion de recicladores" selected>Inclusion de recicladores</option>
+									@else
+										<option value="8-Inclusion de recicladores">Inclusion de recicladores</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "9-Disposicion final")
+										<option value="9-Disposicion final" selected>Disposicion final</option>
+									@else
+										<option value="9-Disposicion final">Disposicion final</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "10-Gestión integral de residuos especiales")
+										<option value="10-Gestión integral de residuos especiales" selected>Gestión integral de residuos especiales</option>
+									@else
+										<option value="10-Gestión integral de residuos especiales">Gestión integral de residuos especiales</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "11-Residuos de construcción y demolición")
+										<option value="11-Residuos de construcción y demolición" selected>Residuos de construcción y demolición</option>
+									@else
+										<option value="11-Residuos de construcción y demolición">Residuos de construcción y demolición</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "12-Gestión integral de residuos sólidos en el area rural")
+										<option value="12-Gestión integral de residuos sólidos en el area rural" selected>Gestión integral de residuos sólidos en el area rural</option>
+									@else
+										<option value="12-Gestión integral de residuos sólidos en el area rural">Gestión integral de residuos sólidos en el area rural</option>
+									@endif
+
+									@if ($planaccion->n2022_converge_pgirs == "13-Gestión integral del riesgo")
+										<option value="13-Gestión integral del riesgo" selected>Gestión integral del riesgo</option>
+									@else
+										<option value="13-Gestión integral del riesgo">Gestión integral del riesgo</option>
+									@endif
+
 								</select> 
 							</div>
 						</div>
@@ -1090,6 +1169,19 @@
 							<div>
 								<select class="form-control" name="n2022_converge_pgirs">
 									<option value="no" selected>No aplica</option>
+									<option value="1-Aspecto Institucional del servicio público de aseo">Aspecto Institucional del servicio público de aseo</option>
+									<option value="2-Recolección, transporte y transferencia">Recolección, transporte y transferencia</option>
+									<option value="3-Barrido y limpieza de vias y areas públicas">Barrido y limpieza de vias y areas públicas</option>
+									<option value="4-Limpieza de playas costeras y ribereñas">Limpieza de playas costeras y ribereñas</option>
+									<option value="5-Corte de cesped y poda de árboles">Corte de cesped y poda de árboles</option>
+									<option value="6-Lavado de areas públicas">Lavado de areas públicas</option>
+									<option value="7-Aprovechamiento">Aprovechamiento</option>
+									<option value="8-Inclusion de recicladores">Inclusion de recicladores</option>
+									<option value="9-Disposicion final">Disposicion final</option>
+									<option value="10-Gestión integral de residuos especiales">Gestión integral de residuos especiales</option>
+									<option value="11-Residuos de construcción y demolición">Residuos de construcción y demolición</option>
+									<option value="12-Gestión integral de residuos sólidos en el area rural">Gestión integral de residuos sólidos en el area rural</option>
+									<option value="13-Gestión integral del riesgo">Gestión integral del riesgo</option>
 								</select> 
 							</div>
 						</div>
