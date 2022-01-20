@@ -800,109 +800,109 @@
 										<option value="no">No aplica</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "INFORMACIÓN ESTADÍSTICA")
+									@if ($planaccion->n2022_sector == "04-INFORMACIÓN ESTADÍSTICA")
 										<option value="04-INFORMACIÓN ESTADÍSTICA" selected>04-INFORMACIÓN ESTADÍSTICA</option>
 									@else
 										<option value="04-INFORMACIÓN ESTADÍSTICA">04-INFORMACIÓN ESTADÍSTICA</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "JUSTICIA Y DEL DERECHO")
+									@if ($planaccion->n2022_sector == "12-JUSTICIA Y DEL DERECHO")
 										<option value="12-JUSTICIA Y DEL DERECHO" selected>12-JUSTICIA Y DEL DERECHO</option>
 									@else
 										<option value="12-JUSTICIA Y DEL DERECHO">12-JUSTICIA Y DEL DERECHO</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "AGRICULTURA Y DESARROLLO RURAL")
+									@if ($planaccion->n2022_sector == "17-AGRICULTURA Y DESARROLLO RURAL")
 										<option value="17-AGRICULTURA Y DESARROLLO RURAL" selected>17-AGRICULTURA Y DESARROLLO RURAL</option>
 									@else
 										<option value="17-AGRICULTURA Y DESARROLLO RURAL">17-AGRICULTURA Y DESARROLLO RURAL</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "SALUD Y PROTECCIÓN SOCIAL")
+									@if ($planaccion->n2022_sector == "19-SALUD Y PROTECCIÓN SOCIAL")
 										<option value="19-SALUD Y PROTECCIÓN SOCIAL" selected>19-SALUD Y PROTECCIÓN SOCIAL</option>
 									@else
 										<option value="19-SALUD Y PROTECCIÓN SOCIAL">19-SALUD Y PROTECCIÓN SOCIAL</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "MINAS Y ENERGÍA")
+									@if ($planaccion->n2022_sector == "21-MINAS Y ENERGÍA")
 										<option value="21-MINAS Y ENERGÍA" selected>21-MINAS Y ENERGÍA</option>
 									@else
 										<option value="21-MINAS Y ENERGÍA">21-MINAS Y ENERGÍA</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "EDUCACIÓN")
+									@if ($planaccion->n2022_sector == "22-EDUCACIÓN")
 										<option value="22-EDUCACIÓN" selected>22-EDUCACIÓN</option>
 									@else
 										<option value="22-EDUCACIÓN">22-EDUCACIÓN</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES")
+									@if ($planaccion->n2022_sector == "23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES")
 										<option value="23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES" selected>23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
 									@else
 										<option value="23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "TRANSPORTE")
+									@if ($planaccion->n2022_sector == "24-TRANSPORTE")
 										<option value="24-TRANSPORTE" selected>24-TRANSPORTE</option>
 									@else
 										<option value="24-TRANSPORTE">24-TRANSPORTE</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "ORGANISMOS DE CONTROL")
+									@if ($planaccion->n2022_sector == "25-ORGANISMOS DE CONTROL")
 										<option value="25-ORGANISMOS DE CONTROL" selected>25-ORGANISMOS DE CONTROL</option>
 									@else
 										<option value="25-ORGANISMOS DE CONTROL">25-ORGANISMOS DE CONTROL</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "AMBIENTE Y DESARROLLO SOSTENIBLE")
+									@if ($planaccion->n2022_sector == "32-AMBIENTE Y DESARROLLO SOSTENIBLE")
 										<option value="32-AMBIENTE Y DESARROLLO SOSTENIBLE" selected>32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
 									@else
 										<option value="32-AMBIENTE Y DESARROLLO SOSTENIBLE">32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "CULTURA")
+									@if ($planaccion->n2022_sector == "33-CULTURA")
 										<option value="33-CULTURA" selected>33-CULTURA</option>
 									@else
 										<option value="33-CULTURA">33-CULTURA</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "COMERCIO, INDUSTRIA Y TURISMO")
+									@if ($planaccion->n2022_sector == "35-COMERCIO, INDUSTRIA Y TURISMO")
 										<option value="35-COMERCIO, INDUSTRIA Y TURISMO" selected>35-COMERCIO, INDUSTRIA Y TURISMO</option>
 									@else
 										<option value="35-COMERCIO, INDUSTRIA Y TURISMO">35-COMERCIO, INDUSTRIA Y TURISMO</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "TRABAJO")
+									@if ($planaccion->n2022_sector == "36-TRABAJO")
 										<option value="36-TRABAJO" selected>36-TRABAJO</option>
 									@else
 										<option value="36-TRABAJO">36-TRABAJO</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "CIENCIA, TECNOLOGÍA E INNOVACIÓN")
+									@if ($planaccion->n2022_sector == "39-CIENCIA, TECNOLOGÍA E INNOVACIÓN")
 										<option value="39-CIENCIA, TECNOLOGÍA E INNOVACIÓN" selected>39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
 									@else
 										<option value="39-CIENCIA, TECNOLOGÍA E INNOVACIÓN">39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "VIVIENDA, CIUDAD Y TERRITORIO")
+									@if ($planaccion->n2022_sector == "40-VIVIENDA, CIUDAD Y TERRITORIO")
 										<option value="40-VIVIENDA, CIUDAD Y TERRITORIO" selected>40-VIVIENDA, CIUDAD Y TERRITORIO</option>
 									@else
 										<option value="40-VIVIENDA, CIUDAD Y TERRITORIO">40-VIVIENDA, CIUDAD Y TERRITORIO</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "INCLUSIÓN SOCIAL Y RECONCILIACIÓN")
+									@if ($planaccion->n2022_sector == "41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN")
 										<option value="41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN" selected>41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
 									@else
 										<option value="41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN">41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "DEPORTE Y RECREACIÓN")
+									@if ($planaccion->n2022_sector == "43-DEPORTE Y RECREACIÓN")
 										<option value="43-DEPORTE Y RECREACIÓN" selected>43-DEPORTE Y RECREACIÓN</option>
 									@else
 										<option value="43-DEPORTE Y RECREACIÓN">43-DEPORTE Y RECREACIÓN</option>
 									@endif
 
-									@if ($planaccion->n2022_sector == "GOBIERNO TERRITORIAL")
+									@if ($planaccion->n2022_sector == "45-GOBIERNO TERRITORIAL")
 										<option value="45-GOBIERNO TERRITORIAL" selected>45-GOBIERNO TERRITORIAL</option>
 									@else
 										<option value="45-GOBIERNO TERRITORIAL">45-GOBIERNO TERRITORIAL</option>
