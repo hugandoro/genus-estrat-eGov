@@ -801,111 +801,111 @@
 									@endif
 
 									@if ($planaccion->n2022_sector == "INFORMACIÓN ESTADÍSTICA")
-										<option value="INFORMACIÓN ESTADÍSTICA" selected>04-INFORMACIÓN ESTADÍSTICA</option>
+										<option value="04-INFORMACIÓN ESTADÍSTICA" selected>04-INFORMACIÓN ESTADÍSTICA</option>
 									@else
-										<option value="INFORMACIÓN ESTADÍSTICA">04-INFORMACIÓN ESTADÍSTICA</option>
+										<option value="04-INFORMACIÓN ESTADÍSTICA">04-INFORMACIÓN ESTADÍSTICA</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "JUSTICIA Y DEL DERECHO")
-										<option value="JUSTICIA Y DEL DERECHO" selected>12-JUSTICIA Y DEL DERECHO</option>
+										<option value="12-JUSTICIA Y DEL DERECHO" selected>12-JUSTICIA Y DEL DERECHO</option>
 									@else
-										<option value="JUSTICIA Y DEL DERECHO">12-JUSTICIA Y DEL DERECHO</option>
+										<option value="12-JUSTICIA Y DEL DERECHO">12-JUSTICIA Y DEL DERECHO</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "AGRICULTURA Y DESARROLLO RURAL")
-										<option value="AGRICULTURA Y DESARROLLO RURAL" selected>17-AGRICULTURA Y DESARROLLO RURAL</option>
+										<option value="17-AGRICULTURA Y DESARROLLO RURAL" selected>17-AGRICULTURA Y DESARROLLO RURAL</option>
 									@else
-										<option value="AGRICULTURA Y DESARROLLO RURAL">17-AGRICULTURA Y DESARROLLO RURAL</option>
+										<option value="17-AGRICULTURA Y DESARROLLO RURAL">17-AGRICULTURA Y DESARROLLO RURAL</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "SALUD Y PROTECCIÓN SOCIAL")
-										<option value="SALUD Y PROTECCIÓN SOCIAL" selected>19-SALUD Y PROTECCIÓN SOCIAL</option>
+										<option value="19-SALUD Y PROTECCIÓN SOCIAL" selected>19-SALUD Y PROTECCIÓN SOCIAL</option>
 									@else
-										<option value="SALUD Y PROTECCIÓN SOCIAL">19-SALUD Y PROTECCIÓN SOCIAL</option>
+										<option value="19-SALUD Y PROTECCIÓN SOCIAL">19-SALUD Y PROTECCIÓN SOCIAL</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "MINAS Y ENERGÍA")
-										<option value="MINAS Y ENERGÍA" selected>21-MINAS Y ENERGÍA</option>
+										<option value="21-MINAS Y ENERGÍA" selected>21-MINAS Y ENERGÍA</option>
 									@else
-										<option value="MINAS Y ENERGÍA">21-MINAS Y ENERGÍA</option>
+										<option value="21-MINAS Y ENERGÍA">21-MINAS Y ENERGÍA</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "EDUCACIÓN")
-										<option value="EDUCACIÓN" selected>22-EDUCACIÓN</option>
+										<option value="22-EDUCACIÓN" selected>22-EDUCACIÓN</option>
 									@else
-										<option value="EDUCACIÓN">22-EDUCACIÓN</option>
+										<option value="22-EDUCACIÓN">22-EDUCACIÓN</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES")
-										<option value="TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES" selected>23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
+										<option value="23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES" selected>23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
 									@else
-										<option value="TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
+										<option value="23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "TRANSPORTE")
-										<option value="TRANSPORTE" selected>24-TRANSPORTE</option>
+										<option value="24-TRANSPORTE" selected>24-TRANSPORTE</option>
 									@else
-										<option value="TRANSPORTE">24-TRANSPORTE</option>
+										<option value="24-TRANSPORTE">24-TRANSPORTE</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "ORGANISMOS DE CONTROL")
-										<option value="ORGANISMOS DE CONTROL" selected>25-ORGANISMOS DE CONTROL</option>
+										<option value="25-ORGANISMOS DE CONTROL" selected>25-ORGANISMOS DE CONTROL</option>
 									@else
-										<option value="ORGANISMOS DE CONTROL">25-ORGANISMOS DE CONTROL</option>
+										<option value="25-ORGANISMOS DE CONTROL">25-ORGANISMOS DE CONTROL</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "AMBIENTE Y DESARROLLO SOSTENIBLE")
-										<option value="AMBIENTE Y DESARROLLO SOSTENIBLE" selected>32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
+										<option value="32-AMBIENTE Y DESARROLLO SOSTENIBLE" selected>32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
 									@else
-										<option value="AMBIENTE Y DESARROLLO SOSTENIBLE">32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
+										<option value="32-AMBIENTE Y DESARROLLO SOSTENIBLE">32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "CULTURA")
-										<option value="CULTURA" selected>33-CULTURA</option>
+										<option value="33-CULTURA" selected>33-CULTURA</option>
 									@else
-										<option value="CULTURA">33-CULTURA</option>
+										<option value="33-CULTURA">33-CULTURA</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "COMERCIO, INDUSTRIA Y TURISMO")
-										<option value="COMERCIO, INDUSTRIA Y TURISMO" selected>35-COMERCIO, INDUSTRIA Y TURISMO</option>
+										<option value="35-COMERCIO, INDUSTRIA Y TURISMO" selected>35-COMERCIO, INDUSTRIA Y TURISMO</option>
 									@else
-										<option value="COMERCIO, INDUSTRIA Y TURISMO">35-COMERCIO, INDUSTRIA Y TURISMO</option>
+										<option value="35-COMERCIO, INDUSTRIA Y TURISMO">35-COMERCIO, INDUSTRIA Y TURISMO</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "TRABAJO")
-										<option value="TRABAJO" selected>36-TRABAJO</option>
+										<option value="36-TRABAJO" selected>36-TRABAJO</option>
 									@else
-										<option value="TRABAJO">36-TRABAJO</option>
+										<option value="36-TRABAJO">36-TRABAJO</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "CIENCIA, TECNOLOGÍA E INNOVACIÓN")
-										<option value="CIENCIA, TECNOLOGÍA E INNOVACIÓN" selected>39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
+										<option value="39-CIENCIA, TECNOLOGÍA E INNOVACIÓN" selected>39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
 									@else
-										<option value="CIENCIA, TECNOLOGÍA E INNOVACIÓN">39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
+										<option value="39-CIENCIA, TECNOLOGÍA E INNOVACIÓN">39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "VIVIENDA, CIUDAD Y TERRITORIO")
-										<option value="VIVIENDA, CIUDAD Y TERRITORIO" selected>40-VIVIENDA, CIUDAD Y TERRITORIO</option>
+										<option value="40-VIVIENDA, CIUDAD Y TERRITORIO" selected>40-VIVIENDA, CIUDAD Y TERRITORIO</option>
 									@else
-										<option value="VIVIENDA, CIUDAD Y TERRITORIO">40-VIVIENDA, CIUDAD Y TERRITORIO</option>
+										<option value="40-VIVIENDA, CIUDAD Y TERRITORIO">40-VIVIENDA, CIUDAD Y TERRITORIO</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "INCLUSIÓN SOCIAL Y RECONCILIACIÓN")
-										<option value="INCLUSIÓN SOCIAL Y RECONCILIACIÓN" selected>41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
+										<option value="41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN" selected>41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
 									@else
-										<option value="INCLUSIÓN SOCIAL Y RECONCILIACIÓN">41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
+										<option value="41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN">41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "DEPORTE Y RECREACIÓN")
-										<option value="DEPORTE Y RECREACIÓN" selected>43-DEPORTE Y RECREACIÓN</option>
+										<option value="43-DEPORTE Y RECREACIÓN" selected>43-DEPORTE Y RECREACIÓN</option>
 									@else
-										<option value="DEPORTE Y RECREACIÓN">43-DEPORTE Y RECREACIÓN</option>
+										<option value="43-DEPORTE Y RECREACIÓN">43-DEPORTE Y RECREACIÓN</option>
 									@endif
 
 									@if ($planaccion->n2022_sector == "GOBIERNO TERRITORIAL")
-										<option value="GOBIERNO TERRITORIAL" selected>45-GOBIERNO TERRITORIAL</option>
+										<option value="45-GOBIERNO TERRITORIAL" selected>45-GOBIERNO TERRITORIAL</option>
 									@else
-										<option value="GOBIERNO TERRITORIAL">45-GOBIERNO TERRITORIAL</option>
+										<option value="45-GOBIERNO TERRITORIAL">45-GOBIERNO TERRITORIAL</option>
 									@endif
 								</select> 
 							</div>
@@ -1086,6 +1086,70 @@
 							<label for="n2022_producto_actividad_proyectos" class="negrita">Producto o actividad relacionada del proyecto</label> 
 							<div>
 								<input value="{{ $planaccion->n2022_producto_actividad_proyectos }}" class="form-control" placeholder="Producto o actividad0..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
+							</div>
+						</div>
+						
+						<hr>
+
+						<div class="form-group" style="background-color: #deb1bf ;">
+							<label for="n2022_ccpet" class="negrita">Codigo CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet" readonly>
+									@foreach($ConvCcpetCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_ccpet)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #deb1bf ;">
+							<label for="n2022_cpc" class="negrita">Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc" readonly>
+									@foreach($ConvCpcCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_cpc)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #deb1bf ;">
+							<label for="n2022_proyecto_producto" class="negrita">Codigo Proyectos Producto</label> 
+							<div>
+								<select class="form-control" name="n2022_proyecto_producto" readonly>
+									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
+									@foreach($ConvProyectoProductoCodigo as $item)
+										@if (($item->codigo."-".$item->nombre) == $planaccion->n2022_proyecto_producto)
+											<option value="{{$item->codigo}}-{{$item->nombre}}" selected="selected">{{$item->codigo}} - {{$item->nombre}}</option>
+										@else
+											<option value="{{$item->codigo}}-{{$item->nombre}}">{{$item->codigo}} - {{$item->nombre}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #deb1bf ;">
+							<label for="n2022_proyecto_indicador" class="negrita">Codigo Proyectos Indicador</label> 
+							<div>
+								<select class="form-control" name="n2022_proyecto_indicador" readonly>
+									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
+									@foreach($ConvProyectoIndicadorCodigo as $item)
+										@if (($item->codigo."-".$item->nombre) == $planaccion->n2022_proyecto_indicador)	
+											<option value="{{$item->codigo}}-{{$item->nombre}}" selected="selected">{{$item->codigo}} - {{$item->nombre}}</option>
+										@else
+											<option value="{{$item->codigo}}-{{$item->nombre}}">{{$item->codigo}} - {{$item->nombre}}</option>
+										@endif
+									@endforeach
+								</select> 
 							</div>
 						</div>
 
@@ -1333,24 +1397,24 @@
 							<div>
 								<select class="form-control" name="n2022_sector">
 									<option value="no" selected>No aplica</option>
-									<option value="INFORMACIÓN ESTADÍSTICA">04-INFORMACIÓN ESTADÍSTICA</option>
-									<option value="JUSTICIA Y DEL DERECHO">12-JUSTICIA Y DEL DERECHO</option>
-									<option value="AGRICULTURA Y DESARROLLO RURAL">17-AGRICULTURA Y DESARROLLO RURAL</option>
-									<option value="SALUD Y PROTECCIÓN SOCIAL">19-SALUD Y PROTECCIÓN SOCIAL</option>
-									<option value="MINAS Y ENERGÍA">21-MINAS Y ENERGÍA</option>
-									<option value="EDUCACIÓN">22-EDUCACIÓN</option>
-									<option value="TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
-									<option value="TRANSPORTE">24-TRANSPORTE</option>
-									<option value="ORGANISMOS DE CONTROL">25-ORGANISMOS DE CONTROL</option>
-									<option value="AMBIENTE Y DESARROLLO SOSTENIBLE">32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
-									<option value="CULTURA">33-CULTURA</option>
-									<option value="COMERCIO, INDUSTRIA Y TURISMO">35-COMERCIO, INDUSTRIA Y TURISMO</option>
-									<option value="TRABAJO">36-TRABAJO</option>
-									<option value="CIENCIA, TECNOLOGÍA E INNOVACIÓN">39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
-									<option value="VIVIENDA, CIUDAD Y TERRITORIO">40-VIVIENDA, CIUDAD Y TERRITORIO</option>
-									<option value="INCLUSIÓN SOCIAL Y RECONCILIACIÓN">41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
-									<option value="DEPORTE Y RECREACIÓN">43-DEPORTE Y RECREACIÓN</option>
-									<option value="GOBIERNO TERRITORIAL">45-GOBIERNO TERRITORIAL</option>
+									<option value="04-INFORMACIÓN ESTADÍSTICA">04-INFORMACIÓN ESTADÍSTICA</option>
+									<option value="12-JUSTICIA Y DEL DERECHO">12-JUSTICIA Y DEL DERECHO</option>
+									<option value="17-AGRICULTURA Y DESARROLLO RURAL">17-AGRICULTURA Y DESARROLLO RURAL</option>
+									<option value="19-SALUD Y PROTECCIÓN SOCIAL">19-SALUD Y PROTECCIÓN SOCIAL</option>
+									<option value="21-MINAS Y ENERGÍA">21-MINAS Y ENERGÍA</option>
+									<option value="22-EDUCACIÓN">22-EDUCACIÓN</option>
+									<option value="23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES">23-TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES</option>
+									<option value="24-TRANSPORTE">24-TRANSPORTE</option>
+									<option value="25-ORGANISMOS DE CONTROL">25-ORGANISMOS DE CONTROL</option>
+									<option value="32-AMBIENTE Y DESARROLLO SOSTENIBLE">32-AMBIENTE Y DESARROLLO SOSTENIBLE</option>
+									<option value="33-CULTURA">33-CULTURA</option>
+									<option value="35-COMERCIO, INDUSTRIA Y TURISMO">35-COMERCIO, INDUSTRIA Y TURISMO</option>
+									<option value="36-TRABAJO">36-TRABAJO</option>
+									<option value="39-CIENCIA, TECNOLOGÍA E INNOVACIÓN">39-CIENCIA, TECNOLOGÍA E INNOVACIÓN</option>
+									<option value="40-VIVIENDA, CIUDAD Y TERRITORIO">40-VIVIENDA, CIUDAD Y TERRITORIO</option>
+									<option value="41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN">41-INCLUSIÓN SOCIAL Y RECONCILIACIÓN</option>
+									<option value="43-DEPORTE Y RECREACIÓN">43-DEPORTE Y RECREACIÓN</option>
+									<option value="45-GOBIERNO TERRITORIAL">45-GOBIERNO TERRITORIAL</option>
 								</select> 
 							</div>
 						</div>
@@ -1396,6 +1460,54 @@
 							<label for="n2022_producto_actividad_proyectos" class="negrita">Producto o actividad relacionada del proyecto</label> 
 							<div>
 								<input class="form-control" placeholder="Producto o actividad0..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="form-group" style="background-color: #deb1bf ;">
+							<label for="n2022_ccpet" class="negrita">Codigo CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet">
+									@foreach($ConvCcpetCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #deb1bf ;">
+							<label for="n2022_cpc" class="negrita">Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc">
+									@foreach($ConvCpcCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #deb1bf ;">
+							<label for="n2022_proyecto_producto" class="negrita">Codigo Proyectos Producto</label> 
+							<div>
+								<select class="form-control" name="n2022_proyecto_producto">
+									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
+									@foreach($ConvProyectoProductoCodigo as $item)
+										<option value="{{$item->codigo}}-{{$item->nombre}}">{{$item->codigo}} - {{$item->nombre}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group" style="background-color: #deb1bf ;">
+							<label for="n2022_proyecto_indicador" class="negrita">Codigo Proyectos Indicador</label> 
+							<div>
+								<select class="form-control" name="n2022_proyecto_indicador">
+									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
+									@foreach($ConvProyectoIndicadorCodigo as $item)
+										<option value="{{$item->codigo}}-{{$item->nombre}}">{{$item->codigo}} - {{$item->nombre}}</option>
+									@endforeach
+								</select> 
 							</div>
 						</div>
 

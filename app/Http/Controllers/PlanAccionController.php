@@ -14,6 +14,11 @@ use App\PlanIndicativo;
 use App\PlanAccion;
 use App\Tarea;
 
+use App\ConvCcpetCodigo;
+use App\ConvCpcCodigo;
+use App\ConvProyectoIndicadorCodigo;
+use App\ConvProyectoProductoCodigo;
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MedicionIndicadorController;
 
@@ -46,7 +51,12 @@ class PlanAccionController extends Controller
      */
     public function create(Request $request)
     {
-        return view('planaccion.create');
+        $ConvCcpetCodigo = ConvCcpetCodigo::all();
+        $ConvCpcCodigo = ConvCpcCodigo::all();
+        $ConvProyectoIndicadorCodigo = ConvProyectoIndicadorCodigo::all();
+        $ConvProyectoProductoCodigo = ConvProyectoProductoCodigo::all();
+
+        return view('planaccion.create', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'));
     }
 
     /**
@@ -77,6 +87,11 @@ class PlanAccionController extends Controller
         $planaccion->n2022_ods = $request->n2022_ods;
         $planaccion->rezago = $planaccion->objetivo;
 
+        $planaccion->n2022_ccpet = $request->n2022_ccpet;
+        $planaccion->n2022_cpc = $request->n2022_cpc;
+        $planaccion->n2022_proyecto_producto = $request->n2022_proyecto_producto;
+        $planaccion->n2022_proyecto_indicador = $request->n2022_proyecto_indicador;
+
         $planaccion->save();
  
         $nivel4id = $request->nivel4_id;
@@ -102,8 +117,13 @@ class PlanAccionController extends Controller
      */
     public function edit($id)
     {
+        $ConvCcpetCodigo = ConvCcpetCodigo::all();
+        $ConvCpcCodigo = ConvCpcCodigo::all();
+        $ConvProyectoIndicadorCodigo = ConvProyectoIndicadorCodigo::all();
+        $ConvProyectoProductoCodigo = ConvProyectoProductoCodigo::all();
+        
         $planaccion = PlanAccion::find($id);
-        return view('planaccion.edit',['planaccion'=>$planaccion]);
+        return view('planaccion.edit', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'), ['planaccion'=>$planaccion]);
     }
 
     /**
@@ -133,6 +153,11 @@ class PlanAccionController extends Controller
         $planaccion->n2022_producto_actividad_proyectos = $request->n2022_producto_actividad_proyectos;
         $planaccion->n2022_ods = $request->n2022_ods;
         $planaccion->rezago = $planaccion->objetivo;
+
+        $planaccion->n2022_ccpet = $request->n2022_ccpet;
+        $planaccion->n2022_cpc = $request->n2022_cpc;
+        $planaccion->n2022_proyecto_producto = $request->n2022_proyecto_producto;
+        $planaccion->n2022_proyecto_indicador = $request->n2022_proyecto_indicador;
 
         $planaccion->save();
 

@@ -147,8 +147,8 @@
 
                         <td style="width:5%;font-size:10px;">
                         @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
-                           <!--<a class="btn btn-success" href="{{ url('acciones/create?idIndicativo='.$auxIndicativo.'&idNivel4='.$Nivel4->id.'&textoNivel4='.$Nivel4->nombre) }}" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>-->
-                           <a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>
+                           <a class="btn btn-success" href="{{ url('acciones/create?idIndicativo='.$auxIndicativo.'&idNivel4='.$Nivel4->id.'&textoNivel4='.$Nivel4->nombre) }}" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>
+                           <!--<a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>-->
                         @endif
                         </td>
 
@@ -187,14 +187,14 @@
 
                                         <tr>
                                           <td style="width:10%;font-size:11px;">
-                                            <!--<form action="{{ route('acciones.destroy',$accion->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                                            <form action="{{ route('acciones.destroy',$accion->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                               <input type="hidden" name="_method" value="DELETE">
                                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                               <input type="hidden" name="nivel4_id" value="{{ $Nivel4->id }}">
 
                                               <a href="{{ route('acciones.edit',$accion->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
                                               <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
-                                            </form>-->
+                                            </form>
                                           </td>
                                           <td style="width:65%;font-size:11px;">{{$accion->descripcion}}</td>
                                           <td style="width:10%;font-size:11px;">{{$accion->kpi}}</td>
