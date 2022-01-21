@@ -8,7 +8,7 @@
 	
 
 						<div class="form-group">
-							<label for="descripcion" class="negrita">Descripcion</label> 
+							<label for="descripcion" class="negrita">Descripción</label> 
 							<div>
 								<input value="{{ $planaccion->descripcion }}" class="form-control" placeholder="Breve desripcion de la accion..." required="required" name="descripcion" type="text" id="descripcion"> 
 							</div>
@@ -38,7 +38,7 @@
 						<hr>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_converge_politica_publica" class="negrita">Alineacion | Politica publica</label> 
+							<label for="n2022_converge_politica_publica" class="negrita">Alineación | Politica pública</label> 
 							<div>
 								<select class="form-control" name="n2022_converge_politica_publica">
 									@if ($planaccion->n2022_converge_politica_publica == "no")
@@ -106,7 +106,7 @@
 						</div>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_converge_pgirs" class="negrita">Alineacion | PGIRS</label> 
+							<label for="n2022_converge_pgirs" class="negrita">Alineación | PGIRS</label> 
 							<div>
 								<select class="form-control" name="n2022_converge_pgirs">
 									@if ($planaccion->n2022_converge_pgirs == "no")
@@ -198,7 +198,7 @@
 						</div>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_converge_gestion_riesgo" class="negrita">Alineacion | Gestion del riesgo</label> 
+							<label for="n2022_converge_gestion_riesgo" class="negrita">Alineación | Gestión del riesgo</label> 
 							<div>
 								<select class="form-control" name="n2022_converge_gestion_riesgo">
 									@if ($planaccion->n2022_converge_gestion_riesgo == "no")
@@ -259,7 +259,7 @@
 						</div>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_converge_mipg" class="negrita">Alineacion | MIPG</label> 
+							<label for="n2022_converge_mipg" class="negrita">Alineación | MIPG</label> 
 							<div>
 								<select class="form-control" name="n2022_converge_mipg">
 									@if ($planaccion->n2022_converge_mipg == "no")
@@ -381,7 +381,7 @@
 						</div>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_ods" class="negrita">Alineacion | ODS objetivos del desarrollo sostenible</label> 
+							<label for="n2022_ods" class="negrita">Alineación | ODS objetivos del desarrollo sostenible</label> 
 							<div>
 								<select class="form-control" name="n2022_ods">
 									@if ($planaccion->n2022_ods == "no")
@@ -498,7 +498,7 @@
 						<hr>
 
 						<div class="form-group col-md-6">
-							<label for="n2022_recursos" class="negrita">1. Recursos asignados para esta accion $</label> 
+							<label for="n2022_recursos" class="negrita">1. Recursos asignados para esta acción $</label> 
 							<div>
 								<input value="{{ $planaccion->n2022_recursos }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos" type="text" min="0" id="number" style="font-size: 20px;"> 
 							</div>
@@ -776,7 +776,7 @@
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="n2022_recursos2" class="negrita">2. Recursos asignados para esta accion $</label> 
+							<label for="n2022_recursos2" class="negrita">2. Recursos asignados para esta acción $</label> 
 							<div>
 								<input value="{{ $planaccion->n2022_recursos2 }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos2" type="text" min="0" id="number2" style="font-size: 20px;"> 
 							</div>
@@ -1054,7 +1054,7 @@
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="n2022_recursos3" class="negrita">3. Recursos asignados para esta accion $</label> 
+							<label for="n2022_recursos3" class="negrita">3. Recursos asignados para esta acción $</label> 
 							<div>
 								<input value="{{ $planaccion->n2022_recursos3 }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos3" type="text" min="0" id="number3" style="font-size: 20px;"> 
 							</div>
@@ -1332,7 +1332,7 @@
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="n2022_recursos4" class="negrita">4. Recursos asignados para esta accion $</label> 
+							<label for="n2022_recursos4" class="negrita">4. Recursos asignados para esta acción $</label> 
 							<div>
 								<input value="{{ $planaccion->n2022_recursos4 }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos4" type="text" min="0" id="number4" style="font-size: 20px;"> 
 							</div>
@@ -1612,7 +1612,7 @@
 						<hr>
 
 						<div class="form-group">
-							<label for="n2022_codigo_fut" class="negrita">Codigo FUT</label> 
+							<label for="n2022_codigo_fut" class="negrita">Código FUT</label> 
 							<div>
 								<select class="form-control" name="n2022_codigo_fut">
 									@if ($planaccion->n2022_codigo_fut == "no")
@@ -1735,8 +1735,10 @@
 
 						<hr>
 
-						<div class="form-group" style="background-color: #C1E2F7;">
-							<label for="n2022_codigo_bpim" class="negrita">Codigo BPIM</label> 
+						<div class="form-group col-md-12"><b><h3>Proyecto inscrito en el Banco de Proyectos</h3></b></div>
+
+						<div class="form-group">
+							<label for="n2022_codigo_bpim" class="negrita">Código BPIM</label> 
 							<div>
 								<select class="form-control" name="n2022_codigo_bpim">
 									@if ($planaccion->n2022_codigo_bpim == "no")
@@ -1904,14 +1906,136 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #C1E2F7;">
-							<label for="n2022_producto_actividad_proyectos" class="negrita">Producto o actividad relacionada del proyecto</label> 
+						<div class="form-group">
+							<label for="n2022_producto_actividad_proyectos" class="negrita">Actividad del proyecto</label> 
 							<div>
-								<input value="{{ $planaccion->n2022_producto_actividad_proyectos }}" class="form-control" placeholder="Producto o actividad0..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
+								<input value="{{ $planaccion->n2022_producto_actividad_proyectos }}" class="form-control" placeholder="Producto o actividad..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
 							</div>
 						</div>
 						
 						<hr>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet" class="negrita">1. Código CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet" >
+									@foreach($ConvCcpetCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_ccpet)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet2" class="negrita">2. Código CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet2" >
+									@foreach($ConvCcpetCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_ccpet2)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet3" class="negrita">3. Código CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet3" >
+									@foreach($ConvCcpetCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_ccpet3)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet4" class="negrita">4. Código CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet4" >
+									@foreach($ConvCcpetCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_ccpet4)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc" class="negrita">1. Código CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc" >
+									@foreach($ConvCpcCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_cpc)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc2" class="negrita">2. Código CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc2" >
+									@foreach($ConvCpcCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_cpc2)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc3" class="negrita">3. Código CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc3" >
+									@foreach($ConvCpcCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_cpc3)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc4" class="negrita">4. Código CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc4" >
+									@foreach($ConvCpcCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_cpc4)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-12"><hr><b><h3>Catálogo MGA</h3></b></div>
 
 						<div class="form-group">
 							<label for="n2022_sector" class="negrita">Sector</label> 
@@ -2034,128 +2158,8 @@
 							</div>
 						</div>
 
-						<div class="form-group col-md-3">
-							<label for="n2022_ccpet" class="negrita">1. Codigo CCPET</label> 
-							<div>
-								<select class="form-control" name="n2022_ccpet" >
-									@foreach($ConvCcpetCodigo as $item)
-										@if ($item->codigo == $planaccion->n2022_ccpet)	
-											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
-										@else
-											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-										@endif
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_ccpet2" class="negrita">2. Codigo CCPET</label> 
-							<div>
-								<select class="form-control" name="n2022_ccpet2" >
-									@foreach($ConvCcpetCodigo as $item)
-										@if ($item->codigo == $planaccion->n2022_ccpet2)	
-											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
-										@else
-											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-										@endif
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_ccpet3" class="negrita">3. Codigo CCPET</label> 
-							<div>
-								<select class="form-control" name="n2022_ccpet3" >
-									@foreach($ConvCcpetCodigo as $item)
-										@if ($item->codigo == $planaccion->n2022_ccpet3)	
-											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
-										@else
-											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-										@endif
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_ccpet4" class="negrita">4. Codigo CCPET</label> 
-							<div>
-								<select class="form-control" name="n2022_ccpet4" >
-									@foreach($ConvCcpetCodigo as $item)
-										@if ($item->codigo == $planaccion->n2022_ccpet4)	
-											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
-										@else
-											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-										@endif
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_cpc" class="negrita">1. Codigo CPC (Dane)</label> 
-							<div>
-								<select class="form-control" name="n2022_cpc" >
-									@foreach($ConvCpcCodigo as $item)
-										@if ($item->codigo == $planaccion->n2022_cpc)	
-											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
-										@else
-											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-										@endif
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_cpc2" class="negrita">2. Codigo CPC (Dane)</label> 
-							<div>
-								<select class="form-control" name="n2022_cpc2" >
-									@foreach($ConvCpcCodigo as $item)
-										@if ($item->codigo == $planaccion->n2022_cpc2)	
-											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
-										@else
-											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-										@endif
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_cpc3" class="negrita">3. Codigo CPC (Dane)</label> 
-							<div>
-								<select class="form-control" name="n2022_cpc3" >
-									@foreach($ConvCpcCodigo as $item)
-										@if ($item->codigo == $planaccion->n2022_cpc3)	
-											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
-										@else
-											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-										@endif
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_cpc4" class="negrita">4. Codigo CPC (Dane)</label> 
-							<div>
-								<select class="form-control" name="n2022_cpc4" >
-									@foreach($ConvCpcCodigo as $item)
-										@if ($item->codigo == $planaccion->n2022_cpc4)	
-											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
-										@else
-											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-										@endif
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
 						<div class="form-group">
-							<label for="n2022_proyecto_producto" class="negrita">Codigo Proyectos Producto</label> 
+							<label for="n2022_proyecto_producto" class="negrita">Código del Producto</label> 
 							<div>
 								<select class="form-control" name="n2022_proyecto_producto" >
 									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
@@ -2171,7 +2175,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="n2022_proyecto_indicador" class="negrita">Codigo Proyectos Indicador</label> 
+							<label for="n2022_proyecto_indicador" class="negrita">Código del Indicador</label> 
 							<div>
 								<select class="form-control" name="n2022_proyecto_indicador" >
 									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
@@ -2213,7 +2217,7 @@
 	
 
 						<div class="form-group">
-							<label for="descripcion" class="negrita">Descripcion</label> 
+							<label for="descripcion" class="negrita">Descripción</label> 
 							<div>
 								<input class="form-control" placeholder="Breve desripcion de la accion..." required="required" name="descripcion" type="text" id="descripcion"> 
 							</div>
@@ -2243,7 +2247,7 @@
 						<hr>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_converge_politica_publica" class="negrita">Alineacion | Politica publica</label> 
+							<label for="n2022_converge_politica_publica" class="negrita">Alineación | Politica pública</label> 
 							<div>
 								<select class="form-control" name="n2022_converge_politica_publica">
 									<option value="no" selected>No aplica</option>
@@ -2262,7 +2266,7 @@
 						</div>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_converge_pgirs" class="negrita">Alineacion | PGIRS</label> 
+							<label for="n2022_converge_pgirs" class="negrita">Alineación | PGIRS</label> 
 							<div>
 								<select class="form-control" name="n2022_converge_pgirs">
 									<option value="no" selected>No aplica</option>
@@ -2284,7 +2288,7 @@
 						</div>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_converge_gestion_riesgo" class="negrita">Alineacion | Gestion del riesgo</label> 
+							<label for="n2022_converge_gestion_riesgo" class="negrita">Alineación | Gestión del riesgo</label> 
 							<div>
 								<select class="form-control" name="n2022_converge_gestion_riesgo">
 									<option value="no" selected>No aplica</option>
@@ -2301,7 +2305,7 @@
 						</div>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_converge_mipg" class="negrita">Alineacion | MIPG</label> 
+							<label for="n2022_converge_mipg" class="negrita">Alineación | MIPG</label> 
 							<div>
 								<select class="form-control" name="n2022_converge_mipg">
 									<option value="no" selected>No aplica</option>
@@ -2328,7 +2332,7 @@
 						</div>
 
 						<div class="form-group" style="background-color: #C9F7C1;">
-							<label for="n2022_ods" class="negrita">Alineacion | ODS objetivos del desarrollo sostenible</label> 
+							<label for="n2022_ods" class="negrita">Alineación | ODS objetivos del desarrollo sostenible</label> 
 							<div>
 								<select class="form-control" name="n2022_ods">
 									<option value="no" selected>No aplica</option>
@@ -2356,7 +2360,7 @@
 						<hr>
 
 						<div class="form-group col-md-6">
-							<label for="n2022_recursos" class="negrita">1. Recursos asignados para esta accion $</label> 
+							<label for="n2022_recursos" class="negrita">1. Recursos asignados para esta acción $</label> 
 							<div>
 								<input value="0" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos" type="text" min="0" id="number" style="font-size: 20px;"> 
 							</div>
@@ -2415,7 +2419,7 @@
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="n2022_recursos2" class="negrita">2. Recursos asignados para esta accion $</label> 
+							<label for="n2022_recursos2" class="negrita">2. Recursos asignados para esta acción $</label> 
 							<div>
 								<input value="0" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos2" type="text" min="0" id="number2" style="font-size: 20px;"> 
 							</div>
@@ -2474,7 +2478,7 @@
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="n2022_recursos3" class="negrita">3. Recursos asignados para esta accion $</label> 
+							<label for="n2022_recursos3" class="negrita">3. Recursos asignados para esta acción $</label> 
 							<div>
 								<input value="0" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos3" type="text" min="0" id="number3" style="font-size: 20px;"> 
 							</div>
@@ -2533,7 +2537,7 @@
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="n2022_recursos4" class="negrita">4. Recursos asignados para esta accion $</label> 
+							<label for="n2022_recursos4" class="negrita">4. Recursos asignados para esta acción $</label> 
 							<div>
 								<input value="0" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos4" type="text" min="0" id="number4" style="font-size: 20px;"> 
 							</div>
@@ -2594,7 +2598,7 @@
 						<hr>
 
 						<div class="form-group">
-							<label for="n2022_codigo_fut" class="negrita">Codigo FUT</label> 
+							<label for="n2022_codigo_fut" class="negrita">Código FUT</label> 
 							<div>
 								<select class="form-control" name="n2022_codigo_fut">
 									<option value="no" selected>No aplica</option>
@@ -2622,8 +2626,10 @@
 
 						<hr>
 
-						<div class="form-group" style="background-color: #C1E2F7;">
-							<label for="n2022_codigo_bpim" class="negrita">Codigo BPIM</label> 
+						<div class="form-group col-md-12"><b><h3>Proyecto inscrito en el Banco de Proyectos</h3></b></div>
+
+						<div class="form-group">
+							<label for="n2022_codigo_bpim" class="negrita">Código BPIM</label> 
 							<div>
 								<select class="form-control" name="n2022_codigo_bpim">
 									<option value="no" selected>No aplica</option>
@@ -2657,14 +2663,104 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #C1E2F7;">
-							<label for="n2022_producto_actividad_proyectos" class="negrita">Producto o actividad relacionada del proyecto</label> 
+						<div class="form-group">
+							<label for="n2022_producto_actividad_proyectos" class="negrita">Actividad del proyecto</label> 
 							<div>
-								<input class="form-control" placeholder="Producto o actividad0..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
+								<input class="form-control" placeholder="Producto o actividad..." required="required" name="n2022_producto_actividad_proyectos" type="text" id="n2022_producto_actividad_proyectos"> 
 							</div>
 						</div>
 
-						<hr>
+						<hr>						
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet" class="negrita">1. Código CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet">
+									@foreach($ConvCcpetCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet2" class="negrita">2. Código CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet2">
+									@foreach($ConvCcpetCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet3" class="negrita">3. Código CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet3">
+									@foreach($ConvCcpetCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet4" class="negrita">4. Código CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet4">
+									@foreach($ConvCcpetCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc" class="negrita">1. Código CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc">
+									@foreach($ConvCpcCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc2" class="negrita">2. Código CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc2">
+									@foreach($ConvCpcCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc3" class="negrita">3. Código CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc3">
+									@foreach($ConvCpcCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc4" class="negrita">4. Código CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc4">
+									@foreach($ConvCpcCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-12"><hr><b><h3>Catálogo MGA</h3></b></div>
 
 						<div class="form-group">
 							<label for="n2022_sector" class="negrita">Sector</label> 
@@ -2691,98 +2787,10 @@
 									<option value="45-GOBIERNO TERRITORIAL">45-GOBIERNO TERRITORIAL</option>
 								</select> 
 							</div>
-						</div>						
-
-						<div class="form-group col-md-3">
-							<label for="n2022_ccpet" class="negrita">1. Codigo CCPET</label> 
-							<div>
-								<select class="form-control" name="n2022_ccpet">
-									@foreach($ConvCcpetCodigo as $item)
-										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_ccpet2" class="negrita">2. Codigo CCPET</label> 
-							<div>
-								<select class="form-control" name="n2022_ccpet2">
-									@foreach($ConvCcpetCodigo as $item)
-										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_ccpet3" class="negrita">3. Codigo CCPET</label> 
-							<div>
-								<select class="form-control" name="n2022_ccpet3">
-									@foreach($ConvCcpetCodigo as $item)
-										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_ccpet4" class="negrita">4. Codigo CCPET</label> 
-							<div>
-								<select class="form-control" name="n2022_ccpet4">
-									@foreach($ConvCcpetCodigo as $item)
-										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_cpc" class="negrita">1. Codigo CPC (Dane)</label> 
-							<div>
-								<select class="form-control" name="n2022_cpc">
-									@foreach($ConvCpcCodigo as $item)
-										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_cpc2" class="negrita">2. Codigo CPC (Dane)</label> 
-							<div>
-								<select class="form-control" name="n2022_cpc2">
-									@foreach($ConvCpcCodigo as $item)
-										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_cpc3" class="negrita">3. Codigo CPC (Dane)</label> 
-							<div>
-								<select class="form-control" name="n2022_cpc3">
-									@foreach($ConvCpcCodigo as $item)
-										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-									@endforeach
-								</select> 
-							</div>
-						</div>
-
-						<div class="form-group col-md-3">
-							<label for="n2022_cpc4" class="negrita">4. Codigo CPC (Dane)</label> 
-							<div>
-								<select class="form-control" name="n2022_cpc4">
-									@foreach($ConvCpcCodigo as $item)
-										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
-									@endforeach
-								</select> 
-							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="n2022_proyecto_producto" class="negrita">Codigo Proyectos Producto</label> 
+							<label for="n2022_proyecto_producto" class="negrita">Código de Producto</label> 
 							<div>
 								<select class="form-control" name="n2022_proyecto_producto">
 									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
@@ -2794,7 +2802,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="n2022_proyecto_indicador" class="negrita">Codigo Proyectos Indicador</label> 
+							<label for="n2022_proyecto_indicador" class="negrita">Código del Indicador</label> 
 							<div>
 								<select class="form-control" name="n2022_proyecto_indicador">
 									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
