@@ -268,6 +268,12 @@
 										<option value="no">No aplica</option>
 									@endif
 
+									@if ($planaccion->n2022_converge_mipg == "0-Más de una opción")
+										<option value="0-Más de una opción" selected>Más de una opción o todas</option>
+									@else
+										<option value="0-Más de una opción">Más de una opción o todas</option>
+									@endif
+
 									@if ($planaccion->n2022_converge_mipg == "1-Política de Gestión Estratégica del Talento Humano GETH")
 										<option value="1-Política de Gestión Estratégica del Talento Humano GETH" selected>Política de Gestión Estratégica del Talento Humano GETH</option>
 									@else
@@ -2309,6 +2315,7 @@
 							<div>
 								<select class="form-control" name="n2022_converge_mipg">
 									<option value="no" selected>No aplica</option>
+									<option value="0-Más de una opción">Más de una opción o todas</option>
 									<option value="1-Política de Gestión Estratégica del Talento Humano GETH">Política de Gestión Estratégica del Talento Humano GETH</option>
 									<option value="2-Política de Integridad">Política de Integridad</option>
 									<option value="3-Política de Planeación Institucional">Política de Planeación Institucional</option>
