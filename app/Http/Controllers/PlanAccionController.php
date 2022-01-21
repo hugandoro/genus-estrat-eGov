@@ -92,6 +92,21 @@ class PlanAccionController extends Controller
         $planaccion->n2022_proyecto_producto = $request->n2022_proyecto_producto;
         $planaccion->n2022_proyecto_indicador = $request->n2022_proyecto_indicador;
 
+        $planaccion->n2022_recursos2 = $request->n2022_recursos2;
+        $planaccion->n2022_fuente2 = $request->n2022_fuente2;
+        $planaccion->n2022_recursos3 = $request->n2022_recursos3;
+        $planaccion->n2022_fuente3 = $request->n2022_fuente3;
+        $planaccion->n2022_recursos4 = $request->n2022_recursos4;
+        $planaccion->n2022_fuente4 = $request->n2022_fuente4;
+
+        $planaccion->n2022_ccpet2 = $request->n2022_ccpet2;
+        $planaccion->n2022_ccpet3 = $request->n2022_ccpet3;
+        $planaccion->n2022_ccpet4 = $request->n2022_ccpet4;
+
+        $planaccion->n2022_cpc2 = $request->n2022_cpc2;
+        $planaccion->n2022_cpc3 = $request->n2022_cpc3;
+        $planaccion->n2022_cpc4 = $request->n2022_cpc4;
+
         $planaccion->save();
  
         $nivel4id = $request->nivel4_id;
@@ -158,6 +173,21 @@ class PlanAccionController extends Controller
         $planaccion->n2022_cpc = $request->n2022_cpc;
         $planaccion->n2022_proyecto_producto = $request->n2022_proyecto_producto;
         $planaccion->n2022_proyecto_indicador = $request->n2022_proyecto_indicador;
+
+        $planaccion->n2022_recursos2 = $request->n2022_recursos2;
+        $planaccion->n2022_fuente2 = $request->n2022_fuente2;
+        $planaccion->n2022_recursos3 = $request->n2022_recursos3;
+        $planaccion->n2022_fuente3 = $request->n2022_fuente3;
+        $planaccion->n2022_recursos4 = $request->n2022_recursos4;
+        $planaccion->n2022_fuente4 = $request->n2022_fuente4;
+
+        $planaccion->n2022_ccpet2 = $request->n2022_ccpet2;
+        $planaccion->n2022_ccpet3 = $request->n2022_ccpet3;
+        $planaccion->n2022_ccpet4 = $request->n2022_ccpet4;
+
+        $planaccion->n2022_cpc2 = $request->n2022_cpc2;
+        $planaccion->n2022_cpc3 = $request->n2022_cpc3;
+        $planaccion->n2022_cpc4 = $request->n2022_cpc4;
 
         $planaccion->save();
 

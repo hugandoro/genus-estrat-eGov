@@ -497,15 +497,15 @@
 
 						<hr>
 
-						<div class="form-group" style="background-color: #C1E2F7;">
-							<label for="n2022_recursos" class="negrita">Recursos asignados para esta accion</label> 
+						<div class="form-group col-md-6">
+							<label for="n2022_recursos" class="negrita">1. Recursos asignados para esta accion $</label> 
 							<div>
 								<input value="{{ $planaccion->n2022_recursos }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos" type="text" min="0" id="number" style="font-size: 20px;"> 
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #C1E2F7;">
-							<label for="n2022_fuente" class="negrita">Fuente de los recursos</label> 
+						<div class="form-group col-md-6">
+							<label for="n2022_fuente" class="negrita">1. Fuente de los recursos</label> 
 							<div>
 								<select class="form-control" name="n2022_fuente">
 									@if ($planaccion->n2022_fuente == "no")
@@ -775,9 +775,843 @@
 							</div>
 						</div>
 
+						<div class="form-group col-md-6">
+							<label for="n2022_recursos2" class="negrita">2. Recursos asignados para esta accion $</label> 
+							<div>
+								<input value="{{ $planaccion->n2022_recursos2 }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos2" type="text" min="0" id="number2" style="font-size: 20px;"> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_fuente2" class="negrita">2. Fuente de los recursos</label> 
+							<div>
+								<select class="form-control" name="n2022_fuente2">
+									@if ($planaccion->n2022_fuente2 == "no")
+										<option value="0" selected>No aplica</option>
+									@else
+										<option value="0">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1")
+										<option value="1" selected>1 - Recursos por funcionamiento</option>
+									@else
+										<option value="1">1 - Recursos por funcionamiento</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2")
+										<option value="2" selected>2 - Recursos por gestión</option>
+									@else
+										<option value="2">2 - Recursos por gestión</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "3")
+										<option value="3" selected>3 - IDM | Propios | Otras fuentes</option>
+									@else
+										<option value="3">3 - IDM | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4")
+										<option value="4" selected>4 - Bomberos | Propios | Otras fuentes</option>
+									@else
+										<option value="4">4 - Bomberos | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "5")
+										<option value="5" selected>5 - Serviciudad | Propios | Otras fuentes</option>
+									@else
+										<option value="5">5 - Serviciudad | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1101")
+										<option value="1101" selected>1101 - Recursos propios de libre destinacion</option>
+									@else
+										<option value="1101">1101 - Recursos propios de libre destinacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1202")
+										<option value="1202" selected>1202 - Multas de transito propios destinación especifica</option>
+									@else
+										<option value="1202">1202 - Multas de transito propios destinación especifica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1205")
+										<option value="1205" selected>1205 - Estampilla pro cultura propios destinación especif...</option>
+									@else
+										<option value="1205">1205 - Estampilla pro cultura propios destinación especif...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1206")
+										<option value="1206" selected>1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									@else
+										<option value="1206">1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1214")
+										<option value="1214" selected>1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									@else
+										<option value="1214">1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1215")
+										<option value="1215" selected>1215 - Impuesto de consumo al cigarrillo</option>
+									@else
+										<option value="1215">1215 - Impuesto de consumo al cigarrillo</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1216")
+										<option value="1216" selected>1216 - Estampilla adulto mayor gobernacion</option>
+									@else
+										<option value="1216">1216 - Estampilla adulto mayor gobernacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1217")
+										<option value="1217" selected>1217 - Contribución parafiscal</option>
+									@else
+										<option value="1217">1217 - Contribución parafiscal</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "1218")
+										<option value="1218" selected>1218 - Código policía</option>
+									@else
+										<option value="1218">1218 - Código policía</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2101")
+										<option value="2101" selected>2101 - SGP Educación prestación del servicio</option>
+									@else
+										<option value="2101">2101 - SGP Educación prestación del servicio</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2102")
+										<option value="2102" selected>2102 - Educación calidad</option>
+									@else
+										<option value="2102">2102 - Educación calidad</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2201")
+										<option value="2201" selected>2201 - Fondo de salud</option>
+									@else
+										<option value="2201">2201 - Fondo de salud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2202")
+										<option value="2202" selected>2202 - Salud oferta</option>
+									@else
+										<option value="2202">2202 - Salud oferta</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2203")
+										<option value="2203" selected>2203 - SGP Salud publica</option>
+									@else
+										<option value="2203">2203 - SGP Salud publica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2301")
+										<option value="2301" selected>2301 - SGP Agua potable y saneamiento básico</option>
+									@else
+										<option value="2301">2301 - SGP Agua potable y saneamiento básico</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2302")
+										<option value="2302" selected>2302 - SGP Deporte</option>
+									@else
+										<option value="2302">2302 - SGP Deporte</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2303")
+										<option value="2303" selected>2303 - SGP Cultura</option>
+									@else
+										<option value="2303">2303 - SGP Cultura</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2304")
+										<option value="2304" selected>2304 - SGP Alimentación escolar</option>
+									@else
+										<option value="2304">2304 - SGP Alimentación escolar</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2305")
+										<option value="2305" selected>2305 - SGP Propósito general</option>
+									@else
+										<option value="2305">2305 - SGP Propósito general</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "2306")
+										<option value="2306" selected>2306 - SGP Primera infancia</option>
+									@else
+										<option value="2306">2306 - SGP Primera infancia</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "3101")
+										<option value="3101" selected>3101 - Fondo de seguridad</option>
+									@else
+										<option value="3101">3101 - Fondo de seguridad</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "3201")
+										<option value="3201" selected>3201 - Áreas de cesión</option>
+									@else
+										<option value="3201">3101 - Áreas de cesión</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "3301")
+										<option value="3301" selected>3301 - Fondo de solidaridad y redistribución ingreso</option>
+									@else
+										<option value="3301">3301 - Fondo de solidaridad y redistribución ingreso</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "3401")
+										<option value="3401" selected>3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									@else
+										<option value="3401">3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4102")
+										<option value="4102" selected>4102 - Convenios salud</option>
+									@else
+										<option value="4102">4102 - Convenios salud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4106")
+										<option value="4106" selected>4106 - Presupuesto participativo</option>
+									@else
+										<option value="4106">4106 - Presupuesto participativo</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4107")
+										<option value="4107" selected>4107 - Convenios educación por liquidar</option>
+									@else
+										<option value="4107">4107 - Convenios educación por liquidar</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4121")
+										<option value="4121" selected>4121 - Fonpet educación</option>
+									@else
+										<option value="4121">4121 - Fonpet educación</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4122")
+										<option value="4122" selected>4122 - Fonpet propósito general</option>
+									@else
+										<option value="4122">4122 - Fonpet propósito general</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4123")
+										<option value="4123" selected>4123 - Fonpet otros sectores</option>
+									@else
+										<option value="4123">4123 - Fonpet otros sectores</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4124")
+										<option value="4124" selected>4124 - Convenio Fonade</option>
+									@else
+										<option value="4124">4124 - Convenio Fonade</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4127")
+										<option value="4127" selected>4127 - Residuos solidos</option>
+									@else
+										<option value="4127">4127 - Residuos solidos</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4201")
+										<option value="4201" selected>4201 - Etesa</option>
+									@else
+										<option value="4201">4201 - Etesa</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4303")
+										<option value="4303" selected>4303 - Regalías régimen anterior</option>
+									@else
+										<option value="4303">4303 - Regalías régimen anterior</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4501")
+										<option value="4501" selected>4501 - Empréstito malla vial</option>
+									@else
+										<option value="4501">4501 - Empréstito malla vial</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4506")
+										<option value="4506" selected>4506 - Donaciones</option>
+									@else
+										<option value="4506">4506 - Donaciones</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4508")
+										<option value="4508" selected>4508 - Rendimiento propios</option>
+									@else
+										<option value="4508">4508 - Rendimiento propios</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente2 == "4601")
+										<option value="4601" selected>4601 - Convenio estratificacion</option>
+									@else
+										<option value="4601">4601 - Convenio estratificacion</option>
+									@endif
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_recursos3" class="negrita">3. Recursos asignados para esta accion $</label> 
+							<div>
+								<input value="{{ $planaccion->n2022_recursos3 }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos3" type="text" min="0" id="number3" style="font-size: 20px;"> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_fuente3" class="negrita">3. Fuente de los recursos</label> 
+							<div>
+								<select class="form-control" name="n2022_fuente3">
+									@if ($planaccion->n2022_fuente3 == "no")
+										<option value="0" selected>No aplica</option>
+									@else
+										<option value="0">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1")
+										<option value="1" selected>1 - Recursos por funcionamiento</option>
+									@else
+										<option value="1">1 - Recursos por funcionamiento</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2")
+										<option value="2" selected>2 - Recursos por gestión</option>
+									@else
+										<option value="2">2 - Recursos por gestión</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "3")
+										<option value="3" selected>3 - IDM | Propios | Otras fuentes</option>
+									@else
+										<option value="3">3 - IDM | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4")
+										<option value="4" selected>4 - Bomberos | Propios | Otras fuentes</option>
+									@else
+										<option value="4">4 - Bomberos | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "5")
+										<option value="5" selected>5 - Serviciudad | Propios | Otras fuentes</option>
+									@else
+										<option value="5">5 - Serviciudad | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1101")
+										<option value="1101" selected>1101 - Recursos propios de libre destinacion</option>
+									@else
+										<option value="1101">1101 - Recursos propios de libre destinacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1202")
+										<option value="1202" selected>1202 - Multas de transito propios destinación especifica</option>
+									@else
+										<option value="1202">1202 - Multas de transito propios destinación especifica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1205")
+										<option value="1205" selected>1205 - Estampilla pro cultura propios destinación especif...</option>
+									@else
+										<option value="1205">1205 - Estampilla pro cultura propios destinación especif...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1206")
+										<option value="1206" selected>1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									@else
+										<option value="1206">1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1214")
+										<option value="1214" selected>1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									@else
+										<option value="1214">1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1215")
+										<option value="1215" selected>1215 - Impuesto de consumo al cigarrillo</option>
+									@else
+										<option value="1215">1215 - Impuesto de consumo al cigarrillo</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1216")
+										<option value="1216" selected>1216 - Estampilla adulto mayor gobernacion</option>
+									@else
+										<option value="1216">1216 - Estampilla adulto mayor gobernacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1217")
+										<option value="1217" selected>1217 - Contribución parafiscal</option>
+									@else
+										<option value="1217">1217 - Contribución parafiscal</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "1218")
+										<option value="1218" selected>1218 - Código policía</option>
+									@else
+										<option value="1218">1218 - Código policía</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2101")
+										<option value="2101" selected>2101 - SGP Educación prestación del servicio</option>
+									@else
+										<option value="2101">2101 - SGP Educación prestación del servicio</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2102")
+										<option value="2102" selected>2102 - Educación calidad</option>
+									@else
+										<option value="2102">2102 - Educación calidad</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2201")
+										<option value="2201" selected>2201 - Fondo de salud</option>
+									@else
+										<option value="2201">2201 - Fondo de salud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2202")
+										<option value="2202" selected>2202 - Salud oferta</option>
+									@else
+										<option value="2202">2202 - Salud oferta</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2203")
+										<option value="2203" selected>2203 - SGP Salud publica</option>
+									@else
+										<option value="2203">2203 - SGP Salud publica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2301")
+										<option value="2301" selected>2301 - SGP Agua potable y saneamiento básico</option>
+									@else
+										<option value="2301">2301 - SGP Agua potable y saneamiento básico</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2302")
+										<option value="2302" selected>2302 - SGP Deporte</option>
+									@else
+										<option value="2302">2302 - SGP Deporte</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2303")
+										<option value="2303" selected>2303 - SGP Cultura</option>
+									@else
+										<option value="2303">2303 - SGP Cultura</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2304")
+										<option value="2304" selected>2304 - SGP Alimentación escolar</option>
+									@else
+										<option value="2304">2304 - SGP Alimentación escolar</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2305")
+										<option value="2305" selected>2305 - SGP Propósito general</option>
+									@else
+										<option value="2305">2305 - SGP Propósito general</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "2306")
+										<option value="2306" selected>2306 - SGP Primera infancia</option>
+									@else
+										<option value="2306">2306 - SGP Primera infancia</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "3101")
+										<option value="3101" selected>3101 - Fondo de seguridad</option>
+									@else
+										<option value="3101">3101 - Fondo de seguridad</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "3201")
+										<option value="3201" selected>3201 - Áreas de cesión</option>
+									@else
+										<option value="3201">3101 - Áreas de cesión</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "3301")
+										<option value="3301" selected>3301 - Fondo de solidaridad y redistribución ingreso</option>
+									@else
+										<option value="3301">3301 - Fondo de solidaridad y redistribución ingreso</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "3401")
+										<option value="3401" selected>3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									@else
+										<option value="3401">3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4102")
+										<option value="4102" selected>4102 - Convenios salud</option>
+									@else
+										<option value="4102">4102 - Convenios salud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4106")
+										<option value="4106" selected>4106 - Presupuesto participativo</option>
+									@else
+										<option value="4106">4106 - Presupuesto participativo</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4107")
+										<option value="4107" selected>4107 - Convenios educación por liquidar</option>
+									@else
+										<option value="4107">4107 - Convenios educación por liquidar</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4121")
+										<option value="4121" selected>4121 - Fonpet educación</option>
+									@else
+										<option value="4121">4121 - Fonpet educación</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4122")
+										<option value="4122" selected>4122 - Fonpet propósito general</option>
+									@else
+										<option value="4122">4122 - Fonpet propósito general</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4123")
+										<option value="4123" selected>4123 - Fonpet otros sectores</option>
+									@else
+										<option value="4123">4123 - Fonpet otros sectores</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4124")
+										<option value="4124" selected>4124 - Convenio Fonade</option>
+									@else
+										<option value="4124">4124 - Convenio Fonade</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4127")
+										<option value="4127" selected>4127 - Residuos solidos</option>
+									@else
+										<option value="4127">4127 - Residuos solidos</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4201")
+										<option value="4201" selected>4201 - Etesa</option>
+									@else
+										<option value="4201">4201 - Etesa</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4303")
+										<option value="4303" selected>4303 - Regalías régimen anterior</option>
+									@else
+										<option value="4303">4303 - Regalías régimen anterior</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4501")
+										<option value="4501" selected>4501 - Empréstito malla vial</option>
+									@else
+										<option value="4501">4501 - Empréstito malla vial</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4506")
+										<option value="4506" selected>4506 - Donaciones</option>
+									@else
+										<option value="4506">4506 - Donaciones</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4508")
+										<option value="4508" selected>4508 - Rendimiento propios</option>
+									@else
+										<option value="4508">4508 - Rendimiento propios</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente3 == "4601")
+										<option value="4601" selected>4601 - Convenio estratificacion</option>
+									@else
+										<option value="4601">4601 - Convenio estratificacion</option>
+									@endif
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_recursos4" class="negrita">4. Recursos asignados para esta accion $</label> 
+							<div>
+								<input value="{{ $planaccion->n2022_recursos4 }}" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos4" type="text" min="0" id="number4" style="font-size: 20px;"> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_fuente4" class="negrita">4. Fuente de los recursos</label> 
+							<div>
+								<select class="form-control" name="n2022_fuente4">
+									@if ($planaccion->n2022_fuente4 == "no")
+										<option value="0" selected>No aplica</option>
+									@else
+										<option value="0">No aplica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1")
+										<option value="1" selected>1 - Recursos por funcionamiento</option>
+									@else
+										<option value="1">1 - Recursos por funcionamiento</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2")
+										<option value="2" selected>2 - Recursos por gestión</option>
+									@else
+										<option value="2">2 - Recursos por gestión</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "3")
+										<option value="3" selected>3 - IDM | Propios | Otras fuentes</option>
+									@else
+										<option value="3">3 - IDM | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4")
+										<option value="4" selected>4 - Bomberos | Propios | Otras fuentes</option>
+									@else
+										<option value="4">4 - Bomberos | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "5")
+										<option value="5" selected>5 - Serviciudad | Propios | Otras fuentes</option>
+									@else
+										<option value="5">5 - Serviciudad | Propios | Otras fuentes</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1101")
+										<option value="1101" selected>1101 - Recursos propios de libre destinacion</option>
+									@else
+										<option value="1101">1101 - Recursos propios de libre destinacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1202")
+										<option value="1202" selected>1202 - Multas de transito propios destinación especifica</option>
+									@else
+										<option value="1202">1202 - Multas de transito propios destinación especifica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1205")
+										<option value="1205" selected>1205 - Estampilla pro cultura propios destinación especif...</option>
+									@else
+										<option value="1205">1205 - Estampilla pro cultura propios destinación especif...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1206")
+										<option value="1206" selected>1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									@else
+										<option value="1206">1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1214")
+										<option value="1214" selected>1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									@else
+										<option value="1214">1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1215")
+										<option value="1215" selected>1215 - Impuesto de consumo al cigarrillo</option>
+									@else
+										<option value="1215">1215 - Impuesto de consumo al cigarrillo</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1216")
+										<option value="1216" selected>1216 - Estampilla adulto mayor gobernacion</option>
+									@else
+										<option value="1216">1216 - Estampilla adulto mayor gobernacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1217")
+										<option value="1217" selected>1217 - Contribución parafiscal</option>
+									@else
+										<option value="1217">1217 - Contribución parafiscal</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "1218")
+										<option value="1218" selected>1218 - Código policía</option>
+									@else
+										<option value="1218">1218 - Código policía</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2101")
+										<option value="2101" selected>2101 - SGP Educación prestación del servicio</option>
+									@else
+										<option value="2101">2101 - SGP Educación prestación del servicio</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2102")
+										<option value="2102" selected>2102 - Educación calidad</option>
+									@else
+										<option value="2102">2102 - Educación calidad</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2201")
+										<option value="2201" selected>2201 - Fondo de salud</option>
+									@else
+										<option value="2201">2201 - Fondo de salud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2202")
+										<option value="2202" selected>2202 - Salud oferta</option>
+									@else
+										<option value="2202">2202 - Salud oferta</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2203")
+										<option value="2203" selected>2203 - SGP Salud publica</option>
+									@else
+										<option value="2203">2203 - SGP Salud publica</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2301")
+										<option value="2301" selected>2301 - SGP Agua potable y saneamiento básico</option>
+									@else
+										<option value="2301">2301 - SGP Agua potable y saneamiento básico</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2302")
+										<option value="2302" selected>2302 - SGP Deporte</option>
+									@else
+										<option value="2302">2302 - SGP Deporte</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2303")
+										<option value="2303" selected>2303 - SGP Cultura</option>
+									@else
+										<option value="2303">2303 - SGP Cultura</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2304")
+										<option value="2304" selected>2304 - SGP Alimentación escolar</option>
+									@else
+										<option value="2304">2304 - SGP Alimentación escolar</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2305")
+										<option value="2305" selected>2305 - SGP Propósito general</option>
+									@else
+										<option value="2305">2305 - SGP Propósito general</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "2306")
+										<option value="2306" selected>2306 - SGP Primera infancia</option>
+									@else
+										<option value="2306">2306 - SGP Primera infancia</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "3101")
+										<option value="3101" selected>3101 - Fondo de seguridad</option>
+									@else
+										<option value="3101">3101 - Fondo de seguridad</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "3201")
+										<option value="3201" selected>3201 - Áreas de cesión</option>
+									@else
+										<option value="3201">3101 - Áreas de cesión</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "3301")
+										<option value="3301" selected>3301 - Fondo de solidaridad y redistribución ingreso</option>
+									@else
+										<option value="3301">3301 - Fondo de solidaridad y redistribución ingreso</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "3401")
+										<option value="3401" selected>3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									@else
+										<option value="3401">3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4102")
+										<option value="4102" selected>4102 - Convenios salud</option>
+									@else
+										<option value="4102">4102 - Convenios salud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4106")
+										<option value="4106" selected>4106 - Presupuesto participativo</option>
+									@else
+										<option value="4106">4106 - Presupuesto participativo</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4107")
+										<option value="4107" selected>4107 - Convenios educación por liquidar</option>
+									@else
+										<option value="4107">4107 - Convenios educación por liquidar</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4121")
+										<option value="4121" selected>4121 - Fonpet educación</option>
+									@else
+										<option value="4121">4121 - Fonpet educación</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4122")
+										<option value="4122" selected>4122 - Fonpet propósito general</option>
+									@else
+										<option value="4122">4122 - Fonpet propósito general</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4123")
+										<option value="4123" selected>4123 - Fonpet otros sectores</option>
+									@else
+										<option value="4123">4123 - Fonpet otros sectores</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4124")
+										<option value="4124" selected>4124 - Convenio Fonade</option>
+									@else
+										<option value="4124">4124 - Convenio Fonade</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4127")
+										<option value="4127" selected>4127 - Residuos solidos</option>
+									@else
+										<option value="4127">4127 - Residuos solidos</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4201")
+										<option value="4201" selected>4201 - Etesa</option>
+									@else
+										<option value="4201">4201 - Etesa</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4303")
+										<option value="4303" selected>4303 - Regalías régimen anterior</option>
+									@else
+										<option value="4303">4303 - Regalías régimen anterior</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4501")
+										<option value="4501" selected>4501 - Empréstito malla vial</option>
+									@else
+										<option value="4501">4501 - Empréstito malla vial</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4506")
+										<option value="4506" selected>4506 - Donaciones</option>
+									@else
+										<option value="4506">4506 - Donaciones</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4508")
+										<option value="4508" selected>4508 - Rendimiento propios</option>
+									@else
+										<option value="4508">4508 - Rendimiento propios</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente4 == "4601")
+										<option value="4601" selected>4601 - Convenio estratificacion</option>
+									@else
+										<option value="4601">4601 - Convenio estratificacion</option>
+									@endif
+								</select> 
+							</div>
+						</div>						
+
 						<hr>
 
-						<div class="form-group" style="background-color: #C9F7C1;">
+						<div class="form-group">
 							<label for="n2022_codigo_fut" class="negrita">Codigo FUT</label> 
 							<div>
 								<select class="form-control" name="n2022_codigo_fut">
@@ -1079,7 +1913,7 @@
 						
 						<hr>
 
-						<div class="form-group" style="background-color: #deb1bf;">
+						<div class="form-group">
 							<label for="n2022_sector" class="negrita">Sector</label> 
 							<div>
 								<select class="form-control" name="n2022_sector">
@@ -1200,10 +2034,10 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #deb1bf ;">
-							<label for="n2022_ccpet" class="negrita">Codigo CCPET</label> 
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet" class="negrita">1. Codigo CCPET</label> 
 							<div>
-								<select class="form-control" name="n2022_ccpet" readonly>
+								<select class="form-control" name="n2022_ccpet" >
 									@foreach($ConvCcpetCodigo as $item)
 										@if ($item->codigo == $planaccion->n2022_ccpet)	
 											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
@@ -1215,10 +2049,55 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #deb1bf ;">
-							<label for="n2022_cpc" class="negrita">Codigo CPC (Dane)</label> 
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet2" class="negrita">2. Codigo CCPET</label> 
 							<div>
-								<select class="form-control" name="n2022_cpc" readonly>
+								<select class="form-control" name="n2022_ccpet2" >
+									@foreach($ConvCcpetCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_ccpet2)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet3" class="negrita">3. Codigo CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet3" >
+									@foreach($ConvCcpetCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_ccpet3)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet4" class="negrita">4. Codigo CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet4" >
+									@foreach($ConvCcpetCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_ccpet4)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc" class="negrita">1. Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc" >
 									@foreach($ConvCpcCodigo as $item)
 										@if ($item->codigo == $planaccion->n2022_cpc)	
 											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
@@ -1230,10 +2109,55 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #deb1bf ;">
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc2" class="negrita">2. Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc2" >
+									@foreach($ConvCpcCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_cpc2)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc3" class="negrita">3. Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc3" >
+									@foreach($ConvCpcCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_cpc3)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc4" class="negrita">4. Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc4" >
+									@foreach($ConvCpcCodigo as $item)
+										@if ($item->codigo == $planaccion->n2022_cpc4)	
+											<option value="{{$item->codigo}}" selected="selected">{{$item->codigo}}</option>
+										@else
+											<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+										@endif
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label for="n2022_proyecto_producto" class="negrita">Codigo Proyectos Producto</label> 
 							<div>
-								<select class="form-control" name="n2022_proyecto_producto" readonly>
+								<select class="form-control" name="n2022_proyecto_producto" >
 									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
 									@foreach($ConvProyectoProductoCodigo as $item)
 										@if (($item->codigo."-".$item->nombre) == $planaccion->n2022_proyecto_producto)
@@ -1246,10 +2170,10 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #deb1bf ;">
+						<div class="form-group">
 							<label for="n2022_proyecto_indicador" class="negrita">Codigo Proyectos Indicador</label> 
 							<div>
-								<select class="form-control" name="n2022_proyecto_indicador" readonly>
+								<select class="form-control" name="n2022_proyecto_indicador" >
 									<!-- No almacena el Id, almacena el concatenado del campo "codigo" "-" "nombre" -->
 									@foreach($ConvProyectoIndicadorCodigo as $item)
 										@if (($item->codigo."-".$item->nombre) == $planaccion->n2022_proyecto_indicador)	
@@ -1431,15 +2355,15 @@
 
 						<hr>
 
-						<div class="form-group" style="background-color: #C1E2F7;">
-							<label for="n2022_recursos" class="negrita">Recursos asignados para esta accion</label> 
+						<div class="form-group col-md-6">
+							<label for="n2022_recursos" class="negrita">1. Recursos asignados para esta accion $</label> 
 							<div>
-								<input class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos" type="text" min="0" id="number" style="font-size: 20px;"> 
+								<input value="0" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos" type="text" min="0" id="number" style="font-size: 20px;"> 
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #C1E2F7;">
-							<label for="n2022_fuente" class="negrita">Fuente de los recursos</label> 
+						<div class="form-group col-md-6">
+							<label for="n2022_fuente" class="negrita">1. Fuente de los recursos</label> 
 							<div>
 								<select class="form-control" name="n2022_fuente">
 									<option value="0" selected>No aplica</option>
@@ -1490,9 +2414,186 @@
 							</div>
 						</div>
 
+						<div class="form-group col-md-6">
+							<label for="n2022_recursos2" class="negrita">2. Recursos asignados para esta accion $</label> 
+							<div>
+								<input value="0" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos2" type="text" min="0" id="number2" style="font-size: 20px;"> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_fuente2" class="negrita">2. Fuente de los recursos</label> 
+							<div>
+								<select class="form-control" name="n2022_fuente2">
+									<option value="0" selected>No aplica</option>
+									<option value="1">1 - Recursos por funcionamiento</option>
+									<option value="2">2 - Recursos por gestión</option>
+									<option value="3">3 - IDM | Propios | Otras fuentes</option>
+									<option value="4">4 - Bomberos | Propios | Otras fuentes</option>
+									<option value="5">5 - Serviciudad | Propios | Otras fuentes</option>
+									<option value="1101">1101 - Recursos propios de libre destinacion</option>
+									<option value="1202">1202 - Multas de transito propios destinación especifica</option>
+									<option value="1205">1205 - Estampilla pro cultura propios destinación especif...</option>
+									<option value="1206">1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									<option value="1214">1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									<option value="1215">1215 - Impuesto de consumo al cigarrillo</option>
+									<option value="1216">1216 - Estampilla adulto mayor gobernacion</option>
+									<option value="1217">1217 - Contribución parafiscal</option>
+									<option value="1218">1218 - Código policía</option>
+									<option value="2101">2101 - SGP Educación prestación del servicio</option>
+									<option value="2102">2102 - Educación calidad</option>
+									<option value="2201">2201 - Fondo de salud</option>
+									<option value="2202">2202 - Salud oferta</option>
+									<option value="2203">2203 - SGP Salud publica</option>
+									<option value="2301">2301 - SGP Agua potable y saneamiento básico</option>
+									<option value="2302">2302 - SGP Deporte</option>
+									<option value="2303">2303 - SGP Cultura</option>
+									<option value="2304">2304 - SGP Alimentación escolar</option>
+									<option value="2305">2305 - SGP Propósito general</option>
+									<option value="2306">2306 - SGP Primera infancia</option>
+									<option value="3101">3101 - Fondo de seguridad</option>
+									<option value="3201">3201 - Áreas de cesión</option>
+									<option value="3301">3301 - Fondo de solidaridad y redistribución ingreso</option>
+									<option value="3401">3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									<option value="4102">4102 - Convenios salud</option>
+									<option value="4106">4106 - Presupuesto participativo</option>
+									<option value="4107">4107 - Convenios educación por liquidar</option>
+									<option value="4121">4121 - Fonpet educación</option>
+									<option value="4122">4122 - Fonpet propósito general</option>
+									<option value="4123">4123 - Fonpet otros sectores</option>
+									<option value="4124">4124 - Convenio Fonade</option>
+									<option value="4127">4127 - Residuos solidos</option>
+									<option value="4201">4201 - Etesa</option>
+									<option value="4303">4303 - Regalías régimen anterior</option>
+									<option value="4501">4501 - Empréstito malla vial</option>
+									<option value="4506">4506 - Donaciones</option>
+									<option value="4508">4508 - Rendimiento propios</option>
+									<option value="4601">4601 - Convenio estratificacion</option>
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_recursos3" class="negrita">3. Recursos asignados para esta accion $</label> 
+							<div>
+								<input value="0" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos3" type="text" min="0" id="number3" style="font-size: 20px;"> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_fuente3" class="negrita">3. Fuente de los recursos</label> 
+							<div>
+								<select class="form-control" name="n2022_fuente3">
+									<option value="0" selected>No aplica</option>
+									<option value="1">1 - Recursos por funcionamiento</option>
+									<option value="2">2 - Recursos por gestión</option>
+									<option value="3">3 - IDM | Propios | Otras fuentes</option>
+									<option value="4">4 - Bomberos | Propios | Otras fuentes</option>
+									<option value="5">5 - Serviciudad | Propios | Otras fuentes</option>
+									<option value="1101">1101 - Recursos propios de libre destinacion</option>
+									<option value="1202">1202 - Multas de transito propios destinación especifica</option>
+									<option value="1205">1205 - Estampilla pro cultura propios destinación especif...</option>
+									<option value="1206">1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									<option value="1214">1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									<option value="1215">1215 - Impuesto de consumo al cigarrillo</option>
+									<option value="1216">1216 - Estampilla adulto mayor gobernacion</option>
+									<option value="1217">1217 - Contribución parafiscal</option>
+									<option value="1218">1218 - Código policía</option>
+									<option value="2101">2101 - SGP Educación prestación del servicio</option>
+									<option value="2102">2102 - Educación calidad</option>
+									<option value="2201">2201 - Fondo de salud</option>
+									<option value="2202">2202 - Salud oferta</option>
+									<option value="2203">2203 - SGP Salud publica</option>
+									<option value="2301">2301 - SGP Agua potable y saneamiento básico</option>
+									<option value="2302">2302 - SGP Deporte</option>
+									<option value="2303">2303 - SGP Cultura</option>
+									<option value="2304">2304 - SGP Alimentación escolar</option>
+									<option value="2305">2305 - SGP Propósito general</option>
+									<option value="2306">2306 - SGP Primera infancia</option>
+									<option value="3101">3101 - Fondo de seguridad</option>
+									<option value="3201">3201 - Áreas de cesión</option>
+									<option value="3301">3301 - Fondo de solidaridad y redistribución ingreso</option>
+									<option value="3401">3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									<option value="4102">4102 - Convenios salud</option>
+									<option value="4106">4106 - Presupuesto participativo</option>
+									<option value="4107">4107 - Convenios educación por liquidar</option>
+									<option value="4121">4121 - Fonpet educación</option>
+									<option value="4122">4122 - Fonpet propósito general</option>
+									<option value="4123">4123 - Fonpet otros sectores</option>
+									<option value="4124">4124 - Convenio Fonade</option>
+									<option value="4127">4127 - Residuos solidos</option>
+									<option value="4201">4201 - Etesa</option>
+									<option value="4303">4303 - Regalías régimen anterior</option>
+									<option value="4501">4501 - Empréstito malla vial</option>
+									<option value="4506">4506 - Donaciones</option>
+									<option value="4508">4508 - Rendimiento propios</option>
+									<option value="4601">4601 - Convenio estratificacion</option>
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_recursos4" class="negrita">4. Recursos asignados para esta accion $</label> 
+							<div>
+								<input value="0" class="form-control" placeholder="Valor en $ asignado..." required="required" name="n2022_recursos4" type="text" min="0" id="number4" style="font-size: 20px;"> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="n2022_fuente4" class="negrita">4. Fuente de los recursos</label> 
+							<div>
+								<select class="form-control" name="n2022_fuente4">
+									<option value="0" selected>No aplica</option>
+									<option value="1">1 - Recursos por funcionamiento</option>
+									<option value="2">2 - Recursos por gestión</option>
+									<option value="3">3 - IDM | Propios | Otras fuentes</option>
+									<option value="4">4 - Bomberos | Propios | Otras fuentes</option>
+									<option value="5">5 - Serviciudad | Propios | Otras fuentes</option>
+									<option value="1101">1101 - Recursos propios de libre destinacion</option>
+									<option value="1202">1202 - Multas de transito propios destinación especifica</option>
+									<option value="1205">1205 - Estampilla pro cultura propios destinación especif...</option>
+									<option value="1206">1206 - Rendimientos sobre tasa gasolina- Pago contratos...</option>
+									<option value="1214">1214 - Estampilla pro bienestar del adulto mayor propios...</option>
+									<option value="1215">1215 - Impuesto de consumo al cigarrillo</option>
+									<option value="1216">1216 - Estampilla adulto mayor gobernacion</option>
+									<option value="1217">1217 - Contribución parafiscal</option>
+									<option value="1218">1218 - Código policía</option>
+									<option value="2101">2101 - SGP Educación prestación del servicio</option>
+									<option value="2102">2102 - Educación calidad</option>
+									<option value="2201">2201 - Fondo de salud</option>
+									<option value="2202">2202 - Salud oferta</option>
+									<option value="2203">2203 - SGP Salud publica</option>
+									<option value="2301">2301 - SGP Agua potable y saneamiento básico</option>
+									<option value="2302">2302 - SGP Deporte</option>
+									<option value="2303">2303 - SGP Cultura</option>
+									<option value="2304">2304 - SGP Alimentación escolar</option>
+									<option value="2305">2305 - SGP Propósito general</option>
+									<option value="2306">2306 - SGP Primera infancia</option>
+									<option value="3101">3101 - Fondo de seguridad</option>
+									<option value="3201">3201 - Áreas de cesión</option>
+									<option value="3301">3301 - Fondo de solidaridad y redistribución ingreso</option>
+									<option value="3401">3401 - Fondo multa incumplimiento a medidas de P. Violenc...</option>
+									<option value="4102">4102 - Convenios salud</option>
+									<option value="4106">4106 - Presupuesto participativo</option>
+									<option value="4107">4107 - Convenios educación por liquidar</option>
+									<option value="4121">4121 - Fonpet educación</option>
+									<option value="4122">4122 - Fonpet propósito general</option>
+									<option value="4123">4123 - Fonpet otros sectores</option>
+									<option value="4124">4124 - Convenio Fonade</option>
+									<option value="4127">4127 - Residuos solidos</option>
+									<option value="4201">4201 - Etesa</option>
+									<option value="4303">4303 - Regalías régimen anterior</option>
+									<option value="4501">4501 - Empréstito malla vial</option>
+									<option value="4506">4506 - Donaciones</option>
+									<option value="4508">4508 - Rendimiento propios</option>
+									<option value="4601">4601 - Convenio estratificacion</option>
+								</select> 
+							</div>
+						</div>
+
 						<hr>
 
-						<div class="form-group" style="background-color: #C9F7C1;">
+						<div class="form-group">
 							<label for="n2022_codigo_fut" class="negrita">Codigo FUT</label> 
 							<div>
 								<select class="form-control" name="n2022_codigo_fut">
@@ -1565,7 +2666,7 @@
 
 						<hr>
 
-						<div class="form-group" style="background-color: #deb1bf;">
+						<div class="form-group">
 							<label for="n2022_sector" class="negrita">Sector</label> 
 							<div>
 								<select class="form-control" name="n2022_sector">
@@ -1592,8 +2693,8 @@
 							</div>
 						</div>						
 
-						<div class="form-group" style="background-color: #deb1bf ;">
-							<label for="n2022_ccpet" class="negrita">Codigo CCPET</label> 
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet" class="negrita">1. Codigo CCPET</label> 
 							<div>
 								<select class="form-control" name="n2022_ccpet">
 									@foreach($ConvCcpetCodigo as $item)
@@ -1603,8 +2704,41 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #deb1bf ;">
-							<label for="n2022_cpc" class="negrita">Codigo CPC (Dane)</label> 
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet2" class="negrita">2. Codigo CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet2">
+									@foreach($ConvCcpetCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet3" class="negrita">3. Codigo CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet3">
+									@foreach($ConvCcpetCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_ccpet4" class="negrita">4. Codigo CCPET</label> 
+							<div>
+								<select class="form-control" name="n2022_ccpet4">
+									@foreach($ConvCcpetCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc" class="negrita">1. Codigo CPC (Dane)</label> 
 							<div>
 								<select class="form-control" name="n2022_cpc">
 									@foreach($ConvCpcCodigo as $item)
@@ -1614,7 +2748,40 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #deb1bf ;">
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc2" class="negrita">2. Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc2">
+									@foreach($ConvCpcCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc3" class="negrita">3. Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc3">
+									@foreach($ConvCpcCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label for="n2022_cpc4" class="negrita">4. Codigo CPC (Dane)</label> 
+							<div>
+								<select class="form-control" name="n2022_cpc4">
+									@foreach($ConvCpcCodigo as $item)
+										<option value="{{$item->codigo}}">{{$item->codigo}}</option>
+									@endforeach
+								</select> 
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label for="n2022_proyecto_producto" class="negrita">Codigo Proyectos Producto</label> 
 							<div>
 								<select class="form-control" name="n2022_proyecto_producto">
@@ -1626,7 +2793,7 @@
 							</div>
 						</div>
 
-						<div class="form-group" style="background-color: #deb1bf ;">
+						<div class="form-group">
 							<label for="n2022_proyecto_indicador" class="negrita">Codigo Proyectos Indicador</label> 
 							<div>
 								<select class="form-control" name="n2022_proyecto_indicador">
