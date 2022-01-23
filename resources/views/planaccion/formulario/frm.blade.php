@@ -1908,6 +1908,36 @@
 									@else
 										<option value="2021661700018">2021661700018 - generación del desarrollo ordenado, planificado y dinámico del territorio del municipio  dos quebradas</option>
 									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700029")
+										<option value="2020661700029" selected>2020661700029 - Proyecto BOMBEROS</option>
+									@else
+										<option value="2020661700029">2020661700029 - Proyecto BOMBEROS</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700012")
+										<option value="2020661700012" selected>2020661700012 - Proyecto IDM Uno</option>
+									@else
+										<option value="2020661700012">2020661700012 - Proyecto IDM Uno</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2021661700001")
+										<option value="2021661700001" selected>2021661700001 - Proyecto IDM Dos</option>
+									@else
+										<option value="2021661700001">2021661700001 - Proyecto IDM Dos</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2018661700016")
+										<option value="2018661700016" selected>2018661700016 - Proyecto IDM Tres</option>
+									@else
+										<option value="2018661700016">2018661700016 - Proyecto IDM Tres</option>
+									@endif
+
+									@if ($planaccion->n2022_codigo_bpim == "2020661700017")
+										<option value="2020661700017" selected>2020661700017 - Proyecto Serviciudad</option>
+									@else
+										<option value="2020661700017">2020661700017 - Proyecto Serviciudad</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -2666,6 +2696,11 @@
 									<option value="2021661700016">2021661700016 - administración de los recursos de aseguramiento y prestación integral de servicios de salud en el municipio de    dos quebradas</option>
 									<option value="2021661700017">2021661700017 - administración de la ejecución, vigilancia y control de la salud pública en  dos quebradas</option>
 									<option value="2021661700018">2021661700018 - generación del desarrollo ordenado, planificado y dinámico del territorio del municipio  dos quebradas</option>
+									<option value="2020661700029">2020661700029 - Proyecto BOMBEROS</option>
+									<option value="2020661700012">2020661700012 - Proyecto IDM Uno</option>
+									<option value="2021661700001">2021661700001 - Proyecto IDM Dos</option>
+									<option value="2018661700016">2018661700016 - Proyecto IDM Tres</option>
+									<option value="2020661700017">2020661700017 - Proyecto Serviciudad</option>
 								</select> 
 							</div>
 						</div>
