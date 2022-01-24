@@ -47,6 +47,12 @@
 										<option value="no">No aplica</option>
 									@endif	
 
+									@if ($planaccion->n2022_converge_politica_publica == "0-Más de una opción")
+										<option value="0-Más de una opción" selected>Más de una opción o todas</option>
+									@else
+										<option value="0-Más de una opción">Más de una opción o todas</option>
+									@endif
+
 									@if ($planaccion->n2022_converge_politica_publica == "1-Equidad de genero")
 										<option value="1-Equidad de genero" selected>Politica pública municipal de Equidad de Genero</option>
 									@else
@@ -2287,6 +2293,7 @@
 							<div>
 								<select class="form-control" name="n2022_converge_politica_publica">
 									<option value="no" selected>No aplica</option>
+									<option value="0-Más de una opción">Más de una opción o todas</option>
 									<option value="1-Equidad de genero">Politica pública municipal de Equidad de Genero</option>
 									<option value="2-Discapacidad">Politica pública municipal de Discapacidad</option>
 									<option value="3-Juventudes">Politica pública municipal de Juventudes</option>
