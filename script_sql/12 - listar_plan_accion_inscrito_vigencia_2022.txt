@@ -1,0 +1,104 @@
+Listar PLAN DE ACCION que fue inscrito para la vigencia 2022 ( Con todas la columnas de convergencia, codigos, etc )
+--------------------------------------------------------------------------------------------------------------------
+
+ATENCION !!!!! los campos...
+a.valor_realizado as valor_realizado
+a.porcentaje_realizado as porcentaje_realizado
+a.rezago as rezago_accion
+Solo salen BIEN si el export se genera ANTES de empezar el periodo de reportes, si se genera posterior se deben ajustar manualmente.
+
+
+SELECT 
+d1.numeral as codigo_linea,
+d1.nombre as linea,
+d2.numeral as codigo_programa,
+d2.nombre as programa,
+d3.numeral as codigo_proyecto,
+d3.nombre as proyecto,
+d4.numeral as codigo_actividad_meta,
+d4.nombre  as actividad_meta,
+c.nombre  as indicador,
+e.nombre  as medida,
+f.nombre  as tipo_medida,
+c.linea_base as linea_base_2019,
+c.meta as meta_2023,
+c.objetivo as objetivo_cuatrienio,
+
+h.nombre as vigencia,
+b.valor as objetivo_vigencia_2022,
+
+a.id as codigo_accion,
+a.descripcion as accion,
+a.kpi as accion_kpi,
+a.objetivo as accion_kpi_objetivo,
+a.ponderacion as ponderacion_asignada,
+
+a.n2022_converge_politica_publica as converge_politica_publica,
+a.n2022_converge_pgirs as converge_pgirs,
+a.n2022_converge_gestion_riesgo as converge_gestion_riesgo,
+a.n2022_converge_mipg as converge_mipg,
+
+a.n2022_fuente as fuente1,
+a.n2022_recursos as recursos1,
+a.n2022_fuente2 as fuente2,
+a.n2022_recursos2 as recursos2,
+a.n2022_fuente3 as fuente3,
+a.n2022_recursos3 as recursos3,
+a.n2022_fuente4 as fuente4,
+a.n2022_recursos4 as recursos4,
+a.n2022_codigo_fut as codigo_fut,
+
+a.n2022_codigo_bpim as BANCO_codigo_bpim,
+a.n2022_producto_actividad_proyectos as BANCO_producto_actividad_proyectos,
+a.n2022_ccpet as BANCO_ccpet1,
+a.n2022_cpc as BANCO_cpc1,
+a.n2022_ccpet2 as BANCO_ccpet2,
+a.n2022_cpc2 as BANCO_cpc2,
+a.n2022_ccpet3 as BANCO_ccpet3,
+a.n2022_cpc3 as BANCO_cpc3,
+a.n2022_ccpet4 as BANCO_ccpet4,
+a.n2022_cpc4 as BANCO_cpc4,
+
+a.n2022_sector as MGA_sector,
+a.n2022_proyecto_producto as MGA_proyecto_producto,
+a.n2022_proyecto_indicador as MGA_proyecto_indicador,
+
+a.valor_realizado as valor_realizado,
+a.porcentaje_realizado as porcentaje_realizado,
+a.rezago as rezago_accion,
+
+g.nombre as dependencia_responsable
+
+FROM plan_accions AS a
+
+INNER JOIN plan_indicativos AS b
+ON a.plan_indicativo_id = b.id
+
+INNER JOIN medicion_indicadors AS c
+ON b.indicador_id = c.id
+
+INNER JOIN plan_desarrollo_nivel4s AS d4
+ON c.nivel4_id = d4.id
+
+INNER JOIN plan_desarrollo_nivel3s AS d3
+ON d4.nivel3_id = d3.id
+
+INNER JOIN plan_desarrollo_nivel2s AS d2
+ON d3.nivel2_id = d2.id
+
+INNER JOIN plan_desarrollo_nivel1s AS d1
+ON d2.nivel1_id = d1.id
+
+INNER JOIN medicion_medidas AS e
+ON c.medida_id = e.id
+
+INNER JOIN medicion_tipos AS f
+ON c.tipo_id = f.id
+
+INNER JOIN entidad_oficinas AS g
+ON d4.oficina_id = g.id
+
+INNER JOIN general_vigencias AS h
+ON b.vigencia_id = h.id
+
+WHERE b.vigencia_id = 14
