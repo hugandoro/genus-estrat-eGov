@@ -783,6 +783,12 @@
 									@else
 										<option value="4601">4601 - Convenio estratificacion</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "45011")
+										<option value="45011" selected>45011 - Recursos del credito 4501</option>
+									@else
+										<option value="45011">45011 - Recursos del credito 4501</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -2458,6 +2464,7 @@
 									<option value="4506">4506 - Donaciones</option>
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
+									<option value="45011">45011 - Recursos del credito 4501</option>
 								</select> 
 							</div>
 						</div>
