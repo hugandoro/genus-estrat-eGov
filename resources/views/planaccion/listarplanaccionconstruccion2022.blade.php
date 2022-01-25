@@ -168,7 +168,8 @@
                           <table id="mytable" class="table table-bordered" style="background-color: #EBF5FB;">
                             <tr>
                               <th style="width:10%;">Opciones</th>
-                              <th style="width:65%;">Accion</th>
+                              <th style="width:5%;">Id</th>
+                              <th style="width:60%;">Accion</th>
                               <th style="width:10%;">KPI</th>
                               <th style="width:5%;">Objetivo</th>
                               <th style="width:10%;">Ponderacion</th>
@@ -198,8 +199,9 @@
                                               </form>
                                             @endif
                                           </td>
-                                          
-                                          <td style="width:65%;font-size:11px;">{{$accion->descripcion}}</td>
+
+                                          <td style="width:5%;font-size:11px;">{{$accion->id}}</td>
+                                          <td style="width:60%;font-size:11px;">{{$accion->descripcion}}</td>
                                           <td style="width:10%;font-size:11px;">{{$accion->kpi}}</td>
                                           <td style="width:5%;font-size:11px;">{{$accion->objetivo}}</td>
                                           <td style="width:10%;font-size:11px;">{{$accion->ponderacion * 100}} %</td>
@@ -223,7 +225,8 @@
                             <!-- Mostrar totales al final de cada Tabla que conforma un plan de accion -->
                             <tr>
                               <th style="width:10%;"></th>
-                              <th style="width:65%;"></th>
+                              <th style="width:5%;"></th>
+                              <th style="width:60%;"></th>
                               <th style="width:10%;"></th>
                               <th style="width:5%;"></th>
                               @if ( round($acumPonderadoAccion,2) == 1 ) <!-- Sumas a 100% -->
