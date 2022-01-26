@@ -19,6 +19,8 @@ use App\ConvCpcCodigo;
 use App\ConvProyectoIndicadorCodigo;
 use App\ConvProyectoProductoCodigo;
 
+use Auth;
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MedicionIndicadorController;
 
@@ -141,9 +143,11 @@ class PlanAccionController extends Controller
         
         $planaccion = PlanAccion::find($id);
 
-        return redirect('/home');
+        if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) )
+            return view('planaccion.edit', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'), ['planaccion'=>$planaccion]);
+        else
+            return redirect('/home');
 
-        //return view('planaccion.edit', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'), ['planaccion'=>$planaccion]);
     }
 
     /**
@@ -214,13 +218,16 @@ class PlanAccionController extends Controller
     public function destroy(Request $request, $id)
     {
         $planaccion = PlanAccion::find($id);
-        PlanAccion::destroy($id);  
-
         $nivel4id = $request->nivel4_id;
 
-        return redirect('/home');
+        if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) )
+        {
+            PlanAccion::destroy($id);  
+            return redirect('/planaccionconstruir2022?filtroactividad='. $nivel4id);
+        }
+        else
+            return redirect('/home');
 
-        //return redirect('/planaccionconstruir2022?filtroactividad='. $nivel4id);
     }
 
     /**

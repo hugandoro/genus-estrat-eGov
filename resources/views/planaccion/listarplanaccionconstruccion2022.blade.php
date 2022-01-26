@@ -183,15 +183,15 @@
                                         <tr>
                                           <td style="width:10%;font-size:11px;">
                                             <!-- BOTONERA DE EDICION acciones durante FASE DE CONTRUCCION PLAN DE ACCION-->
-                                            @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
-                                              <!-- <form action="{{ route('acciones.destroy',$accion->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
+                                            @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) )
+                                              <form action="{{ route('acciones.destroy',$accion->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="hidden" name="nivel4_id" value="{{ $Nivel4->id }}">
 
                                                 <a href="{{ route('acciones.edit',$accion->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
                                                 <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
-                                              </form> -->
+                                              </form>
                                             @endif
                                           </td>
 
