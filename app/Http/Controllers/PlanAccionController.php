@@ -56,7 +56,9 @@ class PlanAccionController extends Controller
         $ConvProyectoIndicadorCodigo = ConvProyectoIndicadorCodigo::all();
         $ConvProyectoProductoCodigo = ConvProyectoProductoCodigo::all();
 
-        return view('planaccion.create', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'));
+        return redirect('/home');
+
+        //return view('planaccion.create', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'));
     }
 
     /**
@@ -138,7 +140,10 @@ class PlanAccionController extends Controller
         $ConvProyectoProductoCodigo = ConvProyectoProductoCodigo::all();
         
         $planaccion = PlanAccion::find($id);
-        return view('planaccion.edit', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'), ['planaccion'=>$planaccion]);
+
+        return redirect('/home');
+
+        //return view('planaccion.edit', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'), ['planaccion'=>$planaccion]);
     }
 
     /**
@@ -212,7 +217,10 @@ class PlanAccionController extends Controller
         PlanAccion::destroy($id);  
 
         $nivel4id = $request->nivel4_id;
-        return redirect('/planaccionconstruir2022?filtroactividad='. $nivel4id);
+
+        return redirect('/home');
+
+        //return redirect('/planaccionconstruir2022?filtroactividad='. $nivel4id);
     }
 
     /**
