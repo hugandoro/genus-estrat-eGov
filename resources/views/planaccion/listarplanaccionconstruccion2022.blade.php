@@ -147,9 +147,9 @@
 
                         <td style="width:5%;font-size:10px;">
                         <!-- BOTON INSCRIPCION de una nueva accion en PLAN DE ACCION -->
-                        @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editor') && (Auth::user()->oficina_id) == $Nivel4->oficina_id) )
-                           <!-- <a class="btn btn-success" href="{{ url('acciones/create?idIndicativo='.$auxIndicativo.'&idNivel4='.$Nivel4->id.'&textoNivel4='.$Nivel4->nombre) }}" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a> -->
-                           <a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>
+                        @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) )
+                           <a class="btn btn-success" href="{{ url('acciones/create?idIndicativo='.$auxIndicativo.'&idNivel4='.$Nivel4->id.'&textoNivel4='.$Nivel4->nombre) }}" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>
+                           <!-- <a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a> -->
                         @endif
                         </td>
 

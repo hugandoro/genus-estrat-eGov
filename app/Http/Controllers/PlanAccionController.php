@@ -58,9 +58,11 @@ class PlanAccionController extends Controller
         $ConvProyectoIndicadorCodigo = ConvProyectoIndicadorCodigo::all();
         $ConvProyectoProductoCodigo = ConvProyectoProductoCodigo::all();
 
-        return redirect('/home');
+        if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) )
+            return view('planaccion.create', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'));
+        else
+            return redirect('/home');
 
-        //return view('planaccion.create', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'));
     }
 
     /**
