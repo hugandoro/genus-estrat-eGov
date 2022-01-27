@@ -801,6 +801,12 @@
 									@else
 										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "21143")
+										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									@else
+										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1096,6 +1102,12 @@
 										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
 									@else
 										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "21143")
+										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									@else
+										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@endif
 								</select> 
 							</div>
@@ -1393,6 +1405,12 @@
 									@else
 										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "21143")
+										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									@else
+										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1688,6 +1706,12 @@
 										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
 									@else
 										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "21143")
+										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									@else
+										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@endif
 								</select> 
 							</div>
@@ -2533,6 +2557,7 @@
 									<option value="45011">45011 - Recursos del credito 4501</option>
 									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 								</select> 
 							</div>
 						</div>
@@ -2595,6 +2620,7 @@
 									<option value="45011">45011 - Recursos del credito 4501</option>
 									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 								</select> 
 							</div>
 						</div>
@@ -2657,6 +2683,7 @@
 									<option value="45011">45011 - Recursos del credito 4501</option>
 									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 								</select> 
 							</div>
 						</div>
@@ -2719,6 +2746,7 @@
 									<option value="45011">45011 - Recursos del credito 4501</option>
 									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 								</select> 
 							</div>
 						</div>
