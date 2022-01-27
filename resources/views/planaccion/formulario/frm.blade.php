@@ -837,6 +837,12 @@
 									@else
 										<option value="41311">41311 - Transferencia Ministerio Interior</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "43016")
+										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
+									@else
+										<option value="43016">43016 - ADRES transferencia Supersalud</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1169,6 +1175,12 @@
 									@else
 										<option value="41311">41311 - Transferencia Ministerio Interior</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "43016")
+										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
+									@else
+										<option value="43016">43016 - ADRES transferencia Supersalud</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1499,6 +1511,12 @@
 										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
 									@else
 										<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "43016")
+										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
+									@else
+										<option value="43016">43016 - ADRES transferencia Supersalud</option>
 									@endif
 								</select> 
 							</div>
@@ -1831,6 +1849,12 @@
 										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
 									@else
 										<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "43016")
+										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
+									@else
+										<option value="43016">43016 - ADRES transferencia Supersalud</option>
 									@endif
 								</select> 
 							</div>
@@ -2682,6 +2706,7 @@
 									<option value="41291">41291 - VIAT</option>
 									<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									<option value="43016">43016 - ADRES transferencia Supersalud</option>
 								</select> 
 							</div>
 						</div>
@@ -2750,6 +2775,7 @@
 									<option value="41291">41291 - VIAT</option>
 									<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									<option value="43016">43016 - ADRES transferencia Supersalud</option>
 								</select> 
 							</div>
 						</div>
@@ -2818,6 +2844,7 @@
 									<option value="41291">41291 - VIAT</option>
 									<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									<option value="43016">43016 - ADRES transferencia Supersalud</option>
 								</select> 
 							</div>
 						</div>
@@ -2886,6 +2913,7 @@
 									<option value="41291">41291 - VIAT</option>
 									<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									<option value="43016">43016 - ADRES transferencia Supersalud</option>
 								</select> 
 							</div>
 						</div>
