@@ -807,6 +807,12 @@
 									@else
 										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "41323")
+										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
+									@else
+										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1108,6 +1114,12 @@
 										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@else
 										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41323")
+										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
+									@else
+										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									@endif
 								</select> 
 							</div>
@@ -1411,6 +1423,11 @@
 									@else
 										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@endif
+									@if ($planaccion->n2022_fuente == "41323")
+										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
+									@else
+										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1712,6 +1729,12 @@
 										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@else
 										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41323")
+										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
+									@else
+										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									@endif
 								</select> 
 							</div>
@@ -2558,6 +2581,7 @@
 									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 								</select> 
 							</div>
 						</div>
@@ -2621,6 +2645,7 @@
 									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 								</select> 
 							</div>
 						</div>
@@ -2684,6 +2709,7 @@
 									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 								</select> 
 							</div>
 						</div>
@@ -2747,6 +2773,7 @@
 									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
+									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 								</select> 
 							</div>
 						</div>
