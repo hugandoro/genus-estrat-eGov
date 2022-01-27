@@ -813,6 +813,30 @@
 									@else
 										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "41272")
+										<option value="41272" selected>41272 - Rendimientos financieros residuos solidos</option>
+									@else
+										<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41291")
+										<option value="41291" selected>41291 - VIAT</option>
+									@else
+										<option value="41291">41291 - VIAT</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41292")
+										<option value="41292" selected>41292 - Rendimientos financieros VIAT</option>
+									@else
+										<option value="41292">41292 - Rendimientos financieros VIAT</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41311")
+										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
+									@else
+										<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1121,6 +1145,30 @@
 									@else
 										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "41272")
+										<option value="41272" selected>41272 - Rendimientos financieros residuos solidos</option>
+									@else
+										<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41291")
+										<option value="41291" selected>41291 - VIAT</option>
+									@else
+										<option value="41291">41291 - VIAT</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41292")
+										<option value="41292" selected>41292 - Rendimientos financieros VIAT</option>
+									@else
+										<option value="41292">41292 - Rendimientos financieros VIAT</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41311")
+										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
+									@else
+										<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1427,6 +1475,30 @@
 										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
 									@else
 										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41272")
+										<option value="41272" selected>41272 - Rendimientos financieros residuos solidos</option>
+									@else
+										<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41291")
+										<option value="41291" selected>41291 - VIAT</option>
+									@else
+										<option value="41291">41291 - VIAT</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41292")
+										<option value="41292" selected>41292 - Rendimientos financieros VIAT</option>
+									@else
+										<option value="41292">41292 - Rendimientos financieros VIAT</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41311")
+										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
+									@else
+										<option value="41311">41311 - Transferencia Ministerio Interior</option>
 									@endif
 								</select> 
 							</div>
@@ -1735,6 +1807,30 @@
 										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
 									@else
 										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41272")
+										<option value="41272" selected>41272 - Rendimientos financieros residuos solidos</option>
+									@else
+										<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41291")
+										<option value="41291" selected>41291 - VIAT</option>
+									@else
+										<option value="41291">41291 - VIAT</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41292")
+										<option value="41292" selected>41292 - Rendimientos financieros VIAT</option>
+									@else
+										<option value="41292">41292 - Rendimientos financieros VIAT</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "41311")
+										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
+									@else
+										<option value="41311">41311 - Transferencia Ministerio Interior</option>
 									@endif
 								</select> 
 							</div>
@@ -2582,6 +2678,10 @@
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
+									<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
+									<option value="41291">41291 - VIAT</option>
+									<option value="41292">41292 - Rendimientos financieros VIAT</option>
+									<option value="41311">41311 - Transferencia Ministerio Interior</option>
 								</select> 
 							</div>
 						</div>
@@ -2646,6 +2746,10 @@
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
+									<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
+									<option value="41291">41291 - VIAT</option>
+									<option value="41292">41292 - Rendimientos financieros VIAT</option>
+									<option value="41311">41311 - Transferencia Ministerio Interior</option>
 								</select> 
 							</div>
 						</div>
@@ -2710,6 +2814,10 @@
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
+									<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
+									<option value="41291">41291 - VIAT</option>
+									<option value="41292">41292 - Rendimientos financieros VIAT</option>
+									<option value="41311">41311 - Transferencia Ministerio Interior</option>
 								</select> 
 							</div>
 						</div>
@@ -2774,6 +2882,10 @@
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
+									<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
+									<option value="41291">41291 - VIAT</option>
+									<option value="41292">41292 - Rendimientos financieros VIAT</option>
+									<option value="41311">41311 - Transferencia Ministerio Interior</option>
 								</select> 
 							</div>
 						</div>
