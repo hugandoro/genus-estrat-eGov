@@ -789,6 +789,18 @@
 									@else
 										<option value="45011">45011 - Recursos del credito 4501</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "21110")
+										<option value="21110" selected>21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									@else
+										<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12201")
+										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
+									@else
+										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1066,6 +1078,24 @@
 										<option value="4601" selected>4601 - Convenio estratificacion</option>
 									@else
 										<option value="4601">4601 - Convenio estratificacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "45011")
+										<option value="45011" selected>45011 - Recursos del credito 4501</option>
+									@else
+										<option value="45011">45011 - Recursos del credito 4501</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "21110")
+										<option value="21110" selected>21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									@else
+										<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12201")
+										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
+									@else
+										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									@endif
 								</select> 
 							</div>
@@ -1345,6 +1375,24 @@
 									@else
 										<option value="4601">4601 - Convenio estratificacion</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "45011")
+										<option value="45011" selected>45011 - Recursos del credito 4501</option>
+									@else
+										<option value="45011">45011 - Recursos del credito 4501</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "21110")
+										<option value="21110" selected>21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									@else
+										<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12201")
+										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
+									@else
+										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1622,6 +1670,24 @@
 										<option value="4601" selected>4601 - Convenio estratificacion</option>
 									@else
 										<option value="4601">4601 - Convenio estratificacion</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "45011")
+										<option value="45011" selected>45011 - Recursos del credito 4501</option>
+									@else
+										<option value="45011">45011 - Recursos del credito 4501</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "21110")
+										<option value="21110" selected>21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									@else
+										<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12201")
+										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
+									@else
+										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									@endif
 								</select> 
 							</div>
@@ -2465,6 +2531,8 @@
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
 									<option value="45011">45011 - Recursos del credito 4501</option>
+									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 								</select> 
 							</div>
 						</div>
@@ -2524,6 +2592,9 @@
 									<option value="4506">4506 - Donaciones</option>
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
+									<option value="45011">45011 - Recursos del credito 4501</option>
+									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 								</select> 
 							</div>
 						</div>
@@ -2583,6 +2654,9 @@
 									<option value="4506">4506 - Donaciones</option>
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
+									<option value="45011">45011 - Recursos del credito 4501</option>
+									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 								</select> 
 							</div>
 						</div>
@@ -2642,6 +2716,9 @@
 									<option value="4506">4506 - Donaciones</option>
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
+									<option value="45011">45011 - Recursos del credito 4501</option>
+									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
+									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 								</select> 
 							</div>
 						</div>
