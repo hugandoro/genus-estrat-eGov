@@ -843,6 +843,18 @@
 									@else
 										<option value="43016">43016 - ADRES transferencia Supersalud</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "12081")
+										<option value="12081" selected>12081 - Rifas, juegos de azar y juegos perm</option>
+									@else
+										<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12091")
+										<option value="12091" selected>12091 - Impuesto al deguello de ganado</option>
+									@else
+										<option value="12091">12091 - Impuesto al deguello de ganado</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1181,6 +1193,18 @@
 									@else
 										<option value="43016">43016 - ADRES transferencia Supersalud</option>
 									@endif
+
+									@if ($planaccion->n2022_fuente == "12081")
+										<option value="12081" selected>12081 - Rifas, juegos de azar y juegos perm</option>
+									@else
+										<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12091")
+										<option value="12091" selected>12091 - Impuesto al deguello de ganado</option>
+									@else
+										<option value="12091">12091 - Impuesto al deguello de ganado</option>
+									@endif
 								</select> 
 							</div>
 						</div>
@@ -1517,6 +1541,18 @@
 										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
 									@else
 										<option value="43016">43016 - ADRES transferencia Supersalud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12081")
+										<option value="12081" selected>12081 - Rifas, juegos de azar y juegos perm</option>
+									@else
+										<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12091")
+										<option value="12091" selected>12091 - Impuesto al deguello de ganado</option>
+									@else
+										<option value="12091">12091 - Impuesto al deguello de ganado</option>
 									@endif
 								</select> 
 							</div>
@@ -1855,6 +1891,18 @@
 										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
 									@else
 										<option value="43016">43016 - ADRES transferencia Supersalud</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12081")
+										<option value="12081" selected>12081 - Rifas, juegos de azar y juegos perm</option>
+									@else
+										<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
+									@endif
+
+									@if ($planaccion->n2022_fuente == "12091")
+										<option value="12091" selected>12091 - Impuesto al deguello de ganado</option>
+									@else
+										<option value="12091">12091 - Impuesto al deguello de ganado</option>
 									@endif
 								</select> 
 							</div>
@@ -2697,16 +2745,18 @@
 									<option value="4506">4506 - Donaciones</option>
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
-									<option value="45011">45011 - Recursos del credito 4501</option>
-									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
+									<option value="12091">12091 - Impuesto al deguello de ganado</option>
+									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
-									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
 									<option value="41291">41291 - VIAT</option>
 									<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									<option value="43016">43016 - ADRES transferencia Supersalud</option>
+									<option value="45011">45011 - Recursos del credito 4501</option>
 								</select> 
 							</div>
 						</div>
@@ -2766,16 +2816,18 @@
 									<option value="4506">4506 - Donaciones</option>
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
-									<option value="45011">45011 - Recursos del credito 4501</option>
-									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
+									<option value="12091">12091 - Impuesto al deguello de ganado</option>
+									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
-									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
 									<option value="41291">41291 - VIAT</option>
 									<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									<option value="43016">43016 - ADRES transferencia Supersalud</option>
+									<option value="45011">45011 - Recursos del credito 4501</option>
 								</select> 
 							</div>
 						</div>
@@ -2835,16 +2887,18 @@
 									<option value="4506">4506 - Donaciones</option>
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
-									<option value="45011">45011 - Recursos del credito 4501</option>
-									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
+									<option value="12091">12091 - Impuesto al deguello de ganado</option>
+									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
-									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
 									<option value="41291">41291 - VIAT</option>
 									<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									<option value="43016">43016 - ADRES transferencia Supersalud</option>
+									<option value="45011">45011 - Recursos del credito 4501</option>
 								</select> 
 							</div>
 						</div>
@@ -2904,16 +2958,18 @@
 									<option value="4506">4506 - Donaciones</option>
 									<option value="4508">4508 - Rendimiento propios</option>
 									<option value="4601">4601 - Convenio estratificacion</option>
-									<option value="45011">45011 - Recursos del credito 4501</option>
-									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="12201">12201 - Tasa prodeporte y recreacion</option>
+									<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
+									<option value="12091">12091 - Impuesto al deguello de ganado</option>
+									<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
-									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
 									<option value="41291">41291 - VIAT</option>
 									<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									<option value="41311">41311 - Transferencia Ministerio Interior</option>
+									<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									<option value="43016">43016 - ADRES transferencia Supersalud</option>
+									<option value="45011">45011 - Recursos del credito 4501</option>
 								</select> 
 							</div>
 						</div>
