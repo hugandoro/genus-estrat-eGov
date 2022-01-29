@@ -1134,73 +1134,73 @@
 										<option value="4601">4601 - Convenio estratificacion</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "45011")
+									@if ($planaccion->n2022_fuente2 == "45011")
 										<option value="45011" selected>45011 - Recursos del credito 4501</option>
 									@else
 										<option value="45011">45011 - Recursos del credito 4501</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "21110")
+									@if ($planaccion->n2022_fuente2 == "21110")
 										<option value="21110" selected>21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									@else
 										<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12201")
+									@if ($planaccion->n2022_fuente2 == "12201")
 										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
 									@else
 										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "21143")
+									@if ($planaccion->n2022_fuente2 == "21143")
 										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@else
 										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41323")
+									@if ($planaccion->n2022_fuente2 == "41323")
 										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
 									@else
 										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41272")
+									@if ($planaccion->n2022_fuente2 == "41272")
 										<option value="41272" selected>41272 - Rendimientos financieros residuos solidos</option>
 									@else
 										<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41291")
+									@if ($planaccion->n2022_fuente2 == "41291")
 										<option value="41291" selected>41291 - VIAT</option>
 									@else
 										<option value="41291">41291 - VIAT</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41292")
+									@if ($planaccion->n2022_fuente2 == "41292")
 										<option value="41292" selected>41292 - Rendimientos financieros VIAT</option>
 									@else
 										<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41311")
+									@if ($planaccion->n2022_fuente2 == "41311")
 										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
 									@else
 										<option value="41311">41311 - Transferencia Ministerio Interior</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "43016")
+									@if ($planaccion->n2022_fuente2 == "43016")
 										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
 									@else
 										<option value="43016">43016 - ADRES transferencia Supersalud</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12081")
+									@if ($planaccion->n2022_fuente2 == "12081")
 										<option value="12081" selected>12081 - Rifas, juegos de azar y juegos perm</option>
 									@else
 										<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12091")
+									@if ($planaccion->n2022_fuente2 == "12091")
 										<option value="12091" selected>12091 - Impuesto al deguello de ganado</option>
 									@else
 										<option value="12091">12091 - Impuesto al deguello de ganado</option>
@@ -1484,72 +1484,72 @@
 										<option value="4601">4601 - Convenio estratificacion</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "45011")
+									@if ($planaccion->n2022_fuente3 == "45011")
 										<option value="45011" selected>45011 - Recursos del credito 4501</option>
 									@else
 										<option value="45011">45011 - Recursos del credito 4501</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "21110")
+									@if ($planaccion->n2022_fuente3 == "21110")
 										<option value="21110" selected>21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									@else
 										<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12201")
+									@if ($planaccion->n2022_fuente3 == "12201")
 										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
 									@else
 										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "21143")
+									@if ($planaccion->n2022_fuente3 == "21143")
 										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@else
 										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@endif
-									@if ($planaccion->n2022_fuente == "41323")
+									@if ($planaccion->n2022_fuente3 == "41323")
 										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
 									@else
 										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41272")
+									@if ($planaccion->n2022_fuente3 == "41272")
 										<option value="41272" selected>41272 - Rendimientos financieros residuos solidos</option>
 									@else
 										<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41291")
+									@if ($planaccion->n2022_fuente3 == "41291")
 										<option value="41291" selected>41291 - VIAT</option>
 									@else
 										<option value="41291">41291 - VIAT</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41292")
+									@if ($planaccion->n2022_fuente3 == "41292")
 										<option value="41292" selected>41292 - Rendimientos financieros VIAT</option>
 									@else
 										<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41311")
+									@if ($planaccion->n2022_fuente3 == "41311")
 										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
 									@else
 										<option value="41311">41311 - Transferencia Ministerio Interior</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "43016")
+									@if ($planaccion->n2022_fuente3 == "43016")
 										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
 									@else
 										<option value="43016">43016 - ADRES transferencia Supersalud</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12081")
+									@if ($planaccion->n2022_fuente3 == "12081")
 										<option value="12081" selected>12081 - Rifas, juegos de azar y juegos perm</option>
 									@else
 										<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12091")
+									@if ($planaccion->n2022_fuente3 == "12091")
 										<option value="12091" selected>12091 - Impuesto al deguello de ganado</option>
 									@else
 										<option value="12091">12091 - Impuesto al deguello de ganado</option>
@@ -1833,73 +1833,73 @@
 										<option value="4601">4601 - Convenio estratificacion</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "45011")
+									@if ($planaccion->n2022_fuente4 == "45011")
 										<option value="45011" selected>45011 - Recursos del credito 4501</option>
 									@else
 										<option value="45011">45011 - Recursos del credito 4501</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "21110")
+									@if ($planaccion->n2022_fuente4 == "21110")
 										<option value="21110" selected>21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									@else
 										<option value="21110">21110 - SGP Educacion prestacion de servicios 2101 asignaciones</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12201")
+									@if ($planaccion->n2022_fuente4 == "12201")
 										<option value="12201" selected>12201 - Tasa prodeporte y recreacion</option>
 									@else
 										<option value="12201">12201 - Tasa prodeporte y recreacion</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "21143")
+									@if ($planaccion->n2022_fuente4 == "21143")
 										<option value="21143" selected>21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@else
 										<option value="21143">21143 - SGP Educacion prestacion de servicios 2101 poblacion atendida</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41323")
+									@if ($planaccion->n2022_fuente4 == "41323")
 										<option value="41323" selected>41323 - Transferencia MINDEPORTE superavit</option>
 									@else
 										<option value="41323">41323 - Transferencia MINDEPORTE superavit</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41272")
+									@if ($planaccion->n2022_fuente4 == "41272")
 										<option value="41272" selected>41272 - Rendimientos financieros residuos solidos</option>
 									@else
 										<option value="41272">41272 - Rendimientos financieros residuos solidos</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41291")
+									@if ($planaccion->n2022_fuente4 == "41291")
 										<option value="41291" selected>41291 - VIAT</option>
 									@else
 										<option value="41291">41291 - VIAT</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41292")
+									@if ($planaccion->n2022_fuente4 == "41292")
 										<option value="41292" selected>41292 - Rendimientos financieros VIAT</option>
 									@else
 										<option value="41292">41292 - Rendimientos financieros VIAT</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "41311")
+									@if ($planaccion->n2022_fuente4 == "41311")
 										<option value="41311" selected>41311 - Transferencia Ministerio Interior</option>
 									@else
 										<option value="41311">41311 - Transferencia Ministerio Interior</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "43016")
+									@if ($planaccion->n2022_fuente4 == "43016")
 										<option value="43016" selected>43016 - ADRES transferencia Supersalud</option>
 									@else
 										<option value="43016">43016 - ADRES transferencia Supersalud</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12081")
+									@if ($planaccion->n2022_fuente4 == "12081")
 										<option value="12081" selected>12081 - Rifas, juegos de azar y juegos perm</option>
 									@else
 										<option value="12081">12081 - Rifas, juegos de azar y juegos perm</option>
 									@endif
 
-									@if ($planaccion->n2022_fuente == "12091")
+									@if ($planaccion->n2022_fuente4 == "12091")
 										<option value="12091" selected>12091 - Impuesto al deguello de ganado</option>
 									@else
 										<option value="12091">12091 - Impuesto al deguello de ganado</option>
