@@ -14,7 +14,7 @@
  
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
              
-              @include('planaccion.formulario.frmNuevaEstructura2022Show')
+              @include('planaccion.formulario.frmShowNuevaEstructura2022')
                                                                       
             </form>
             <!-- Fin del formulario -->
