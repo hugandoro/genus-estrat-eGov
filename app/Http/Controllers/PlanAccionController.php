@@ -129,7 +129,14 @@ class PlanAccionController extends Controller
      */
     public function show($id)
     {
-        //
+        $ConvCcpetCodigo = ConvCcpetCodigo::all();
+        $ConvCpcCodigo = ConvCpcCodigo::all();
+        $ConvProyectoIndicadorCodigo = ConvProyectoIndicadorCodigo::all();
+        $ConvProyectoProductoCodigo = ConvProyectoProductoCodigo::all();
+        
+        $planaccion = PlanAccion::find($id);
+
+        return view('planaccion.show', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'), ['planaccion'=>$planaccion]);
     }
 
     /**

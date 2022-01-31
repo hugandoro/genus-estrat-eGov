@@ -193,6 +193,7 @@
                                                 <button type="submit" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
                                               </form>-->
                                             @endif
+                                            <a href="{{ route('acciones.show',$accion->id) }}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-zoom-in"></span></a>
                                           </td>
 
                                           <td style="width:5%;font-size:11px;">{{$accion->id}}</td>
