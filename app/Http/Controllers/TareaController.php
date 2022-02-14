@@ -142,7 +142,7 @@ class TareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->accion_id, $planAccion->plan_indicativo_id, $planIndicativo->indicador_id);
 
-        return redirect('/planaccionlistarreporte2021?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2022?filtroactividad='.$nivel4);
     }
 
     /**
@@ -227,7 +227,7 @@ class TareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->accion_id, $planAccion->plan_indicativo_id, $planIndicativo->indicador_id);
      
-        return redirect('/planaccionlistarreporte2021?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2022?filtroactividad='.$nivel4);
     }
 
     /**
@@ -253,7 +253,7 @@ class TareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->accion_id, $planAccion->plan_indicativo_id, $planIndicativo->indicador_id);
 
-        return redirect('/planaccionlistarreporte2021?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2022?filtroactividad='.$nivel4);
 
     }
 
@@ -323,13 +323,13 @@ class TareaController extends Controller
 
         //Hace una primer busqueda GENERAL
         $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
-                                            ->where('accion_id','>','2501') //! Vigencia 2022 - Plan Accion ID entre del 2502 al xxx
+                                            ->where('accion_id','>','5710') //! Vigencia 2022 - Plan Accion ID entre del 5711 al 7007
                                             ->get();
         $totalTareas = count($tarea);
 
         //Hace una segunda busqueda GENERAL con resultado paginados
         $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
-                                            ->where('accion_id','>','2501') //! Vigencia 2022 - Plan Accion ID entre del 2502 al xxx
+                                            ->where('accion_id','>','5710') //! Vigencia 2022 - Plan Accion ID entre del 5711 al 7007
                                             ->paginate(10);
 
         //Paginacion de resultados conservando el indice (Metodo GET y no POST)

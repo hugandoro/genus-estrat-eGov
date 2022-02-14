@@ -25,7 +25,7 @@ class Informe2022TipoUnoExport implements FromView
             )->get(),
             'planIndicativo' => PlanIndicativo::where('vigencia_id','14')->get(),   //Carga el plan indicativo SOLO de la vigencia 2021
             //'tarea' => Tarea::orderBy('id','desc')->with(                         //Carga todas las tareas reportadas a la fecha y hora
-            'tarea' => Tarea::where('id','>',3996)->with(  //! REVISAR Carga todas las tareas reportadas a la fecha y hora
+            'tarea' => Tarea::where('id','>',9609)->with(  //! REVISAR Carga todas las tareas reportadas a la fecha y hora
                 'accion',
                 'accion.planIndicativo',
                 'accion.planIndicativo.vigencia',

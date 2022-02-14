@@ -28,7 +28,7 @@ class Tareas2022Export implements FromView
                 'fuente2',
                 'fuente3',
                 'user'
-            ) ->where('accion_id','>','2501')->get(),  //! Vigencia 2022 - Plan Accion ID entre del 2502 al xxx
+            ) ->where('accion_id','>','5710')->get(),  //! Vigencia 2022 - Plan Accion ID entre del 5711 al 7007
         ]);
     }
 }
