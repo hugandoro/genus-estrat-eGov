@@ -25,8 +25,12 @@ use App\GeneralFuente;
 
 use App\Exports\Tareas2020Export;
 use App\Exports\Tareas2021Export;
+use App\Exports\Tareas2022Export;
+
 use App\Exports\Informe2020TipoUnoExport;
 use App\Exports\Informe2021TipoUnoExport;
+use App\Exports\Informe2022TipoUnoExport;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Support\Facades\Validator;
@@ -73,8 +77,8 @@ class TareaController extends Controller
         $generalSexo = GeneralSexo::all();
         $generalFuente = GeneralFuente::all();
 
-        //return view('tarea.create', compact('tarea','generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo', 'generalFuente'));
-        return redirect('/home');
+        return view('tarea.create', compact('tarea','generalZona','geograficaComuna','geograficaCorregimiento','generalPoblacion','generalSexo', 'generalFuente'));
+        //return redirect('/home');
     }
 
     /**
@@ -307,7 +311,35 @@ class TareaController extends Controller
         $entidadOficina = EntidadOficina::orderBy('nombre')->get();
 
         return view('tarea.listargeneral2021', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
-    }    
+    }   
+    
+    /**
+     * Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) - Vigencia 2022
+     * @return \Illuminate\Http\Response
+     */
+    public function listarRegistros2022()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+
+        //Hace una primer busqueda GENERAL
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
+                                            ->where('accion_id','>','2501') //! Vigencia 2022 - Plan Accion ID entre del 2502 al xxx
+                                            ->get();
+        $totalTareas = count($tarea);
+
+        //Hace una segunda busqueda GENERAL con resultado paginados
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
+                                            ->where('accion_id','>','2501') //! Vigencia 2022 - Plan Accion ID entre del 2502 al xxx
+                                            ->paginate(10);
+
+        //Paginacion de resultados conservando el indice (Metodo GET y no POST)
+        $pagination = $tarea->appends(request () -> except (['page', '_token'])) -> links ();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')->get();
+
+        return view('tarea.listargeneral2022', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
+    }  
 
     public function listarRegistrosExcel2020()
     {
@@ -319,6 +351,11 @@ class TareaController extends Controller
         return Excel::download(new Tareas2021Export, 'tareas.xlsx');
     }
 
+    public function listarRegistrosExcel2022()
+    {
+        return Excel::download(new Tareas2022Export, 'tareas.xlsx');
+    }
+
     public function informeTipoUnoExcel2020()
     {
         return Excel::download(new Informe2020TipoUnoExport, 'informe_tipo_uno_2020.xlsx');
@@ -327,6 +364,11 @@ class TareaController extends Controller
     public function informeTipoUnoExcel2021()
     {
         return Excel::download(new Informe2021TipoUnoExport, 'informe_tipo_uno_2021.xlsx');
+    }
+
+    public function informeTipoUnoExcel2022()
+    {
+        return Excel::download(new Informe2022TipoUnoExport, 'informe_tipo_uno_2022.xlsx');
     }
 
     /**
