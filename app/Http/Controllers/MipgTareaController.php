@@ -38,7 +38,7 @@ class MipgTareaController extends Controller
      */
     public function index()
     {
-        return redirect('/mipgplanaccionlistarreporte2021');
+        return redirect('/mipgplanaccionlistarreporte2022');
     }
 
     /**
@@ -93,7 +93,7 @@ class MipgTareaController extends Controller
         //Ejecuta regeneracion de medicion de cumplimiento
         $this->regenerarNivelEjecucionAccion($tarea->impacto_kpi, $tarea->nivel4_id);
 
-        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad=' . $tarea->nivel4->numeral);
+        return redirect('/mipgplanaccionlistarreporte2022?filtroactividad=' . $tarea->nivel4->numeral);
     }
 
     /**
@@ -144,7 +144,7 @@ class MipgTareaController extends Controller
         //Ejecuta regeneracion de medicion de cumplimiento
         $this->regenerarNivelEjecucionAccion($tarea->impacto_kpi, $tarea->nivel4_id);
 
-        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad=' . $tarea->nivel4->numeral);
+        return redirect('/mipgplanaccionlistarreporte2022?filtroactividad=' . $tarea->nivel4->numeral);
     }
 
     /**
@@ -163,7 +163,7 @@ class MipgTareaController extends Controller
         //Ejecuta regeneracion de medicion de cumplimiento
         $this->regenerarNivelEjecucionAccion($tarea->impacto_kpi, $tarea->nivel4_id);
 
-        return redirect('/mipgplanaccionlistarreporte2021?filtroactividad=' . $tarea->nivel4->numeral);
+        return redirect('/mipgplanaccionlistarreporte2022?filtroactividad=' . $tarea->nivel4->numeral);
     }
 
     /**
@@ -178,12 +178,12 @@ class MipgTareaController extends Controller
         $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))
             ->with('administracion');
 
-        // Carga las acciones respectivas de la viogencia 2021 ( Codigo 13 )
+        // Carga las acciones respectivas de la viogencia 2022 ( Codigo 14 )
         $planAccion = ModuloMipgNivel4::orderBy('id')
-            ->where('vigencia_id', '13')
+            ->where('vigencia_id', '14')
             ->get();
 
-        // Recorre todas las ACCIONES del PLAN ACCION MIPG vigencia 2021
+        // Recorre todas las ACCIONES del PLAN ACCION MIPG vigencia 2022
         foreach ($planAccion as $accion) {
 
             // Inicializa Contador acumulado de impacto KPI tareas reportadas

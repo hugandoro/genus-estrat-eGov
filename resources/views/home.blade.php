@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
         <!--<h6>Los porcentajes visualizados son calculados en tiempo real, las cifras finales pueden variar levemente producto de auditorias posteriores y correciones en los reportes <span class="badge badge-primary">Informacion de interes</span></h6>-->
-        <h6>Modulo para reporte de tareas MIPG desactivado durante proceso de alistamiento y parametrizacion <b>Vigencia 2022</b> << <span class="badge badge-danger">Informacion de interes</span></h6>
+        <!--<h6>Modulo para reporte de tareas MIPG desactivado durante proceso de alistamiento y parametrizacion <b>Vigencia 2022</b> << <span class="badge badge-danger">Informacion de interes</span></h6>-->
         </div>
 
         <div class="col-md-12">
@@ -171,12 +171,12 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipg') }}">Conocer las politicas</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipglistarconvergencia') }}">Convergencia de politicas MIPG</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Consultar plan de accion MIPG 2021</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2022') }}">Consultar plan de accion MIPG 2022</a></li>
 
                                     @php ($aux = Auth::user()->oficina_id) @endphp
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editorMipg')) || (Auth::user()->hasRole('adminMipg')))
-                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistarreporte2021?filtroSecretaria=' . $aux) }}">Reportar tareas MIPG 2021</a></li>-->
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/mipgplanaccionlistarreporte2022?filtroSecretaria=' . $aux) }}"><b>Reportar tareas MIPG 2022</b></a></li>
                                     @endif
 
                                     <!--<li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Nivel avance plan accion MIPG 2021</a></li>-->

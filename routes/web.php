@@ -93,6 +93,8 @@ Route::resource('/mipgtarea', 'MipgTareaController');
 Route::match(array('GET', 'POST'), '/mipgplanaccionlistar2021', 'MipgPlanAccionController@listarRegistros2021')->name('/mipgplanaccionlistar2021');
 Route::match(array('GET', 'POST'), '/mipgplanaccionlistarreporte2021', 'MipgPlanAccionController@listarRegistrosReporte2021')->name('/mipgpplanaccionlistarreporte2021');
 
+Route::match(array('GET', 'POST'), '/mipgplanaccionlistar2022', 'MipgPlanAccionController@listarRegistros2022')->name('/mipgplanaccionlistar2022');
+Route::match(array('GET', 'POST'), '/mipgplanaccionlistarreporte2022', 'MipgPlanAccionController@listarRegistrosReporte2022')->name('/mipgpplanaccionlistarreporte2022');
 //Fin Rutas ***
 
 
