@@ -4,6 +4,7 @@ SELECT
 b.numeral as numero_accion,
 b.accion as accion,
 b.linea_base as linea_base,
+v.nombre,
 b.objetivo as objetivo,
 b.unidad_medida as unidad_medida,
 b.valor_realizado as valor_realizado,
@@ -27,5 +28,10 @@ ON e.nivel2_id = f.id
 
 INNER JOIN modulo_mipg_nivel1s AS g
 ON f.nivel1_id = g.id
+
+INNER JOIN general_vigencias AS v
+ON b.vigencia_id = v.id
+
+WHERE b.vigencia_id = 14
 
 ORDER BY b.numeral

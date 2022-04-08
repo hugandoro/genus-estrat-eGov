@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-        <!--<h6>Los porcentajes visualizados son calculados en tiempo real, las cifras finales pueden variar levemente producto de auditorias posteriores y correciones en los reportes <span class="badge badge-primary">Informacion de interes</span></h6>-->
-        <!--<h6>Modulo para reporte de tareas MIPG desactivado durante proceso de alistamiento y parametrizacion <b>Vigencia 2022</b> << <span class="badge badge-danger">Informacion de interes</span></h6>-->
+            <!--<h6>Los porcentajes visualizados son calculados en tiempo real, las cifras finales pueden variar levemente producto de auditorias posteriores y correciones en los reportes <span class="badge badge-primary">Informacion de interes</span></h6>-->
+            <!--<h6>Modulo para reporte de tareas MIPG desactivado durante proceso de alistamiento y parametrizacion <b>Vigencia 2022</b> << <span class="badge badge-danger">Informacion de interes</span></h6>-->
         </div>
 
         <div class="col-md-12">
@@ -14,9 +14,9 @@
 
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
                     <!--<center><picture><img class='img-responsive' src="{{ asset('images/portada_menu.png') }}"></picture></center>-->
@@ -25,7 +25,7 @@
                     <!-- MENU - Fila 1 -->
                     <div class="row">
                         <!-- MENU ICONO - Plan de desarrollo -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono2.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
@@ -35,12 +35,12 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listarregistros') }}">Consultar</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollo') }}">Arbol del plan</a></li>
-                                  </ul>
+                                </ul>
                             </div>
                         </div>
 
                         <!-- MENU ICONO - Plan indicativo -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono9.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
@@ -52,7 +52,7 @@
                                 </ul>
                             </div>
                         </div>
-                    
+
                         <!-- MENU ICONO - Plan de accion -->
                         <div class="col-sm-3">
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
@@ -65,34 +65,34 @@
 
                                     <!-- Opcion temporal en ENERO para construir plan de accion de la nueva vigencia -->
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/planaccionconstruir2022?filtroSecretaria=' . $aux) }}"><b>Plan de accion completo</b></a></li>
+                                    @php ($aux = Auth::user()->oficina_id) @endphp
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/planaccionconstruir2022?filtroSecretaria=' . $aux) }}"><b>Plan de accion completo</b></a></li>
                                     @endif
                                     <!-- Fin opcion temporal construccion plan de accion -->
 
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistar2022') }}">Consultar plan de accion resumido</a></li>
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        @php ($aux = Auth::user()->oficina_id) @endphp
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistarreporte2022?filtroSecretaria=' . $aux) }}">Reportar tareas</a></li>
+                                    @php ($aux = Auth::user()->oficina_id) @endphp
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistarreporte2022?filtroSecretaria=' . $aux) }}">Reportar tareas</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tareaslistargeneral2022') }}">Cronologico tareas reportadas</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tareaslistargeneral2022') }}">Cronologico tareas reportadas</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        @php ($aux = Auth::user()->oficina_id) @endphp    
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistaravance2022?filtroSecretaria=' . $aux) }}">Avance de ejecucion</a></li>
+                                    @php ($aux = Auth::user()->oficina_id) @endphp
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistaravance2022?filtroSecretaria=' . $aux) }}">Avance de ejecucion</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        @php ($aux = Auth::user()->oficina_id) @endphp  
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listaravance2022?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>
+                                    @php ($aux = Auth::user()->oficina_id) @endphp
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listaravance2022?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>
                                     @endif
                                 </ul>
                             </div>
-                        </div>                  
+                        </div>
 
                         <!-- MENU ICONO - Analitica de datos -->
                         <div class="col-sm-3">
@@ -108,11 +108,11 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanods') }}">Distribucion por ODS</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanmipg') }}">Distribucion por MIPG</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas</a></li>
-                                    
+
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion2022?tipo=1') }}">Avance plan de accion 2022</a></li>
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo2022?tipo=2') }}">Avance plan de desarrollo 2022</a></li>
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficacarreracumplimiento') }}">Carrera de cumplimiento plan desarrollo 2020 - 2023</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion2022?tipo=1') }}">Avance plan de accion 2022</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo2022?tipo=2') }}">Avance plan de desarrollo 2022</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficacarreracumplimiento') }}">Carrera de cumplimiento plan desarrollo 2020 - 2023</a></li>
                                     @endif
 
                                     <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>-->
@@ -120,33 +120,12 @@
                             </div>
                         </div>
 
-                        <!-- MENU ICONO - Documentos tecnicos -->
-                        <div class="col-sm-2">
-                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
-                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_pdf.png") }}" alt="Estrategov" width="30%"></div>
-                                <div class="card-body">
-                                    <h5 class="card-title" style="color:#ffffff;">Documentos tecnicos</h5>
-                                    <!--<<p class="card-text">Texto que describe</p>-->
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/1%20-%20PLAN%20DE%20DESARROLLO%20PARA%20IMPRIMIR.pdf') }}">Libro Digital</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/3%20-%20Anexo%20A%20-%20Dosquebradas%20Solidaria%20(COVID-19).pdf') }}">Anexo A | COVID19</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/4%20-%20Anexo%20B%20-%20Diagn%C3%B3stico%20estrat%C3%A9gico%20NNAJ.pdf') }}">Anexo B | NNAJ</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/5%20-%20Anexo%20C%20-%20Plan%20Territorial%20de%20Salud.pdf') }}">Anexo C | PTS</a></li>
-                                
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/ppi-2020-2023/CENTRAL_PLAN%20PLURIANUAL%20DE%20INVERSIONES%202020_2023_DDAS.pdf') }}">PPI | Central</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/ppi-2020-2023/IDM_PLAN%20PLURIANUAL%20DE%20INVERSIONES%202020_2023_DDAS.pdf') }}">PPI | IDM</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/ppi-2020-2023/BOMBEROS_PLAN%20PLURIANUAL%20DE%20INVERSIONES%202020_2023_DDAS.pdf') }}">PPI | Bomberos</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/ppi-2020-2023/SERVICIUDAD_PLAN%20PLURIANUAL%20DE%20INVERSIONES%202020_2023_DDAS.pdf') }}">PPI | Serviciudad</a></li>
-                                </ul>
-                            </div>
-                        </div>                          
                     </div>
 
                     <!-- MENU - Fila 2 -->
                     <div class="row">
                         <!-- MENU ICONO - Objetivos ODS -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_ods.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
@@ -161,7 +140,7 @@
                         </div>
 
                         <!-- MENU ICONO - Politicas MIPG -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_mipg.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
@@ -176,7 +155,7 @@
                                     @php ($aux = Auth::user()->oficina_id) @endphp
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editorMipg')) || (Auth::user()->hasRole('adminMipg')))
-                                        <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/mipgplanaccionlistarreporte2022?filtroSecretaria=' . $aux) }}"><b>Reportar tareas MIPG 2022</b></a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/mipgplanaccionlistarreporte2022?filtroSecretaria=' . $aux) }}"><b>Reportar tareas MIPG 2022</b></a></li>
                                     @endif
 
                                     <!--<li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Nivel avance plan accion MIPG 2021</a></li>-->
@@ -185,7 +164,7 @@
                         </div>
 
                         <!-- MENU ICONO - Plan y politicas publicas -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono7.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
@@ -196,12 +175,12 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/pndesarrollo') }}">Plan nacional de desarrollo</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/ppmunicipal') }}">Politicas publicas municipales</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/ppmunicipallistarconvergencia') }}">Convergencia politicas municipales</a></li>
-                                  </ul>
+                                </ul>
                             </div>
                         </div>
 
                         <!-- MENU ICONO - Informacion institucional -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono16.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
@@ -211,7 +190,54 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/administracion') }}">Datos de la administracion</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/entidadoficina') }}">Gabinete municipal</a></li>
-                                  </ul>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- MENU - Fila 2 -->
+                    <div class="row">
+                        <!-- MENU ICONO - Documentos tecnicos -->
+                        <div class="col-sm-4">
+                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
+                                <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono_pdf.png") }}" alt="Estrategov" width="30%"></div>
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color:#ffffff;">Documentos tecnicos</h5>
+                                    <!--<<p class="card-text">Texto que describe</p>-->
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/1%20-%20PLAN%20DE%20DESARROLLO%20PARA%20IMPRIMIR.pdf') }}">Libro Digital</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/3%20-%20Anexo%20A%20-%20Dosquebradas%20Solidaria%20(COVID-19).pdf') }}">Anexo A | COVID19</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/4%20-%20Anexo%20B%20-%20Diagn%C3%B3stico%20estrat%C3%A9gico%20NNAJ.pdf') }}">Anexo B | NNAJ</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/5%20-%20Anexo%20C%20-%20Plan%20Territorial%20de%20Salud.pdf') }}">Anexo C | PTS</a></li>
+
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/ppi-2020-2023/CENTRAL_PLAN%20PLURIANUAL%20DE%20INVERSIONES%202020_2023_DDAS.pdf') }}">PPI | Central</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/ppi-2020-2023/IDM_PLAN%20PLURIANUAL%20DE%20INVERSIONES%202020_2023_DDAS.pdf') }}">PPI | IDM</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/ppi-2020-2023/BOMBEROS_PLAN%20PLURIANUAL%20DE%20INVERSIONES%202020_2023_DDAS.pdf') }}">PPI | Bomberos</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" target="_blank" href="{{ url('https://plandesarrollo.dosquebradas.gov.co/repositorio/ppi-2020-2023/SERVICIUDAD_PLAN%20PLURIANUAL%20DE%20INVERSIONES%202020_2023_DDAS.pdf') }}">PPI | Serviciudad</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- MENU ICONO - Tablero de control -->
+                        <div class="col-sm-4">
+                            <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
+                                <div><br><img class="card-img-top" src="{{ asset("images/logo_miniatura_administracion.png") }}" alt="Estrategov" width="30%"></div>
+                                <div class="card-body">
+                                    <h5 class="card-title" style="color:#ffffff;">Tablero de control / seguimiento</h5>
+                                    <!--<<p class="card-text">Texto que describe</p>-->
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tablerocifrasconsolidadas') }}">Cifras consolidadas</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tableroplandesarrollo') }}">Medicion plan desarrollo 2020 - 2022</a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tableroplanindicativo') }}">Medicion plan indicativo 2022</a></li>
+                                    @endif
+
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>-->
+                                </ul>
                             </div>
                         </div>
 
@@ -220,7 +246,7 @@
                             <div class="card text-center text-white bg-success mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <br>
                                 <div class="card-body">
-                                        <iframe width="100%"  src="https://www.youtube.com/embed/FVfCXhthgGc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="100%" src="https://www.youtube.com/embed/FVfCXhthgGc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
 
                                 <ul class="list-group list-group-flush">
@@ -229,17 +255,22 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('https://pot.dosquebradas.gov.co/') }}">Micrositio web POT</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('https://presupuestoparticipativo.dosquebradas.gov.co/') }}">Micrositio web Presupuesto Participativo</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('https://planeacion.dosquebradas.gov.co/') }}">Micrositio web Secretaria de Planeación</a></li>
-                                  </ul>
+                                </ul>
                             </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
         </div>
     </div>
 
-    <hr><center><a href="https://www.funcionpublica.gov.co/documents/35000242/38598841/Resultados_pnga_2021.pdf/42709c0f-ee16-b018-d02c-b2ade919010e?t=1635550747007"><picture><img class='img-responsive' src="{{ asset('images/banner_alta_gerencia_2021.jpg') }}" width="100%"></picture></a></center><hr><br>
+    <hr>
+    <center><a href="https://www.funcionpublica.gov.co/documents/35000242/38598841/Resultados_pnga_2021.pdf/42709c0f-ee16-b018-d02c-b2ade919010e?t=1635550747007">
+            <picture><img class='img-responsive' src="{{ asset('images/banner_alta_gerencia_2021.jpg') }}" width="100%"></picture>
+        </a></center>
+    <hr><br>
 
 
 </div>

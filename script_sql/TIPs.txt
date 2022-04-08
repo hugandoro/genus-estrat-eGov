@@ -1,0 +1,7 @@
+Descargar export en CSV
+Posterior abrir un excel en limpio | Pestaña DATOS | Importar desde texto | Seleccionar el CSV | Tabulado por ;| 
+
+Seleccionar todas las columnas | Formato general y luego dar en la opcion AVAZADO
+
+Separador decimal cambiar por . (Punto)
+Separador de miles cambiar por , (Coma)

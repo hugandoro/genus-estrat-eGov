@@ -174,3 +174,9 @@ Route::match(array('GET', 'POST'), '/informetipounoexcel2021', 'TareaController@
 // Fin informes ***
 
 
+// Rutas Tablero de Control
+Route::match(array('GET', 'POST'), '/tablerocifrasconsolidadas', 'TableroControlController@tableroCifrasConsolidadas')->name('/tablerocifrasconsolidadas');
+Route::match(array('GET', 'POST'), '/tableroplandesarrollo', 'TableroControlController@tableroPlanDesarrollo')->name('/tableroplandesarrollo');
+Route::match(array('GET', 'POST'), '/tableroplanindicativo', 'TableroControlController@tableroPlanIndicativo')->name('/tableroplanindicativo');
+// Fin Rutas ***
+
