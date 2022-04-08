@@ -129,7 +129,7 @@
               @foreach ($nombresSecretarias as $key => $nombre)
 
               <!-- Identifica si es un registro que NO se debe mostras antes de continuar -->
-              @if (($nombre != "Ciudadano") AND ($nombre != "Despacho Alcalde") AND ($nombre != "Privada") AND ($nombre != "Toda la administracion"))
+              @if (($nombre != "Ciudadano") AND ($nombre != "Despacho Alcalde") AND ($nombre != "Privada") AND ($nombre != "Toda la administracion") AND ($nombre != "Control Interno"))
               
               <!-- Identifica si es una secretaria seleccionada y la resalta de ser necesario -->
               @if ($key == $idSecretaria)
