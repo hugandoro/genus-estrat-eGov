@@ -1,0 +1,5 @@
+SERVICIO N° 1
+Consultar por el "numeral" de la actividad (Meta) el porcentaje de cumplimiento acumulado al cuatrienio para su respectivo indicador.
+
+https://estrategov.genusgroupsas.com/dosquebradas/soap-webservice/serviceMedicionIndicador.php
+https://estrategov.genusgroupsas.com/dosquebradas/soap-webservice/serviceMedicionIndicador.php?wsdl
