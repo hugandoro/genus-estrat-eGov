@@ -5,7 +5,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Listado de ACCIONES PLAN DE ACCION 2022</h3></div>
+          <div class="pull-left"><h3>Listado de ACCIONES PLAN DE ACCION 2023</h3></div>
           <div class="pull-right"></div>
           <div class="table-container">
 

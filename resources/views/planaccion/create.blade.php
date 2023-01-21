@@ -6,7 +6,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left">
-            <h3>Inscripcion de ACCIONES para PLAN DE ACCION 2022</h3>
+            <h3>Inscripcion de ACCIONES para PLAN DE ACCION 2023</h3>
             <hr>
             <h2>Actividad N° <b>{{ $_GET["idNivel4"] }}</b></h2>
             <h4>{{ $_GET["textoNivel4"] }}</h4>
