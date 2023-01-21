@@ -110,7 +110,8 @@ Route::match(array('GET', 'POST'), '/planaccionlistar2022', 'PlanAccionControlle
 // Fin Rutas ***
 
 // Rutas para construir planes de accion por vigencias
-Route::match(array('GET', 'POST'), '/planaccionconstruir2022', 'PlanAccionController@listarConstruir2022')->name('/planaccionconstruir2022');
+//Route::match(array('GET', 'POST'), '/planaccionconstruir2022', 'PlanAccionController@listarConstruir2022')->name('/planaccionconstruir2022');
+Route::match(array('GET', 'POST'), '/planaccionconstruir2023', 'PlanAccionController@listarConstruir2023')->name('/planaccionconstruir2023');
 
 Route::resource('/acciones', 'PlanAccionController');
 // Fin Rutas ***

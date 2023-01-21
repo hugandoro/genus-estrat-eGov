@@ -58,7 +58,7 @@
                             <div class="card text-center text-white bg-warning mb-3" style="background-color: #1D8348;border-radius: 10px 10px 10px 10px;">
                                 <div><br><img class="card-img-top" src="{{ asset("images/iconos/icono12.png") }}" alt="Estrategov" width="30%"></div>
                                 <div class="card-body">
-                                    <h5 class="card-title" style="color:#ffffff;">Plan de accion 2022</h5>
+                                    <h5 class="card-title" style="color:#ffffff;">Plan de accion 2023</h5>
                                     <!--<<p class="card-text">Texto que describe</p>-->
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -66,29 +66,29 @@
                                     <!-- Opcion temporal en ENERO para construir plan de accion de la nueva vigencia -->
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                     @php ($aux = Auth::user()->oficina_id) @endphp
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/planaccionconstruir2022?filtroSecretaria=' . $aux) }}"><b>Plan de accion completo</b></a></li>
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/planaccionconstruir2023?filtroSecretaria=' . $aux) }}"><b>Construcción - Plan de accion 2023</b></a></li>
                                     @endif
                                     <!-- Fin opcion temporal construccion plan de accion -->
 
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistar2022') }}">Consultar plan de accion resumido</a></li>
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistar2022') }}">Consultar plan de accion resumido</a></li>-->
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                     @php ($aux = Auth::user()->oficina_id) @endphp
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistarreporte2022?filtroSecretaria=' . $aux) }}">Reportar tareas</a></li>
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistarreporte2022?filtroSecretaria=' . $aux) }}">Reportar tareas</a></li>-->
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tareaslistargeneral2022') }}">Cronologico tareas reportadas</a></li>
-                                    @endif
-
-                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                    @php ($aux = Auth::user()->oficina_id) @endphp
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistaravance2022?filtroSecretaria=' . $aux) }}">Avance de ejecucion</a></li>
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tareaslistargeneral2022') }}">Cronologico tareas reportadas</a></li>-->
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                     @php ($aux = Auth::user()->oficina_id) @endphp
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listaravance2022?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistaravance2022?filtroSecretaria=' . $aux) }}">Avance de ejecucion</a></li>-->
+                                    @endif
+
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                    @php ($aux = Auth::user()->oficina_id) @endphp
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listaravance2022?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>-->
                                     @endif
                                 </ul>
                             </div>
@@ -110,8 +110,8 @@
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaplanppmunicipal') }}">Distribucion por Politicas Publicas</a></li>
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion2022?tipo=1') }}">Avance plan de accion 2022</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo2022?tipo=2') }}">Avance plan de desarrollo 2022</a></li>
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandeaccion2022?tipo=1') }}">Avance plan de accion 2022</a></li>-->
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficaavanceplandesarrollo2022?tipo=2') }}">Avance plan de desarrollo 2022</a></li>-->
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/graficacarreracumplimiento') }}">Carrera de cumplimiento plan desarrollo 2020 - 2023</a></li>
                                     @endif
 
@@ -150,12 +150,12 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipg') }}">Conocer las politicas</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipglistarconvergencia') }}">Convergencia de politicas MIPG</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2022') }}">Consultar plan de accion MIPG 2022</a></li>
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2022') }}">Consultar plan de accion MIPG 2022</a></li>-->
 
                                     @php ($aux = Auth::user()->oficina_id) @endphp
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editorMipg')) || (Auth::user()->hasRole('adminMipg')))
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/mipgplanaccionlistarreporte2022?filtroSecretaria=' . $aux) }}"><b>Reportar tareas MIPG 2022</b></a></li>
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/mipgplanaccionlistarreporte2022?filtroSecretaria=' . $aux) }}"><b>Reportar tareas MIPG 2022</b></a></li>-->
                                     @endif
 
                                     <!--<li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Nivel avance plan accion MIPG 2021</a></li>-->
@@ -233,7 +233,7 @@
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tablerocifrasconsolidadas') }}">Cifras consolidadas</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tableroplandesarrollo') }}">Medicion plan desarrollo 2020 - 2022</a></li>
-                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tableroplanindicativo') }}">Medicion plan indicativo 2022</a></li>
+                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tableroplanindicativo') }}">Medicion plan indicativo 2022</a></li>-->
                                     @endif
 
                                     <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/home') }}">Semaforos de cumplimiento 2021</a></li>-->

@@ -121,7 +121,7 @@
 
                 <!--<div><iframe width="60%" height="400" src="https://www.youtube.com/embed/FVfCXhthgGc?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>-->
 
-                <center><a href="https://www.funcionpublica.gov.co/documents/35000242/38598841/Resultados_pnga_2021.pdf/42709c0f-ee16-b018-d02c-b2ade919010e?t=1635550747007"><picture><img class='img-responsive' src="{{ asset('images/banner_alta_gerencia_2021.jpg') }}" width="100%"></picture></a></center>
+                <center><a href="https://www.funcionpublica.gov.co/documents/35000242/38598841/Resultados_pnga_2021.pdf/42709c0f-ee16-b018-d02c-b2ade919010e?t=1635550747007"><picture><img class='img-responsive' src="{{ asset('images/portada_menu.png') }}" width="100%"></picture></a></center>
 
 
             </div>
@@ -146,7 +146,7 @@
 
 
                 <div>
-                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.7 (31.03.2022) - Derechos reservados Genus Group SAS - Colombia 2022</small>
+                    <small class="d-block mb-3">EstrateGov y Estratego &copy; - Ver 1.8 (21.01.2023) - Derechos reservados Genus Group SAS - Colombia 2023</small>
                 </div>
 
                 <br><br><center><picture><img class='img-responsive' src="{{ asset('images/logo_genus_group.png') }}" width="160px"></picture></center>
