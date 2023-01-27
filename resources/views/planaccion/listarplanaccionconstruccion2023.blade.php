@@ -183,7 +183,7 @@
                                         <tr>
                                           <td style="width:10%;font-size:11px;">
                                             <!-- BOTONERA DE EDICION acciones durante FASE DE CONTRUCCION PLAN DE ACCION-->
-                                            @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) )
+                                            @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')) )
                                               <form action="{{ route('acciones.destroy',$accion->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
