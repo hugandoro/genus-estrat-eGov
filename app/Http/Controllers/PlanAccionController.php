@@ -58,12 +58,12 @@ class PlanAccionController extends Controller
         $ConvProyectoIndicadorCodigo = ConvProyectoIndicadorCodigo::all();
         $ConvProyectoProductoCodigo = ConvProyectoProductoCodigo::all();
 
-        if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin'))  || (Auth::user()->hasRole('editor')) )
-            return view('planaccion.create', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'));
-        else
-            return redirect('/home');
+        //if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin'))  || (Auth::user()->hasRole('editor')) )
+        //    return view('planaccion.create', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'));
+        //else
+        //    return redirect('/home');
 
-        //return redirect('/home');
+        return redirect('/home');
 
     }
 
@@ -154,12 +154,12 @@ class PlanAccionController extends Controller
         
         $planaccion = PlanAccion::find($id);
 
-        if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin'))   || (Auth::user()->hasRole('editor')) )
-            return view('planaccion.edit', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'), ['planaccion'=>$planaccion]);
-        else
-            return redirect('/home');
+        //if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin'))   || (Auth::user()->hasRole('editor')) )
+        //    return view('planaccion.edit', compact('ConvCcpetCodigo','ConvCpcCodigo','ConvProyectoIndicadorCodigo','ConvProyectoProductoCodigo'), ['planaccion'=>$planaccion]);
+        //else
+        //    return redirect('/home');
 
-        //return redirect('/home');
+        return redirect('/home');
 
     }
 
@@ -233,15 +233,15 @@ class PlanAccionController extends Controller
         $planaccion = PlanAccion::find($id);
         $nivel4id = $request->nivel4_id;
 
-        if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin'))   || (Auth::user()->hasRole('editor')) )
-        {
-            PlanAccion::destroy($id);  
-            return redirect('/planaccionconstruir2023?filtroactividad='. $nivel4id);
-        }
-        else
-            return redirect('/home');
+        //if ( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin'))   || (Auth::user()->hasRole('editor')) )
+        //{
+        //    PlanAccion::destroy($id);  
+        //    return redirect('/planaccionconstruir2023?filtroactividad='. $nivel4id);
+        //}
+        //else
+        //    return redirect('/home');
 
-        //return redirect('/home');
+        return redirect('/home');
 
     }
 

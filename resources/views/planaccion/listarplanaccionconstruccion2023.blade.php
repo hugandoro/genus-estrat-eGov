@@ -147,7 +147,7 @@
 
                         <td style="width:5%;font-size:10px;">
                         <!-- BOTON INSCRIPCION de una nueva accion en PLAN DE ACCION -->
-                        @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')) )
+                        @if( (Auth::user()->hasRole('super')) )
                            <a class="btn btn-success" href="{{ url('acciones/create?idIndicativo='.$auxIndicativo.'&idNivel4='.$Nivel4->id.'&textoNivel4='.$Nivel4->nombre) }}" ><span class="glyphicon glyphicon-plus"></span>  Inscribir acción</a>
                            <!--<a class="btn btn-info" href="#" ><span class="glyphicon glyphicon-plus"></span>  Inscripcion cerrada</a>-->
                         @endif
@@ -183,7 +183,7 @@
                                         <tr>
                                           <td style="width:10%;font-size:11px;">
                                             <!-- BOTONERA DE EDICION acciones durante FASE DE CONTRUCCION PLAN DE ACCION-->
-                                            @if( (Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')) )
+                                            @if( (Auth::user()->hasRole('super')) )
                                               <form action="{{ route('acciones.destroy',$accion->id) }}" method="POST" class="form-horizontal" role="form" onsubmit="return confirmarEliminar()">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
