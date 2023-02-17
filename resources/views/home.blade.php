@@ -70,25 +70,25 @@
                                     @endif
                                     <!-- Fin opcion temporal construccion plan de accion -->
 
-                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistar2022') }}">Consultar plan de accion resumido</a></li>-->
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistar2023') }}">Consultar plan de accion resumido</a></li>
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                     @php ($aux = Auth::user()->oficina_id) @endphp
-                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistarreporte2022?filtroSecretaria=' . $aux) }}">Reportar tareas</a></li>-->
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistarreporte2023?filtroSecretaria=' . $aux) }}">Reportar tareas</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tareaslistargeneral2022') }}">Cronologico tareas reportadas</a></li>-->
-                                    @endif
-
-                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
-                                    @php ($aux = Auth::user()->oficina_id) @endphp
-                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistaravance2022?filtroSecretaria=' . $aux) }}">Avance de ejecucion</a></li>-->
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/tareaslistargeneral2023') }}">Cronologico tareas reportadas</a></li>
                                     @endif
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
                                     @php ($aux = Auth::user()->oficina_id) @endphp
-                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listaravance2022?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>-->
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/planaccionlistaravance2023?filtroSecretaria=' . $aux) }}">Avance de ejecucion</a></li>
+                                    @endif
+
+                                    @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('admin')) || (Auth::user()->hasRole('editor')))
+                                    @php ($aux = Auth::user()->oficina_id) @endphp
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/plandesarrollonivel4listaravance2023?filtroSecretaria=' . $aux) }}">Ponderado ejecucion actividades</a></li>
                                     @endif
                                 </ul>
                             </div>

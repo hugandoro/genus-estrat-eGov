@@ -341,6 +341,34 @@ class TareaController extends Controller
         return view('tarea.listargeneral2022', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
     }  
 
+    /**
+     * Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) - Vigencia 2023
+     * @return \Illuminate\Http\Response
+     */
+    public function listarRegistros2023()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+
+        //Hace una primer busqueda GENERAL
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
+                                            ->where('accion_id','>','5710') //! Vigencia 2022 - Plan Accion ID entre del 5711 al 7007
+                                            ->get();
+        $totalTareas = count($tarea);
+
+        //Hace una segunda busqueda GENERAL con resultado paginados
+        $tarea = Tarea::orderBy('id','desc')->with('accion','accion.planIndicativo','accion.planIndicativo.vigencia','accion.planIndicativo.indicador','accion.planIndicativo.indicador.Nivel4','accion.planIndicativo.indicador.Nivel4.entidadOficina')
+                                            ->where('accion_id','>','5710') //! Vigencia 2022 - Plan Accion ID entre del 5711 al 7007
+                                            ->paginate(10);
+
+        //Paginacion de resultados conservando el indice (Metodo GET y no POST)
+        $pagination = $tarea->appends(request () -> except (['page', '_token'])) -> links ();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')->get();
+
+        return view('tarea.listargeneral2023', compact('planDesarrollo','tarea','entidadOficina','pagination', 'totalTareas'));
+    }  
+
     public function listarRegistrosExcel2020()
     {
         return Excel::download(new Tareas2020Export, 'tareas.xlsx');
@@ -354,6 +382,11 @@ class TareaController extends Controller
     public function listarRegistrosExcel2022()
     {
         return Excel::download(new Tareas2022Export, 'tareas.xlsx');
+    }
+
+    public function listarRegistrosExcel2023()
+    {
+        return Excel::download(new Tareas2023Export, 'tareas.xlsx');
     }
 
     public function informeTipoUnoExcel2020()

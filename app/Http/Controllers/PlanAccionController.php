@@ -425,6 +425,68 @@ class PlanAccionController extends Controller
         return view('planaccion.listarplanaccion2022', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planIndicativoRezago2021','planAccion','entidadOficina','pagination'));
     }
 
+        /**
+     * VIGENCIA 2023 - Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) 
+     * @return \Illuminate\Http\Response
+     */
+    public function listarRegistros2023()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+
+        //Hace una primer busqueda GENERAL
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')->paginate(10);
+
+        //Valida si trae un filtro de busqueda por Secretaria | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
+        if ((isset($_GET['filtroSecretaria'])) && ($_GET['filtroSecretaria'] != '9999')) 
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                        ->where('oficina_id', $_GET['filtroSecretaria'])
+                                        ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                        ->paginate(10);
+                                        
+        if ((isset($_GET['filtroactividad'])) && ($_GET['filtroactividad'] != '')) 
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('numeral', $_GET['filtroactividad'])
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(10);
+
+        if ((isset($_GET['filtropalabras'])) && ($_GET['filtropalabras'] != '')){ 
+            $filtropalabra = $_GET['filtropalabras'];
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('nombre', 'LIKE', "%$filtropalabra%")
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(10);
+        }
+        
+        //Paginacion de resultados conservando el indice (Metodo GET y no POST)
+        $pagination = $planDesarrolloNivel4->appends(request () -> except (['page', '_token'])) -> links ();
+
+        //Carga TODOS los indicadores
+        $medicionIndicador = MedicionIndicador::orderBy('nivel4_id')
+                        ->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')
+                        ->get(); 
+
+        //Carga TODO el plan indicativo - Vigencia 2023 (Codigo ID N° 15)
+        $planIndicativo = PlanIndicativo::orderBy('vigencia_id')
+                            ->where('vigencia_id', '=', "15") //! vigencia_id cambia segun la vigencia
+                            ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                            ->get();
+
+        //Carga TODO el plan indicativo - Vigencia 2022 (Codigo ID N° 14) - PARA MOSTRAR LOS REZAGOS
+        $planIndicativoRezago2022 = PlanIndicativo::orderBy('vigencia_id')
+                                    ->where('vigencia_id', '=', "14") //! vigencia_id cambia segun la vigencia, previa para rezago
+                                    ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                                    ->get();
+
+        //Carga TODO el plan de accion (TODAS las acciones inscritas)
+        $planAccion = PlanAccion::orderBy('plan_indicativo_id')
+                            ->with('planIndicativo')
+                            ->get();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')->get();
+        return view('planaccion.listarplanaccion2023', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planIndicativoRezago2022','planAccion','entidadOficina','pagination'));
+    }
+
     /**
      * VIGENCIA 2020 - Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) - Para REPORTAR
      * @return \Illuminate\Http\Response
@@ -617,6 +679,72 @@ class PlanAccionController extends Controller
         return view('planaccion.listarplanaccionreporte2022', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planIndicativoRezago2021','planAccion', 'tarea','entidadOficina','pagination'));
     }
 
+     /**
+     * VIGENCIA 2023 - Listar GLOBALMENTE todos los registros del nivel 4 ( Actividades o Metas ) - Para REPORTAR 
+     * @return \Illuminate\Http\Response
+     */
+    public function listarRegistrosReporte2023()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+
+        //Hace una primer busqueda GENERAL
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')->paginate(1);
+
+        //Valida si trae un filtro de busqueda por Secretaria | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
+        if ((isset($_GET['filtroSecretaria'])) && ($_GET['filtroSecretaria'] != '9999')) 
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                        ->where('oficina_id', $_GET['filtroSecretaria'])
+                                        ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                        ->paginate(1);
+                                        
+        if ((isset($_GET['filtroactividad'])) && ($_GET['filtroactividad'] != '')) 
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('numeral', $_GET['filtroactividad'])
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(1);
+
+        if ((isset($_GET['filtropalabras'])) && ($_GET['filtropalabras'] != '')){ 
+            $filtropalabra = $_GET['filtropalabras'];
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('nombre', 'LIKE', "%$filtropalabra%")
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(1);
+        }
+        
+        //Paginacion de resultados conservando el indice (Metodo GET y no POST)
+        $pagination = $planDesarrolloNivel4->appends(request () -> except (['page', '_token'])) -> links ();
+
+        //Carga TODOS los indicadores
+        $medicionIndicador = MedicionIndicador::orderBy('nivel4_id')
+                        ->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')
+                        ->get(); 
+
+        //Carga TODO el plan indicativo //! vigencia_id cambia segun la vigencia
+        $planIndicativo = PlanIndicativo::orderBy('indicador_id')
+                            ->where('vigencia_id','=','15')
+                            ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                            ->get();
+
+        //Carga TODO el plan indicativo - Vigencia 2022 (Codigo ID N° 14) - PARA MOSTRAR LOS REZAGOS
+        $planIndicativoRezago2022 = PlanIndicativo::orderBy('vigencia_id')
+                                    ->where('vigencia_id', '=', "14") //! vigencia_id cambia segun la vigencia, previa para rezago
+                                    ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                                    ->get();              
+
+        //Carga TODO el plan de accion (TODAS las acciones inscritas)
+        $planAccion = PlanAccion::orderBy('plan_indicativo_id')
+                            ->with('planIndicativo')
+                            ->get();
+
+        //Carga TODAS las Tareas
+        $tarea = Tarea::orderBy('id')->get();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')->get();
+        
+        return view('planaccion.listarplanaccionreporte2023', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planIndicativoRezago2022','planAccion', 'tarea','entidadOficina','pagination'));
+    }
+
     /**
      * Listar GLOBALMENTE el avance de los PLANES DE ACCION - Vigencia 2020
      * @return \Illuminate\Http\Response
@@ -792,6 +920,65 @@ class PlanAccionController extends Controller
         $entidadOficina = EntidadOficina::orderBy('nombre')->get();
         
         return view('planaccion.listaravanceplanaccion2022', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planAccion', 'tarea','entidadOficina','pagination'));
+    }
+
+    /**
+     * Listar GLOBALMENTE el avance de los PLANES DE ACCION - Vigencia 2023
+     * @return \Illuminate\Http\Response
+     */
+    public function listarAvancePlanAccion2023()
+    {
+        $planDesarrollo = PlanDesarrollo::where('administracion_id', config('app.administracion'))->with('administracion')->get();
+
+        //Hace una primer busqueda GENERAL
+        $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')->paginate(1000);
+
+        //Valida si trae un filtro de busqueda por Secretaria | Codigo 9999 equivale a que el usuario selecciono como filtro TODOS LOS REGISTROS
+        if ((isset($_GET['filtroSecretaria'])) && ($_GET['filtroSecretaria'] != '9999')) 
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                        ->where('oficina_id', $_GET['filtroSecretaria'])
+                                        ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                        ->paginate(1000);
+                                        
+        if ((isset($_GET['filtroactividad'])) && ($_GET['filtroactividad'] != '')) 
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('numeral', $_GET['filtroactividad'])
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(1000);
+
+        if ((isset($_GET['filtropalabras'])) && ($_GET['filtropalabras'] != '')){ 
+            $filtropalabra = $_GET['filtropalabras'];
+            $planDesarrolloNivel4 = PlanDesarrolloNivel4::orderBy('numeral')
+                                    ->where('nombre', 'LIKE', "%$filtropalabra%")
+                                    ->with('entidadOficina','nivel3','nivel3.nivel2','nivel3.nivel2.nivel1','nivel3.nivel2.nivel1.plandesarrollo')
+                                    ->paginate(1000);
+        }
+        
+        //Paginacion de resultados conservando el indice (Metodo GET y no POST)
+        $pagination = $planDesarrolloNivel4->appends(request () -> except (['page', '_token'])) -> links ();
+
+        //Carga TODOS los indicadores
+        $medicionIndicador = MedicionIndicador::orderBy('nivel4_id')
+                        ->with('unidadMedida','vigenciaBase','Medida','Tipo','Nivel4')
+                        ->get(); 
+
+        //Carga TODO el plan indicativo
+        $planIndicativo = PlanIndicativo::orderBy('vigencia_id')
+                            ->with('indicador','vigencia','indicador.unidadMedida','indicador.Medida', 'indicador.Tipo', 'indicador.Nivel4', 'indicador.Nivel4.nivel3', 'indicador.Nivel4.nivel3.nivel2','indicador.Nivel4.nivel3.nivel2.nivel1','indicador.Nivel4.nivel3.nivel2.nivel1.plandesarrollo','indicador.Nivel4.entidadOficina')
+                            ->get();
+
+        //Carga TODO el plan de accion (TODAS las acciones inscritas)
+        $planAccion = PlanAccion::orderBy('plan_indicativo_id')
+                            ->with('planIndicativo')
+                            ->get();
+
+        //Carga TODAS las Tareas
+        $tarea = Tarea::orderBy('id')->get();
+
+        //Carga TODAS las oficinas
+        $entidadOficina = EntidadOficina::orderBy('nombre')->get();
+        
+        return view('planaccion.listaravanceplanaccion2023', compact('planDesarrollo','planDesarrolloNivel4','medicionIndicador','planIndicativo','planAccion', 'tarea','entidadOficina','pagination'));
     }
 
     /**

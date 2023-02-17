@@ -107,6 +107,7 @@ Route::match(array('GET', 'POST'), '/planindicativolistar', 'PlanIndicativoContr
 Route::match(array('GET', 'POST'), '/planaccionlistar2020', 'PlanAccionController@listarRegistros2020')->name('/planaccionlistar2020');
 Route::match(array('GET', 'POST'), '/planaccionlistar2021', 'PlanAccionController@listarRegistros2021')->name('/planaccionlistar2021');
 Route::match(array('GET', 'POST'), '/planaccionlistar2022', 'PlanAccionController@listarRegistros2022')->name('/planaccionlistar2022');
+Route::match(array('GET', 'POST'), '/planaccionlistar2023', 'PlanAccionController@listarRegistros2023')->name('/planaccionlistar2023');
 // Fin Rutas ***
 
 // Rutas para construir planes de accion por vigencias
@@ -121,6 +122,7 @@ Route::resource('/acciones', 'PlanAccionController');
 Route::match(array('GET', 'POST'), '/planaccionlistarreporte2020', 'PlanAccionController@listarRegistrosReporte2020')->name('/planaccionlistarreporte2020');
 Route::match(array('GET', 'POST'), '/planaccionlistarreporte2021', 'PlanAccionController@listarRegistrosReporte2021')->name('/planaccionlistarreporte2021');
 Route::match(array('GET', 'POST'), '/planaccionlistarreporte2022', 'PlanAccionController@listarRegistrosReporte2022')->name('/planaccionlistarreporte2022');
+Route::match(array('GET', 'POST'), '/planaccionlistarreporte2023', 'PlanAccionController@listarRegistrosReporte2023')->name('/planaccionlistarreporte2023');
 // Fin Rutas ***
 
 
@@ -128,6 +130,7 @@ Route::match(array('GET', 'POST'), '/planaccionlistarreporte2022', 'PlanAccionCo
 Route::match(array('GET', 'POST'), '/planaccionlistaravance2020', 'PlanAccionController@listarAvancePlanAccion2020')->name('/planaccionlistaravance2020');
 Route::match(array('GET', 'POST'), '/planaccionlistaravance2021', 'PlanAccionController@listarAvancePlanAccion2021')->name('/planaccionlistaravance2021');
 Route::match(array('GET', 'POST'), '/planaccionlistaravance2022', 'PlanAccionController@listarAvancePlanAccion2022')->name('/planaccionlistaravance2022');
+Route::match(array('GET', 'POST'), '/planaccionlistaravance2023', 'PlanAccionController@listarAvancePlanAccion2023')->name('/planaccionlistaravance2023');
 // Fin Rutas ***
 
 
@@ -135,6 +138,7 @@ Route::match(array('GET', 'POST'), '/planaccionlistaravance2022', 'PlanAccionCon
 Route::match(array('GET', 'POST'), '/plandesarrollonivel4listaravance2020', 'PlanDesarrolloNivel4Controller@listarAvanceNivel42020')->name('/plandesarrollonivel4listaravance2020');
 Route::match(array('GET', 'POST'), '/plandesarrollonivel4listaravance2021', 'PlanDesarrolloNivel4Controller@listarAvanceNivel42021')->name('/plandesarrollonivel4listaravance2021');
 Route::match(array('GET', 'POST'), '/plandesarrollonivel4listaravance2022', 'PlanDesarrolloNivel4Controller@listarAvanceNivel42022')->name('/plandesarrollonivel4listaravance2022');
+Route::match(array('GET', 'POST'), '/plandesarrollonivel4listaravance2023', 'PlanDesarrolloNivel4Controller@listarAvanceNivel42023')->name('/plandesarrollonivel4listaravance2023');
 // Fin Rutas ***
 
 
@@ -144,6 +148,7 @@ Route::match(array('GET', 'POST'), '/tareasdestacar', 'TareaController@tareaDest
 Route::match(array('GET', 'POST'), '/tareaslistargeneral2020', 'TareaController@listarRegistros2020')->name('/tareaslistargeneral2020');
 Route::match(array('GET', 'POST'), '/tareaslistargeneral2021', 'TareaController@listarRegistros2021')->name('/tareaslistargeneral2021');
 Route::match(array('GET', 'POST'), '/tareaslistargeneral2022', 'TareaController@listarRegistros2022')->name('/tareaslistargeneral2022');
+Route::match(array('GET', 'POST'), '/tareaslistargeneral2023', 'TareaController@listarRegistros2023')->name('/tareaslistargeneral2023');
 // Fin Rutas ***
 
 
@@ -151,6 +156,7 @@ Route::match(array('GET', 'POST'), '/tareaslistargeneral2022', 'TareaController@
 Route::match(array('GET', 'POST'), '/tareaslistargeneralexcel2020', 'TareaController@listarRegistrosExcel2020')->name('/tareaslistargeneralexcel2020');
 Route::match(array('GET', 'POST'), '/tareaslistargeneralexcel2021', 'TareaController@listarRegistrosExcel2021')->name('/tareaslistargeneralexcel2021');
 Route::match(array('GET', 'POST'), '/tareaslistargeneralexcel2022', 'TareaController@listarRegistrosExcel2022')->name('/tareaslistargeneralexcel2022');
+Route::match(array('GET', 'POST'), '/tareaslistargeneralexcel2023', 'TareaController@listarRegistrosExcel2023')->name('/tareaslistargeneralexcel2023');
 // Fin Rutas ***
 
 
