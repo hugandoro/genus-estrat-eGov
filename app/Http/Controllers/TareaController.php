@@ -142,7 +142,7 @@ class TareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->accion_id, $planAccion->plan_indicativo_id, $planIndicativo->indicador_id);
 
-        return redirect('/planaccionlistarreporte2022?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2023?filtroactividad='.$nivel4);
     }
 
     /**
@@ -227,7 +227,7 @@ class TareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->accion_id, $planAccion->plan_indicativo_id, $planIndicativo->indicador_id);
      
-        return redirect('/planaccionlistarreporte2022?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2023?filtroactividad='.$nivel4);
     }
 
     /**
@@ -253,7 +253,7 @@ class TareaController extends Controller
         //Ejecuta regeneracion de medicion para los niveles relacionados con la tarea reportada
         $this->regenerarNivelEjecucionMeta($tarea->impacto_kpi, $tarea->accion_id, $planAccion->plan_indicativo_id, $planIndicativo->indicador_id);
 
-        return redirect('/planaccionlistarreporte2022?filtroactividad='.$nivel4);
+        return redirect('/planaccionlistarreporte2023?filtroactividad='.$nivel4);
 
     }
 
