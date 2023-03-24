@@ -150,12 +150,12 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipg') }}">Conocer las politicas</a></li>
                                     <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipglistarconvergencia') }}">Convergencia de politicas MIPG</a></li>
-                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2022') }}">Consultar plan de accion MIPG 2022</a></li>-->
+                                    <li class="list-group-item"><a style="color:#000000;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2023') }}">Consultar plan de accion MIPG 2023</a></li>
 
                                     @php ($aux = Auth::user()->oficina_id) @endphp
 
                                     @if ((Auth::user()->hasRole('super')) || (Auth::user()->hasRole('editorMipg')) || (Auth::user()->hasRole('adminMipg')))
-                                    <!--<li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/mipgplanaccionlistarreporte2022?filtroSecretaria=' . $aux) }}"><b>Reportar tareas MIPG 2022</b></a></li>-->
+                                        <li class="list-group-item"><a style="color:#000000;font-size: 16px;" href="{{ url('/mipgplanaccionlistarreporte2023?filtroSecretaria=' . $aux) }}"><b>Reportar tareas MIPG 2023</b></a></li>
                                     @endif
 
                                     <!--<li class="list-group-item"><a style="color:#d8d8d8;font-size: 12px;" href="{{ url('/mipgplanaccionlistar2021') }}">Nivel avance plan accion MIPG 2021</a></li>-->

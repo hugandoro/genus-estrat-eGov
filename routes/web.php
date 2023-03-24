@@ -95,6 +95,9 @@ Route::match(array('GET', 'POST'), '/mipgplanaccionlistarreporte2021', 'MipgPlan
 
 Route::match(array('GET', 'POST'), '/mipgplanaccionlistar2022', 'MipgPlanAccionController@listarRegistros2022')->name('/mipgplanaccionlistar2022');
 Route::match(array('GET', 'POST'), '/mipgplanaccionlistarreporte2022', 'MipgPlanAccionController@listarRegistrosReporte2022')->name('/mipgpplanaccionlistarreporte2022');
+
+Route::match(array('GET', 'POST'), '/mipgplanaccionlistar2023', 'MipgPlanAccionController@listarRegistros2023')->name('/mipgplanaccionlistar2023');
+Route::match(array('GET', 'POST'), '/mipgplanaccionlistarreporte2023', 'MipgPlanAccionController@listarRegistrosReporte2023')->name('/mipgpplanaccionlistarreporte2023');
 //Fin Rutas ***
 
 
